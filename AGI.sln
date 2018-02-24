@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AGI", "AGI\AGI.csproj", "{5AA7DB41-12F1-4B29-B39D-F6C918F3D86D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AGI.Tests", "AGI.Tests\AGI.Tests.csproj", "{95B6041C-611A-414E-A140-A614407DB53A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5AA7DB41-12F1-4B29-B39D-F6C918F3D86D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5AA7DB41-12F1-4B29-B39D-F6C918F3D86D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5AA7DB41-12F1-4B29-B39D-F6C918F3D86D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5AA7DB41-12F1-4B29-B39D-F6C918F3D86D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95B6041C-611A-414E-A140-A614407DB53A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95B6041C-611A-414E-A140-A614407DB53A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95B6041C-611A-414E-A140-A614407DB53A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95B6041C-611A-414E-A140-A614407DB53A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

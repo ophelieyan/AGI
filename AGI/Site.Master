@@ -1,0 +1,135 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="AGI.SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="fr">
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> - AGI</title>
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
+</head>
+<body>
+    <form runat="server">
+        <div class ="logo">
+        <br />
+              <asp:Image ID="MainCompanylogo" runat="server" Height="100px" Width="266px" ImageUrl="Images/logo.png"/>
+        <br />        
+        </div>
+        <asp:ScriptManager runat="server" ID="ScriptManager1">
+            <Scripts>
+                <%--Pour plus d'informations sur les scripts de regroupement dans ScriptManager, consultez http://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                <%--Scripts Framework--%>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="bootstrap" />
+                <asp:ScriptReference Name="respond" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+                <%--Scripts de site--%>
+            </Scripts>
+        </asp:ScriptManager>
+
+        <br />
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <!--<span class="icon-bar"></span>-->
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                   <!-- <a class="navbar-brand" runat="server" href="~/">Nom de l'application</a>-->
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <!-- <li><a runat="server" href="~/">Accueil</a></li>
+                        <li><a runat="server" href="~/About">À propos de</a></li>
+                        <li><a runat="server" href="~/Contact">Contact</a></li>-->
+                    </ul>
+                    <asp:LoginView runat="server" ViewStateMode="Disabled">
+                        <AnonymousTemplate>
+                            <ul class="nav navbar-nav navbar-right">
+                             <!--   <li><a runat="server" href="~/Account/Register">Inscrire</a></li>-->
+                                <li><a runat="server" href="~/Account/Login">Se connecter</a></li>
+                            </ul>
+                        </AnonymousTemplate>
+                        <LoggedInTemplate>
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a runat="server" href="~/Account/Manage" title="Manage your account">Bonjour, <%: Context.User.Identity.GetUserName()  %> !</a></li>
+                                <li>
+                                    <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Se déconnecter" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
+                                </li>
+                            </ul>
+                        </LoggedInTemplate>
+                    </asp:LoginView>
+                </div>
+            </div>
+        </div>
+        <!--<div class="sidebar sidebar-home navbar-fixed-left">
+            <ul id="navMenu" style="list-style-type:none">
+               <li id="nav-mkt"><a href="#">Service Marketing</a></li>
+               <li id="nav-pro"><a href="#">Service Projet</a></li>
+               <li id="nav-dev"><a href="#">Service Developpement Pack</a></li>
+               <li id="nav-achat"><a href="#">Service Achat</a></li>
+               <li id="nav-meth"><a href="#">Service Méthode</a></li>
+               <li id="nav-com"><a href="#">Service Commercial</a></li>
+               <li id="nav-smq"><a href="#">SMQ</a></li>
+            </ul>             
+        </div> -->
+     
+        <div class="wrapper">
+            <nav id="sidebar">
+                <!-- Sidebar Header -->
+                <div class="sidebar-header">
+                   <!-- <h3>Collapsible Sidebar</h3>-->
+                 </div>             
+
+                <!-- Sidebar Links -->
+                <ul class="list-unstyled components">
+                    <li class="active"><a href="GestionFlux">Service Marketing</a></li>
+                    <li><a href="#">Service Projet</a></li>
+
+                     <!-- Link with dropdown items -->
+                     <!--   <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Pages</a>
+                        <ul class="collapse list-unstyled" id="homeSubmenu">
+                            <li><a href="#">Page</a></li>
+                            <li><a href="#">Page</a></li>
+                            <li><a href="#">Page</a></li>
+                        </ul>-->
+
+                    <li><a href="#">Service Developpement Pack</a></li>
+                    <li><a href="#">Service Achat</a></li>
+                    <li><a href="#">Service Méthode</a></li>
+                    <li><a href="#">Service Commercial</a></li>
+                    <li><a href="#">SMQ</a></li>
+                </ul>
+            </nav>     
+             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+        <div class="container body-content">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+            <hr />
+            <footer>
+                <p>&copy; <%: DateTime.Now.Year %> - Alès Groupe</p>
+            </footer>
+        </div>
+    </form>
+</body>
+</html>
+
