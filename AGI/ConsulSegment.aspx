@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="gestionDonnees.aspx.cs" Inherits="AGI.gsetionDonnees" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ConsulSegment.aspx.cs" Inherits="AGI.ConsulSegment" %>
 
 <!DOCTYPE html>
 
@@ -100,7 +100,7 @@
     height: 15px;
     padding: 5px 5px;
     float: left;    
-    font: 14px 'lucida sans', 'trebuchet MS', 'Tahoma';
+    font: 14px Arial, Helvetica, sans-serif;
     border: 1px solid #ccc;
     box-shadow: 0 1px 1px #ddd inset, 0 1px 0 #fff;
     border-radius: 3px;      
@@ -244,11 +244,29 @@
 .mainContent {
     background-color :lightblue ;
     position:absolute;
-    height:500px;
+    height:800px;
     width:100%;
     top:115px;
     left:310px;
     margin-right:150px;  
+}
+
+.titreTable{
+    margin-left:500px;
+    font: 20px Arial, Helvetica, sans-serif;
+}
+
+#segment {
+    margin-left :100px;
+}
+    #segment .rows:hover {
+        background-color :gold;
+    }
+
+#lbtnAdd {
+    padding-top :50px;
+    margin-left :150px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .footer {
@@ -260,11 +278,13 @@
     color:black;
     text-align-last:center;
 }
+
 </style>
 
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-     <title>Gestion données</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Consultation de Segment</title>
 </head>
 <body>
 <div id ="topMenu">
@@ -346,125 +366,10 @@
       </li>
 </ul>
 </div>
-<!--<div id="leftMenu">
-<ul class="niveau1">
-    <li>
-        <a href="#" class="active">Détail de Gestion des Données Systèmes</a>
-    </li>
-    <li>
-        <a href="#">Flux Activity</a>
-    </li>
-    <li>
-        <a href="#">Flux Amalgamme</a>
-    </li>
-    <li>
-        <a href="#">Flux APV</a>
-    </li>
-    <li>
-        <a href="#">Flux Article Codification</a>
-    </li>
-    <li>
-        <a href="#">Flux Article Record</a>
-    </li>
-    <li>
-        <a href="#">Flux Article Sizing</a>
-    </li>
-    <li>
-        <a href="#">Flux BOM</a>
-    </li>
-    <li>
-        <a href="#">Flux BUYER PURVEYOR</a>
-    </li>
-    <li>
-        <a href="#">Flux Currency</a>
-    </li>
-    <li>
-        <a href="#">Flux Customer Record</a>
-    </li>
-    <li>
-        <a href="#">Flux Customer Hierarchie</a>
-    </li>
-    <li>
-        <button class ="dropdown-btn">Flux DAS
-            <i class="fa fa-caret-down"></i>
-        </button>
-        <ul class="dropdown-container">
-            <li>
-                <a href="#">DAS</a>
-            </li>
-            <li>
-                <a href="#">Segment</a>
-            </li>
-            <li>
-                <a href="#">Sous segment</a>
-            </li>
-            <li>
-                <a href="#">Article</a>
-            </li>
-        </ul>
-    </li>
-   <li>
-        <a href="#">Flux Dynasys</a>
-    </li>
-    <li>
-        <a href="#">Flux Labelling</a>
-    </li>
-    <li>
-        <a href="#">Flux Life Cycle</a>
-    </li>
-    <li>
-        <a href="#">Flux Logistique</a>
-    </li>
-    <li>
-        <a href="#">Flux IMS</a>
-    </li>
-    <li>
-        <a href="#">Flux ISO639 Language ISO3166 Country</a>
-    </li>
-    <li>
-        <a href="#">Flux OF</a>
-    </li>
-    <li>
-        <a href="#">Flux Ortems</a>
-    </li>
-    <li>
-        <a href="#">Flux Partner</a>
-    </li>
-    <li>
-        <a href="#">Flux Purchase Family</a>
-    </li> 
-    <li>
-        <a href="#">Flux Stock</a>
-    </li>
-    <li>
-        <a href="#">Flux Supplier Prices</a>
-    </li>
-    <li>
-        <a href="#">Flux Machine</a> 
-    </li> 
-</ul> 
-</div>
 
-<script>
-    /* Cela permet de mettre cacher ou afficher des sous menus de sidebar */
-    var dropdown = document.getElementsByClassName("dropdown-btn");
-    var i;
-
-    for (i = 0; i < dropdown.length; i++) {
-      dropdown[i].addEventListener("click", function() {
-        this.classList.toggle("active");
-        var dropdownContent = this.nextElementSibling;
-        if (dropdownContent.style.display === "block") {
-          dropdownContent.style.display = "none";
-        } else {
-          dropdownContent.style.display = "block";
-        }
-      });
-    }-->
-<!--</script>-->
 <form runat ="server" >
-<asp:TreeView ID="TreeViewSideMenu" runat="server" BackColor ="#0f4396" Width ="295px" BorderStyle ="Solid" border-radius="10px"
-              BorderColor ="#dedede" BorderWidth ="1px" ForeColor ="#555" style="margin-top:0px;font-family:Arial, Helvetica, sans-serif" >
+<asp:TreeView ID="TreeViewSideMenu" runat="server" BackColor ="#0f4396" Width ="295px" BorderStyle ="Solid" border-radius="10px" 
+              BorderColor ="#dedede" BorderWidth ="1px" ForeColor ="#555" style="margin-left:0px;font-family:Arial, Helvetica, sans-serif" >
     <HoverNodeStyle ForeColor="#555"  BackColor ="#edb93b"/>
     <Nodes>
         <asp:TreeNode Text="Flux Activity" Value="Flux Activity">
@@ -485,7 +390,7 @@
         <asp:TreeNode Text="Flux Customer Hierarchie" Value="Flux Customer Hierarchie"></asp:TreeNode>
         <asp:TreeNode Target="new" Text="Flux DAS" Value="Flux DAS">
             <asp:TreeNode Text="DAS" Value="DAS" NavigateUrl ="~/ConsulDAS.aspx"></asp:TreeNode>
-            <asp:TreeNode Text="Segment" Value="Segment" NavigateUrl ="~/ConsulSegment.aspx" ></asp:TreeNode>
+            <asp:TreeNode Text="Segment" Value="Segment" NavigateUrl ="~/ConsulSegment.aspx"></asp:TreeNode>
             <asp:TreeNode Text="Sous Segment" Value="Sous Segment"></asp:TreeNode>
             <asp:TreeNode Text="Article" Value="Article"></asp:TreeNode>
         </asp:TreeNode>
@@ -508,6 +413,79 @@
      <SelectedNodeStyle Font-Underline="True" ForeColor="#555" HorizontalPadding="0px" VerticalPadding="0px" />
 </asp:TreeView>
 <div class ="mainContent"> 
+        <br />
+        <br />
+        <br />
+        <a class="titreTable">La table de Segment</a>
+        <br />
+        <br />
+        <br />
+        <asp:GridView ID="segment" runat="server" AutoGenerateColumns="False" CellPadding="4"  
+                        onpageindexchanging="segment_PageIndexChanging"   HeaderStyle-Font-Underline="false" 
+                        onrowcancelingedit="segment_RowCancelingEdit"   Font-Names="Arial, Helvetica, sans-serif"
+                        onrowdatabound="segment_RowDataBound" onrowdeleting="segment_RowDeleting"  
+                        onrowediting="segment_RowEditing" onrowupdating="segment_RowUpdating"  
+                        onsorting="segment_Sorting" ForeColor="#333333" GridLines="None"> 
+                        <RowStyle BackColor="#F7F6F3" ForeColor="#333333" /> 
+                            <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+                            <Columns> 
+                                <asp:CommandField ShowEditButton="True" /> 
+                                <asp:CommandField ShowDeleteButton="True" /> 
+                                <asp:BoundField DataField="ID_Segment" HeaderText="ID Segment" ReadOnly="True"  
+                                    SortExpression="ID_Segment" /> 
+                                <asp:TemplateField HeaderText="ID DAS" SortExpression="IdDAS"> 
+                                    <EditItemTemplate> 
+                                        <asp:TextBox ID="tbxIdDAS" runat="server" Text='<%# Bind("ID_DAS") %>'></asp:TextBox> 
+                                    </EditItemTemplate> 
+                                    <ItemTemplate> 
+                                        <asp:Label ID="lblIdDAS" runat="server" Text='<%# Bind("ID_DAS") %>'></asp:Label> 
+                                    </ItemTemplate> 
+                                </asp:TemplateField> 
+                                <asp:TemplateField HeaderText="Code Segment" SortExpression="CodSegment"> 
+                                    <EditItemTemplate> 
+                                        <asp:TextBox ID="tbxCodSeg" runat="server" Text='<%# Bind("Cod_Segment") %>'></asp:TextBox> 
+                                    </EditItemTemplate> 
+                                    <ItemTemplate> 
+                                        <asp:Label ID="lblCodSeg" runat="server" Text='<%# Bind("Cod_Segment") %>'></asp:Label> 
+                                    </ItemTemplate> 
+                                </asp:TemplateField> 
+                                <asp:TemplateField HeaderText="Libellé Segment en Français" SortExpression="libSegFr"> 
+                                    <EditItemTemplate> 
+                                        <asp:TextBox ID="tbxLibSegFr" runat="server" Text='<%# Bind("Lib_Segment_Fr") %>'></asp:TextBox> 
+                                    </EditItemTemplate> 
+                                    <ItemTemplate> 
+                                        <asp:Label ID="lblLibSegFr" runat="server" Text='<%# Bind("Lib_Segment_Fr") %>'></asp:Label> 
+                                    </ItemTemplate> 
+                                </asp:TemplateField> 
+                                <asp:TemplateField HeaderText="Libellé Segment en Anglais" SortExpression="libSegEn"> 
+                                    <EditItemTemplate> 
+                                        <asp:TextBox ID="tbxLibSegEn" runat="server" Text='<%# Bind("Lib_Segment_En") %>'></asp:TextBox> 
+                                    </EditItemTemplate> 
+                                    <ItemTemplate> 
+                                        <asp:Label ID="lblLibSegEn" runat="server" Text='<%# Bind("Lib_Segment_En") %>'></asp:Label> 
+                                    </ItemTemplate> 
+                                </asp:TemplateField> 
+                                <asp:TemplateField HeaderText="Flag Activity Segment" SortExpression="flgActiDas"> 
+                                    <EditItemTemplate> 
+                                        <asp:TextBox ID="tbxFlgActiSeg" runat="server" Text='<%# Bind("Flg_Activity_Segment") %>'></asp:TextBox> 
+                                    </EditItemTemplate> 
+                                    <ItemTemplate> 
+                                        <asp:Label ID="lblFlgActiSeg" runat="server" Text='<%# Bind("Flg_Activity_Segment") %>'></asp:Label> 
+                                    </ItemTemplate> 
+                                </asp:TemplateField> 
+                            </Columns> 
+                            <EditRowStyle BackColor="#999999" />
+                            <FooterStyle BackColor="#5D7B9D" ForeColor="White" Font-Bold="True" /> 
+                            <PagerStyle BackColor="#5D7B9D" ForeColor="White" HorizontalAlign="Center" /> 
+                            <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" /> 
+                            <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="white"/> 
+                        <SortedAscendingCellStyle BackColor="#E9E7E2" />
+                        <SortedAscendingHeaderStyle BackColor="#506C8C" />
+                        <SortedDescendingCellStyle BackColor="#FFFDF8" />
+                        <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+          </asp:GridView> 
+          <br />
+          <asp:LinkButton ID="lbtnAdd" runat="server" onclick="lbtnAdd_Click">Créer un nouveau Segment</asp:LinkButton> 
 </div>
 </form>
 <br/>
@@ -515,7 +493,8 @@
 <br/>
 <br/>
 <div class="footer">
-     <p>&copy; <%: DateTime.Now.Year %> - Alès Groupe</p>
+    <p>&copy; <%: DateTime.Now.Year %> - Alès Groupe</p>
 </div>
-</body> 
+
+</body>
 </html>

@@ -387,7 +387,7 @@
         <asp:TreeNode Text="Flux Customer Hierarchie" Value="Flux Customer Hierarchie"></asp:TreeNode>
         <asp:TreeNode Target="new" Text="Flux DAS" Value="Flux DAS">
             <asp:TreeNode Text="DAS" Value="DAS" NavigateUrl ="~/ConsulDAS.aspx"></asp:TreeNode>
-            <asp:TreeNode Text="Segment" Value="Segment"></asp:TreeNode>
+            <asp:TreeNode Text="Segment" Value="Segment" NavigateUrl ="~/ConsulSegment.aspx"></asp:TreeNode>
             <asp:TreeNode Text="Sous Segment" Value="Sous Segment"></asp:TreeNode>
             <asp:TreeNode Text="Article" Value="Article"></asp:TreeNode>
         </asp:TreeNode>
@@ -473,7 +473,7 @@
                             </Columns> 
                             <EditRowStyle BackColor="#999999" />
                             <FooterStyle BackColor="#5D7B9D" ForeColor="White" Font-Bold="True" /> 
-                            <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" /> 
+                            <PagerStyle BackColor="#5D7B9D" ForeColor="White" HorizontalAlign="Center" /> 
                             <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" /> 
                             <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="white"/> 
                         <SortedAscendingCellStyle BackColor="#E9E7E2" />
