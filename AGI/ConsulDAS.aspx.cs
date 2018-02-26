@@ -162,7 +162,7 @@ namespace AGI
 
                 // Set the command text 
                 // SQL statement or the name of the stored procedure  
-                cmd.CommandText = "UPDATE Person SET LastName = @LastName, FirstName = @FirstName WHERE PersonID = @PersonID";
+                cmd.CommandText = "UPDATE ST_DAS SET Cod_DAS = @Cod_DAS, Cod_Activity = @Cod_Activity, Lib_DAS_Fr=@Lib_DAS_Fr, Lib_DAS_En= @Lib_DAS_En, Flg_Activity_DAS= @Flg_Activity_DAS WHERE ID_DAS = @ID_DAS";
 
 
                 // Set the command type 
@@ -171,17 +171,21 @@ namespace AGI
                 cmd.CommandType = CommandType.Text;
 
 
-                // Get the PersonID of the selected row. 
-                string strPersonID = das.Rows[e.RowIndex].Cells[2].Text;
-                string strLastName = ((TextBox)das.Rows[e.RowIndex].FindControl("TextBox1")).Text;
-                string strFirstName = ((TextBox)das.Rows[e.RowIndex].FindControl("TextBox2")).Text;
-
+                // Get the ID_DAS of the selected row. 
+                string strIdDAS = das.Rows[e.RowIndex].Cells[2].Text;
+                string strCodDAS = ((TextBox)das.Rows[e.RowIndex].FindControl("tbxCodDAS")).Text;
+                string strCodActi = ((TextBox)das.Rows[e.RowIndex].FindControl("tbxCodActi")).Text;
+                string strLibDasFr = ((TextBox)das.Rows[e.RowIndex].FindControl("tbxLibDasFr")).Text;
+                string strLibDasEn = ((TextBox)das.Rows[e.RowIndex].FindControl("tbxLibDasEn")).Text;
+                string strFlgActiDas = ((TextBox)das.Rows[e.RowIndex].FindControl("tbxFlgActiDas")).Text;
 
                 // Append the parameters. 
-                cmd.Parameters.Add("@PersonID", SqlDbType.Int).Value = strPersonID;
-                cmd.Parameters.Add("@LastName", SqlDbType.NVarChar, 50).Value = strLastName;
-                cmd.Parameters.Add("@FirstName", SqlDbType.NVarChar, 50).Value = strFirstName;
-
+                cmd.Parameters.Add("@ID_DAS", SqlDbType.Int).Value = strIdDAS;
+                cmd.Parameters.Add("@Cod_DAS", SqlDbType.NVarChar, 10).Value = strCodDAS;
+                cmd.Parameters.Add("@Cod_Activity", SqlDbType.NVarChar, 10).Value = strCodActi;
+                cmd.Parameters.Add("@Lib_DAS_Fr", SqlDbType.NVarChar, 50).Value = strLibDasFr;
+                cmd.Parameters.Add("@Lib_DAS_En", SqlDbType.NVarChar, 50).Value = strLibDasEn;
+                cmd.Parameters.Add("@Flg_Activity_DAS", SqlDbType.Bit).Value = strFlgActiDas;
 
                 // Open the connection. 
                 conn.Open();
@@ -220,7 +224,7 @@ namespace AGI
 
                 // Set the command text 
                 // SQL statement or the name of the stored procedure  
-                cmd.CommandText = "DELETE FROM Person WHERE PersonID = @PersonID";
+                cmd.CommandText = "DELETE FROM ST_DAS WHERE ID_DAS = @ID_DAS";
 
 
                 // Set the command type 
@@ -230,11 +234,11 @@ namespace AGI
 
 
                 // Get the PersonID of the selected row. 
-                string strPersonID = das.Rows[e.RowIndex].Cells[2].Text;
+                string strIdDAS = das.Rows[e.RowIndex].Cells[2].Text;
 
 
                 // Append the parameter. 
-                cmd.Parameters.Add("@PersonID", SqlDbType.Int).Value = strPersonID;
+                cmd.Parameters.Add("@ID_DAS", SqlDbType.Int).Value = strIdDAS;
 
 
                 // Open the connection. 

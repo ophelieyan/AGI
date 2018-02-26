@@ -432,42 +432,42 @@
                                     SortExpression="ID_DAS" /> 
                                 <asp:TemplateField HeaderText="Cod_DAS" SortExpression="CodDAS"> 
                                     <EditItemTemplate> 
-                                        <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("Cod_DAS") %>'></asp:TextBox> 
+                                        <asp:TextBox ID="tbxCodDAS" runat="server" Text='<%# Bind("Cod_DAS") %>'></asp:TextBox> 
                                     </EditItemTemplate> 
                                     <ItemTemplate> 
-                                        <asp:Label ID="Label1" runat="server" Text='<%# Bind("Cod_DAS") %>'></asp:Label> 
+                                        <asp:Label ID="lblCodDAS" runat="server" Text='<%# Bind("Cod_DAS") %>'></asp:Label> 
                                     </ItemTemplate> 
                                 </asp:TemplateField> 
                                 <asp:TemplateField HeaderText="Cod_Activity" SortExpression="CodActivity"> 
                                     <EditItemTemplate> 
-                                        <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("Cod_Activity") %>'></asp:TextBox> 
+                                        <asp:TextBox ID="tbxCodActi" runat="server" Text='<%# Bind("Cod_Activity") %>'></asp:TextBox> 
                                     </EditItemTemplate> 
                                     <ItemTemplate> 
-                                        <asp:Label ID="Label2" runat="server" Text='<%# Bind("Cod_Activity") %>'></asp:Label> 
+                                        <asp:Label ID="lblCodActi" runat="server" Text='<%# Bind("Cod_Activity") %>'></asp:Label> 
                                     </ItemTemplate> 
                                 </asp:TemplateField> 
                                 <asp:TemplateField HeaderText="Libellé DAS en Français" SortExpression="libDasFr"> 
                                     <EditItemTemplate> 
-                                        <asp:TextBox ID="TextBox3" runat="server" Text='<%# Bind("Lib_DAS_Fr") %>'></asp:TextBox> 
+                                        <asp:TextBox ID="tbxLibDasFr" runat="server" Text='<%# Bind("Lib_DAS_Fr") %>'></asp:TextBox> 
                                     </EditItemTemplate> 
                                     <ItemTemplate> 
-                                        <asp:Label ID="Label3" runat="server" Text='<%# Bind("Lib_DAS_Fr") %>'></asp:Label> 
+                                        <asp:Label ID="lblLibDasFr" runat="server" Text='<%# Bind("Lib_DAS_Fr") %>'></asp:Label> 
                                     </ItemTemplate> 
                                 </asp:TemplateField> 
                                 <asp:TemplateField HeaderText="Libellé DAS en Anglais" SortExpression="libDasEn"> 
                                     <EditItemTemplate> 
-                                        <asp:TextBox ID="TextBox4" runat="server" Text='<%# Bind("Lib_DAS_En") %>'></asp:TextBox> 
+                                        <asp:TextBox ID="tbxLibDasEn" runat="server" Text='<%# Bind("Lib_DAS_En") %>'></asp:TextBox> 
                                     </EditItemTemplate> 
                                     <ItemTemplate> 
-                                        <asp:Label ID="Label4" runat="server" Text='<%# Bind("Lib_DAS_En") %>'></asp:Label> 
+                                        <asp:Label ID="lblLibDasEn" runat="server" Text='<%# Bind("Lib_DAS_En") %>'></asp:Label> 
                                     </ItemTemplate> 
                                 </asp:TemplateField> 
                                 <asp:TemplateField HeaderText="Flag Activity DAS" SortExpression="flgActiDas"> 
                                     <EditItemTemplate> 
-                                        <asp:TextBox ID="TextBox5" runat="server" Text='<%# Bind("Flg_Activity_DAS") %>'></asp:TextBox> 
+                                        <asp:TextBox ID="tbxFlgActiDas" runat="server" Text='<%# Bind("Flg_Activity_DAS") %>'></asp:TextBox> 
                                     </EditItemTemplate> 
                                     <ItemTemplate> 
-                                        <asp:Label ID="Label5" runat="server" Text='<%# Bind("Flg_Activity_DAS") %>'></asp:Label> 
+                                        <asp:Label ID="lblFlgActiDas" runat="server" Text='<%# Bind("Flg_Activity_DAS") %>'></asp:Label> 
                                     </ItemTemplate> 
                                 </asp:TemplateField> 
                             </Columns> 
