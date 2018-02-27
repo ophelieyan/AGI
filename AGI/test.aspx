@@ -133,7 +133,7 @@
     height: 15px;
     padding: 5px 5px;
     float: left;    
-    font: 14px 'lucida sans', 'trebuchet MS', 'Tahoma';
+    font: 14px Arial, Helvetica, sans-serif;
     border: 1px solid #ccc;
     box-shadow: 0 1px 1px #ddd inset, 0 1px 0 #fff;
     border-radius: 3px;      

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ConsulDAS.aspx.cs" Inherits="AGI.ConsulDAS" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ConsulSousSeg.aspx.cs" Inherits="AGI.ConsulSousSeg" %>
 
 <!DOCTYPE html>
 
@@ -244,7 +244,7 @@
 .mainContent {
     background-color :lightblue ;
     position:absolute;
-    height:500px;
+    height:800px;
     width:100%;
     top:115px;
     left:310px;
@@ -256,8 +256,8 @@
     font: 20px Arial, Helvetica, sans-serif;
 }
 
-#das {
-    margin-left :150px;
+#subSegment {
+    margin-left :10px;
 }
 
 #lbtnAdd {
@@ -412,62 +412,60 @@
 <div class ="mainContent"> 
         <br />
         <br />
-        <br />
-        <a class="titreTable">La table de DAS</a>
-        <br />
+        <a class="titreTable">La table de Sous Segment</a>
         <br />
         <br />
-        <asp:GridView ID="das" runat="server" AutoGenerateColumns="False" CellPadding="4"  
-                        onpageindexchanging="das_PageIndexChanging"   HeaderStyle-Font-Underline="false" 
-                        onrowcancelingedit="das_RowCancelingEdit"   Font-Names="Arial, Helvetica, sans-serif"
-                        onrowdatabound="das_RowDataBound" onrowdeleting="das_RowDeleting"  
-                        onrowediting="das_RowEditing" onrowupdating="das_RowUpdating"  
-                        onsorting="das_Sorting" ForeColor="#333333" GridLines="None"> 
+        <asp:GridView ID="subSegment" runat="server" AutoGenerateColumns="False" CellPadding="4"  
+                        onpageindexchanging="subSegment_PageIndexChanging"   HeaderStyle-Font-Underline="false" 
+                        onrowcancelingedit="subSegment_RowCancelingEdit"   Font-Names="Arial, Helvetica, sans-serif"
+                        onrowdatabound="subSegment_RowDataBound" onrowdeleting="subSegment_RowDeleting"  
+                        onrowediting="subSegment_RowEditing" onrowupdating="subSegment_RowUpdating"  
+                        onsorting="subSegment_Sorting" ForeColor="#333333" GridLines="None"> 
                         <RowStyle BackColor="#F7F6F3" ForeColor="#333333" /> 
                             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                             <Columns> 
                                 <asp:CommandField ShowEditButton="True" /> 
                                 <asp:CommandField ShowDeleteButton="false" /> 
-                                <asp:BoundField DataField="ID_DAS" HeaderText="ID_DAS" ReadOnly="True"  
-                                    SortExpression="ID_DAS" /> 
-                                <asp:TemplateField HeaderText="Cod_DAS" SortExpression="CodDAS"> 
+                                <asp:BoundField DataField="ID_Sub_Segment" HeaderText="ID Sous Segment" ReadOnly="True"  
+                                    SortExpression="ID_Sub_Segment" /> 
+                                <asp:TemplateField HeaderText="ID_Segment" SortExpression="IdSegment"> 
                                     <EditItemTemplate> 
-                                        <asp:TextBox ID="tbxCodDAS" runat="server" Text='<%# Bind("Cod_DAS") %>'></asp:TextBox> 
+                                        <asp:TextBox ID="tbxIdSeg" runat="server" Text='<%# Bind("ID_Segment") %>'></asp:TextBox> 
                                     </EditItemTemplate> 
                                     <ItemTemplate> 
-                                        <asp:Label ID="lblCodDAS" runat="server" Text='<%# Bind("Cod_DAS") %>'></asp:Label> 
+                                        <asp:Label ID="lblIdSeg" runat="server" Text='<%# Bind("ID_Segment") %>'></asp:Label> 
                                     </ItemTemplate> 
                                 </asp:TemplateField> 
-                                <asp:TemplateField HeaderText="Cod_Activity" SortExpression="CodActivity"> 
+                                <asp:TemplateField HeaderText="Code Sous Segment" SortExpression="CodSubSegment"> 
                                     <EditItemTemplate> 
-                                        <asp:TextBox ID="tbxCodActi" runat="server" Text='<%# Bind("Cod_Activity") %>'></asp:TextBox> 
+                                        <asp:TextBox ID="tbxCodSubSeg" runat="server" Text='<%# Bind("Cod_Sub_Segment") %>'></asp:TextBox> 
                                     </EditItemTemplate> 
                                     <ItemTemplate> 
-                                        <asp:Label ID="lblCodActi" runat="server" Text='<%# Bind("Cod_Activity") %>'></asp:Label> 
+                                        <asp:Label ID="lblCodSubSeg" runat="server" Text='<%# Bind("Cod_Sub_Segment") %>'></asp:Label> 
                                     </ItemTemplate> 
                                 </asp:TemplateField> 
-                                <asp:TemplateField HeaderText="Libellé DAS en Français" SortExpression="libDasFr"> 
+                                <asp:TemplateField HeaderText="Libellé Sous Segment en Français" SortExpression="libDasFr"> 
                                     <EditItemTemplate> 
-                                        <asp:TextBox ID="tbxLibDasFr" runat="server" Text='<%# Bind("Lib_DAS_Fr") %>'></asp:TextBox> 
+                                        <asp:TextBox ID="tbxLibSouSegFr" runat="server" Text='<%# Bind("Lib_Sub_Segment_Fr") %>'></asp:TextBox> 
                                     </EditItemTemplate> 
                                     <ItemTemplate> 
-                                        <asp:Label ID="lblLibDasFr" runat="server" Text='<%# Bind("Lib_DAS_Fr") %>'></asp:Label> 
+                                        <asp:Label ID="lblLibSouSegFr" runat="server" Text='<%# Bind("Lib_Sub_Segment_Fr") %>'></asp:Label> 
                                     </ItemTemplate> 
                                 </asp:TemplateField> 
-                                <asp:TemplateField HeaderText="Libellé DAS en Anglais" SortExpression="libDasEn"> 
+                                <asp:TemplateField HeaderText="Libellé Sous Segment en Anglais" SortExpression="libDasEn"> 
                                     <EditItemTemplate> 
-                                        <asp:TextBox ID="tbxLibDasEn" runat="server" Text='<%# Bind("Lib_DAS_En") %>'></asp:TextBox> 
+                                        <asp:TextBox ID="tbxLibLibSouSegEn" runat="server" Text='<%# Bind("Lib_Sub_Segment_En") %>'></asp:TextBox> 
                                     </EditItemTemplate> 
                                     <ItemTemplate> 
-                                        <asp:Label ID="lblLibDasEn" runat="server" Text='<%# Bind("Lib_DAS_En") %>'></asp:Label> 
+                                        <asp:Label ID="lblLibLibSouSegEn" runat="server" Text='<%# Bind("Lib_Sub_Segment_En") %>'></asp:Label> 
                                     </ItemTemplate> 
                                 </asp:TemplateField> 
-                                <asp:TemplateField HeaderText="Flag Activity DAS" SortExpression="flgActiDas"> 
+                                <asp:TemplateField HeaderText="Flag Activity Sous Segment" SortExpression="flgActiDas"> 
                                     <EditItemTemplate> 
-                                        <asp:TextBox ID="tbxFlgActiDas" runat="server" Text='<%# Bind("Flg_Activity_DAS") %>'></asp:TextBox> 
+                                        <asp:TextBox ID="tbxFlgActiSouSeg" runat="server" Text='<%# Bind("Flg_Activity_Sub_Segment") %>'></asp:TextBox> 
                                     </EditItemTemplate> 
                                     <ItemTemplate> 
-                                        <asp:Label ID="lblFlgActiDas" runat="server" Text='<%# Bind("Flg_Activity_DAS") %>'></asp:Label> 
+                                        <asp:Label ID="lblFlgActiSouSeg" runat="server" Text='<%# Bind("Flg_Activity_Sub_Segment") %>'></asp:Label> 
                                     </ItemTemplate> 
                                 </asp:TemplateField> 
                             </Columns> 
@@ -482,7 +480,7 @@
                         <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
           </asp:GridView> 
           <br />
-          <asp:LinkButton ID="lbtnAdd" runat="server" onclick="lbtnAdd_Click">Créer un nouveau DAS</asp:LinkButton> 
+          <asp:LinkButton ID="lbtnAdd" runat="server" onclick="lbtnAdd_Click">Créer un nouveau Sous Segment</asp:LinkButton> 
 </div>
 </form>
 <br/>

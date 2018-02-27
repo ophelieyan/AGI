@@ -95,7 +95,7 @@ namespace AGI
                 if (e.Row.RowState == DataControlRowState.Normal || e.Row.RowState == DataControlRowState.Alternate)
                 {
                     // Add client-side confirmation when deleting. 
-                    ((LinkButton)e.Row.Cells[1].Controls[0]).Attributes["onclick"] = "if(!confirm('Vous êtes sûre de supprimer ce DAS ?')) return false;";
+              //      ((LinkButton)e.Row.Cells[1].Controls[0]).Attributes["onclick"] = "if(!confirm('Vous êtes sûre de supprimer ce DAS ?')) return false;";
                 }
             }
         }
@@ -253,7 +253,7 @@ namespace AGI
             // Rebind the GridView control to show data after deleting. 
             BindGridView();
         }
-
+   
 
         // GridView.Sorting Event 
         protected void das_Sorting(object sender, GridViewSortEventArgs e)

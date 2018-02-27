@@ -203,6 +203,7 @@
     <Content Include="Action.aspx" />
     <Content Include="ConsulDAS.aspx" />
     <Content Include="ConsulSegment.aspx" />
+    <Content Include="ConsulSousSeg.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
@@ -435,6 +436,13 @@
     </Compile>
     <Compile Include="ConsulSegment.aspx.designer.cs">
       <DependentUpon>ConsulSegment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConsulSousSeg.aspx.cs">
+      <DependentUpon>ConsulSousSeg.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConsulSousSeg.aspx.designer.cs">
+      <DependentUpon>ConsulSousSeg.aspx</DependentUpon>
     </Compile>
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>

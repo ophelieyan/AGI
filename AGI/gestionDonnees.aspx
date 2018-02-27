@@ -100,7 +100,7 @@
     height: 15px;
     padding: 5px 5px;
     float: left;    
-    font: 14px 'lucida sans', 'trebuchet MS', 'Tahoma';
+    font: 14px Arial, Helvetica, sans-serif;
     border: 1px solid #ccc;
     box-shadow: 0 1px 1px #ddd inset, 0 1px 0 #fff;
     border-radius: 3px;      
@@ -486,7 +486,7 @@
         <asp:TreeNode Target="new" Text="Flux DAS" Value="Flux DAS">
             <asp:TreeNode Text="DAS" Value="DAS" NavigateUrl ="~/ConsulDAS.aspx"></asp:TreeNode>
             <asp:TreeNode Text="Segment" Value="Segment" NavigateUrl ="~/ConsulSegment.aspx" ></asp:TreeNode>
-            <asp:TreeNode Text="Sous Segment" Value="Sous Segment"></asp:TreeNode>
+            <asp:TreeNode Text="Sous Segment" Value="Sous Segment" NavigateUrl ="~/ConsulSousSeg.aspx"></asp:TreeNode>
             <asp:TreeNode Text="Article" Value="Article"></asp:TreeNode>
         </asp:TreeNode>
         <asp:TreeNode Text="Flux Dynasys" Value="Flux Dynasys"></asp:TreeNode>

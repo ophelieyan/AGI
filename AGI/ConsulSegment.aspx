@@ -391,7 +391,7 @@
         <asp:TreeNode Target="new" Text="Flux DAS" Value="Flux DAS">
             <asp:TreeNode Text="DAS" Value="DAS" NavigateUrl ="~/ConsulDAS.aspx"></asp:TreeNode>
             <asp:TreeNode Text="Segment" Value="Segment" NavigateUrl ="~/ConsulSegment.aspx"></asp:TreeNode>
-            <asp:TreeNode Text="Sous Segment" Value="Sous Segment"></asp:TreeNode>
+            <asp:TreeNode Text="Sous Segment" Value="Sous Segment" NavigateUrl ="~/ConsulSousSeg.aspx"></asp:TreeNode>
             <asp:TreeNode Text="Article" Value="Article"></asp:TreeNode>
         </asp:TreeNode>
         <asp:TreeNode Text="Flux Dynasys" Value="Flux Dynasys"></asp:TreeNode>
@@ -415,9 +415,7 @@
 <div class ="mainContent"> 
         <br />
         <br />
-        <br />
         <a class="titreTable">La table de Segment</a>
-        <br />
         <br />
         <br />
         <asp:GridView ID="segment" runat="server" AutoGenerateColumns="False" CellPadding="4"  
@@ -430,7 +428,7 @@
                             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                             <Columns> 
                                 <asp:CommandField ShowEditButton="True" /> 
-                                <asp:CommandField ShowDeleteButton="True" /> 
+                                <asp:CommandField ShowDeleteButton="false" /> 
                                 <asp:BoundField DataField="ID_Segment" HeaderText="ID Segment" ReadOnly="True"  
                                     SortExpression="ID_Segment" /> 
                                 <asp:TemplateField HeaderText="ID DAS" SortExpression="IdDAS"> 

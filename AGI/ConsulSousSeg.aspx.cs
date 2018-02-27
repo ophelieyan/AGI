@@ -10,7 +10,7 @@ using System.Web.UI.WebControls;
 
 namespace AGI
 {
-    public partial class ConsulSegment : System.Web.UI.Page
+    public partial class ConsulSousSeg : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -19,16 +19,16 @@ namespace AGI
             {
                 // Enable the GridView paging option and  
                 // specify the page size. 
-                segment.AllowPaging = true;
-                segment.PageSize = 15;
+                subSegment.AllowPaging = true;
+                subSegment.PageSize = 15;
 
 
                 // Enable the GridView sorting option. 
-                segment.AllowSorting = true;
+                subSegment.AllowSorting = true;
 
 
                 // Initialize the sorting expression. 
-                ViewState["SortExpression"] = "ID_Segment ASC";
+                ViewState["SortExpression"] = "ID_Sub_Segment ASC";
 
 
                 // Populate the GridView. 
@@ -46,11 +46,11 @@ namespace AGI
             using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString()))
             {
                 // Create a DataSet object. 
-                DataSet dsSegment = new DataSet();
+                DataSet dsSubSegment = new DataSet();
 
 
                 // Create a SELECT query. 
-                string strSelectCmd = "SELECT ID_Segment, ID_DAS, Cod_Segment, Lib_Segment_Fr, Lib_Segment_En, Flg_Activity_Segment FROM ST_Segment";
+                string strSelectCmd = "SELECT ID_Sub_Segment, ID_Segment, Cod_Sub_Segment, Lib_Sub_Segment_Fr, Lib_Sub_Segment_En, Flg_Activity_Sub_Segment FROM ST_Sub_Segment";
 
 
                 // Create a SqlDataAdapter object 
@@ -64,28 +64,28 @@ namespace AGI
                 conn.Open();
 
 
-                // Fill the DataTable named "Segment" in DataSet with the rows 
+                // Fill the DataTable named "SubSegment" in DataSet with the rows 
                 // returned by the query.new n 
-                da.Fill(dsSegment, "Segment");
+                da.Fill(dsSubSegment, "Sub_Segment");
 
 
-                // Get the DataView from DAS DataTable. 
-                DataView dvSegment = dsSegment.Tables["Segment"].DefaultView;
+                // Get the DataView from subSegment DataTable. 
+                DataView dvSubSegment = dsSubSegment.Tables["Sub_Segment"].DefaultView;
 
 
                 // Set the sort column and sort order. 
-                dvSegment.Sort = ViewState["SortExpression"].ToString();
+                dvSubSegment.Sort = ViewState["SortExpression"].ToString();
 
 
                 // Bind the GridView control. 
-                segment.DataSource = dvSegment;
-                segment.DataBind();
+                subSegment.DataSource = dvSubSegment;
+                subSegment.DataBind();
             }
         }
 
 
         // GridView.RowDataBound Event 
-        protected void segment_RowDataBound(object sender, GridViewRowEventArgs e)
+        protected void subSegment_RowDataBound(object sender, GridViewRowEventArgs e)
         {
             // Make sure the current GridViewRow is a data row. 
             if (e.Row.RowType == DataControlRowType.DataRow)
@@ -95,17 +95,17 @@ namespace AGI
                 if (e.Row.RowState == DataControlRowState.Normal || e.Row.RowState == DataControlRowState.Alternate)
                 {
                     // Add client-side confirmation when deleting. 
-                   // ((LinkButton)e.Row.Cells[1].Controls[0]).Attributes["onclick"] = "if(!confirm('Vous êtes sûre de supprimer ce DAS ?')) return false;";
+                    //((LinkButton)e.Row.Cells[1].Controls[0]).Attributes["onclick"] = "if(!confirm('Vous êtes sûre de supprimer ce Sous Segment ?')) return false;";
                 }
             }
         }
 
 
         // GridView.PageIndexChanging Event 
-        protected void segment_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        protected void subSegment_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             // Set the index of the new display page.  
-            segment.PageIndex = e.NewPageIndex;
+            subSegment.PageIndex = e.NewPageIndex;
 
 
             // Rebind the GridView control to  
@@ -115,11 +115,11 @@ namespace AGI
 
 
         // GridView.RowEditing Event 
-        protected void segment_RowEditing(object sender, GridViewEditEventArgs e)
+        protected void subSegment_RowEditing(object sender, GridViewEditEventArgs e)
         {
             // Make the GridView control into edit mode  
             // for the selected row.  
-            segment.EditIndex = e.NewEditIndex;
+            subSegment.EditIndex = e.NewEditIndex;
 
 
             // Rebind the GridView control to show data in edit mode. 
@@ -132,10 +132,10 @@ namespace AGI
 
 
         // GridView.RowCancelingEdit Event 
-        protected void segment_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
+        protected void subSegment_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
         {
             // Exit edit mode. 
-            segment.EditIndex = -1;
+            subSegment.EditIndex = -1;
 
 
             // Rebind the GridView control to show data in view mode. 
@@ -148,7 +148,7 @@ namespace AGI
 
 
         // GridView.RowUpdating Event 
-        protected void segment_RowUpdating(object sender, GridViewUpdateEventArgs e)
+        protected void subSegment_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
             using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString()))
             {
@@ -162,7 +162,7 @@ namespace AGI
 
                 // Set the command text 
                 // SQL statement or the name of the stored procedure  
-                cmd.CommandText = "UPDATE ST_Segment SET ID_Segment = @ID_Segment, ID_DAS = @ID_DAS, Cod_Segment=@Cod_Segment, Lib_Segment_Fr=@Lib_Segment_Fr, Lib_Segment_En= @Lib_Segment_En, Flg_Activity_Segment= @Flg_Activity_Segment WHERE ID_Segment = @ID_Segment";
+                cmd.CommandText = "UPDATE ST_Sub_Segment SET ID_Segment = @ID_Segment, Cod_Sub_Segment= @Cod_Sub_Segment, Lib_Sub_Segment_Fr=@Lib_Sub_Segment_Fr, Lib_Sub_Segment_En= @Lib_Sub_Segment_En, Flg_Activity_Sub_Segment= @Flg_Activity_Sub_Segment WHERE ID_Sub_Segment= @ID_Sub_Segment";
 
 
                 // Set the command type 
@@ -171,21 +171,21 @@ namespace AGI
                 cmd.CommandType = CommandType.Text;
 
 
-                // Get the ID_Segment of the selected row. 
-                string strIdSegment = segment.Rows[e.RowIndex].Cells[2].Text;
-                string strIdDAS = ((TextBox)segment.Rows[e.RowIndex].FindControl("tbxIdDAS")).Text;
-                string strCodSeg = ((TextBox)segment.Rows[e.RowIndex].FindControl("tbxCodSeg")).Text;
-                string strLibSegFr = ((TextBox)segment.Rows[e.RowIndex].FindControl("tbxLibSegFr")).Text;
-                string strLibSegEn = ((TextBox)segment.Rows[e.RowIndex].FindControl("tbxLibSegEn")).Text;
-                string strFlgActiSeg = ((TextBox)segment.Rows[e.RowIndex].FindControl("tbxFlgActiSeg")).Text;
+                // Get the ID_Sub_Segment of the selected row. 
+                string strIdSubSeg = subSegment.Rows[e.RowIndex].Cells[2].Text;
+                string strIdSeg = ((TextBox)subSegment.Rows[e.RowIndex].FindControl("tbxIdSeg")).Text;
+                string strCodSubSeg = ((TextBox)subSegment.Rows[e.RowIndex].FindControl("tbxCodSubSeg")).Text;
+                string strLibSouSegFr = ((TextBox)subSegment.Rows[e.RowIndex].FindControl("tbxLibSouSegFr")).Text;
+                string strLibLibSouSegEn = ((TextBox)subSegment.Rows[e.RowIndex].FindControl("tbxLibLibSouSegEn")).Text;
+                string strFlgActiSouSeg = ((TextBox)subSegment.Rows[e.RowIndex].FindControl("tbxFlgActiSouSeg")).Text;
 
                 // Append the parameters. 
-                cmd.Parameters.Add("@ID_Segment", SqlDbType.Int).Value = strIdSegment;
-                cmd.Parameters.Add("@Cod_DAS", SqlDbType.NVarChar, 10).Value = strIdDAS;
-                cmd.Parameters.Add("@Cod_Segment", SqlDbType.NVarChar, 10).Value = strCodSeg;
-                cmd.Parameters.Add("@Lib_Segment_Fr", SqlDbType.NVarChar, 50).Value = strLibSegFr;
-                cmd.Parameters.Add("@Lib_Segment_En", SqlDbType.NVarChar, 50).Value = strLibSegEn;
-                cmd.Parameters.Add("@Flg_Activity_Segment", SqlDbType.Bit).Value = strFlgActiSeg;
+                cmd.Parameters.Add("@ID_Sub_Segment", SqlDbType.Int).Value = strIdSubSeg;
+                cmd.Parameters.Add("@ID_Segment", SqlDbType.Int).Value = strIdSeg;
+                cmd.Parameters.Add("@Cod_Sub_Segment", SqlDbType.NVarChar, 10).Value = strCodSubSeg;
+                cmd.Parameters.Add("@Lib_Sub_Segment_Fr", SqlDbType.NVarChar, 50).Value = strLibSouSegFr;
+                cmd.Parameters.Add("@Lib_Sub_Segment_En", SqlDbType.NVarChar, 50).Value = strLibLibSouSegEn;
+                cmd.Parameters.Add("@Flg_Activity_Sub_Segment", SqlDbType.Bit).Value = strFlgActiSouSeg;
 
                 // Open the connection. 
                 conn.Open();
@@ -197,7 +197,7 @@ namespace AGI
 
 
             // Exit edit mode. 
-            segment.EditIndex = -1;
+            subSegment.EditIndex = -1;
 
 
             // Rebind the GridView control to show data after updating. 
@@ -210,7 +210,7 @@ namespace AGI
 
 
         // GridView.RowDeleting Event 
-        protected void segment_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        protected void subSegment_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
             using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString()))
             {
@@ -224,7 +224,7 @@ namespace AGI
 
                 // Set the command text 
                 // SQL statement or the name of the stored procedure  
-                cmd.CommandText = "DELETE FROM ST_Segment WHERE ID_Segment = @ID_Segment";
+                cmd.CommandText = "DELETE FROM ST_Sub_Segment WHERE ID_Sub_Segment = @ID_Sub_Segment";
 
 
                 // Set the command type 
@@ -234,11 +234,11 @@ namespace AGI
 
 
                 // Get the PersonID of the selected row. 
-                string strIdSegment = segment.Rows[e.RowIndex].Cells[2].Text;
+                string strIdSubSeg = subSegment.Rows[e.RowIndex].Cells[2].Text;
 
 
                 // Append the parameter. 
-                cmd.Parameters.Add("@ID_Segment", SqlDbType.Int).Value = strIdSegment;
+                cmd.Parameters.Add("@ID_Sub_Segment", SqlDbType.Int).Value = strIdSubSeg;
 
 
                 // Open the connection. 
@@ -256,7 +256,7 @@ namespace AGI
 
 
         // GridView.Sorting Event 
-        protected void segment_Sorting(object sender, GridViewSortEventArgs e)
+        protected void subSegment_Sorting(object sender, GridViewSortEventArgs e)
         {
             string[] strSortExpression = ViewState["SortExpression"].ToString().Split(' ');
 
