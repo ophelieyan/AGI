@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ConsulSousSeg.aspx.cs" Inherits="AGI.ConsulSousSeg" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CreationSousSegment.aspx.cs" Inherits="AGI.CreationSousSegment" %>
 
 <!DOCTYPE html>
 
@@ -242,6 +242,7 @@
                 }
 
 .mainContent {
+    background-color :lightblue ;
     position:absolute;
     height:800px;
     width:100%;
@@ -251,18 +252,28 @@
 }
 
 .titreTable{
-    margin-left:500px;
+    margin-left:300px;
     font: 20px Arial, Helvetica, sans-serif;
 }
 
-#subSegment {
-    margin-left :10px;
+.lblPanel {
+    font-family :30px Arial, Helvetica, sans-serif ;
+    color:white ;
+    background-color:#0f4396;
+    margin-left :50px;
 }
 
-#lbtnAdd {
-    padding-top :50px;
-    margin-left :150px;
-    font-family: Arial, Helvetica, sans-serif;
+.panel {
+    margin-left :50px;
+}
+
+.ddlCsfc {
+    width: 300px;
+}
+
+.tbxCsfc {
+    width:300px;
+    margin-left :100px;
 }
 
 .footer {
@@ -388,6 +399,7 @@
             <asp:TreeNode Text="DAS" Value="DAS" NavigateUrl ="~/ConsulDAS.aspx"></asp:TreeNode>
             <asp:TreeNode Text="Segment" Value="Segment" NavigateUrl ="~/ConsulSegment.aspx"></asp:TreeNode>
             <asp:TreeNode Text="Sous Segment" Value="Sous Segment" NavigateUrl ="~/ConsulSousSeg.aspx"></asp:TreeNode>
+            <asp:TreeNode Text="Article" Value="Article"></asp:TreeNode>
         </asp:TreeNode>
         <asp:TreeNode Text="Flux Dynasys" Value="Flux Dynasys"></asp:TreeNode>
         <asp:TreeNode Text="Flux Labelling" Value="Flux Labelling"></asp:TreeNode>
@@ -410,76 +422,36 @@
 <div class ="mainContent"> 
         <br />
         <br />
-        <a class="titreTable">La table de Sous Segment</a>
+        <a class="titreTable">FORMULAIRE DE CREATION D'UN SOUS SEGMENT</a>
         <br />
         <br />
-        <asp:DynamicFilter runat="server"></asp:DynamicFilter>  
-        <asp:GridView ID="subSegment" runat="server" AutoGenerateColumns="False" CellPadding="4"  
-                        onpageindexchanging="subSegment_PageIndexChanging"   HeaderStyle-Font-Underline="false" 
-                        onrowcancelingedit="subSegment_RowCancelingEdit"   Font-Names="Arial, Helvetica, sans-serif"
-                        onrowdatabound="subSegment_RowDataBound" onrowdeleting="subSegment_RowDeleting"  
-                        onrowediting="subSegment_RowEditing" onrowupdating="subSegment_RowUpdating"  
-                        onsorting="subSegment_Sorting" ForeColor="#333333" GridLines="None"> 
-                        <RowStyle BackColor="#F7F6F3" ForeColor="#333333" /> 
-                            <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
-                            <Columns> 
-                                <asp:CommandField ShowEditButton="True" /> 
-                                <asp:CommandField ShowDeleteButton="false" /> 
-                                <asp:BoundField DataField="ID_Sub_Segment" HeaderText="ID Sous Segment" ReadOnly="True"  
-                                    SortExpression="ID_Sub_Segment" /> 
-                                <asp:TemplateField HeaderText="ID_Segment" SortExpression="IdSegment"> 
-                                    <EditItemTemplate> 
-                                        <asp:TextBox ID="tbxIdSeg" runat="server" Text='<%# Bind("ID_Segment") %>'></asp:TextBox> 
-                                    </EditItemTemplate> 
-                                    <ItemTemplate> 
-                                        <asp:Label ID="lblIdSeg" runat="server" Text='<%# Bind("ID_Segment") %>'></asp:Label> 
-                                    </ItemTemplate> 
-                                </asp:TemplateField> 
-                                <asp:TemplateField HeaderText="Code Sous Segment" SortExpression="CodSubSegment"> 
-                                    <EditItemTemplate> 
-                                        <asp:TextBox ID="tbxCodSubSeg" runat="server" Text='<%# Bind("Cod_Sub_Segment") %>'></asp:TextBox> 
-                                    </EditItemTemplate> 
-                                    <ItemTemplate> 
-                                        <asp:Label ID="lblCodSubSeg" runat="server" Text='<%# Bind("Cod_Sub_Segment") %>'></asp:Label> 
-                                    </ItemTemplate> 
-                                </asp:TemplateField> 
-                                <asp:TemplateField HeaderText="Libellé Sous Segment en Français" SortExpression="libDasFr"> 
-                                    <EditItemTemplate> 
-                                        <asp:TextBox ID="tbxLibSouSegFr" runat="server" Text='<%# Bind("Lib_Sub_Segment_Fr") %>'></asp:TextBox> 
-                                    </EditItemTemplate> 
-                                    <ItemTemplate> 
-                                        <asp:Label ID="lblLibSouSegFr" runat="server" Text='<%# Bind("Lib_Sub_Segment_Fr") %>'></asp:Label> 
-                                    </ItemTemplate> 
-                                </asp:TemplateField> 
-                                <asp:TemplateField HeaderText="Libellé Sous Segment en Anglais" SortExpression="libDasEn"> 
-                                    <EditItemTemplate> 
-                                        <asp:TextBox ID="tbxLibLibSouSegEn" runat="server" Text='<%# Bind("Lib_Sub_Segment_En") %>'></asp:TextBox> 
-                                    </EditItemTemplate> 
-                                    <ItemTemplate> 
-                                        <asp:Label ID="lblLibLibSouSegEn" runat="server" Text='<%# Bind("Lib_Sub_Segment_En") %>'></asp:Label> 
-                                    </ItemTemplate> 
-                                </asp:TemplateField> 
-                                <asp:TemplateField HeaderText="Flag Activity Sous Segment" SortExpression="flgActiDas"> 
-                                    <EditItemTemplate> 
-                                        <asp:TextBox ID="tbxFlgActiSouSeg" runat="server" Text='<%# Bind("Flg_Activity_Sub_Segment") %>'></asp:TextBox> 
-                                    </EditItemTemplate> 
-                                    <ItemTemplate> 
-                                        <asp:Label ID="lblFlgActiSouSeg" runat="server" Text='<%# Bind("Flg_Activity_Sub_Segment") %>'></asp:Label> 
-                                    </ItemTemplate> 
-                                </asp:TemplateField> 
-                            </Columns> 
-                            <EditRowStyle BackColor="#999999" />
-                            <FooterStyle BackColor="#5D7B9D" ForeColor="White" Font-Bold="True" /> 
-                            <PagerStyle BackColor="#5D7B9D" ForeColor="White" HorizontalAlign="Center" /> 
-                            <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" /> 
-                            <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="white"/> 
-                        <SortedAscendingCellStyle BackColor="#E9E7E2" />
-                        <SortedAscendingHeaderStyle BackColor="#506C8C" />
-                        <SortedDescendingCellStyle BackColor="#FFFDF8" />
-                        <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
-          </asp:GridView> 
-          <br />
-          <asp:LinkButton ID="lbtnAdd" runat="server" onclick="lbtnAdd_Click">Créer un nouveau Sous Segment</asp:LinkButton> 
+        <asp:Label ID="Label6" runat="server" Text="Désignations" Class ="lblPanel"></asp:Label>
+        <br />    
+        <asp:Panel ID="Panel1" runat="server" Height="80px" style="margin-bottom: 90px" CssClass="panel">
+                <asp:Label ID="Label1" runat="server" Text="Désignation en Français(30 digits significatifs)"></asp:Label>
+            <asp:TextBox ID="TextBox1" runat="server" CssClass ="tbxCsfc"></asp:TextBox>
+            <br />
+            <br />
+            <asp:Label ID="Label2" runat="server" Text="Désignation en Anglais(30 digits significatifs)"></asp:Label>
+            <asp:TextBox ID="TextBox2" runat="server" CssClass ="tbxCsfc"></asp:TextBox>
+        </asp:Panel>
+        <br />
+        <asp:Label ID="Label7" runat="server" Text="Classifications" Class ="lblPanel"></asp:Label>
+        <br />
+        <asp:Panel ID="Panel2" runat="server" Height="80px" style="margin-bottom: 70px" CssClass="panel">
+            <asp:Label ID="Label3" runat="server" Text="Domaine d'Activité Stratégique">
+            </asp:Label><asp:DropDownList ID="DropDownList2" runat="server" CssClass="ddlCsfc"></asp:DropDownList>
+            <br />
+            <br /> 
+            <asp:Label ID="Label4" runat="server" Text="Segment"></asp:Label>
+            <asp:DropDownList ID="DropDownList1" runat="server" CssClass="ddlCsfc"></asp:DropDownList>
+            <br />
+            <br />
+            <asp:Label ID="Label5" runat="server" Text="Code Sous Segment"></asp:Label>
+            <asp:TextBox ID="TextBox5" runat="server" CssClass ="tbxCsfc"></asp:TextBox>
+        </asp:Panel>
+        <br />
+        <asp:LinkButton ID="lbtnValide" runat="server" margin-left="50px" onclick="lbtnValide_Click">Valider la demande de création d'un sous segment</asp:LinkButton> 
 </div>
 </form>
 <br/>

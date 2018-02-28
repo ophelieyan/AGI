@@ -288,7 +288,7 @@ namespace AGI
 
         protected void lbtnAdd_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("CreationDAS.aspx");
         }
     }
 }

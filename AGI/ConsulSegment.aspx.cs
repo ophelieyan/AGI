@@ -22,7 +22,6 @@ namespace AGI
                 segment.AllowPaging = true;
                 segment.PageSize = 15;
 
-
                 // Enable the GridView sorting option. 
                 segment.AllowSorting = true;
 
@@ -288,7 +287,7 @@ namespace AGI
 
         protected void lbtnAdd_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("CreationSegment.aspx");
         }
     }
 }

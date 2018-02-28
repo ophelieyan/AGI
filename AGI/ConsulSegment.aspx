@@ -242,8 +242,6 @@
                 }
 
 .mainContent {
-    background-color :lightblue ;
-    position:absolute;
     height:800px;
     width:100%;
     top:115px;
@@ -392,7 +390,6 @@
             <asp:TreeNode Text="DAS" Value="DAS" NavigateUrl ="~/ConsulDAS.aspx"></asp:TreeNode>
             <asp:TreeNode Text="Segment" Value="Segment" NavigateUrl ="~/ConsulSegment.aspx"></asp:TreeNode>
             <asp:TreeNode Text="Sous Segment" Value="Sous Segment" NavigateUrl ="~/ConsulSousSeg.aspx"></asp:TreeNode>
-            <asp:TreeNode Text="Article" Value="Article"></asp:TreeNode>
         </asp:TreeNode>
         <asp:TreeNode Text="Flux Dynasys" Value="Flux Dynasys"></asp:TreeNode>
         <asp:TreeNode Text="Flux Labelling" Value="Flux Labelling"></asp:TreeNode>
@@ -418,11 +415,12 @@
         <a class="titreTable">La table de Segment</a>
         <br />
         <br />
+        <asp:DynamicFilter runat="server"></asp:DynamicFilter>  
         <asp:GridView ID="segment" runat="server" AutoGenerateColumns="False" CellPadding="4"  
                         onpageindexchanging="segment_PageIndexChanging"   HeaderStyle-Font-Underline="false" 
                         onrowcancelingedit="segment_RowCancelingEdit"   Font-Names="Arial, Helvetica, sans-serif"
-                        onrowdatabound="segment_RowDataBound" onrowdeleting="segment_RowDeleting"  
-                        onrowediting="segment_RowEditing" onrowupdating="segment_RowUpdating"  
+                        onrowdatabound="segment_RowDataBound" onrowdeleting="segment_RowDeleting"   
+                        onrowediting="segment_RowEditing" onrowupdating="segment_RowUpdating"   
                         onsorting="segment_Sorting" ForeColor="#333333" GridLines="None"> 
                         <RowStyle BackColor="#F7F6F3" ForeColor="#333333" /> 
                             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />

@@ -280,7 +280,12 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <title>Consultation de DAS</title>
 </head>
 <body>
@@ -389,7 +394,6 @@
             <asp:TreeNode Text="DAS" Value="DAS" NavigateUrl ="~/ConsulDAS.aspx"></asp:TreeNode>
             <asp:TreeNode Text="Segment" Value="Segment" NavigateUrl ="~/ConsulSegment.aspx"></asp:TreeNode>
             <asp:TreeNode Text="Sous Segment" Value="Sous Segment" NavigateUrl ="~/ConsulSousSeg.aspx"></asp:TreeNode>
-            <asp:TreeNode Text="Article" Value="Article"></asp:TreeNode>
         </asp:TreeNode>
         <asp:TreeNode Text="Flux Dynasys" Value="Flux Dynasys"></asp:TreeNode>
         <asp:TreeNode Text="Flux Labelling" Value="Flux Labelling"></asp:TreeNode>
@@ -417,11 +421,12 @@
         <br />
         <br />
         <br />
+       <asp:DynamicFilter runat="server"></asp:DynamicFilter>  
         <asp:GridView ID="das" runat="server" AutoGenerateColumns="False" CellPadding="4"  
                         onpageindexchanging="das_PageIndexChanging"   HeaderStyle-Font-Underline="false" 
                         onrowcancelingedit="das_RowCancelingEdit"   Font-Names="Arial, Helvetica, sans-serif"
-                        onrowdatabound="das_RowDataBound" onrowdeleting="das_RowDeleting"  
-                        onrowediting="das_RowEditing" onrowupdating="das_RowUpdating"  
+                        onrowdatabound="das_RowDataBound" onrowdeleting="das_RowDeleting"   
+                        onrowediting="das_RowEditing" onrowupdating="das_RowUpdating"          
                         onsorting="das_Sorting" ForeColor="#333333" GridLines="None"> 
                         <RowStyle BackColor="#F7F6F3" ForeColor="#333333" /> 
                             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />

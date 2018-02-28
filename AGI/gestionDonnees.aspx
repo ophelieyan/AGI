@@ -242,7 +242,6 @@
                 }
 
 .mainContent {
-    background-color :lightblue ;
     position:absolute;
     height:500px;
     width:100%;
@@ -483,7 +482,7 @@
         <asp:TreeNode Text="Flux Currency" Value="Flux Currency"></asp:TreeNode>
         <asp:TreeNode Text="Flux Costum Record" Value="Flux Costum Record"></asp:TreeNode>
         <asp:TreeNode Text="Flux Customer Hierarchie" Value="Flux Customer Hierarchie"></asp:TreeNode>
-        <asp:TreeNode Target="new" Text="Flux DAS" Value="Flux DAS">
+        <asp:TreeNode Target="new" Text="Flux DAS" Value="Flux DAS" NavigateUrl ="~/fluxDAS.aspx">
             <asp:TreeNode Text="DAS" Value="DAS" NavigateUrl ="~/ConsulDAS.aspx"></asp:TreeNode>
             <asp:TreeNode Text="Segment" Value="Segment" NavigateUrl ="~/ConsulSegment.aspx" ></asp:TreeNode>
             <asp:TreeNode Text="Sous Segment" Value="Sous Segment" NavigateUrl ="~/ConsulSousSeg.aspx"></asp:TreeNode>

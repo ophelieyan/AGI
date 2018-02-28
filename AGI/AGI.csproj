@@ -208,7 +208,11 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="CreationDAS.aspx" />
     <Content Include="CreationPF.aspx" />
+    <Content Include="CreationSegment.aspx" />
+    <Content Include="CreationSousSegment.aspx" />
+    <Content Include="fluxDAS.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -451,6 +455,13 @@
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
+    <Compile Include="CreationDAS.aspx.cs">
+      <DependentUpon>CreationDAS.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CreationDAS.aspx.designer.cs">
+      <DependentUpon>CreationDAS.aspx</DependentUpon>
+    </Compile>
     <Compile Include="CreationPF.aspx.cs">
       <DependentUpon>CreationPF.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -458,12 +469,33 @@
     <Compile Include="CreationPF.aspx.designer.cs">
       <DependentUpon>CreationPF.aspx</DependentUpon>
     </Compile>
+    <Compile Include="CreationSegment.aspx.cs">
+      <DependentUpon>CreationSegment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CreationSegment.aspx.designer.cs">
+      <DependentUpon>CreationSegment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CreationSousSegment.aspx.cs">
+      <DependentUpon>CreationSousSegment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CreationSousSegment.aspx.designer.cs">
+      <DependentUpon>CreationSousSegment.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="fluxDAS.aspx.cs">
+      <DependentUpon>fluxDAS.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="fluxDAS.aspx.designer.cs">
+      <DependentUpon>fluxDAS.aspx</DependentUpon>
     </Compile>
     <Compile Include="Gestion.aspx.cs">
       <DependentUpon>Gestion.aspx</DependentUpon>
