@@ -900,5 +900,19 @@ namespace AGI
             BindGridViewSousSegment();
         }
 
+        protected void btnAddSouSeg_Click(object sender, EventArgs e)
+        {
+               
+        }
+
+        protected void das_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            das.SelectedRow.BackColor = System.Drawing.Color.Aqua;
+            int index = das.SelectedRow.RowIndex;
+            string idDas = das.SelectedRow.Cells[0].Text;
+            string codDas= das.SelectedRow.Cells[1].Text;
+            string message = "Row Index: " + index + "\\nid: " + idDas + "\\ncodDas: " + codDas;
+            ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + message + "');", true);
+        }
     }
 }

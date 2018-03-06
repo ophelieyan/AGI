@@ -240,11 +240,10 @@
                 }
         }
 .mainContent {
-    background-color: lightblue;
     position: absolute;
     height: auto;
     width: 100%;
-    top: 115px;
+    top: 100px;
     left: 310px;
     margin-right: 150px;
     font-family:Arial, Helvetica, sans-serif;
@@ -255,7 +254,7 @@
     position: absolute;
     height: auto;
     width: 80%;
-    top: 115px;
+    top: 100px;
     left: 310px;
     margin-right: 10px;
     font-family:Arial, Helvetica, sans-serif;
@@ -531,6 +530,8 @@
                     <br />
                     <br />
                     <br />
+                    <br />
+
                </div>
        <!-- </div>-->
     </div>

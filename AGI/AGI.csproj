@@ -43,6 +43,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=18.1.0.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <HintPath>..\packages\AjaxControlToolkit.18.1.0\lib\net40\AjaxControlToolkit.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.1\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
       <Private>True</Private>
@@ -182,6 +186,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="1.aspx" />
     <Content Include="11.aspx" />
     <Content Include="About.aspx" />
     <Content Include="Account\AddPhoneNumber.aspx" />
@@ -212,6 +217,7 @@
     <Content Include="CreationPF.aspx" />
     <Content Include="CreationSegment.aspx" />
     <Content Include="CreationSousSegment.aspx" />
+    <Content Include="EditExpanse.aspx" />
     <Content Include="fluxDAS.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -221,6 +227,8 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="testAjax.aspx" />
+    <Content Include="WebForm1.aspx" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Gestion.aspx" />
     <Content Include="gestionArticles.aspx" />
@@ -290,6 +298,13 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="1.aspx.cs">
+      <DependentUpon>1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="1.aspx.designer.cs">
+      <DependentUpon>1.aspx</DependentUpon>
+    </Compile>
     <Compile Include="11.aspx.cs">
       <DependentUpon>11.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -490,6 +505,13 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="EditExpanse.aspx.cs">
+      <DependentUpon>EditExpanse.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditExpanse.aspx.designer.cs">
+      <DependentUpon>EditExpanse.aspx</DependentUpon>
+    </Compile>
     <Compile Include="fluxDAS.aspx.cs">
       <DependentUpon>fluxDAS.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -615,6 +637,13 @@
     <Compile Include="test.aspx.designer.cs">
       <DependentUpon>test.aspx</DependentUpon>
     </Compile>
+    <Compile Include="testAjax.aspx.cs">
+      <DependentUpon>testAjax.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="testAjax.aspx.designer.cs">
+      <DependentUpon>testAjax.aspx</DependentUpon>
+    </Compile>
     <Compile Include="TreeNodeMouseClickEventArgs.cs" />
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
@@ -622,6 +651,13 @@
     </Compile>
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
