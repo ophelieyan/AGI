@@ -10,7 +10,7 @@
 namespace AGI {
     
     
-    public partial class test {
+    public partial class t {
         
         /// <summary>
         /// Contrôle MainCompanylogo.

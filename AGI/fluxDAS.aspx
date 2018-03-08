@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="fluxDAS.aspx.cs" Inherits="AGI.fluxDAS" EnableEventValidation = "false"%>
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 
 <!DOCTYPE html>
 
@@ -10,13 +11,12 @@
     overflow: hidden;
     background-color: #0f4396; 
     font-family :Arial, Helvetica, sans-serif;
-    width:100%;
+    width:105%;
     border-radius:10px;
 }
 
 #topMenu li {
     float: left;
-    /*border-right:1px solid #0026ff;*/
 }
 
 #topMenu li:last-child {
@@ -24,7 +24,7 @@
 }
  
 #topMenu li.menu-element1 {
-    padding-left:180px;
+    padding-left:20px;
 }
 
 #topMenu li a, .dropbtn{
@@ -84,7 +84,7 @@
     width: 250px;
     padding: 5px;
     margin: 20px auto;  
-    margin-right :4px; 
+    margin-right :70px; 
     overflow: hidden;
     border-width: 1px;
     border-style: solid;
@@ -276,6 +276,7 @@
     outline :none;
 }
 
+
 .ddl {
     font-family :Arial, Helvetica, sans-serif ;
     color :#404040 ;
@@ -297,6 +298,26 @@
 
 #segment {
     scrollbar-arrow-color:cornflowerblue ; 
+}
+
+.Popup
+{
+
+    background-color: #FFFFFF;
+
+    border-width: 3px;
+
+    border-style: solid;
+
+    border-color: black;
+
+    padding-top: 10px;
+
+    padding-left: 10px;
+
+    width: 400px;
+
+    height: 350px;
 }
 
 .popup {
@@ -360,7 +381,6 @@
     border-color :#0f4396;
     border-radius :5px;
     outline :none;
-    /*background: url("chrome://browser/skin/search-glass.svg") no-repeat 15px center/20px;*/
 }
 #searchSeg {
     width:250px;
@@ -395,17 +415,64 @@
     border-radius :5px;
     cursor :pointer;
 }
+ #das tr:hover {
+  background-color: #f1f1f1;
+}
+
+ 
+.lbl{
+     font-family :Arial, Helvetica, sans-serif ;
+     color :#404040;
+  }
+#ddlCodActi {
+    font-family :Arial, Helvetica, sans-serif ;
+    color :#404040 ;
+    width :180px;
+}
+
+.tbx {
+    border-radius :8px;
+    color:#0f4396;
+}
+
+.validateTips{
+    font-family :Arial, Helvetica, sans-serif ;
+    color: red;
+}
+
+/*.header {
+    position:absolute;
+    
+}*/
+
+dialog-form.label, dialog-form.input, dialog-form.select{ 
+    display:block; 
+}
+
+dialog-form.input.text { 
+    margin-bottom:12px; 
+    padding: .4em; 
+}
+
+dialog-form.select.text {
+    margin-bottom:12px; 
+    padding: .4em; 
+}
+
 </style>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="script.js"></script>
-    <title>Consultation de Segment</title>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <title>Flux DAS</title>
 </head>
 <body>
 <div id ="topMenu">
@@ -479,6 +546,12 @@
           <a href="#">Flux Machine</a>         
         </div>
       </li>
+      <li class="menu">
+          <a href="gestionDonnees" class="dropbtn">Dynasys</a>
+      </li>
+      <li class="menu">
+          <a href="gestionDonnees" class="dropbtn">Ortems</a>
+      </li>
       <li style="float:right"> 
           <form class="form-wrapper">
               <input type="text" id="search" placeholder="Recherche" required>
@@ -532,20 +605,34 @@
      <ParentNodeStyle Font-Bold="False" />
      <SelectedNodeStyle Font-Underline="True" ForeColor="#555" HorizontalPadding="0px" VerticalPadding="0px" />
 </asp:TreeView>
-<div class ="mainContent"> 
-     <div class="row">
+<%--<asp:ScriptManager ID="ScriptManager1" runat="server">
+</asp:ScriptManager>
+<cc1:ModalPopupExtender ID="mp1" runat="server" PopupControlID="Panl1" TargetControlID="btnAddDas" OkControlID ="Button1"
+
+    CancelControlID="Button2" BackgroundCssClass="Background" >
+
+</cc1:ModalPopupExtender>
+    
+<asp:Panel ID="Panl1" runat="server" CssClass="Popup" align="center" style = "display:none">
+
+    <iframe style=" width: 350px; height: 300px;" id="irm1" src="popup.aspx" runat="server"></iframe>
+    <br/>
+    <asp:Button ID="btnDasformule" runat="server" Text="Valider"  BackColor ="#edb93b" ForeColor ="white" BorderStyle ="Solid"/>
+    <asp:Button ID="btnAnnuler" runat="server" Text="Annuler" BackColor ="#edb93b" ForeColor ="white" BorderStyle ="Solid"/>
+</asp:Panel>--%>
+
+
+<div class ="mainContent">
+     <input type="text" placeholder="Recherche" id="searchInput" onkeyup ="filterAll();" autocomplete ="on" style="background-image:url(images/recherche.png);background-position:right;background-repeat:no-repeat;padding-left:2px;width:300px;height:30px; border-radius:6px;margin-left:2px"> 
+       <br />
+       <br />
+     <div class="row">      
          <div class ="col">
              <a class="entete">DAS</a>
+          
+             <%--<input type="text" placeholder="Recherche" id="searchDas" onkeyup ="searchDas()" >--%>  
              <br />
-             <br />
-             <input type="text" placeholder="Recherche" id="searchDas" onkeyup ="filterDas()" autocomplete ="on" >
-             <%--<asp:ImageButton ID="submitDas" runat="server" />--%><input type="submit" value="OK" id="submitDas">
-<%--             <button class="btnSearchDas" type="button">
-                <span class="glyphicon glyphicon-search small"></span>
-             </button>--%>
-             <br />
-             <br />
-             <div style="overflow-y:auto; width:auto ; height:290px" >
+             <div style="overflow-y:scroll; width:auto ; height:330px" >
              <asp:GridView ID="das" runat="server" AutoGenerateColumns="False" CellPadding="4"  
                         HeaderStyle-Font-Underline="false" OnSelectedIndexChanged="das_SelectedIndexChanged"
                         onrowcancelingedit="das_RowCancelingEdit" Font-Names="Arial, Helvetica, sans-serif"
@@ -555,9 +642,9 @@
                         <RowStyle BackColor="White"  ForeColor="#333333" /> 
                             <%--<AlternatingRowStyle BackColor="White" ForeColor="#284775" />--%>
                             <Columns> 
-                                <asp:BoundField DataField="ID_DAS" HeaderText="ID_DAS" ReadOnly="True"  
+                                <asp:BoundField DataField="ID_DAS" HeaderText="ID DAS     " ReadOnly="True"  
                                     SortExpression="ID_DAS" Visible ="True"/> 
-                                <asp:TemplateField  HeaderText="Cod_DAS" SortExpression="CodDAS"> 
+                                <asp:TemplateField  HeaderText="Cod DAS     " SortExpression="CodDAS"> 
                                     <EditItemTemplate> 
                                         <asp:TextBox ID="tbxCodDAS" runat="server" Text='<%# Bind("Cod_DAS") %>'></asp:TextBox> 
                                     </EditItemTemplate> 
@@ -565,7 +652,7 @@
                                         <asp:Label ID="lblCodDAS" runat="server" Text='<%# Bind("Cod_DAS") %>'></asp:Label> 
                                     </ItemTemplate> 
                                 </asp:TemplateField> 
-                                <asp:TemplateField HeaderText="Cod_Activity" SortExpression="CodActivity"> 
+                                <asp:TemplateField HeaderText="Cod Activity     " SortExpression="CodActivity"> 
                                     <EditItemTemplate> 
                                         <asp:TextBox ID="tbxCodActi" runat="server" Text='<%# Bind("Cod_Activity") %>'></asp:TextBox> 
                                     </EditItemTemplate> 
@@ -586,7 +673,7 @@
                             <FooterStyle BackColor="#edb93b" ForeColor="White" Font-Bold="True" /> 
                             <PagerStyle BackColor="#edb93b" ForeColor="White" HorizontalAlign="Center" /> 
                             <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" /> 
-                            <HeaderStyle BackColor="#edb93b" Font-Bold="True" ForeColor="white"/> 
+                            <HeaderStyle BackColor="#edb93b" Font-Bold="True" ForeColor="white" CssClass ="header"/> 
                         <SortedAscendingCellStyle BackColor="#E9E7E2" />
                         <SortedAscendingHeaderStyle BackColor="#506C8C" />
                         <SortedDescendingCellStyle BackColor="#FFFDF8" />
@@ -594,18 +681,16 @@
           </asp:GridView> 
           </div> 
              <asp:Button ID="btnAddDas" runat="server" Text="Créer" Cssclass="btnAdd"/>
-             <asp:Button ID="btnEditDas" runat="server" Text="Modifier" CssClass="btnEdit" />
-             <asp:Button ID="btnDeacDas" runat="server" Text="Désactiver" CssClass="btnDeac" Enabled="false" />
+           <%--  <button ID="btnAddDas">Créer</button>--%>
+             <asp:Button ID="btnEditDas" runat="server" Text="Modifier" CssClass="btnEdit"/>
+             <asp:Button ID="btnDeacDas" runat="server" Text="Désactiver" CssClass="btnDeac"/>
          </div>
          <div class="col">
              <a class="entete">Segment</a>
              <br />
-             <br />
-             <input type="text" id="searchSeg" placeholder="Recherche" onkeyup="filterSegment()" autocomplete ="on">
-             <input type="submit" value="OK" id="submitSeg">
-             <br />
-             <br />
-             <div style="overflow-y:scroll; overflow-x:hidden; width:auto ; height:290px" >
+            <%-- <input type="text" id="searchSeg" placeholder="Recherche" onkeyup="filterSegment()" autocomplete ="on">
+             <input type="submit" value="OK" id="submitSeg">--%>
+             <div style="overflow-y:scroll; overflow-x:hidden; width:auto ; height:330px" >
              <asp:GridView ID="segment" runat="server" AutoGenerateColumns="False" CellPadding="4"  
                         HeaderStyle-Font-Underline="false" HeaderStyle-Width ="390px" ItemStyle_Width="390px"
                         onrowcancelingedit="segment_RowCancelingEdit"   Font-Names="Arial, Helvetica, sans-serif"
@@ -655,17 +740,14 @@
          </div>
          <asp:Button ID="btnAddSeg" runat="server" Text="Créer" Cssclass="btnAdd"/>
          <asp:Button ID="btnEditSeg" runat="server" Text="Modifier" CssClass="btnEdit" />
-         <asp:Button ID="btnDeacSeg" runat="server" Text="Désactiver" CssClass="btnDeac" Enabled="false"/>
+         <asp:Button ID="btnDeacSeg" runat="server" Text="Désactiver" CssClass="btnDeac"/>
          </div>
-       <div class="col">
+       <div class="col" style="width:600px">
              <a class="entete">Sous Segment</a>
+           <%--   <input type="text" id="searchSouSeg" placeholder="Recherche" onkeyup="filterSouSeg()" autocomplete ="on">
+                  <input type="submit" value="OK" id="submitSouSeg">--%>
              <br />
-             <br />
-                  <input type="text" id="searchSouSeg" placeholder="Recherche" onkeyup="filterSouSeg()" autocomplete ="on">
-                  <input type="submit" value="OK" id="submitSouSeg">
-             <br />
-             <br />
-             <div style="overflow-y:scroll;width:auto ; height:290px" >
+             <div style="overflow-y:scroll;width:auto ; height:330px" >
              <asp:GridView ID="subSegment" runat="server" AutoGenerateColumns="False" CellPadding="4"  
                         HeaderStyle-Font-Underline="false"  HeaderStyle-Width ="390px" ItemStyle_Width="390px"
                         onrowcancelingedit="subSegment_RowCancelingEdit"   Font-Names="Arial, Helvetica, sans-serif"
@@ -677,7 +759,7 @@
                             <Columns> 
                                 <asp:BoundField DataField="ID_Sub_Segment" HeaderText="ID Sous Segment" ReadOnly="True"  
                                     SortExpression="ID_Sub_Segment" visible="True" /> 
-                                <asp:TemplateField HeaderText="ID_Segment" SortExpression="IdSegment" Visible ="True"> 
+                                <asp:TemplateField HeaderText="ID Segment" SortExpression="IdSegment" Visible ="True"> 
                                     <EditItemTemplate> 
                                         <asp:TextBox ID="tbxIdSeg" runat="server" Visible="true" Text='<%# Bind("ID_Segment") %>'></asp:TextBox> 
                                     </EditItemTemplate> 
@@ -713,16 +795,43 @@
                         <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
           </asp:GridView>    
           </div>
-          <asp:Button ID="btnAddSouSeg" runat="server" Text="Créer" Cssclass="btnAdd" onclick="btnAddSouSeg_Click"/>
+          <asp:Button ID="btnAddSouSeg" runat="server" Text="Créer" Cssclass="btnAdd"/>
           <asp:Button ID="btnEditSouSeg" runat="server" Text="Modifier" CssClass="btnEdit" />
-          <asp:Button ID="btnDeacSouSeg" runat="server" Text="Désactiver" CssClass="btnDeac" Enabled="false" /> 
+          <asp:Button ID="btnDeacSouSeg" runat="server" Text="Désactiver" CssClass="btnDeac"/> 
          </div> 
      </div>
 </div>
-<%--    <div class="popup" onclick="myFunction()">Click me to toggle the popup!
-  <span class="popuptext" id="myPopup">A Simple Popup!</span>
-</div>--%>
+
+     <%--<asp:dropdownlist ID="ddlCodActi" runat="server" Font-Size="14px" CssClass="text ui-widget-content ui-corner-all"></asp:dropdownlist>--%>
+
 </form>
+
+<div id="dialog-form" title="Creation d'un nouveau DAS">
+
+  <p class="validateTips">Tous les champs sont requis.</p >
+
+      <label for="Code DAS">Code DAS</label>
+
+      <input type="text" name="Code Das" id="codDas" value="" class="text ui-widget-content ui-corner-all">
+
+      <label for="Code Activity">Code Activity</label>
+
+      <select name="ddlCodActi" id="ddlCodActi" class="text ui-widget-content ui-corner-all" style="font-size:14px;">
+
+        <option value="2">HC</option>
+
+        <option value="3">PE</option>
+
+        <option value="1">SC</option>
+
+      </select>
+
+      <label for="libDas">Désignation DAS</label>
+
+      <input type="text" name="libDas" id="libDas" value="" class="text ui-widget-content ui-corner-all">
+
+</div>
+
 <br/>
 <br/>
 <br/>
@@ -730,17 +839,19 @@
 <div class="footer">
     <p>&copy; <%: DateTime.Now.Year %> - Alès Groupe</p>
 </div>
-
+</body>
+</html>
 <script type="text/javascript">
+    //la partie pour filtrer Segment selon la ligne de DAS Choisie
     $(function () {
         $("#das td").click(function () {
             $(this).closest("tr").css('background-color', '#eeeeee');
-            filtreSegment($(this).closest("tr"));
+            filterSegment($(this).closest("tr"));
            // $(this).closest("tr").css('background-color', 'white');;
         });
     });
 
-    function filtreSegment(row) {
+    function filterSegment(row) {
         var idDas = $("td", row).eq(0).text();
         idDas = parseInt(idDas);
         $("#segment tr").each(function () {
@@ -756,15 +867,17 @@
         });
     }
 
+    //la partie pour filtrer Sous Segment selon la ligne de Segment Choisie
     $(function () {
-            $("#segment td").click(function () {
+        $("#segment td").click(function () {
+            $("segment tr").css('background-color', "white");
                 $(this).closest("tr").css('background-color', '#eeeeee');
-                filtreSousSegment($(this).closest("tr"));
+                filterSousSegment($(this).closest("tr"));
                 //$("#segment tr").css;
             })
     })
 
-   function filtreSousSegment(row) {
+   function filterSousSegment(row) {
         var idSegment = $("td", row).eq(0).text();
         idSegment = parseInt(idSegment);
         $("#subSegment tr").each(function () {
@@ -779,11 +892,89 @@
                 }
             }
         });
-    }
-</script>
-</body>
-</html>
+   }
 
+   $(function () {
+       $("#subSegment td").click(function () {
+           $("subSegment tr").css('background-color', "white");
+           $(this).closest("tr").css('background-color', '#eeeeee');
+       })
+   })
+
+   //search fonctionne
+   function filterAll() {
+       filterTable($('#segment tr'));
+       filterTable($('#das tr'));
+       filterTable($('#subSegment tr'));
+   }
+
+   function filterTable(allTr) {
+       var keyWord = $('#searchInput').val();
+       allTr.each(function () {
+           var designation = $(this).find("td").eq(3).text();
+           if (designation && designation.length > 0 && keyWord && keyWord.length > 0) {
+               keyWord = keyWord.toLowerCase();
+               designation = designation.toLowerCase();
+               if (designation.indexOf(keyWord) < 0) {
+                   $(this).hide();
+               } else {
+                   $(this).show();
+               }
+           } else {
+               $(this).show();
+           }
+       });
+   }
+
+
+   $(function () {
+
+       var dialog = $("#dialog-form").dialog({
+
+           autoOpen: false,
+
+           height: 400,
+
+           width: 350,
+
+           modal: true,
+
+           buttons: {
+
+               "Créer un nouveau DAS": addDas,
+
+               Cancel: function () {
+
+                   dialog.dialog("close");
+
+               }
+
+           },
+
+           close: function () {
+
+               dialog.dialog("close");
+
+               //allFields.removeClass("ui-state-error");
+
+           }
+
+       });
+
+       function addDas() {
+
+           dialog.dialog("close");
+
+       }
+
+       $("#btnAddDas").click(function () {
+
+           dialog.dialog("open");
+
+       });
+
+   });
+</script>
 
 <%--<script type = "text/jquery">
 
@@ -841,44 +1032,7 @@ function MouseEvents(objRef, evt)
 
 }
 
-</script>
-
-<script type = "text/javascript">
-    function filterDas() {
-        // Declare variables 
-        var input, filter, table, tr, td, i;
-        input = document.getElementById("searchDas");
-        filter = input.value.toUpperCase();
-        table = document.getElementById("das");
-        tr = table.getElementsByTagName("ItemTemplate");
-
-        // Loop through all table rows, and hide those who don't match the search query
-        for (i = 0; i < tr.length; i++) {
-            td = tr[i].getElementsByTagName("lblLibDasFr")[0];
-            if (td) {
-                if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
-                    tr[i].style.display = "";
-                } else {
-                    tr[i].style.display = "none";
-                }
-            }
-        }
-    }
-
-function filterSegment() {
-
-}
-
-function filterSouSeg() {
-
-}
-
-
 </script>--%>
-
-
-
-
 
 <%--<script>
 // When the user clicks on div, open the popup

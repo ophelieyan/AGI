@@ -186,8 +186,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="1.aspx" />
-    <Content Include="11.aspx" />
+    <Content Include="WebForm2.aspx" />
+    <None Include="garde\searchaspx" />
+    <Content Include="2.aspx" />
+    <Content Include="garde\menu.aspx" />
     <Content Include="About.aspx" />
     <Content Include="Account\AddPhoneNumber.aspx" />
     <Content Include="Account\Confirm.aspx" />
@@ -227,7 +229,8 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="testAjax.aspx" />
+    <Content Include="popup.aspx" />
+    <Content Include="garde\testAjax.aspx" />
     <Content Include="WebForm1.aspx" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Gestion.aspx" />
@@ -279,8 +282,8 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Site.Master" />
-    <Content Include="test.aspx" />
-    <Content Include="testlundi.html" />
+    <Content Include="garde\t.aspx" />
+    <Content Include="garde\sidebar.html" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -298,19 +301,26 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="1.aspx.cs">
-      <DependentUpon>1.aspx</DependentUpon>
+    <Compile Include="2.aspx.cs">
+      <DependentUpon>2.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="1.aspx.designer.cs">
-      <DependentUpon>1.aspx</DependentUpon>
+    <Compile Include="2.aspx.designer.cs">
+      <DependentUpon>2.aspx</DependentUpon>
     </Compile>
-    <Compile Include="11.aspx.cs">
-      <DependentUpon>11.aspx</DependentUpon>
+    <Compile Include="garde\1.aspx.cs">
+      <DependentUpon>searchaspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="11.aspx.designer.cs">
-      <DependentUpon>11.aspx</DependentUpon>
+    <Compile Include="garde\1.aspx.designer.cs">
+      <DependentUpon>searchaspx</DependentUpon>
+    </Compile>
+    <Compile Include="garde\menu.aspx.cs">
+      <DependentUpon>menu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="garde\menu.aspx.designer.cs">
+      <DependentUpon>menu.aspx</DependentUpon>
     </Compile>
     <Compile Include="Account\AddPhoneNumber.aspx.cs">
       <DependentUpon>AddPhoneNumber.aspx</DependentUpon>
@@ -630,18 +640,25 @@
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
-    <Compile Include="test.aspx.cs">
-      <DependentUpon>test.aspx</DependentUpon>
+    <Compile Include="popup.aspx.cs">
+      <DependentUpon>popup.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="test.aspx.designer.cs">
-      <DependentUpon>test.aspx</DependentUpon>
+    <Compile Include="popup.aspx.designer.cs">
+      <DependentUpon>popup.aspx</DependentUpon>
     </Compile>
-    <Compile Include="testAjax.aspx.cs">
+    <Compile Include="garde\t.aspx.cs">
+      <DependentUpon>t.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="garde\t.aspx.designer.cs">
+      <DependentUpon>t.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="garde\testAjax.aspx.cs">
       <DependentUpon>testAjax.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="testAjax.aspx.designer.cs">
+    <Compile Include="garde\testAjax.aspx.designer.cs">
       <DependentUpon>testAjax.aspx</DependentUpon>
     </Compile>
     <Compile Include="TreeNodeMouseClickEventArgs.cs" />
@@ -658,6 +675,13 @@
     </Compile>
     <Compile Include="WebForm1.aspx.designer.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm2.aspx.cs">
+      <DependentUpon>WebForm2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm2.aspx.designer.cs">
+      <DependentUpon>WebForm2.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

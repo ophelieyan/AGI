@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="11.aspx.cs" Inherits="AGI._11" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="menu.aspx.cs" Inherits="AGI._11" %>
 
 <!DOCTYPE html>
 <html>

@@ -16,7 +16,6 @@
 
 #topMenu li {
     float: left;
-    border-right:1px solid #0026ff;
 }
 
 #topMenu li:last-child {

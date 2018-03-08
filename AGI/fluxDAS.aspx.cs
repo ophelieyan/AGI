@@ -84,7 +84,7 @@ namespace AGI
 
 
                 // Create a SELECT query. 
-                string strSelectCmd = "SELECT ID_DAS, Cod_DAS, Cod_Activity, Lib_DAS_Fr, Lib_DAS_En, Flg_Activity_DAS FROM ST_DAS ORDER BY Lib_DAS_Fr";
+                string strSelectCmd = "SELECT ID_DAS, Cod_DAS, Cod_Activity, Lib_DAS_Fr, Lib_DAS_En, Flg_Activity_DAS FROM ST_DAS ORDER BY Cod_Activity";
 
 
                 // Create a SqlDataAdapter object 
@@ -106,14 +106,53 @@ namespace AGI
                 // Get the DataView from DAS DataTable. 
                 DataView dvDAS = dsDAS.Tables["DAS"].DefaultView;
 
-                // Bind the GridView control. 
-                //ddlDAS.DataSource = dvDAS;
-                //ddlDAS.Items.Insert(0, "Tout");
-                //ddlDAS.DataValueField = "ID_DAS";
-                //ddlDAS.DataTextField = "Lib_DAS_Fr";
-                //ddlDAS.DataBind();
+                // Bind the dropdownlist control. 
+                //ddlCodActi.DataSource = dvDAS;
+                //ddlCodActi.Items.Insert(0, "Tout");
+                //ddlCodActi.DataValueField = "ID_DAS";
+                //ddlCodActi.DataTextField = "Cod_Activity";
+                //ddlCodActi.DataBind();
             }
         }
+        //private void BindDdlDas()
+        //{
+        //    using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString()))
+        //    {
+        //        // Create a DataSet object. 
+        //        DataSet dsDAS = new DataSet();
+
+
+        //        // Create a SELECT query. 
+        //        string strSelectCmd = "SELECT ID_DAS, Cod_DAS, Cod_Activity, Lib_DAS_Fr, Lib_DAS_En, Flg_Activity_DAS FROM ST_DAS ORDER BY Lib_DAS_Fr";
+
+
+        //        // Create a SqlDataAdapter object 
+        //        // SqlDataAdapter represents a set of data commands and a  
+        //        // database connection that are used to fill the DataSet and  
+        //        // update a SQL Server database.  
+        //        SqlDataAdapter da = new SqlDataAdapter(strSelectCmd, conn);
+
+
+        //        // Open the connection 
+        //        conn.Open();
+
+
+        //        // Fill the DataTable named "DAS" in DataSet with the rows 
+        //        // returned by the query.new n 
+        //        da.Fill(dsDAS, "DAS");
+
+
+        //        // Get the DataView from DAS DataTable. 
+        //        DataView dvDAS = dsDAS.Tables["DAS"].DefaultView;
+
+        //        // Bind the GridView control. 
+        //        //ddlDAS.DataSource = dvDAS;
+        //        //ddlDAS.Items.Insert(0, "Tout");
+        //        //ddlDAS.DataValueField = "ID_DAS";
+        //        //ddlDAS.DataTextField = "Lib_DAS_Fr";
+        //        //ddlDAS.DataBind();
+        //    }
+        //}
 
         private void BindDdlSegment()
         {
@@ -205,6 +244,13 @@ namespace AGI
         // GridView.RowDataBound Event 
         protected void das_RowDataBound(object sender, GridViewRowEventArgs e)
         {
+            if (e.Row.RowType == DataControlRowType.DataRow)   
+            {
+                if (e.Row.RowIndex == 0)
+                {
+                    e.Row.Style.Add("height", "40px");
+                }
+            }
             // Make sure the current GridViewRow is a data row. 
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
@@ -914,5 +960,6 @@ namespace AGI
             string message = "Row Index: " + index + "\\nid: " + idDas + "\\ncodDas: " + codDas;
             ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + message + "');", true);
         }
+
     }
 }

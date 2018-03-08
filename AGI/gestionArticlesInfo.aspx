@@ -25,7 +25,7 @@
 }
  
 #topMenu li.menu-element1 {
-    padding-left:180px;
+    padding-left:20px;
 }
 
 #topMenu li a, .dropbtn{
@@ -399,6 +399,12 @@
           <a href="#">Flux Supplier Prices</a>
           <a href="#">Flux Machine</a>         
         </div>
+      </li>
+      <li class="menu">
+          <a href="gestionDonnees" class="dropbtn">Dynasys</a>
+      </li>
+      <li class="menu">
+          <a href="gestionDonnees" class="dropbtn">Ortems</a>
       </li>
       <li style="float:right"> 
           <form class="form-wrapper">
