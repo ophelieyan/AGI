@@ -2,467 +2,9 @@
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 
 <!DOCTYPE html>
-
-<style>
-#topMenu ul {
-    list-style-type: none;
-    margin-left:0px;
-    padding: 0;
-    overflow: hidden;
-    background-color: #0f4396; 
-    font-family :Arial, Helvetica, sans-serif;
-    width:105%;
-    border-radius:10px;
-}
-
-#topMenu li {
-    float: left;
-}
-
-#topMenu li:last-child {
-    border-right :none;
-}
- 
-#topMenu li.menu-element1 {
-    padding-left:20px;
-}
-
-#topMenu li a, .dropbtn{
-    display: inline-block;
-    color: white;
-    text-align: center;
-    padding: 30px 4px;
-    text-decoration: none;
-    padding-left:20px;
-    padding-right:20px;
-}
-
-#topMenu li a:hover, .menu:hover .dropbtn {
-    background-color: #edb93b;
-}
-
-#topMenu li.menu {
-    display: inline-block;
-}
-
-#topMenu .submenu {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-}
-
-#topMenu .submenu a {
-    color: black;
-    padding: 7px 8px;
-    text-decoration: none;
-    display: block;
-    text-align: left;
-    border-bottom: 1px solid #c9c9c9;
-    font-family :Arial, Helvetica, sans-serif;
-}
-
-#topMenu .submenu a:last-child {
-    border-bottom: none;
-}
-
-#topMenu .submenu a:hover {
-    background-color: lightcyan;
-}
-
-#topMenu .menu:hover .submenu {
-    display: block;
-}
-
-#topMenu .menu-element1:hover .submenu {
-    display: block;
-}
-
-.form-wrapper {
-    width: 250px;
-    padding: 5px;
-    margin: 20px auto;  
-    margin-right :70px; 
-    overflow: hidden;
-    border-width: 1px;
-    border-style: solid;
-    border-color: #dedede #bababa #aaa #bababa;
-    box-shadow: 0 3px 3px rgba(255,255,255,.1), 0 3px 0 #bbb, 0 4px 0 #aaa, 0 5px 5px #444;
-    border-radius: 10px;    
-    background-color: #f6f6f6;
-    background-image: linear-gradient(top, #f6f6f6, #eae8e8);
-}
-
-.form-wrapper #search {
-    width: 200px;
-    height: 15px;
-    padding: 5px 5px;
-    float: left;    
-    font: 14px Arial, Helvetica, sans-serif;
-    border: 1px solid #ccc;
-    box-shadow: 0 1px 1px #ddd inset, 0 1px 0 #fff;
-    border-radius: 3px;      
-}
-
-.form-wrapper #search:focus {
-    outline: 0; 
-    border-color: #aaa;
-    box-shadow: 0 1px 1px #bbb inset;  
-}
-
-.form-wrapper #search::-webkit-input-placeholder {
-   color: #999;
-   font-weight: normal;
-}
-
-.form-wrapper #search:-moz-placeholder {
-    color: #999;
-    font-weight: normal;
-}
-
-.form-wrapper #search:-ms-input-placeholder {
-    color: #999;
-    font-weight: normal;
-} 
-
-.form-wrapper #submit {
-    float: right;    
-    border: 1px solid #00748f;
-    height: 30px;
-    width: 30px;
-    padding: 5px;
-    cursor: pointer;
-    font: 12px Arial, Helvetica;
-    color: #fff;
-    text-transform: uppercase;    
-    background-color: #0f4396;
-    background-image: linear-gradient(top, #31b2c3, #0483a0);
-    -moz-border-radius: 3px;
-    -webkit-border-radius: 3px;
-    border-radius: 3px;      
-    text-shadow: 0 1px 0 rgba(0, 0 ,0, .3);
-    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset, 0 1px 0 #fff;
-}
-  
-.form-wrapper #submit:hover,
-.form-wrapper #submit:focus {       
-    background-color: #0f4396;
-    background-image: linear-gradient(top, #0483a0, #31b2c3);
-}   
-  
-.form-wrapper #submit:active {
-    outline: 0;    
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;    
-}
-  
-.form-wrapper #submit::-moz-focus-inner {
-    border: 0;
-}
-
-#leftMenu ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    width: 200px;
-    background-color: #f1f1f1;
-    border: 1px solid #dedede;
-    position: absolute; 
-}
-
-#leftMenu li {
-    text-align: center;
-    border-bottom: 1px solid #dedede;
-    position:relative;
-}
-
-
-
-#leftMenu li:last-child {
-    border-bottom: none;
-}
-
-#leftMenu ul li a{
-    display: block;
-    color: #000;
-    padding: 8px 16px;
-    text-decoration: none;
-}
-#leftMenu li .active {
-    background-color: #4CAF50;
-    color: white;
-}
-
-#leftMenu li a:hover {
-    background-color: #555;
-    color: white;
-}
-
-#leftMenu .niveau2 li a{
-        display :none;
-        background-color: #f9f9f9;
-        min-width: 160px;
-        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-        z-index: 1;
-}
-
-#leftMenu .niveau1 li:hover #leftMenu .niveau2 li{
-        display :block;
-}
-
-
-                /* Dropdown container(cacher par défault)*/
-                .dropdown-container {
-                    display: none;
-                    background-color: #262626;
-                    padding-left: 8px;
-                }
-
-                /* Optional: Style the caret down icon */
-                .fa-caret-down {
-                    float: right;
-                    padding-right: 8px;
-                }
-
-                /* On mouse-over */
-                .sidenav a:hover, .dropdown-btn:hover {
-                    color: #f1f1f1;
-                }
-
-        /*Pour les écrans plus petits*/
-         @media screen and (max-height: 450px) {
-                    .sidenav {
-                        padding-top: 15px;
-                    }
-
-                        .sidenav a {
-                            font-size: 18px;
-                        }
-                }
-
-.mainContent {
-    position:absolute;
-    height:800px;
-    width:85%;
-    top:100px;
-    left:300px;
-}
-
-.btnAdd {
-    color :white;
-    background-color :#0f4396;
-    margin-left :40px;
-    margin-top :20px;
-    border-radius :8px;
-    outline :none;
-}
-
-.btnEdit {
-    color :white;
-    background-color :#0f4396;
-    margin-left:10px;
-    margin-top:20px;
-    border-radius :8px;
-    outline :none;
-}
-
-.btnDeac {
-    color :white;
-    background-color :#0f4396;
-    margin-left :10px;
-    margin-top :20px;
-    border-radius :8px;
-    outline :none;
-}
-
-
-.ddl {
-    font-family :Arial, Helvetica, sans-serif ;
-    color :#404040 ;
-}
-
-.footer {
-    position:fixed;
-    left:4px;
-    bottom:0px;
-    width:100%;
-    background-color:#eeeeee;
-    color:black;
-    text-align-last:center;
-}
-
-.selected {
-    background-color :mistyrose;
-}
-
-#segment {
-    scrollbar-arrow-color:cornflowerblue ; 
-}
-
-.Popup
-{
-
-    background-color: #FFFFFF;
-
-    border-width: 3px;
-
-    border-style: solid;
-
-    border-color: black;
-
-    padding-top: 10px;
-
-    padding-left: 10px;
-
-    width: 400px;
-
-    height: 350px;
-}
-
-.popup {
-    position: relative;
-    display: inline-block;
-    cursor: pointer;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-
-/* The actual popup */
-.popup .popuptext {
-    visibility: hidden;
-    width: 160px;
-    background-color: #555;
-    color: #fff;
-    text-align: center;
-    border-radius: 6px;
-    padding: 8px 0;
-    position: absolute;
-    z-index: 1;
-    bottom: 125%;
-    left: 50%;
-    margin-left: -80px;
-}
-
-/* Popup arrow */
-.popup .popuptext::after {
-    content: "";
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    margin-left: -5px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: #555 transparent transparent transparent;
-}
-
-/* Toggle this class - hide and show the popup */
-.popup .show {
-    visibility: visible;
-    -webkit-animation: fadeIn 1s;
-    animation: fadeIn 1s;
-}
-
-/* Add animation (fade in the popup) */
-@-webkit-keyframes fadeIn {
-    from {opacity: 0;} 
-    to {opacity: 1;}
-}
-
-@keyframes fadeIn {
-    from {opacity: 0;}
-    to {opacity:1 ;}
-}
-
-#searchDas {
-    width:250px;
-    border-color :#0f4396;
-    border-radius :5px;
-    outline :none;
-}
-#searchSeg {
-    width:250px;
-    border-color :#0f4396;
-    border-radius :5px;
-    outline :none;
-}
-#searchSouSeg {
-    width:250px;
-    border-color :#0f4396;
-    border-radius :5px;
-    outline :none;
-}
-
-#submitDas {
-    background-color :#0f4396;
-    color:white;
-    border-radius :5px;
-    cursor :pointer;
-}
-
-#submitSeg {
-    background-color :#0f4396;
-    color:white;
-    border-radius :5px;
-    cursor :pointer;
-}
-
-#submitSouSeg {
-    background-color :#0f4396;
-    color:white;
-    border-radius :5px;
-    cursor :pointer;
-}
- #das tr:hover {
-  background-color: #f1f1f1;
-}
-
- 
-.lbl{
-     font-family :Arial, Helvetica, sans-serif ;
-     color :#404040;
-  }
-#ddlCodActi {
-    font-family :Arial, Helvetica, sans-serif ;
-    color :#404040 ;
-    width :180px;
-}
-
-.tbx {
-    border-radius :8px;
-    color:#0f4396;
-}
-
-.validateTips{
-    font-family :Arial, Helvetica, sans-serif ;
-    color: red;
-}
-
-/*.header {
-    position:absolute;
-    
-}*/
-
-dialog-form.label, dialog-form.input, dialog-form.select{ 
-    display:block; 
-}
-
-dialog-form.input.text { 
-    margin-bottom:12px; 
-    padding: .4em; 
-}
-
-dialog-form.select.text {
-    margin-bottom:12px; 
-    padding: .4em; 
-}
-
-</style>
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
+   <%-- <script src="Js/fDas.js" type="text/javascript"></script>--%>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
@@ -471,7 +13,8 @@ dialog-form.select.text {
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="script.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">   
+    <link href="Css/fDas.css" type='text/css' rel='stylesheet' /> 
     <title>Flux DAS</title>
 </head>
 <body>
@@ -492,7 +35,7 @@ dialog-form.select.text {
           <a href="#">Infos langues</a>
           <a href="#">Infos logsitiques</a> 
           <a href="#">Infos reglémentaires</a>
-          <a href="#">Libellé et référencement international</a>          
+          <a href="gestionArticleRefInternational">Libellé et référencement international</a>          
           <a href="#">Nomenclature</a>
           <a href="#">Remplacement</a>
           <a href="#">Substitution</a>
@@ -562,7 +105,7 @@ dialog-form.select.text {
 </div>
 
 <form runat ="server" >
-<asp:TreeView ID="TreeViewSideMenu" runat="server" BackColor ="#0f4396" Width ="295px" BorderStyle ="Solid" border-radius="10px" 
+<asp:TreeView ID="TreeViewSideMenu" runat="server" BackColor ="#0f4396" Width ="220px" BorderStyle ="Solid" border-radius="10px" 
               BorderColor ="#dedede" BorderWidth ="1px" ForeColor ="#555" style="margin-left:0px;font-family:Arial, Helvetica, sans-serif" >
     <HoverNodeStyle ForeColor="#555"  BackColor ="#edb93b"/>
     <Nodes>
@@ -592,7 +135,7 @@ dialog-form.select.text {
         <asp:TreeNode Text="Flux Life Cycle" Value="Flux Life Cycle"></asp:TreeNode>
         <asp:TreeNode Text="Flux Logistique" Value="Flux Logistique"></asp:TreeNode>
         <asp:TreeNode Text="Flux IMS" Value="Flux IMS"></asp:TreeNode>
-        <asp:TreeNode Text="Flux ISO639 Language ISO3166 Country" Value="Flux ISO639 Language ISO3166 Country"></asp:TreeNode>
+        <%--<asp:TreeNode Text="Flux ISO639 Language ISO3166 Country" Value="Flux ISO639 Language ISO3166 Country"></asp:TreeNode>--%>
         <asp:TreeNode Text="Flux OF" Value="Flux OF"></asp:TreeNode>
         <asp:TreeNode Text="Flux Ortems" Value="Flux Ortems"></asp:TreeNode>
         <asp:TreeNode Text="Flux Partner" Value="Flux Partner"></asp:TreeNode>
@@ -632,7 +175,21 @@ dialog-form.select.text {
           
              <%--<input type="text" placeholder="Recherche" id="searchDas" onkeyup ="searchDas()" >--%>  
              <br />
+             <div>
+                 <table id="tblHeader" class ="gvDas" border="1">
+                     <tbody>
+                         <tr>
+                             <%--<th style="text-align :center ;width:150px; color:white;background-color:#edb93b">ID DAS</th>--%>
+                             <th style="text-align :center ;width:100px; color:white;background-color:#edb93b">Code DAS</th>
+                             <th style="text-align :center ;width:120px; color:white;background-color:#edb93b">Code Activity</th>
+                             <th style="text-align :center ;width:200px; color:white;background-color:#edb93b">Désignation DAS</th>
+                         </tr>
+                     </tbody>
+                 </table>
+             </div>
              <div style="overflow-y:scroll; width:auto ; height:330px" >
+                 <%--<asp:Panel ID="panelContainer" runat="server" Height="300px" Width="100%" ScrollBars="Vertical">--%>
+                   
              <asp:GridView ID="das" runat="server" AutoGenerateColumns="False" CellPadding="4"  
                         HeaderStyle-Font-Underline="false" OnSelectedIndexChanged="das_SelectedIndexChanged"
                         onrowcancelingedit="das_RowCancelingEdit" Font-Names="Arial, Helvetica, sans-serif"
@@ -642,30 +199,36 @@ dialog-form.select.text {
                         <RowStyle BackColor="White"  ForeColor="#333333" /> 
                             <%--<AlternatingRowStyle BackColor="White" ForeColor="#284775" />--%>
                             <Columns> 
-                                <asp:BoundField DataField="ID_DAS" HeaderText="ID DAS     " ReadOnly="True"  
-                                    SortExpression="ID_DAS" Visible ="True"/> 
-                                <asp:TemplateField  HeaderText="Cod DAS     " SortExpression="CodDAS"> 
+                               <asp:TemplateField  HeaderText="ID DAS     " SortExpression="IdDAS" Visible="false" > 
                                     <EditItemTemplate> 
-                                        <asp:TextBox ID="tbxCodDAS" runat="server" Text='<%# Bind("Cod_DAS") %>'></asp:TextBox> 
+                                        <asp:TextBox ID="tbxIdDAS" runat="server" Text='<%# Bind("ID_DAS") %>' Visible="false" ></asp:TextBox> 
                                     </EditItemTemplate> 
                                     <ItemTemplate> 
-                                        <asp:Label ID="lblCodDAS" runat="server" Text='<%# Bind("Cod_DAS") %>'></asp:Label> 
+                                        <asp:Label ID="lblIdDAS" runat="server" Text='<%# Bind("ID_DAS") %>' Visible="false"></asp:Label> 
+                                    </ItemTemplate> 
+                                </asp:TemplateField> 
+                                <asp:TemplateField  HeaderText="Cod DAS     " SortExpression="CodDAS"> 
+                                    <EditItemTemplate> 
+                                        <asp:TextBox ID="tbxCodDAS" runat="server"  Text='<%# Bind("Cod_DAS") %>'  Width ="100px"></asp:TextBox> 
+                                    </EditItemTemplate> 
+                                    <ItemTemplate> 
+                                        <asp:Label ID="lblCodDAS" runat="server"  Text='<%# Bind("Cod_DAS") %>' Width ="100px"></asp:Label> 
                                     </ItemTemplate> 
                                 </asp:TemplateField> 
                                 <asp:TemplateField HeaderText="Cod Activity     " SortExpression="CodActivity"> 
                                     <EditItemTemplate> 
-                                        <asp:TextBox ID="tbxCodActi" runat="server" Text='<%# Bind("Cod_Activity") %>'></asp:TextBox> 
+                                        <asp:TextBox ID="tbxCodActi" runat="server" Text='<%# Bind("Cod_Activity") %>'  Width ="100px"></asp:TextBox> 
                                     </EditItemTemplate> 
                                     <ItemTemplate> 
-                                        <asp:Label ID="lblCodActi" runat="server" Text='<%# Bind("Cod_Activity") %>'></asp:Label> 
+                                        <asp:Label ID="lblCodActi" runat="server" Text='<%# Bind("Cod_Activity") %>' Width ="100px"></asp:Label> 
                                     </ItemTemplate> 
                                 </asp:TemplateField> 
                                 <asp:TemplateField HeaderText="Désignation DAS" SortExpression="libDasFr"> 
                                     <EditItemTemplate> 
-                                        <asp:TextBox ID="tbxLibDasFr" runat="server" Text='<%# Bind("Lib_DAS_Fr") %>'></asp:TextBox> 
+                                        <asp:TextBox ID="tbxLibDasFr" runat="server" Text='<%# Bind("Lib_DAS_Fr") %>'  Width ="180px"></asp:TextBox> 
                                     </EditItemTemplate> 
                                     <ItemTemplate> 
-                                        <asp:Label ID="lblLibDasFr" runat="server" Text='<%# Bind("Lib_DAS_Fr") %>'></asp:Label> 
+                                        <asp:Label ID="lblLibDasFr" runat="server" Text='<%# Bind("Lib_DAS_Fr") %>' Width ="180px"></asp:Label> 
                                     </ItemTemplate> 
                                 </asp:TemplateField> 
                             </Columns> 
@@ -673,57 +236,69 @@ dialog-form.select.text {
                             <FooterStyle BackColor="#edb93b" ForeColor="White" Font-Bold="True" /> 
                             <PagerStyle BackColor="#edb93b" ForeColor="White" HorizontalAlign="Center" /> 
                             <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" /> 
-                            <HeaderStyle BackColor="#edb93b" Font-Bold="True" ForeColor="white" CssClass ="header"/> 
+                            <HeaderStyle BackColor="#edb93b" Font-Bold="True" ForeColor="white" CssClass ="header"/>
+       <%--                 <HeaderStyle CssClass="fixedHeader" />--%>
                         <SortedAscendingCellStyle BackColor="#E9E7E2" />
                         <SortedAscendingHeaderStyle BackColor="#506C8C" />
                         <SortedDescendingCellStyle BackColor="#FFFDF8" />
                         <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
           </asp:GridView> 
+                      <%-- </asp:Panel>--%>
           </div> 
-             <asp:Button ID="btnAddDas" runat="server" Text="Créer" Cssclass="btnAdd"/>
-           <%--  <button ID="btnAddDas">Créer</button>--%>
-             <asp:Button ID="btnEditDas" runat="server" Text="Modifier" CssClass="btnEdit"/>
-             <asp:Button ID="btnDeacDas" runat="server" Text="Désactiver" CssClass="btnDeac"/>
+             <button ID="btnAddDas" class="btnAdd" type="button">Créer</button>
+             <button ID="btnEditDas" class="btnEdit" type="button">Modifier</button>
+             <button ID="btnDeacDas" class="btnDeac" type="button">Désactiver</button>
          </div>
          <div class="col">
              <a class="entete">Segment</a>
              <br />
-            <%-- <input type="text" id="searchSeg" placeholder="Recherche" onkeyup="filterSegment()" autocomplete ="on">
-             <input type="submit" value="OK" id="submitSeg">--%>
+             <div>
+                 <table id="tblHeaderSeg" class ="gvSegment" border="1">
+                     <tbody>
+                         <tr>
+                            <%-- <th style="text-align :center ;width:150px; color:white;background-color:#edb93b">ID Segment</th>--%>
+                             <%--<th style="text-align :center ;width:150px; color:white;background-color:#edb93b">ID DAS</th>--%>
+                             <th style="text-align :center ;width:140px; color:white;background-color:#edb93b">Code Segment</th>
+                             <th style="text-align :center ;width:270px; color:white;background-color:#edb93b">Désignation Segment</th>
+                         </tr>
+                     </tbody>
+                 </table>
+             </div>
              <div style="overflow-y:scroll; overflow-x:hidden; width:auto ; height:330px" >
+                 <%-- <asp:Panel ID="panel1" runat="server" Height="300px" Width="100%" ScrollBars="Vertical">--%>
              <asp:GridView ID="segment" runat="server" AutoGenerateColumns="False" CellPadding="4"  
-                        HeaderStyle-Font-Underline="false" HeaderStyle-Width ="390px" ItemStyle_Width="390px"
+                        HeaderStyle-Font-Underline="false"
                         onrowcancelingedit="segment_RowCancelingEdit"   Font-Names="Arial, Helvetica, sans-serif"
                         onrowdatabound="segment_RowDataBound" onrowdeleting="segment_RowDeleting"   
                         onrowediting="segment_RowEditing" onrowupdating="segment_RowUpdating"  
                         onsorting="segment_Sorting" ForeColor="#333333" GridLines="None"> 
-                        <RowStyle BackColor="White" ForeColor="#333333" /> 
+                        <RowStyle BackColor="White" ForeColor="#333333" Width ="150px" /> 
                             <%--<AlternatingRowStyle BackColor="White" ForeColor="#284775" />--%>
                             <Columns> 
                                 <asp:BoundField DataField="ID_Segment" HeaderText="ID Segment" ReadOnly="True"  
-                                    SortExpression="ID_Segment" visible="True" /> 
-                                <asp:TemplateField HeaderText="ID DAS" SortExpression="IdDAS" Visible ="True"> 
+                                    SortExpression="ID_Segment" visible="false" /> 
+                                <asp:TemplateField HeaderText="ID DAS" SortExpression="IdDAS" Visible ="false"> 
                                     <EditItemTemplate> 
-                                        <asp:TextBox ID="tbxIdDAS" runat="server"  Visible ="True" Text='<%# Bind("ID_DAS") %>'></asp:TextBox> 
+                                        <asp:TextBox ID="tbxIdDAS" runat="server"  Visible ="false" Text='<%# Bind("ID_DAS") %>'></asp:TextBox> 
                                     </EditItemTemplate> 
                                     <ItemTemplate> 
-                                        <asp:Label ID="lblIdDAS" runat="server"  Visible ="True" Text='<%# Bind("ID_DAS") %>'></asp:Label> 
+                                        <asp:Label ID="lblIdDAS" runat="server"  Visible ="false" Text='<%# Bind("ID_DAS") %>'></asp:Label> 
                                     </ItemTemplate> 
                                 </asp:TemplateField> 
                                 <asp:TemplateField HeaderText="Code Segment" SortExpression="CodSegment"> 
                                     <EditItemTemplate> 
-                                        <asp:TextBox ID="tbxCodSeg" runat="server" Text='<%# Bind("Cod_Segment") %>'></asp:TextBox> 
+                                        <asp:TextBox ID="tbxCodSeg" runat="server" Text='<%# Bind("Cod_Segment") %>' Width ="130px"></asp:TextBox> 
                                     </EditItemTemplate> 
                                     <ItemTemplate> 
-                                        <asp:Label ID="lblCodSeg" runat="server" Text='<%# Bind("Cod_Segment") %>' ></asp:Label> 
+                                        <asp:Label ID="lblCodSeg" runat="server" Text='<%# Bind("Cod_Segment") %>' Width ="130px"></asp:Label> 
                                     </ItemTemplate> 
                                 </asp:TemplateField> 
                                 <asp:TemplateField HeaderText="Désignation Segment" SortExpression="libSegFr"> 
                                     <EditItemTemplate> 
-                                        <asp:TextBox ID="tbxLibSegFr" runat="server" Text='<%# Bind("Lib_Segment_Fr") %>'></asp:TextBox> 
+                                        <asp:TextBox ID="tbxLibSegFr" runat="server" Text='<%# Bind("Lib_Segment_Fr") %>' Width ="250px"></asp:TextBox> 
                                     </EditItemTemplate> 
                                     <ItemTemplate> 
-                                        <asp:Label ID="lblLibSegFr" runat="server" Text='<%# Bind("Lib_Segment_Fr") %>'></asp:Label> 
+                                        <asp:Label ID="lblLibSegFr" runat="server" Text='<%# Bind("Lib_Segment_Fr") %>' Width ="250px"></asp:Label> 
                                     </ItemTemplate> 
                                 </asp:TemplateField> 
                             </Columns> 
@@ -731,25 +306,37 @@ dialog-form.select.text {
                             <FooterStyle BackColor="#edb93b" ForeColor="black" Font-Bold="True" /> 
                             <PagerStyle BackColor="#edb93b" ForeColor="White" HorizontalAlign="Center" /> 
                             <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" /> 
-                            <HeaderStyle BackColor="#edb93b" Font-Bold="True" ForeColor="white"/> 
+                            <HeaderStyle BackColor="#edb93b" Font-Bold="True" ForeColor="white" CssClass ="header"/> 
+                <%--  <HeaderStyle CssClass="fixedHeader" />--%>
                         <SortedAscendingCellStyle BackColor="#E9E7E2" />
                         <SortedAscendingHeaderStyle BackColor="#506C8C" />
                         <SortedDescendingCellStyle BackColor="#FFFDF8" />
                         <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
          </asp:GridView> 
+   <%--       </asp:Panel>--%>
          </div>
-         <asp:Button ID="btnAddSeg" runat="server" Text="Créer" Cssclass="btnAdd"/>
-         <asp:Button ID="btnEditSeg" runat="server" Text="Modifier" CssClass="btnEdit" />
-         <asp:Button ID="btnDeacSeg" runat="server" Text="Désactiver" CssClass="btnDeac"/>
+             <button ID="btnAddSeg" class="btnAdd" type="button">Créer</button>
+             <button ID="btnEditSeg" class="btnEdit" type="button">Modifier</button>
+             <button ID="btnDeacSeg" class="btnDeac" type="button">Désactiver</button>
          </div>
        <div class="col" style="width:600px">
              <a class="entete">Sous Segment</a>
-           <%--   <input type="text" id="searchSouSeg" placeholder="Recherche" onkeyup="filterSouSeg()" autocomplete ="on">
-                  <input type="submit" value="OK" id="submitSouSeg">--%>
              <br />
+           <div>
+                <table id="tblHeaderSubSeg" class ="gvSubSegment" border="1">
+                    <tbody>
+                        <tr>
+                           <%-- <th style="text-align :center ;width:150px; color:white;background-color:#edb93b">ID Sous Segment</th>
+                            <th style="text-align :center ;width:150px; color:white;background-color:#edb93b">ID Segment</th>--%>
+                            <th style="text-align :center ;width:160px; color:white;background-color:#edb93b">Code Sous Segment</th>
+                            <th style="text-align :center ;width:250px; color:white;background-color:#edb93b">Désignation Sous Segment</th>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
              <div style="overflow-y:scroll;width:auto ; height:330px" >
              <asp:GridView ID="subSegment" runat="server" AutoGenerateColumns="False" CellPadding="4"  
-                        HeaderStyle-Font-Underline="false"  HeaderStyle-Width ="390px" ItemStyle_Width="390px"
+                        HeaderStyle-Font-Underline="false"
                         onrowcancelingedit="subSegment_RowCancelingEdit"   Font-Names="Arial, Helvetica, sans-serif"
                         onrowdatabound="subSegment_RowDataBound" onrowdeleting="subSegment_RowDeleting"  
                         onrowediting="subSegment_RowEditing" onrowupdating="subSegment_RowUpdating"  
@@ -758,13 +345,13 @@ dialog-form.select.text {
                          <%--  <AlternatingRowStyle BackColor="White" ForeColor="#284775" />--%>
                             <Columns> 
                                 <asp:BoundField DataField="ID_Sub_Segment" HeaderText="ID Sous Segment" ReadOnly="True"  
-                                    SortExpression="ID_Sub_Segment" visible="True" /> 
-                                <asp:TemplateField HeaderText="ID Segment" SortExpression="IdSegment" Visible ="True"> 
+                                    SortExpression="ID_Sub_Segment" visible="false" /> 
+                                <asp:TemplateField HeaderText="ID Segment" SortExpression="IdSegment" Visible ="false"> 
                                     <EditItemTemplate> 
-                                        <asp:TextBox ID="tbxIdSeg" runat="server" Visible="true" Text='<%# Bind("ID_Segment") %>'></asp:TextBox> 
+                                        <asp:TextBox ID="tbxIdSeg" runat="server" Visible="false" Text='<%# Bind("ID_Segment") %>'></asp:TextBox> 
                                     </EditItemTemplate> 
                                     <ItemTemplate> 
-                                        <asp:Label ID="lblIdSeg" runat="server" Visible ="true" Text='<%# Bind("ID_Segment") %>'></asp:Label> 
+                                        <asp:Label ID="lblIdSeg" runat="server" Visible ="false" Text='<%# Bind("ID_Segment") %>'></asp:Label> 
                                     </ItemTemplate> 
                                 </asp:TemplateField> 
                                 <asp:TemplateField HeaderText="Code Sous Segment" SortExpression="CodSubSegment"> 
@@ -772,7 +359,7 @@ dialog-form.select.text {
                                         <asp:TextBox ID="tbxCodSubSeg" runat="server" Text='<%# Bind("Cod_Sub_Segment") %>' ></asp:TextBox> 
                                     </EditItemTemplate> 
                                     <ItemTemplate> 
-                                        <asp:Label ID="lblCodSubSeg" runat="server" Text='<%# Bind("Cod_Sub_Segment") %>'></asp:Label> 
+                                        <asp:Label ID="lblCodSubSeg" runat="server" Text='<%# Bind("Cod_Sub_Segment") %>' Width="160px"></asp:Label> 
                                     </ItemTemplate> 
                                 </asp:TemplateField> 
                                 <asp:TemplateField HeaderText="Désignation Sous Segment" SortExpression="libDasFr"> 
@@ -780,7 +367,7 @@ dialog-form.select.text {
                                         <asp:TextBox ID="tbxLibSouSegFr" runat="server" Text='<%# Bind("Lib_Sub_Segment_Fr") %>'></asp:TextBox> 
                                     </EditItemTemplate> 
                                     <ItemTemplate> 
-                                        <asp:Label ID="lblLibSouSegFr" runat="server" Text='<%# Bind("Lib_Sub_Segment_Fr") %>'></asp:Label> 
+                                        <asp:Label ID="lblLibSouSegFr" runat="server" Text='<%# Bind("Lib_Sub_Segment_Fr") %>' Width="200px"></asp:Label> 
                                     </ItemTemplate> 
                                 </asp:TemplateField> 
                             </Columns> 
@@ -788,22 +375,19 @@ dialog-form.select.text {
                             <FooterStyle BackColor="#edb93b" ForeColor="White" Font-Bold="True" /> 
                             <PagerStyle BackColor="#edb93b" ForeColor="White" HorizontalAlign="Center" /> 
                             <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" /> 
-                            <HeaderStyle BackColor="#edb93b" Font-Bold="True" ForeColor="white"/> 
+                            <HeaderStyle BackColor="#edb93b" Font-Bold="True" ForeColor="white"  CssClass="header"/> 
                         <SortedAscendingCellStyle BackColor="#E9E7E2" />
                         <SortedAscendingHeaderStyle BackColor="#506C8C" />
                         <SortedDescendingCellStyle BackColor="#FFFDF8" />
                         <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
           </asp:GridView>    
           </div>
-          <asp:Button ID="btnAddSouSeg" runat="server" Text="Créer" Cssclass="btnAdd"/>
-          <asp:Button ID="btnEditSouSeg" runat="server" Text="Modifier" CssClass="btnEdit" />
-          <asp:Button ID="btnDeacSouSeg" runat="server" Text="Désactiver" CssClass="btnDeac"/> 
+             <button ID="btnAddSouSeg" class="btnAdd" type="button">Créer</button>
+             <button ID="btnEditSouSeg" class="btnEdit" type="button">Modifier</button>
+             <button ID="btnDeacSouSeg" class="btnDeac" type="button">Désactiver</button>
          </div> 
      </div>
-</div>
-
-     <%--<asp:dropdownlist ID="ddlCodActi" runat="server" Font-Size="14px" CssClass="text ui-widget-content ui-corner-all"></asp:dropdownlist>--%>
-
+</div> 
 </form>
 
 <div id="dialog-form" title="Creation d'un nouveau DAS">
@@ -812,26 +396,45 @@ dialog-form.select.text {
 
       <label for="Code DAS">Code DAS</label>
 
-      <input type="text" name="Code Das" id="codDas" value="" class="text ui-widget-content ui-corner-all">
+      <input type="text" name="Code Das" id="codDas" value="" class="text ui-widget-content ui-corner-all"/>
 
       <label for="Code Activity">Code Activity</label>
 
-      <select name="ddlCodActi" id="ddlCodActi" class="text ui-widget-content ui-corner-all" style="font-size:14px;">
-
-        <option value="2">HC</option>
-
-        <option value="3">PE</option>
-
-        <option value="1">SC</option>
-
-      </select>
+      <input type="text" name="Code Activity" id="codActi" value="" class="text ui-widget-content ui-corner-all"/>
 
       <label for="libDas">Désignation DAS</label>
 
-      <input type="text" name="libDas" id="libDas" value="" class="text ui-widget-content ui-corner-all">
+      <input type="text" name="libDas" id="libDas" value="" class="text ui-widget-content ui-corner-all"/>
 
 </div>
 
+<div id="dialog-form-segment" title="Creation d'un nouveau Segment">
+
+  <p class="validateTips">Tous les champs sont requis.</p >
+
+      <label for="Code Segment">Code Segment</label>
+
+      <input type="text" name="Code Segment" id="codSegment" value="" class="text ui-widget-content ui-corner-all"/>
+
+      <label for="libSegment">Désignation Segment</label>
+
+      <input type="text" name="libDas" id="libSegment" value="" class="text ui-widget-content ui-corner-all"/>
+
+</div>
+
+<div id="dialog-form-subSegment" title="Creation d'un nouveau Sous Segment">
+
+  <p class="validateTips">Tous les champs sont requis.</p >
+
+      <label for="Code Sous Segment">Code Sous Segment</label>
+
+      <input type="text" name="Code Sous Segment" id="codSubSegment" value="" class="text ui-widget-content ui-corner-all"/>
+
+      <label for="libSubSegment">Désignation Sous Segment</label>
+
+      <input type="text" name="libDas" id="libSubSegment" value="" class="text ui-widget-content ui-corner-all"/>
+
+</div>
 <br/>
 <br/>
 <br/>
@@ -841,24 +444,37 @@ dialog-form.select.text {
 </div>
 </body>
 </html>
-<script type="text/javascript">
+
+<script>
     //la partie pour filtrer Segment selon la ligne de DAS Choisie
     $(function () {
         $("#das td").click(function () {
             $(this).closest("tr").css('background-color', '#eeeeee');
             filterSegment($(this).closest("tr"));
-           // $(this).closest("tr").css('background-color', 'white');;
+            EditDas($(this).closest("tr"));
         });
     });
 
+    function EditDas(row){            
+      $("#btnEditDas").click(function () {
+          var codDasForPop = $("td", row).eq(0).text();
+          var codActiForPop = $("td", row).eq(1).text();
+          var LibDasForPop = $("td", row).eq(2).text();
+          document.getElementById("codDas").value = codDasForPop.trim();
+          document.getElementById("codActi").value = codActiForPop.trim();
+          document.getElementById("libDas").value = LibDasForPop.trim();
+          dialog.dialog("open");
+      });
+    }
+
     function filterSegment(row) {
-        var idDas = $("td", row).eq(0).text();
-        idDas = parseInt(idDas);
+        var codDas = $("td", row).eq(0).text();
         $("#segment tr").each(function () {
-            var idDasInSegment = $(this).find("td").eq(1).text();     
-            if (idDasInSegment && idDasInSegment.length > 0) {
-                idDasInSegment = parseInt(idDasInSegment);
-                if (idDasInSegment == idDas) {
+            var codeDasInSegment,
+            codeDasInSegment = $(this).find("td").eq(0).text().trim();
+            if (codeDasInSegment != null) {
+                codeDasInSegment = codeDasInSegment.substring(0, 5);
+                if (codeDasInSegment == codDas.trim()) {
                     $(this).show();
                 } else {
                     $(this).hide();
@@ -867,177 +483,355 @@ dialog-form.select.text {
         });
     }
 
-    //la partie pour filtrer Sous Segment selon la ligne de Segment Choisie
-    $(function () {
-        $("#segment td").click(function () {
-            $("segment tr").css('background-color', "white");
+        //la partie pour filtrer Sous Segment selon la ligne de Segment Choisie
+        $(function () {
+            $("#segment td").click(function () {
+                $("segment tr").css('background-color', "white");
                 $(this).closest("tr").css('background-color', '#eeeeee');
                 filterSousSegment($(this).closest("tr"));
-                //$("#segment tr").css;
-            })
-    })
+                EditSegment($(this).closest("tr"));
+            });
+        });
 
-   function filterSousSegment(row) {
-        var idSegment = $("td", row).eq(0).text();
-        idSegment = parseInt(idSegment);
-        $("#subSegment tr").each(function () {
-            var idSegmentInSubSegment = $(this).find("td").eq(1).text();
-            if (idSegmentInSubSegment && idSegmentInSubSegment.length > 0) {
-                idSegmentInSubSegment = parseInt(idSegmentInSubSegment);
-                if (idSegmentInSubSegment == idSegment) {
+        function EditSegment(row) {
+            $("#btnEditSeg").click(function () {
+                var codSegmentForPop = $("td", row).eq(0).text();
+                var LibSegmentForPop = $("td", row).eq(1).text();
+                alert(codSegmentForPop.trim());
+                alert(LibSegmentForPop.trim());
+                document.getElementById("codSegment").value = codActiForPop.trim();
+                document.getElementById("libSegment").value = LibDasForPop.trim();
+                alert(document.getElementById("codSegment").value);
+                alert(document.getElementById("libSegment").value);
+                dialogSegment.dialog("open");
+            });
+        }
+
+        function filterSousSegment(row) {
+            var codeSegment = $("td", row).eq(0).text();
+            $("#subSegment tr").each(function () {
+                var codeSegmentInSubSegment = $(this).find("td").eq(0).text().trim();
+                if (codeSegmentInSubSegment != null) {
+                    codeSegmentInSubSegment = codeSegmentInSubSegment.substring(0, 7);
+                    if (codeSegmentInSubSegment == codeSegment.trim()) {
+                        $(this).show();
+                    }
+                    else {
+                        $(this).hide();
+                    }
+                }
+            });
+        }
+
+        $(function () {
+            $("#subSegment td").click(function () {
+                $("subSegment tr").css('background-color', "white");
+                $(this).closest("tr").css('background-color', '#eeeeee');
+            })
+        })
+
+        //search fonctionne
+        function filterAll() {
+            filterTable($('#segment tr'));
+            filterTable($('#das tr'));
+            filterTable($('#subSegment tr'));
+        }
+
+        function filterTable(allTr) {
+            var keyWord = $('#searchInput').val();
+            allTr.each(function () {
+                var designation = $(this).find("td").eq(3).text();
+                if (designation && designation.length > 0 && keyWord && keyWord.length > 0) {
+                    keyWord = keyWord.toLowerCase();
+                    designation = designation.toLowerCase();
+                    if (designation.indexOf(keyWord) < 0) {
+                        $(this).hide();
+                    } else {
+                        $(this).show();
+                    }
+                } else {
                     $(this).show();
                 }
-                else {
-                    $(this).hide();
+            });
+        }
+
+        //La partie de pop-up
+        var dialog = $("#dialog-form").dialog({
+
+            autoOpen: false,
+
+            height: 400,
+
+            width: 350,
+
+            modal: true,
+
+            buttons: {
+
+                "Créer un nouveau DAS": addDas,
+
+                Cancel: function () {
+
+                    dialog.dialog("close");
+
                 }
+
+            },
+
+            close: function () {
+
+                dialog.dialog("close");
+
             }
+
         });
-   }
 
-   $(function () {
-       $("#subSegment td").click(function () {
-           $("subSegment tr").css('background-color', "white");
-           $(this).closest("tr").css('background-color', '#eeeeee');
-       })
-   })
+        $("#btnAddDas").click(function () {
 
-   //search fonctionne
-   function filterAll() {
-       filterTable($('#segment tr'));
-       filterTable($('#das tr'));
-       filterTable($('#subSegment tr'));
-   }
+            dialog.dialog("open");
 
-   function filterTable(allTr) {
-       var keyWord = $('#searchInput').val();
-       allTr.each(function () {
-           var designation = $(this).find("td").eq(3).text();
-           if (designation && designation.length > 0 && keyWord && keyWord.length > 0) {
-               keyWord = keyWord.toLowerCase();
-               designation = designation.toLowerCase();
-               if (designation.indexOf(keyWord) < 0) {
-                   $(this).hide();
-               } else {
-                   $(this).show();
-               }
-           } else {
-               $(this).show();
-           }
-       });
-   }
+        });
 
+        function addDas() {
 
-   $(function () {
+            var codDasPopUp = document.getElementById("codDas").value;
 
-       var dialog = $("#dialog-form").dialog({
+            var codActiPopUp = document.getElementById("codActi").value;
 
-           autoOpen: false,
+            var libDasPopUp = document.getElementById("libDas").value;
 
-           height: 400,
+            addRowToDas($('#das tbody'), codDasPopUp, codActiPopUp, libDasPopUp);
 
-           width: 350,
+            $.ajax({
 
-           modal: true,
+                url: "api/AddData",
 
-           buttons: {
+                methode: "POST",
 
-               "Créer un nouveau DAS": addDas,
+                body: {
 
-               Cancel: function () {
+                    "codDas": codDasPopUp,
 
-                   dialog.dialog("close");
+                    "codActi": codActiPopUp,
 
-               }
+                    "libDas": libDasPopUp
 
-           },
+                },
 
-           close: function () {
+            }).done(function () {
 
-               dialog.dialog("close");
+                addRowToTable($('#das tbody'), codDasPopUp, codActiPopUp, libDasPopUp);
 
-               //allFields.removeClass("ui-state-error");
+            });
 
-           }
-
-       });
-
-       function addDas() {
-
-           dialog.dialog("close");
-
-       }
-
-       $("#btnAddDas").click(function () {
-
-           dialog.dialog("open");
-
-       });
-
-   });
-</script>
-
-<%--<script type = "text/jquery">
-
-function MouseEvents(objRef, evt)
-
-{
-
-   //var checkbox = objRef.getElementsByTagName("input")[0];
-
-   if (evt.type == "mouseover")
-
-   {
-
-        objRef.style.backgroundColor = "blue";
-
-   }
-
-   else
-
-   {
-
-        if (checkbox.checked)
-
-       {
-
-            objRef.style.backgroundColor = "aqua";
-
-       }
-
-        else if(evt.type == "mouseout")
-
-        {
-
-            if(objRef.rowIndex % 2 == 0)
-
-          {
-
-              //Alternating Row Color
-
-               objRef.style.backgroundColor = "#C2D69B";
-
-            }
-
-            else
-
-           {
-
-              objRef.style.backgroundColor = "white";
-
-            }
+            dialog.dialog("close");
 
         }
 
-   }
+        function addRowToDas(tableBody, code, codeActivity, designation) {
 
-}
+            tableBody.append('<tr onmouseover="MouseEvents(this, event)" onmouseout="MouseEvents(this, event)" style="color:#333333;background-color:White;">'
 
-</script>--%>
+                                        + '<td>'
 
-<%--<script>
-// When the user clicks on div, open the popup
-function myFunction() {
-    var popup = document.getElementById("myPopup");
-    popup.classList.toggle("show");
-}
-</script>--%>
+                                        + '<span id="das_lblCodDAS_2" style="display:inline-block;width:100px;">' + code + '</span>'
+
+                                        + '</td>'
+
+                                        + '<td>'
+
+                                        + '<span id="das_lblCodActi_2" style="display:inline-block;width:100px;">' + codeActivity + '</span>'
+
+                                        + '</td>'
+
+                                        + '<td>'
+
+                                        + '<span id="das_lblLibDasFr_2" style="display:inline-block;width:180px;">' + designation + '</span>'
+
+                                        + '</td>'
+
+                                        + '</tr>');
+
+        }
+
+        //segment popUp
+
+        var dialogSegment = $("#dialog-form-segment").dialog({
+
+            autoOpen: false,
+
+            height: 400,
+
+            width: 350,
+
+            modal: true,
+
+            buttons: {
+
+                "Créer un nouveau Segment": addSegment,
+
+                Cancel: function () {
+
+                    dialogSegment.dialog("close");
+
+                }
+
+            },
+
+            close: function () {
+
+                dialogSegment.dialog("close");
+
+            }
+
+        });
+
+
+        function addSegment() {
+
+            var codSegPopUp = document.getElementById("codSegment").value;
+
+            var libSegPopUp = document.getElementById("libSegment").value;
+
+            addRowToTable($('#segment tbody'), codSegPopUp, libSegPopUp);
+
+            /*
+            
+                       $.ajax({
+            
+                           url: "api/AddData",
+            
+                           methode: "POST",
+            
+                           body: {
+            
+                               "codDas": codDasPopUp,
+            
+                               "codActi": codActiPopUp,
+            
+                               "libDas": libDasPopUp
+            
+                           },
+            
+            
+            
+                           }).done(function() { 
+            
+                               addRowToTable($('#das tbody'), codDasPopUp, codActiPopUp, libDasPopUp);
+            
+                       });     
+            
+            */
+
+            dialog.dialog("close");
+
+        }
+        function addRowToTable(tableBody, code, designation) {
+
+            tableBody.append('<tr onmouseover="MouseEvents(this, event)" onmouseout="MouseEvents(this, event)" style="color:#333333;background-color:White;">'
+
+                                        + '<td>'
+
+                                        + '<span id="das_lblCodDAS_2" style="display:inline-block;width:100px;">' + code + '</span>'
+
+                                        + '</td>'
+
+                                        + '<td>'
+
+                                        + '<span id="das_lblLibDasFr_2" style="display:inline-block;width:180px;">' + designation + '</span>'
+
+                                        + '</td>'
+
+                                        + '</tr>');
+
+        }
+
+        $("#btnAddSeg").click(function () {
+
+            dialogSegment.dialog("open");
+
+        });
+
+
+        //Sous Segment popUp
+
+        var dialogSubSegment = $("#dialog-form-subSegment").dialog({
+
+            autoOpen: false,
+
+            height: 400,
+
+            width: 350,
+
+            modal: true,
+
+            buttons: {
+
+                "Créer un nouveau SubSegment": addSubSegment,
+
+                Cancel: function () {
+
+                    dialogSubSegment.dialog("close");
+
+                }
+
+            },
+
+            close: function () {
+
+                dialogSubSegment.dialog("close");
+
+            }
+
+        });
+
+        $("#btnAddSouSeg").click(function () {
+
+            dialogSubSegment.dialog("open");
+
+        });
+
+        function addSubSegment() {
+
+            var codSubSegPopUp = document.getElementById("codSubSegment").value;
+
+            //var codDasPopUp = document.getElementById("codActi").value;
+
+            var libSubSegPopUp = document.getElementById("libSubSegment").value;
+
+            addRowToTable($('#subSegment tbody'), codSubSegPopUp, libSubSegPopUp);
+
+            /*
+            
+                       $.ajax({
+            
+                           url: "api/AddData",
+            
+                           methode: "POST",
+            
+                           body: {
+            
+                               "codDas": codDasPopUp,
+            
+                               "codActi": codActiPopUp,
+            
+                               "libDas": libDasPopUp
+            
+                           },
+            
+            
+            
+                           }).done(function() { 
+            
+                               addRowToTable($('#das tbody'), codDasPopUp, codActiPopUp, libDasPopUp);
+            
+                       });     
+            
+            */
+
+            dialog.dialog("close");
+
+        }
+
+</script>
+

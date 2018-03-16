@@ -186,6 +186,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Css\fDas.css" />
+    <Content Include="gestionArticleRefInternational.aspx" />
+    <Content Include="Js\fDas.js" />
     <Content Include="WebForm2.aspx" />
     <None Include="garde\searchaspx" />
     <Content Include="2.aspx" />
@@ -308,6 +311,8 @@
     <Compile Include="2.aspx.designer.cs">
       <DependentUpon>2.aspx</DependentUpon>
     </Compile>
+    <Compile Include="AddData.cs" />
+    <Compile Include="CreatedResult.cs" />
     <Compile Include="garde\1.aspx.cs">
       <DependentUpon>searchaspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -536,6 +541,13 @@
     <Compile Include="Gestion.aspx.designer.cs">
       <DependentUpon>Gestion.aspx</DependentUpon>
     </Compile>
+    <Compile Include="gestionArticleRefInternational.aspx.cs">
+      <DependentUpon>gestionArticleRefInternational.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="gestionArticleRefInternational.aspx.designer.cs">
+      <DependentUpon>gestionArticleRefInternational.aspx</DependentUpon>
+    </Compile>
     <Compile Include="gestionArticles.aspx.cs">
       <DependentUpon>gestionArticles.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -623,6 +635,8 @@
     <Compile Include="gestionDonnees.aspx.designer.cs">
       <DependentUpon>gestionDonnees.aspx</DependentUpon>
     </Compile>
+    <Compile Include="HttpPostAttribute.cs" />
+    <Compile Include="IActionResult.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">

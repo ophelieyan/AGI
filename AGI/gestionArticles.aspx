@@ -300,7 +300,7 @@
           <a href="#">Infos langues</a>
           <a href="#">Infos logsitiques</a> 
           <a href="#">Infos reglémentaires</a>
-          <a href="#">Libellé et référencement international</a>          
+          <a href="gestionArticleRefInternational">Libellé et référencement international</a>          
           <a href="#">Nomenclature</a>
           <a href="#">Remplacement</a>
           <a href="#">Substitution</a>
@@ -499,7 +499,7 @@
         <asp:TreeNode Text="Info langues" Value="Info langues"></asp:TreeNode>
         <asp:TreeNode Text="Info logistiques" Value="Info logistiques"></asp:TreeNode>
         <asp:TreeNode Text="Info reglémentaires" Value="Info reglémentaires"></asp:TreeNode>
-        <asp:TreeNode Text="Libellé et référencement international" Value="Libellé et référencement international"></asp:TreeNode>
+        <asp:TreeNode Text="Libellé et référencement international" Value="Libellé et référencement international" NavigateUrl="gestionArticleRefInternational"></asp:TreeNode>
         <asp:TreeNode Text="Nomenclature" Value="Nomenclature"></asp:TreeNode>
         <asp:TreeNode Text="Remplacement" Value="Remplacement"></asp:TreeNode>
         <asp:TreeNode Text="Substition" Value="Substition"></asp:TreeNode>

@@ -1,6 +1,7 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="gestionFourArtic.aspx.cs" Inherits="AGI.gestionFourArtic" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="gestionArticleRefInternational.aspx.cs" Inherits="AGI.gestionArticleRefInternational" %>
 
 <!DOCTYPE html>
+
 <style>
 #topMenu{
     width:100%;
@@ -159,7 +160,6 @@
 .form-wrapper #submit::-moz-focus-inner {
     border: 0;
 }
-
 #leftMenu ul {
     list-style-type: none;
     margin: 0;
@@ -175,8 +175,6 @@
     border-bottom: 1px solid #dedede;
     position:relative;
 }
-
-
 
 #leftMenu li:last-child {
     border-bottom: none;
@@ -239,13 +237,22 @@
                     font-size: 18px;
                 }
         }
+.mainContent {
+    position: absolute;
+    height: auto;
+    width: 100%;
+    top: 100px;
+    left: 310px;
+    margin-right: 150px;
+    font-family:Arial, Helvetica, sans-serif;
+}
 
 .row {
-    background-color: lightblue;
+    background-color :lightblue;
     position: absolute;
     height: auto;
     width: 80%;
-    top: 115px;
+    top: 100px;
     left: 310px;
     margin-right: 10px;
     font-family:Arial, Helvetica, sans-serif;
@@ -268,23 +275,12 @@
     border-radius:6px;
 }
 
-.mainContent {
-    background-color: lightblue;
-    position: absolute;
-    height: auto;
-    width: 100%;
-    top: 115px;
-    left: 310px;
-    margin-right: 150px;
-    font-family:Arial, Helvetica, sans-serif;
-}
-
 .mainContent .lblInfo {
     margin-left:320px;
     float:left;
 }
 .mainContent .txtboxInfo {
-   margin-right:620px;
+    margin-right:620px;
     width:350px;
     float:right;
     border-radius:3px;
@@ -299,13 +295,13 @@
 
 #TreeViewSideMenu{
     top:80px;
-    height:500px;
+    height:550px;
     bottom:100px;
 }
 
 .footer {
     position:fixed;
-    left:0px;
+    left:4px;
     bottom:0px;
     width:100%;
     background-color:#eeeeee;
@@ -322,13 +318,12 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <title>Info générales des clients</title>
+    <title>Info générales d'Articles</title>
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
    <!-- <webopt:bundlereference runat="server" path="~/Content/css" />-->
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-
 </head>
 
 <body>
@@ -368,7 +363,7 @@
         <a href="gestionFournisseurs" class="dropbtn">Gestion des Fournisseurs</a>
         <div class="submenu">
           <a href ="#">flux codification fournisseurs</a>
-          <a href="gestionFournisseursInfo">Infos générales</a>
+          <a href="gestionFournisseurInfo">Infos générales</a>
           <a href="gestionFourInfoMetier">Infos métiers</a>
           <a href="gestionFourArtic">Fournisseur/Article</a>
         </div>
@@ -393,7 +388,6 @@
           <a href="#">Flux Life Cycle</a>
           <a href="#">Flux Logistique</a>
           <a href="#">Flux IMS</a>
-          <a href="#">Flux ISO639 Language ISO3166 Country</a>
           <a href="#">Flux OF</a>
           <a href="#">Flux Ortems</a>
           <a href="#">Flux Partner</a>
@@ -417,56 +411,130 @@
       </li>
 </ul>
 </div>
-<form runat ="server" >
-<asp:TreeView ID="TreeViewSideMenu" runat="server" BackColor ="#0f4396" Width ="295px" BorderStyle ="Solid" border-radius="10px"
-              BorderColor ="#dedede" BorderWidth ="1px" ForeColor ="#555" style="margin-top:0px;font-family:Arial, Helvetica, sans-serif" >
-    <HoverNodeStyle ForeColor="#555"  BackColor ="#edb93b"/>
-    <Nodes>
-        <asp:TreeNode Text="Flux codification Fournisseur" Value="Flux codification Fournisseur"></asp:TreeNode>
-        <asp:TreeNode Text="Infos générales" Value="Infos générales" NavigateUrl ="gestionFournisseursInfo"></asp:TreeNode>
-        <asp:TreeNode Text="Infos métiers" Value="Infos métiers" NavigateUrl ="gestionFourInfoMetier"></asp:TreeNode>
-        <asp:TreeNode Text="Fournieurs/Article" Value="Fournieurs/Article" NavigateUrl ="gestionFourArtic"></asp:TreeNode>
-    </Nodes> 
-     <NodeStyle Font-Size="16px" ForeColor="white" HorizontalPadding="5px" NodeSpacing="0px" VerticalPadding="0px"  />
-     <ParentNodeStyle Font-Bold="False" />
-     <SelectedNodeStyle Font-Underline="True" ForeColor="#555" HorizontalPadding="0px" VerticalPadding="0px" />
-</asp:TreeView>
-    <div class ="row">
-        <div class="col">
-            <br/>
-            <asp:Label ID="lblReffour" runat="server" Text="Référence Fournisseur" class="lblInfo"></asp:Label>
-            <br/>
-            <asp:TextBox ID="tbxReffour" runat="server" class="tbxInfo">Référence Fournisseur</asp:TextBox>
-            <br/>
-            <br/>
-            <asp:Label ID="lblLibFour" runat="server" Text="Libellé Fournisseur" class="lblInfo"></asp:Label>
-            <br/>
-            <asp:TextBox ID="tbxLibFour" runat="server" class="tbxInfo">Libellé Fournisseur</asp:TextBox>
-            <br/>
-            <br/>
-            <asp:Label ID="lblCodMinos" runat="server" Text="Code MINOS" class="lblInfo"></asp:Label>
-            <br/>
-            <asp:TextBox ID="tbxCodMinos" runat="server" class="tbxInfo">Code MINOS</asp:TextBox>
-            <br/>
-            <br/>
-            <asp:Table ID="tblFourArtic" runat="server" Height="145px" Width="639px"  BorderColor="#edb93b" BorderWidth="2" ForeColor="Snow" CellPadding="5" CellSpacing="5">
-                <asp:TableHeaderRow  runat="server" ForeColor="Snow" Font-Bold="true">
-                    <asp:TableHeaderCell>ID Article</asp:TableHeaderCell>
-                    <asp:TableHeaderCell>Code Alès</asp:TableHeaderCell>
-                    <asp:TableHeaderCell>Lebellé Article</asp:TableHeaderCell>
-                    <asp:TableHeaderCell>Statut Article</asp:TableHeaderCell>
-                </asp:TableHeaderRow>
-            </asp:Table>
-            <br/>
-            <br/>
-            <br/>         
-        </div>
+<div>
+    <form runat ="server" >
+    <asp:TreeView ID="TreeViewSideMenu" runat="server" BackColor ="#0f4396" Width ="295px" BorderStyle ="Solid"
+                  BorderColor ="#dedede" BorderWidth ="1px" ForeColor ="#555" style="margin-top:0px;font-family:Arial, Helvetica, sans-serif" >
+        <HoverNodeStyle ForeColor="#555"  BackColor ="#edb93b"/>
+        <Nodes>
+            <asp:TreeNode Text="Flux codification articles" Value="Flux codification articles"></asp:TreeNode>
+            <asp:TreeNode Text="Gammes" Value="Gammes"></asp:TreeNode>
+            <asp:TreeNode Text="Hierarchie" Value="Hierarchie"></asp:TreeNode>
+            <asp:TreeNode Text="Info achats" Value="Info achats"></asp:TreeNode>
+            <asp:TreeNode Text="Info dimensionnelles" Value="Info dimensionnelles"></asp:TreeNode>
+            <asp:TreeNode Text="Info générales" Value="Info générales"></asp:TreeNode>
+            <asp:TreeNode Text="Info langues" Value="Info langues"></asp:TreeNode>
+            <asp:TreeNode Text="Info logistiques" Value="Info logistiques"></asp:TreeNode>
+            <asp:TreeNode Text="Info reglémentaires" Value="Info reglémentaires"></asp:TreeNode>
+            <asp:TreeNode Text="Libellé et référencement international" Value="Libellé et référencement international" NavigateUrl="gestionArticleRefInternational"></asp:TreeNode>
+            <asp:TreeNode Text="Nomenclature" Value="Nomenclature"></asp:TreeNode>
+            <asp:TreeNode Text="Remplacement" Value="Remplacement"></asp:TreeNode>
+            <asp:TreeNode Text="Substition" Value="Substition"></asp:TreeNode>
+        </Nodes> 
+         <NodeStyle Font-Size="16px" ForeColor="white" HorizontalPadding="5px" NodeSpacing="0px" VerticalPadding="0px"  />
+         <ParentNodeStyle Font-Bold="False" />
+         <SelectedNodeStyle Font-Underline="True" ForeColor="#555" HorizontalPadding="0px" VerticalPadding="0px" />
+    </asp:TreeView>
+    <!--<div class ="mainContent"> -->
+            <div class ="row">
+                <div class="col">     
+                    <asp:Label ID="lblRefArt" runat="server" Text="Référence Article" Class="lblInfo"></asp:Label>
+                    <br />
+                    <asp:TextBox ID="tbxRefArt" runat="server" Class="tbxInfo">référence article</asp:TextBox>
+                    <br />
+                    <br />
+                    <asp:Label ID="lblGencod" runat="server" Text="Gencode" Class="lblInfo"></asp:Label>
+                    <br />
+                    <asp:TextBox ID="tbxGencod" runat="server" Class="tbxInfo">gencode</asp:TextBox>
+                    <br />
+                    <br />
+                    <asp:Label ID="lblCodAles" runat="server" Text="Code Alès" Class="lblInfo"></asp:Label>
+                    <br/>
+                    <asp:TextBox ID="tbxcodeAles" runat="server" Class="tbxInfo">code</asp:TextBox>
+                    <br/>
+                    <br />
+                    <asp:Label ID="Label1" runat="server" Text="Statut" Class="lblInfo"></asp:Label>
+                    <br />
+                    <asp:TextBox ID="TextBox1" runat="server" Class="tbxInfo">statut</asp:TextBox>
+                    <br />
+                    <br />
+                    <asp:Label ID="lblDateDebut" runat="server" Text="Date début Commercialisation" Class="lblInfo"></asp:Label>
+                    <asp:Calendar ID="cldDateDebut" runat="server"></asp:Calendar>
+                    <br />
+                 </div>
+                <div class="col">
+                    <asp:Label ID="lblVA" runat="server" Text="VA" Class="lblInfo"></asp:Label>
+                    <br />
+                    <asp:TextBox ID="tbxVa" runat="server" Class="tbxInfo">va</asp:TextBox>
+                    <br />
+                    <br />
+                    <asp:Label ID="lblVL" runat="server" Text="VL" Class="lblInfo"></asp:Label>     
+                    <br />
+                    <asp:TextBox ID="tbxVl" runat="server" Class="tbxInfo">vl</asp:TextBox>
+                    <br />
+                    <br />
+                    <asp:Label ID="lblLibArtFr" runat="server" Text="Libellé Article Français" Class="lblInfo"></asp:Label>
+                    <br />
+                    <asp:TextBox ID="tbxLibArtFr" runat="server" Class="tbxInfo">lib FR</asp:TextBox>
+                    <br />
+                    <br />
+                    <asp:Label ID="lblLibVari" runat="server" Text="Libellé Variante" Class="lblInfo"></asp:Label>
+                    <br />
+                    <asp:TextBox ID="tbxLibVari" runat="server" Class="tbxInfo">lib Variante</asp:TextBox>
+                    <br />
+                    <br />
+                    <asp:Label ID="lblDateFin" runat="server" Text="Date fin Commercialisation" Class="lblInfo"></asp:Label>
+                    <asp:Calendar ID="cldDateFin" runat="server"></asp:Calendar>
+                    <br />
+                </div>
+                <div class="col">
+                    <asp:Label ID="lblPays" runat="server" Text="Pays" Class="lblInfo"></asp:Label>
+                    <br />
+                    <asp:DropDownList ID="ddlPays" runat="server" Class="ddlInfo"></asp:DropDownList>
+                    <br />
+                    <br />
+                    <br />
+                    <asp:Label ID="lblArtiPays" runat="server" Text="Libellé Article Pays" Class="lblInfo">
+                    </asp:Label>
+                    <br />
+                    <asp:TextBox ID="tbxArtiPays" runat="server" Class="tbxInfo">Libellé Article Pays</asp:TextBox>
+                    <br />
+                    <br />
+                    <br />
+                    <asp:Label ID="lblLangPays" runat="server" Text="LanguePays" Class="lblInfo"></asp:Label>
+                    <br />
+                    <asp:TextBox ID="tbxLangPays" runat="server" Class="tbxInfo">Langue Pays</asp:TextBox>
+                    <br />
+                    <br />
+                    <br />
+                    <asp:Label ID="lblDeviPays" runat="server" Text="Devise Pays" Class="lblInfo"></asp:Label>
+                    <br />
+                    <asp:TextBox ID="tbxDeviPays" runat="server" Class="tbxInfo">Devise Pays</asp:TextBox>
+                    <br />
+                    <br />
+                    <br />
+                    <asp:Label ID="lblTVA" runat="server" Text="TVA" Class="lblInfo"></asp:Label>
+                    <br />
+                    <asp:TextBox ID="TxbTVA" runat="server" Class="tbxInfo">TVA</asp:TextBox>
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+               </div>
+       <!-- </div>-->
     </div>
-</form>
+    </form>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+</div>
 <div class="footer">
      <p>&copy; <%: DateTime.Now.Year %> - Alès Groupe</p>
 </div>
 </body>
+
 </html>
-
-

@@ -240,7 +240,7 @@
           <a href="#">Infos langues</a>
           <a href="#">Infos logsitiques</a> 
           <a href="#">Infos reglémentaires</a>
-          <a href="#">Libellé et référencement international</a>          
+          <a href="gestionArticleRefInternational">Libellé et référencement international</a>          
           <a href="#">Nomenclature</a>
           <a href="#">Remplacement</a>
           <a href="#">Substitution</a>

@@ -97,7 +97,7 @@
 
 .form-wrapper #search {
     width: 200px;
-    height: 15px;
+    height: 30px;
     padding: 5px 5px;
     float: left;    
     font: 14px Arial, Helvetica, sans-serif;
@@ -348,7 +348,7 @@
           <a href="#">Infos langues</a>
           <a href="#">Infos logsitiques</a> 
           <a href="#">Infos reglémentaires</a>
-          <a href="#">Libellé et référencement international</a>          
+          <a href="gestionArticleRefInternational">Libellé et référencement international</a>          
           <a href="#">Nomenclature</a>
           <a href="#">Remplacement</a>
           <a href="#">Substitution</a>
