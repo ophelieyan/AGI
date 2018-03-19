@@ -247,7 +247,7 @@
           </div> 
              <button ID="btnAddDas" class="btnAdd" type="button">Créer</button>
              <button ID="btnEditDas" class="btnEdit" type="button">Modifier</button>
-             <button ID="btnDeacDas" class="btnDeac" type="button">Désactiver</button>
+             <button ID="btnDisableDas" class="btnDeac" type="button">Désactiver</button>
          </div>
          <div class="col">
              <a class="entete">Segment</a>
@@ -317,7 +317,7 @@
          </div>
              <button ID="btnAddSeg" class="btnAdd" type="button">Créer</button>
              <button ID="btnEditSeg" class="btnEdit" type="button">Modifier</button>
-             <button ID="btnDeacSeg" class="btnDeac" type="button">Désactiver</button>
+             <button ID="btnDisableSeg" class="btnDeac" type="button">Désactiver</button>
          </div>
        <div class="col" style="width:600px">
              <a class="entete">Sous Segment</a>
@@ -382,9 +382,9 @@
                         <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
           </asp:GridView>    
           </div>
-             <button ID="btnAddSouSeg" class="btnAdd" type="button">Créer</button>
-             <button ID="btnEditSouSeg" class="btnEdit" type="button">Modifier</button>
-             <button ID="btnDeacSouSeg" class="btnDeac" type="button">Désactiver</button>
+             <button ID="btnAddSubSeg" class="btnAdd" type="button">Créer</button>
+             <button ID="btnEditSubSeg" class="btnEdit" type="button">Modifier</button>
+             <button ID="btnDisableSubSeg" class="btnDeac" type="button">Désactiver</button>
          </div> 
      </div>
 </div> 
@@ -395,44 +395,120 @@
   <p class="validateTips">Tous les champs sont requis.</p >
 
       <label for="Code DAS">Code DAS</label>
-
+      <br />
       <input type="text" name="Code Das" id="codDas" value="" class="text ui-widget-content ui-corner-all"/>
-
+      <br />
       <label for="Code Activity">Code Activity</label>
-
+      <br />
+      <label for="CodActi Info"> (Les deux premiers lettre de code DAS)</label>
+      <br />
       <input type="text" name="Code Activity" id="codActi" value="" class="text ui-widget-content ui-corner-all"/>
-
+      <br />
       <label for="libDas">Désignation DAS</label>
-
+      <br />
       <input type="text" name="libDas" id="libDas" value="" class="text ui-widget-content ui-corner-all"/>
+      <br /> 
+      <label for="libDas">Désignation DAS En Anglais</label>
+      <br />
+      <input type="text" name="libDas" id="libDasEn" value="" class="text ui-widget-content ui-corner-all"/>
+
+</div>
+
+<div id="edit-das" title="Modifier d'un DAS">
+
+  <p class="validateTips">Tous les champs sont requis.</p >
+
+      <label for="Code DAS">Code DAS</label>
+       <br />
+      <input type="text" name="Code Das" id="codDasEdit" value="" class="text ui-widget-content ui-corner-all"/>
+      <br />
+      <label for="Code Activity">Code Activity</label>
+      <br />
+      <input type="text" name="Code Activity" id="codActiEdit" value="" class="text ui-widget-content ui-corner-all"/>
+      <br />
+      <label for="libDas">Désignation DAS</label>
+      <br />
+      <input type="text" name="libDas" id="libDasEdit" value="" class="text ui-widget-content ui-corner-all"/>
 
 </div>
 
 <div id="dialog-form-segment" title="Creation d'un nouveau Segment">
 
   <p class="validateTips">Tous les champs sont requis.</p >
+    <label for="DAS">DAS</label>  
+    <br />
+    <select id="libDasForPopup" name="DAS" style ="font-family :Arial, Helvetica, sans-serif">
+        <script type="text/javascript">
+       
+                $("#das tr").each(function () {
+                    das = $(this).find("td").eq(2).text().trim();
+                    $("#libDasForPopup").append('<option>' + das + '</option>');     
+                });
+       
+        </script>
+      </select>
+      <br />
+      <label for="Code Segment">Code Segment</label>
+      <br />
+      <input type="text" name="Code Segment" id="codSegment" value="" class="text ui-widget-content ui-corner-all"/>
+      <br />
+      <label for="libSegment">Désignation Segment</label>
+      <br />
+      <input type="text" name="libDas" id="libSegment" value="" class="text ui-widget-content ui-corner-all"/>  
+      <br />
+</div>
+
+<div id="edit-segment" title="Modifier d'un Segment">
+
+  <p class="validateTips">Tous les champs sont requis.</p >
 
       <label for="Code Segment">Code Segment</label>
-
-      <input type="text" name="Code Segment" id="codSegment" value="" class="text ui-widget-content ui-corner-all"/>
-
+      <br />
+      <input type="text" name="Code Segment" id="codSegEdit" value="" class="text ui-widget-content ui-corner-all"/>
+      <br />
       <label for="libSegment">Désignation Segment</label>
-
-      <input type="text" name="libDas" id="libSegment" value="" class="text ui-widget-content ui-corner-all"/>
-
+      <br />
+      <input type="text" name="libDas" id="libSegEdit" value="" class="text ui-widget-content ui-corner-all"/>
+      <br />
 </div>
 
 <div id="dialog-form-subSegment" title="Creation d'un nouveau Sous Segment">
 
   <p class="validateTips">Tous les champs sont requis.</p >
+      <label for="Segment">Segment</label>
+      <br />
+      <select id="libSegmentForPopup" name="Segment" style ="font-family :Arial, Helvetica, sans-serif">
+        <script type="text/javascript">
+ 
+                $("#segment tr").each(function () {
+                    segment = $(this).find("td").eq(1).text().trim();
+                    $("#libSegmentForPopup").append('<option>' + segment + '</option>');     
+                });
+            
+        </script>
+      </select>
 
       <label for="Code Sous Segment">Code Sous Segment</label>
-
+      <br />
       <input type="text" name="Code Sous Segment" id="codSubSegment" value="" class="text ui-widget-content ui-corner-all"/>
-
+      <br />
       <label for="libSubSegment">Désignation Sous Segment</label>
-
+      <br />
       <input type="text" name="libDas" id="libSubSegment" value="" class="text ui-widget-content ui-corner-all"/>
+      <br />
+</div>
+
+<div id="edit-subSeg" title="Modification d'un Sous Segment">
+
+  <p class="validateTips">Tous les champs sont requis.</p >
+
+      <label for="Code Sous Segment">Code Sous Segment</label>
+      <br />
+      <input type="text" name="Code Sous Segment" id="codSubSegEdit" value="" class="text ui-widget-content ui-corner-all"/>
+      <br />
+      <label for="libSubSegment">Désignation Sous Segment</label>
+      <br />
+      <input type="text" name="libDas" id="libSubSegEdit" value="" class="text ui-widget-content ui-corner-all"/>
 
 </div>
 <br/>
@@ -452,6 +528,7 @@
             $(this).closest("tr").css('background-color', '#eeeeee');
             filterSegment($(this).closest("tr"));
             EditDas($(this).closest("tr"));
+            DisableDas($(this).closest("tr"));
         });
     });
 
@@ -460,13 +537,17 @@
           var codDasForPop = $("td", row).eq(0).text();
           var codActiForPop = $("td", row).eq(1).text();
           var LibDasForPop = $("td", row).eq(2).text();
-          document.getElementById("codDas").value = codDasForPop.trim();
-          document.getElementById("codActi").value = codActiForPop.trim();
-          document.getElementById("libDas").value = LibDasForPop.trim();
-          dialog.dialog("open");
+          document.getElementById("codDasEdit").value = codDasForPop.trim();
+          document.getElementById("codActiEdit").value = codActiForPop.trim();
+          document.getElementById("libDasEdit").value = LibDasForPop.trim();
+          dialogEditDas.dialog("open");
       });
     }
 
+    function DisableDas(row) {
+        $("#btnDisableDas").click(function () {
+        });
+    }
     function filterSegment(row) {
         var codDas = $("td", row).eq(0).text();
         $("#segment tr").each(function () {
@@ -496,14 +577,10 @@
         function EditSegment(row) {
             $("#btnEditSeg").click(function () {
                 var codSegmentForPop = $("td", row).eq(0).text();
-                var LibSegmentForPop = $("td", row).eq(1).text();
-                alert(codSegmentForPop.trim());
-                alert(LibSegmentForPop.trim());
-                document.getElementById("codSegment").value = codActiForPop.trim();
-                document.getElementById("libSegment").value = LibDasForPop.trim();
-                alert(document.getElementById("codSegment").value);
-                alert(document.getElementById("libSegment").value);
-                dialogSegment.dialog("open");
+                var libSegmentForPop = $("td", row).eq(1).text();
+                document.getElementById("codSegEdit").value = codSegmentForPop.trim();
+                document.getElementById("libSegEdit").value = libSegmentForPop.trim();
+                dialogEditSeg.dialog("open");
             });
         }
 
@@ -527,6 +604,7 @@
             $("#subSegment td").click(function () {
                 $("subSegment tr").css('background-color', "white");
                 $(this).closest("tr").css('background-color', '#eeeeee');
+                EditSubSegment($(this).closest("tr"));
             })
         })
 
@@ -560,7 +638,7 @@
 
             autoOpen: false,
 
-            height: 400,
+            height: 450,
 
             width: 350,
 
@@ -593,18 +671,18 @@
         });
 
         function addDas() {
-
+      
             var codDasPopUp = document.getElementById("codDas").value;
 
             var codActiPopUp = document.getElementById("codActi").value;
 
             var libDasPopUp = document.getElementById("libDas").value;
 
-            addRowToDas($('#das tbody'), codDasPopUp, codActiPopUp, libDasPopUp);
+            //addRowToDas($('#das tbody'), codDasPopUp, codActiPopUp, libDasPopUp);
 
             $.ajax({
 
-                url: "api/AddData",
+                url: "api/DasDataController?",
 
                 methode: "POST",
 
@@ -654,9 +732,8 @@
 
         }
 
-        //segment popUp
-
-        var dialogSegment = $("#dialog-form-segment").dialog({
+        //La partie de Modification de DAS
+        var dialogEditDas = $("#edit-das").dialog({
 
             autoOpen: false,
 
@@ -668,170 +745,319 @@
 
             buttons: {
 
-                "Créer un nouveau Segment": addSegment,
+                "Valider la modification": editDas,
 
                 Cancel: function () {
+
+                    dialogEditDas.dialog("close");
+
+                }
+
+            },
+
+            close: function () {
+
+                dialogEditDas.dialog("close");
+
+            }
+
+        });
+
+        $("#btnEditDas").click(function () {
+
+            dialogEditDas.dialog("open");
+
+        });
+
+        function editDas(){
+            var codDasModif = document.getElementById("codDasEdit").value;
+
+            var codActiModif = document.getElementById("codActiEdit").value;
+
+            var libDasModif = document.getElementById("libDasEdit").value;
+
+
+        }
+
+            //segment popUp
+
+            var dialogSegment = $("#dialog-form-segment").dialog({
+
+                autoOpen: false,
+
+                height: 400,
+
+                width: 350,
+
+                modal: true,
+
+                buttons: {
+
+                    "Créer un nouveau Segment": addSegment,
+
+                    Cancel: function () {
+
+                        dialogSegment.dialog("close");
+
+                    }
+
+                },
+
+                close: function () {
 
                     dialogSegment.dialog("close");
 
                 }
 
-            },
+            });
 
-            close: function () {
 
-                dialogSegment.dialog("close");
+            function addSegment() {
+
+                var dasPopUp = document.getElementById("libDasForPopup").value;
+                //var das = $('#libDasForPopup option:selected').text();
+                var codSegPopUp = document.getElementById("codSegment").value;
+
+                var libSegPopUp = document.getElementById("libSegment").value;
+
+                addRowToTable($('#segment tbody'), codSegPopUp, libSegPopUp);
+
+                /*
+                
+                           $.ajax({
+                
+                               url: "api/AddData",
+                
+                               methode: "POST",
+                
+                               body: {
+                
+                                   "codDas": codDasPopUp,
+                
+                                   "codActi": codActiPopUp,
+                
+                                   "libDas": libDasPopUp
+                
+                               },
+                
+                
+                
+                               }).done(function() { 
+                
+                                   addRowToTable($('#das tbody'), codDasPopUp, codActiPopUp, libDasPopUp);
+                
+                           });     
+                
+                */
+
+                dialog.dialog("close");
+
+            }
+            function addRowToTable(tableBody, code, designation) {
+
+                tableBody.append('<tr onmouseover="MouseEvents(this, event)" onmouseout="MouseEvents(this, event)" style="color:#333333;background-color:White;">'
+
+                                            + '<td>'
+
+                                            + '<span id="das_lblCodDAS_2" style="display:inline-block;width:100px;">' + code + '</span>'
+
+                                            + '</td>'
+
+                                            + '<td>'
+
+                                            + '<span id="das_lblLibDasFr_2" style="display:inline-block;width:180px;">' + designation + '</span>'
+
+                                            + '</td>'
+
+                                            + '</tr>');
 
             }
 
-        });
+            $("#btnAddSeg").click(function () {
+
+                dialogSegment.dialog("open");
+
+            });
+
+            //La partie de Modification de Segment
+            var dialogEditSeg = $("#edit-segment").dialog({
+
+                autoOpen: false,
+
+                height: 400,
+
+                width: 350,
+
+                modal: true,
+
+                buttons: {
+
+                    "Valider la modification": editSegment,
+
+                    Cancel: function () {
+
+                        dialogEditSeg.dialog("close");
+
+                    }
+
+                },
+
+                close: function () {
+
+                    dialogEdit.dialog("close");
+
+                }
+
+            });
+
+            $("#btnEditSeg").click(function () {
+
+                dialogEditSeg.dialog("open");
+
+            });
+
+            function editSegment() {
+
+                var codSegModif = document.getElementById("codSegEdit").value;
+
+                var libSegModif = document.getElementById("libSegEdit").value;
 
 
-        function addSegment() {
+            }
 
-            var codSegPopUp = document.getElementById("codSegment").value;
+            //Sous Segment popUp
 
-            var libSegPopUp = document.getElementById("libSegment").value;
+            var dialogSubSegment = $("#dialog-form-subSegment").dialog({
 
-            addRowToTable($('#segment tbody'), codSegPopUp, libSegPopUp);
+                autoOpen: false,
 
-            /*
-            
-                       $.ajax({
-            
-                           url: "api/AddData",
-            
-                           methode: "POST",
-            
-                           body: {
-            
-                               "codDas": codDasPopUp,
-            
-                               "codActi": codActiPopUp,
-            
-                               "libDas": libDasPopUp
-            
-                           },
-            
-            
-            
-                           }).done(function() { 
-            
-                               addRowToTable($('#das tbody'), codDasPopUp, codActiPopUp, libDasPopUp);
-            
-                       });     
-            
-            */
+                height: 400,
 
-            dialog.dialog("close");
+                width: 350,
 
-        }
-        function addRowToTable(tableBody, code, designation) {
+                modal: true,
 
-            tableBody.append('<tr onmouseover="MouseEvents(this, event)" onmouseout="MouseEvents(this, event)" style="color:#333333;background-color:White;">'
+                buttons: {
 
-                                        + '<td>'
+                    "Créer un nouveau SubSegment": addSubSegment,
 
-                                        + '<span id="das_lblCodDAS_2" style="display:inline-block;width:100px;">' + code + '</span>'
+                    Cancel: function () {
 
-                                        + '</td>'
+                        dialogSubSegment.dialog("close");
 
-                                        + '<td>'
+                    }
 
-                                        + '<span id="das_lblLibDasFr_2" style="display:inline-block;width:180px;">' + designation + '</span>'
+                },
 
-                                        + '</td>'
-
-                                        + '</tr>');
-
-        }
-
-        $("#btnAddSeg").click(function () {
-
-            dialogSegment.dialog("open");
-
-        });
-
-
-        //Sous Segment popUp
-
-        var dialogSubSegment = $("#dialog-form-subSegment").dialog({
-
-            autoOpen: false,
-
-            height: 400,
-
-            width: 350,
-
-            modal: true,
-
-            buttons: {
-
-                "Créer un nouveau SubSegment": addSubSegment,
-
-                Cancel: function () {
+                close: function () {
 
                     dialogSubSegment.dialog("close");
 
                 }
 
-            },
+            });
 
-            close: function () {
+            $("#btnAddSubSeg").click(function () {
 
-                dialogSubSegment.dialog("close");
+                dialogSubSegment.dialog("open");
+
+            });
+
+            function addSubSegment() {
+
+                var segmentPopUp = document.getElementById("libSegmentForPopup").value;
+
+                var codSubSegPopUp = document.getElementById("codSubSegment").value;
+
+                var libSubSegPopUp = document.getElementById("libSubSegment").value;
+
+                addRowToTable($('#subSegment tbody'), codSubSegPopUp, libSubSegPopUp);
+
+                /*
+                
+                           $.ajax({
+                
+                               url: "api/AddData",
+                
+                               methode: "POST",
+                
+                               body: {
+                
+                                   "codDas": codDasPopUp,
+                
+                                   "codActi": codActiPopUp,
+                
+                                   "libDas": libDasPopUp
+                
+                               },
+                
+                
+                
+                               }).done(function() { 
+                
+                                   addRowToTable($('#das tbody'), codDasPopUp, codActiPopUp, libDasPopUp);
+                
+                           });     
+                
+                */
+
+                dialog.dialog("close");
 
             }
 
-        });
+          //modification Sous Segment
+            function EditSubSegment(row) {
+                $("#btnEditSubSeg").click(function () {
+                    var codSubSegForPop = $("td", row).eq(0).text();
+                    var libSubSegForPop = $("td", row).eq(1).text();
+                    document.getElementById("codSubSegEdit").value = codSubSegForPop.trim();
+                    document.getElementById("libSubSegEdit").value = libSubSegForPop.trim();
+                    dialogEditSubSeg.dialog("open");
+                });
+            }
+            
+            var dialogEditSubSeg = $("#edit-subSeg").dialog({
 
-        $("#btnAddSouSeg").click(function () {
+                autoOpen: false,
 
-            dialogSubSegment.dialog("open");
+                height: 400,
 
-        });
+                width: 350,
 
-        function addSubSegment() {
+                modal: true,
 
-            var codSubSegPopUp = document.getElementById("codSubSegment").value;
+                buttons: {
 
-            //var codDasPopUp = document.getElementById("codActi").value;
+                    "Valider la modification": editSubSeg,
 
-            var libSubSegPopUp = document.getElementById("libSubSegment").value;
+                    Cancel: function () {
 
-            addRowToTable($('#subSegment tbody'), codSubSegPopUp, libSubSegPopUp);
+                        dialogEditSubSeg.dialog("close");
 
-            /*
-            
-                       $.ajax({
-            
-                           url: "api/AddData",
-            
-                           methode: "POST",
-            
-                           body: {
-            
-                               "codDas": codDasPopUp,
-            
-                               "codActi": codActiPopUp,
-            
-                               "libDas": libDasPopUp
-            
-                           },
-            
-            
-            
-                           }).done(function() { 
-            
-                               addRowToTable($('#das tbody'), codDasPopUp, codActiPopUp, libDasPopUp);
-            
-                       });     
-            
-            */
+                    }
 
-            dialog.dialog("close");
+                },
 
-        }
+                close: function () {
 
+                    dialogEditSubSeg.dialog("close");
+
+                }
+
+            });
+
+            $("#btnEditSubSeg").click(function () {
+
+                dialogEditSubSeg.dialog("open");
+
+            });
+
+            function editSubSeg() {
+
+                var codSubSegModif = document.getElementById("codSubSegEdit").value;
+
+                var libSubSegModif = document.getElementById("libSubSegEdit").value;
+
+            }
 </script>
 
