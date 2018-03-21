@@ -190,7 +190,7 @@
              <div style="overflow-y:scroll; width:auto ; height:330px" >
                  <%--<asp:Panel ID="panelContainer" runat="server" Height="300px" Width="100%" ScrollBars="Vertical">--%>
                    
-             <asp:GridView ID="das" runat="server" AutoGenerateColumns="False" CellPadding="4"  
+             <asp:GridView ID="das" runat="server" AutoGenerateColumns="False" CellPadding="4" ShowHeader="false" 
                         HeaderStyle-Font-Underline="false" OnSelectedIndexChanged="das_SelectedIndexChanged"
                         onrowcancelingedit="das_RowCancelingEdit" Font-Names="Arial, Helvetica, sans-serif"
                         onrowdatabound="das_RowDataBound" onrowdeleting="das_RowDeleting"   
@@ -199,34 +199,34 @@
                         <RowStyle BackColor="White"  ForeColor="#333333" /> 
                             <%--<AlternatingRowStyle BackColor="White" ForeColor="#284775" />--%>
                             <Columns> 
-                               <asp:TemplateField  HeaderText="ID DAS     " SortExpression="IdDAS" Visible="false" > 
-                                    <EditItemTemplate> 
+                               <asp:TemplateField   Visible="false" > 
+           <%--                         <EditItemTemplate> 
                                         <asp:TextBox ID="tbxIdDAS" runat="server" Text='<%# Bind("ID_DAS") %>' Visible="false" ></asp:TextBox> 
-                                    </EditItemTemplate> 
+                                    </EditItemTemplate> --%>
                                     <ItemTemplate> 
                                         <asp:Label ID="lblIdDAS" runat="server" Text='<%# Bind("ID_DAS") %>' Visible="false"></asp:Label> 
                                     </ItemTemplate> 
                                 </asp:TemplateField> 
-                                <asp:TemplateField  HeaderText="Cod DAS     " SortExpression="CodDAS"> 
-                                    <EditItemTemplate> 
+                                <asp:TemplateField > 
+                 <%--                   <EditItemTemplate> 
                                         <asp:TextBox ID="tbxCodDAS" runat="server"  Text='<%# Bind("Cod_DAS") %>'  Width ="100px"></asp:TextBox> 
-                                    </EditItemTemplate> 
+                                    </EditItemTemplate> --%>
                                     <ItemTemplate> 
                                         <asp:Label ID="lblCodDAS" runat="server"  Text='<%# Bind("Cod_DAS") %>' Width ="100px"></asp:Label> 
                                     </ItemTemplate> 
                                 </asp:TemplateField> 
-                                <asp:TemplateField HeaderText="Cod Activity     " SortExpression="CodActivity"> 
-                                    <EditItemTemplate> 
+                                <asp:TemplateField > 
+                           <%--         <EditItemTemplate> 
                                         <asp:TextBox ID="tbxCodActi" runat="server" Text='<%# Bind("Cod_Activity") %>'  Width ="100px"></asp:TextBox> 
-                                    </EditItemTemplate> 
+                                    </EditItemTemplate> --%>
                                     <ItemTemplate> 
                                         <asp:Label ID="lblCodActi" runat="server" Text='<%# Bind("Cod_Activity") %>' Width ="100px"></asp:Label> 
                                     </ItemTemplate> 
                                 </asp:TemplateField> 
-                                <asp:TemplateField HeaderText="Désignation DAS" SortExpression="libDasFr"> 
-                                    <EditItemTemplate> 
+                                <asp:TemplateField > 
+                               <%--     <EditItemTemplate> 
                                         <asp:TextBox ID="tbxLibDasFr" runat="server" Text='<%# Bind("Lib_DAS_Fr") %>'  Width ="180px"></asp:TextBox> 
-                                    </EditItemTemplate> 
+                                    </EditItemTemplate> --%>
                                     <ItemTemplate> 
                                         <asp:Label ID="lblLibDasFr" runat="server" Text='<%# Bind("Lib_DAS_Fr") %>' Width ="180px"></asp:Label> 
                                     </ItemTemplate> 
@@ -236,7 +236,7 @@
                             <FooterStyle BackColor="#edb93b" ForeColor="White" Font-Bold="True" /> 
                             <PagerStyle BackColor="#edb93b" ForeColor="White" HorizontalAlign="Center" /> 
                             <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" /> 
-                            <HeaderStyle BackColor="#edb93b" Font-Bold="True" ForeColor="white" CssClass ="header"/>
+                        <%--    <HeaderStyle BackColor="#edb93b" Font-Bold="True" ForeColor="white" CssClass ="header" />--%>
        <%--                 <HeaderStyle CssClass="fixedHeader" />--%>
                         <SortedAscendingCellStyle BackColor="#E9E7E2" />
                         <SortedAscendingHeaderStyle BackColor="#506C8C" />
@@ -267,7 +267,7 @@
              <div style="overflow-y:scroll; overflow-x:hidden; width:auto ; height:330px" >
                  <%-- <asp:Panel ID="panel1" runat="server" Height="300px" Width="100%" ScrollBars="Vertical">--%>
              <asp:GridView ID="segment" runat="server" AutoGenerateColumns="False" CellPadding="4"  
-                        HeaderStyle-Font-Underline="false"
+                        HeaderStyle-Font-Underline="false" ShowHeader="false" 
                         onrowcancelingedit="segment_RowCancelingEdit"   Font-Names="Arial, Helvetica, sans-serif"
                         onrowdatabound="segment_RowDataBound" onrowdeleting="segment_RowDeleting"   
                         onrowediting="segment_RowEditing" onrowupdating="segment_RowUpdating"  
@@ -275,9 +275,9 @@
                         <RowStyle BackColor="White" ForeColor="#333333" Width ="150px" /> 
                             <%--<AlternatingRowStyle BackColor="White" ForeColor="#284775" />--%>
                             <Columns> 
-                                <asp:BoundField DataField="ID_Segment" HeaderText="ID Segment" ReadOnly="True"  
+                                <asp:BoundField DataField="ID_Segment"  ReadOnly="True"  
                                     SortExpression="ID_Segment" visible="false" /> 
-                                <asp:TemplateField HeaderText="ID DAS" SortExpression="IdDAS" Visible ="false"> 
+                                <asp:TemplateField Visible ="false"> 
                                     <EditItemTemplate> 
                                         <asp:TextBox ID="tbxIdDAS" runat="server"  Visible ="false" Text='<%# Bind("ID_DAS") %>'></asp:TextBox> 
                                     </EditItemTemplate> 
@@ -285,7 +285,7 @@
                                         <asp:Label ID="lblIdDAS" runat="server"  Visible ="false" Text='<%# Bind("ID_DAS") %>'></asp:Label> 
                                     </ItemTemplate> 
                                 </asp:TemplateField> 
-                                <asp:TemplateField HeaderText="Code Segment" SortExpression="CodSegment"> 
+                                <asp:TemplateField > 
                                     <EditItemTemplate> 
                                         <asp:TextBox ID="tbxCodSeg" runat="server" Text='<%# Bind("Cod_Segment") %>' Width ="130px"></asp:TextBox> 
                                     </EditItemTemplate> 
@@ -293,7 +293,7 @@
                                         <asp:Label ID="lblCodSeg" runat="server" Text='<%# Bind("Cod_Segment") %>' Width ="130px"></asp:Label> 
                                     </ItemTemplate> 
                                 </asp:TemplateField> 
-                                <asp:TemplateField HeaderText="Désignation Segment" SortExpression="libSegFr"> 
+                                <asp:TemplateField > 
                                     <EditItemTemplate> 
                                         <asp:TextBox ID="tbxLibSegFr" runat="server" Text='<%# Bind("Lib_Segment_Fr") %>' Width ="250px"></asp:TextBox> 
                                     </EditItemTemplate> 
@@ -306,7 +306,7 @@
                             <FooterStyle BackColor="#edb93b" ForeColor="black" Font-Bold="True" /> 
                             <PagerStyle BackColor="#edb93b" ForeColor="White" HorizontalAlign="Center" /> 
                             <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" /> 
-                            <HeaderStyle BackColor="#edb93b" Font-Bold="True" ForeColor="white" CssClass ="header"/> 
+                            <%--<HeaderStyle BackColor="#edb93b" Font-Bold="True" ForeColor="white" CssClass ="header"/> --%>
                 <%--  <HeaderStyle CssClass="fixedHeader" />--%>
                         <SortedAscendingCellStyle BackColor="#E9E7E2" />
                         <SortedAscendingHeaderStyle BackColor="#506C8C" />
@@ -336,7 +336,7 @@
             </div>
              <div style="overflow-y:scroll;width:auto ; height:330px" >
              <asp:GridView ID="subSegment" runat="server" AutoGenerateColumns="False" CellPadding="4"  
-                        HeaderStyle-Font-Underline="false"
+                        HeaderStyle-Font-Underline="false" ShowHeader="false" 
                         onrowcancelingedit="subSegment_RowCancelingEdit"   Font-Names="Arial, Helvetica, sans-serif"
                         onrowdatabound="subSegment_RowDataBound" onrowdeleting="subSegment_RowDeleting"  
                         onrowediting="subSegment_RowEditing" onrowupdating="subSegment_RowUpdating"  
@@ -344,9 +344,9 @@
                         <RowStyle BackColor="White" ForeColor="#333333" /> 
                          <%--  <AlternatingRowStyle BackColor="White" ForeColor="#284775" />--%>
                             <Columns> 
-                                <asp:BoundField DataField="ID_Sub_Segment" HeaderText="ID Sous Segment" ReadOnly="True"  
+                                <asp:BoundField DataField="ID_Sub_Segment" ReadOnly="True"  
                                     SortExpression="ID_Sub_Segment" visible="false" /> 
-                                <asp:TemplateField HeaderText="ID Segment" SortExpression="IdSegment" Visible ="false"> 
+                                <asp:TemplateField  Visible ="false"> 
                                     <EditItemTemplate> 
                                         <asp:TextBox ID="tbxIdSeg" runat="server" Visible="false" Text='<%# Bind("ID_Segment") %>'></asp:TextBox> 
                                     </EditItemTemplate> 
@@ -354,7 +354,7 @@
                                         <asp:Label ID="lblIdSeg" runat="server" Visible ="false" Text='<%# Bind("ID_Segment") %>'></asp:Label> 
                                     </ItemTemplate> 
                                 </asp:TemplateField> 
-                                <asp:TemplateField HeaderText="Code Sous Segment" SortExpression="CodSubSegment"> 
+                                <asp:TemplateField > 
                                     <EditItemTemplate> 
                                         <asp:TextBox ID="tbxCodSubSeg" runat="server" Text='<%# Bind("Cod_Sub_Segment") %>' ></asp:TextBox> 
                                     </EditItemTemplate> 
@@ -362,7 +362,7 @@
                                         <asp:Label ID="lblCodSubSeg" runat="server" Text='<%# Bind("Cod_Sub_Segment") %>' Width="160px"></asp:Label> 
                                     </ItemTemplate> 
                                 </asp:TemplateField> 
-                                <asp:TemplateField HeaderText="Désignation Sous Segment" SortExpression="libDasFr"> 
+                                <asp:TemplateField > 
                                     <EditItemTemplate> 
                                         <asp:TextBox ID="tbxLibSouSegFr" runat="server" Text='<%# Bind("Lib_Sub_Segment_Fr") %>'></asp:TextBox> 
                                     </EditItemTemplate> 
@@ -375,7 +375,7 @@
                             <FooterStyle BackColor="#edb93b" ForeColor="White" Font-Bold="True" /> 
                             <PagerStyle BackColor="#edb93b" ForeColor="White" HorizontalAlign="Center" /> 
                             <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" /> 
-                            <HeaderStyle BackColor="#edb93b" Font-Bold="True" ForeColor="white"  CssClass="header"/> 
+                           <%-- <HeaderStyle BackColor="#edb93b" Font-Bold="True" ForeColor="white"  CssClass="header"/> --%>
                         <SortedAscendingCellStyle BackColor="#E9E7E2" />
                         <SortedAscendingHeaderStyle BackColor="#506C8C" />
                         <SortedDescendingCellStyle BackColor="#FFFDF8" />
@@ -388,7 +388,7 @@
          </div> 
      </div>
 </div> 
-</form>
+
 
 <div id="dialog-form" title="Creation d'un nouveau DAS">
 
@@ -400,7 +400,7 @@
       <br />
       <label for="Code Activity">Code Activity</label>
       <br />
-      <label for="CodActi Info"> (Les deux premiers lettre de code DAS)</label>
+      <label for="CodActi Info"> (Les deux premiers lettres de code DAS)</label>
       <br />
       <input type="text" name="Code Activity" id="codActi" value="" class="text ui-widget-content ui-corner-all"/>
       <br />
@@ -408,10 +408,11 @@
       <br />
       <input type="text" name="libDas" id="libDas" value="" class="text ui-widget-content ui-corner-all"/>
       <br /> 
-      <label for="libDas">Désignation DAS En Anglais</label>
+      <label for="libDasEn">Désignation DAS En Anglais</label>
       <br />
-      <input type="text" name="libDas" id="libDasEn" value="" class="text ui-widget-content ui-corner-all"/>
-
+      <input type="text" name="libDasEn" id="libDasEn" value="" class="text ui-widget-content ui-corner-all"/>
+     <%-- <asp:Button ID="Button1" runat="server" Text="Valider la création" />
+      <asp:Button ID="Button2" runat="server" Text="Annuler" />--%>
 </div>
 
 <div id="edit-das" title="Modifier d'un DAS">
@@ -419,7 +420,7 @@
   <p class="validateTips">Tous les champs sont requis.</p >
 
       <label for="Code DAS">Code DAS</label>
-       <br />
+      <br />
       <input type="text" name="Code Das" id="codDasEdit" value="" class="text ui-widget-content ui-corner-all"/>
       <br />
       <label for="Code Activity">Code Activity</label>
@@ -429,7 +430,7 @@
       <label for="libDas">Désignation DAS</label>
       <br />
       <input type="text" name="libDas" id="libDasEdit" value="" class="text ui-widget-content ui-corner-all"/>
-
+   <%--  <input type="hidden" name="idDas" id="idOfSelectedDas" value="" class="text ui-widget-content ui-corner-all"/>--%>
 </div>
 
 <div id="dialog-form-segment" title="Creation d'un nouveau Segment">
@@ -438,8 +439,9 @@
     <label for="DAS">DAS</label>  
     <br />
     <select id="libDasForPopup" name="DAS" style ="font-family :Arial, Helvetica, sans-serif">
+        <option></option>
         <script type="text/javascript">
-       
+              
                 $("#das tr").each(function () {
                     das = $(this).find("td").eq(2).text().trim();
                     $("#libDasForPopup").append('<option>' + das + '</option>');     
@@ -456,6 +458,7 @@
       <br />
       <input type="text" name="libDas" id="libSegment" value="" class="text ui-widget-content ui-corner-all"/>  
       <br />
+        
 </div>
 
 <div id="edit-segment" title="Modifier d'un Segment">
@@ -470,6 +473,8 @@
       <br />
       <input type="text" name="libDas" id="libSegEdit" value="" class="text ui-widget-content ui-corner-all"/>
       <br />
+      <input type="hidden" name="idSegment" id="idOfSelectedSegment" value="" class="text ui-widget-content ui-corner-all"/>
+
 </div>
 
 <div id="dialog-form-subSegment" title="Creation d'un nouveau Sous Segment">
@@ -478,8 +483,9 @@
       <label for="Segment">Segment</label>
       <br />
       <select id="libSegmentForPopup" name="Segment" style ="font-family :Arial, Helvetica, sans-serif">
-        <script type="text/javascript">
- 
+          <option></option>
+          <script type="text/javascript">
+
                 $("#segment tr").each(function () {
                     segment = $(this).find("td").eq(1).text().trim();
                     $("#libSegmentForPopup").append('<option>' + segment + '</option>');     
@@ -511,6 +517,7 @@
       <input type="text" name="libDas" id="libSubSegEdit" value="" class="text ui-widget-content ui-corner-all"/>
 
 </div>
+    </form>
 <br/>
 <br/>
 <br/>
@@ -519,27 +526,32 @@
     <p>&copy; <%: DateTime.Now.Year %> - Alès Groupe</p>
 </div>
 </body>
+
 </html>
 
 <script>
     //la partie pour filtrer Segment selon la ligne de DAS Choisie
     $(function () {
         $("#das td").click(function () {
+            $("#das tr").css('background-color', '#ffffff');
             $(this).closest("tr").css('background-color', '#eeeeee');
             filterSegment($(this).closest("tr"));
+
             EditDas($(this).closest("tr"));
-            DisableDas($(this).closest("tr"));
+            $(this).closest("tr").attr("id", "selectedRowId");
         });
     });
 
     function EditDas(row){            
-      $("#btnEditDas").click(function () {
+        $("#btnEditDas").click(function () {
+
           var codDasForPop = $("td", row).eq(0).text();
           var codActiForPop = $("td", row).eq(1).text();
           var LibDasForPop = $("td", row).eq(2).text();
           document.getElementById("codDasEdit").value = codDasForPop.trim();
           document.getElementById("codActiEdit").value = codActiForPop.trim();
           document.getElementById("libDasEdit").value = LibDasForPop.trim();
+
           dialogEditDas.dialog("open");
       });
     }
@@ -548,6 +560,7 @@
         $("#btnDisableDas").click(function () {
         });
     }
+
     function filterSegment(row) {
         var codDas = $("td", row).eq(0).text();
         $("#segment tr").each(function () {
@@ -567,10 +580,11 @@
         //la partie pour filtrer Sous Segment selon la ligne de Segment Choisie
         $(function () {
             $("#segment td").click(function () {
-                $("segment tr").css('background-color', "white");
+                $("#segment tr").css('background-color', '#ffffff');
                 $(this).closest("tr").css('background-color', '#eeeeee');
                 filterSousSegment($(this).closest("tr"));
                 EditSegment($(this).closest("tr"));
+                $(this).closest("tr").attr("id", "selectedRowId");
             });
         });
 
@@ -602,23 +616,42 @@
 
         $(function () {
             $("#subSegment td").click(function () {
-                $("subSegment tr").css('background-color', "white");
+                $("#subSegment tr").css('background-color', '#ffffff');
                 $(this).closest("tr").css('background-color', '#eeeeee');
                 EditSubSegment($(this).closest("tr"));
+                $(this).closest("tr").attr("id", "selectedRowId");
             })
         })
 
         //search fonctionne
         function filterAll() {
+            filterDasTable($('#das tr'));
             filterTable($('#segment tr'));
-            filterTable($('#das tr'));
             filterTable($('#subSegment tr'));
+        }
+
+        function filterDasTable(allTr) {
+            var keyWord = $('#searchInput').val();
+            allTr.each(function () {
+                var designation = $(this).find("td").eq(2).text();
+                if (designation && designation.length > 0 && keyWord && keyWord.length > 0) {
+                    keyWord = keyWord.toLowerCase();
+                    designation = designation.toLowerCase();
+                    if (designation.indexOf(keyWord) < 0) {
+                        $(this).hide();
+                    } else {
+                        $(this).show();
+                    }
+                } else {
+                    $(this).show();
+                }
+            });
         }
 
         function filterTable(allTr) {
             var keyWord = $('#searchInput').val();
             allTr.each(function () {
-                var designation = $(this).find("td").eq(3).text();
+                var designation = $(this).find("td").eq(1).text();
                 if (designation && designation.length > 0 && keyWord && keyWord.length > 0) {
                     keyWord = keyWord.toLowerCase();
                     designation = designation.toLowerCase();
@@ -677,24 +710,23 @@
             var codActiPopUp = document.getElementById("codActi").value;
 
             var libDasPopUp = document.getElementById("libDas").value;
-
-            //addRowToDas($('#das tbody'), codDasPopUp, codActiPopUp, libDasPopUp);
-
+ 
+            var libDasEnPopUp = document.getElementById("libDasEn").value;
+          
             $.ajax({
 
                 url: "api/DasDataController?",
 
                 methode: "POST",
 
-                body: {
+                data: "param=codDas:"+codDasPopUp+",codActi:"+codActiPopUp+",libDas:"+libDasPopUp ,
 
-                    "codDas": codDasPopUp,
-
-                    "codActi": codActiPopUp,
-
-                    "libDas": libDasPopUp
-
-                },
+                    //success: function (data, text) {
+                    //    //...
+                    //},
+                    //error: function (request, status, error) {
+                    //    alert(request.responseText);
+                    //}
 
             }).done(function () {
 
@@ -724,7 +756,7 @@
 
                                         + '<td>'
 
-                                        + '<span id="das_lblLibDasFr_2" style="display:inline-block;width:180px;">' + designation + '</span>'
+                                        + '<span id="das_lblLibDasFr_2" style="display:inline-block;width:100px;">' + designation + '</span>'
 
                                         + '</td>'
 
@@ -745,7 +777,7 @@
 
             buttons: {
 
-                "Valider la modification": editDas,
+                "Valider la modification": insertDas,
 
                 Cancel: function () {
 
@@ -769,14 +801,25 @@
 
         });
 
-        function editDas(){
+        function insertDas() {
+
             var codDasModif = document.getElementById("codDasEdit").value;
 
             var codActiModif = document.getElementById("codActiEdit").value;
 
             var libDasModif = document.getElementById("libDasEdit").value;
 
+            var row = $("#selectedRowId");
 
+            $("td", row).eq(0).html(codDasModif);
+
+            $("td", row).eq(1).html(codActiModif);
+
+            $("td", row).eq(2).html(libDasModif);
+
+            row.attr("id", "");
+
+            dialogEditDas.dialog("close");
         }
 
             //segment popUp
@@ -822,37 +865,25 @@
 
                 addRowToTable($('#segment tbody'), codSegPopUp, libSegPopUp);
 
-                /*
-                
-                           $.ajax({
-                
-                               url: "api/AddData",
-                
-                               methode: "POST",
-                
-                               body: {
-                
-                                   "codDas": codDasPopUp,
-                
-                                   "codActi": codActiPopUp,
-                
-                                   "libDas": libDasPopUp
-                
-                               },
-                
-                
-                
-                               }).done(function() { 
-                
-                                   addRowToTable($('#das tbody'), codDasPopUp, codActiPopUp, libDasPopUp);
-                
-                           });     
-                
-                */
+          
+                $.ajax({
+
+                    url: "api/SegmentDataController?",
+
+                    methode: "POST",
+
+                    data: "param=libDas:" + dasPopUp + ",codSegment:" + codSegPopUp + ",libSegment:" + libSegPopUp,
+
+                }).done(function () {
+
+                    addRowToTable($('#segment tbody'), codSegPopUp, libSegPopUp);
+
+                });
 
                 dialog.dialog("close");
 
             }
+
             function addRowToTable(tableBody, code, designation) {
 
                 tableBody.append('<tr onmouseover="MouseEvents(this, event)" onmouseout="MouseEvents(this, event)" style="color:#333333;background-color:White;">'
@@ -865,7 +896,7 @@
 
                                             + '<td>'
 
-                                            + '<span id="das_lblLibDasFr_2" style="display:inline-block;width:180px;">' + designation + '</span>'
+                                            + '<span id="das_lblLibDasFr_2" style="display:inline-block;width:100px;">' + designation + '</span>'
 
                                             + '</td>'
 
@@ -892,7 +923,7 @@
 
                 buttons: {
 
-                    "Valider la modification": editSegment,
+                    "Valider la modification": insertSegment,
 
                     Cancel: function () {
 
@@ -916,13 +947,21 @@
 
             });
 
-            function editSegment() {
+            function insertSegment() {
 
                 var codSegModif = document.getElementById("codSegEdit").value;
 
                 var libSegModif = document.getElementById("libSegEdit").value;
 
+                var row = $("#selectedRowId");
 
+                $("td", row).eq(0).html(codSegModif);
+
+                $("td", row).eq(1).html(libSegModif);
+
+                row.attr("id", "");
+
+                dialogEditSeg.dialog("close");
             }
 
             //Sous Segment popUp
@@ -965,7 +1004,7 @@
 
             function addSubSegment() {
 
-                var segmentPopUp = document.getElementById("libSegmentForPopup").value;
+                var codSubSegPopUp = document.getElementById("libSegmentForPopup").value;
 
                 var codSubSegPopUp = document.getElementById("codSubSegment").value;
 
@@ -973,38 +1012,24 @@
 
                 addRowToTable($('#subSegment tbody'), codSubSegPopUp, libSubSegPopUp);
 
-                /*
-                
-                           $.ajax({
-                
-                               url: "api/AddData",
-                
-                               methode: "POST",
-                
-                               body: {
-                
-                                   "codDas": codDasPopUp,
-                
-                                   "codActi": codActiPopUp,
-                
-                                   "libDas": libDasPopUp
-                
-                               },
-                
-                
-                
-                               }).done(function() { 
-                
-                                   addRowToTable($('#das tbody'), codDasPopUp, codActiPopUp, libDasPopUp);
-                
-                           });     
-                
-                */
+
+                $.ajax({
+
+                    url: "api/subSegmentDataController?",
+
+                    methode: "POST",
+
+                    data: "param=libSegment:" + codSubSegPopUp + ",codSubSeg:" + codSubSegPopUp + ",libSubSeg:" + libSubSegPopUp,
+
+                }).done(function () {
+
+                    addRowToTable($('#subSegment tbody'), codSubSegPopUp, libSubSegPopUp);
+
+                });
 
                 dialog.dialog("close");
 
             }
-
           //modification Sous Segment
             function EditSubSegment(row) {
                 $("#btnEditSubSeg").click(function () {
@@ -1028,7 +1053,7 @@
 
                 buttons: {
 
-                    "Valider la modification": editSubSeg,
+                    "Valider la modification": insertSubSeg,
 
                     Cancel: function () {
 
@@ -1052,12 +1077,21 @@
 
             });
 
-            function editSubSeg() {
+            function insertSubSeg() {
 
                 var codSubSegModif = document.getElementById("codSubSegEdit").value;
 
                 var libSubSegModif = document.getElementById("libSubSegEdit").value;
 
+                var row = $("#selectedRowId");
+
+                $("td", row).eq(0).html(codSubSegModif);
+
+                $("td", row).eq(1).html(libSubSegModif);
+
+                row.attr("id", "");
+
+                dialogEditSubSeg.dialog("close");
             }
 </script>
 

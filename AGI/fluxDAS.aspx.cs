@@ -33,7 +33,7 @@ namespace AGI
 
                 // Populate the GridView. 
                 BindGridViewDAS();
-
+          
                 // Enable the GridView paging option and  
                 // specify the page size. 
                 //segment.AllowPaging = true;
@@ -240,7 +240,51 @@ namespace AGI
             }
         }
 
+        protected void InsertGridViewDAS(object sender, GridViewRowEventArgs e)
+        {
+            // Get the connection string from Web.config.  
+            // When we use Using statement,  
+            // we don't need to explicitly dispose the object in the code,  
+            // the using statement takes care of it. 
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString()))
+            {
+                // Create a DataSet object. 
+                DataSet dsDAS = new DataSet();
 
+
+                // Create a SELECT query. 
+                string strSelectCmd = "INSERT INTO ST_DAS insert into [01_MCD_AG].[dbo].[ST_DAS](Cod_DAS,Cod_Activity,Lib_DAS_Fr,Lib_DAS_En) VALUES(@codDas,@codActi,@libDas,@libDasEn)";
+
+
+                // Create a SqlDataAdapter object 
+                // SqlDataAdapter represents a set of data commands and a  
+                // database connection that are used to fill the DataSet and  
+                // update a SQL Server database.  
+                SqlDataAdapter da = new SqlDataAdapter(strSelectCmd, conn);
+
+
+                // Open the connection 
+                conn.Open();
+
+
+                // Fill the DataTable named "DAS" in DataSet with the rows 
+                // returned by the query.new n 
+                da.Fill(dsDAS, "DAS");
+
+
+                // Get the DataView from DAS DataTable. 
+                DataView dvDAS = dsDAS.Tables["DAS"].DefaultView;
+
+
+                // Set the sort column and sort order. 
+                dvDAS.Sort = ViewState["SortExpression"].ToString();
+
+
+                // Bind the GridView control. 
+                das.DataSource = dvDAS;
+                das.DataBind();
+            }
+        }
         // GridView.RowDataBound Event 
         protected void das_RowDataBound(object sender, GridViewRowEventArgs e)
         {
