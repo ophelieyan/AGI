@@ -1006,30 +1006,5 @@ namespace AGI
             string message = "Row Index: " + index + "\\nid: " + idDas + "\\ncodDas: " + codDas;
             ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + message + "');", true);
         }
-
-    
-
-
-//namespace cnamts.dsn.WebServices.Rest
-//    {
-//        [Route("api/[controller]")]
-//        public class TestLin : Controller
-//        {
-//            public TestLin()
-//            {
-
-//            }
-
-//            [HttpPost]
-//            public IActionResult TestPost(String param)
-//            {
-
-
-
-//                return new CreatedResult("toto", param);
-//            }
-//        }
-//    }
-
     }
 }

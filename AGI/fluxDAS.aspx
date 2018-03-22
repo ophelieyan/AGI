@@ -73,7 +73,7 @@
           <a href="#">Flux Currency</a>
           <a href="#">Flux Customer Record</a>
           <a href="#">Flux Customer Hierarchie</a>
-          <a href="#">FLux DAS</a>
+          <a href="fluxDAS">FLux DAS</a>
           <a href="#">Flux Dynasys</a>
           <a href="#">Flux Labelling</a>
           <a href="#">Flux Life Cycle</a>
@@ -148,22 +148,6 @@
      <ParentNodeStyle Font-Bold="False" />
      <SelectedNodeStyle Font-Underline="True" ForeColor="#555" HorizontalPadding="0px" VerticalPadding="0px" />
 </asp:TreeView>
-<%--<asp:ScriptManager ID="ScriptManager1" runat="server">
-</asp:ScriptManager>
-<cc1:ModalPopupExtender ID="mp1" runat="server" PopupControlID="Panl1" TargetControlID="btnAddDas" OkControlID ="Button1"
-
-    CancelControlID="Button2" BackgroundCssClass="Background" >
-
-</cc1:ModalPopupExtender>
-    
-<asp:Panel ID="Panl1" runat="server" CssClass="Popup" align="center" style = "display:none">
-
-    <iframe style=" width: 350px; height: 300px;" id="irm1" src="popup.aspx" runat="server"></iframe>
-    <br/>
-    <asp:Button ID="btnDasformule" runat="server" Text="Valider"  BackColor ="#edb93b" ForeColor ="white" BorderStyle ="Solid"/>
-    <asp:Button ID="btnAnnuler" runat="server" Text="Annuler" BackColor ="#edb93b" ForeColor ="white" BorderStyle ="Solid"/>
-</asp:Panel>--%>
-
 
 <div class ="mainContent">
      <input type="text" placeholder="Recherche" id="searchInput" onkeyup ="filterAll();" autocomplete ="on" style="background-image:url(images/recherche.png);background-position:right;background-repeat:no-repeat;padding-left:2px;width:300px;height:30px; border-radius:6px;margin-left:2px"> 
@@ -200,25 +184,25 @@
                             <%--<AlternatingRowStyle BackColor="White" ForeColor="#284775" />--%>
                             <Columns> 
                                <asp:TemplateField   Visible="false" > 
-           <%--                         <EditItemTemplate> 
+                               <EditItemTemplate> 
                                         <asp:TextBox ID="tbxIdDAS" runat="server" Text='<%# Bind("ID_DAS") %>' Visible="false" ></asp:TextBox> 
-                                    </EditItemTemplate> --%>
+                                    </EditItemTemplate>
                                     <ItemTemplate> 
                                         <asp:Label ID="lblIdDAS" runat="server" Text='<%# Bind("ID_DAS") %>' Visible="false"></asp:Label> 
                                     </ItemTemplate> 
                                 </asp:TemplateField> 
                                 <asp:TemplateField > 
-                 <%--                   <EditItemTemplate> 
+                                <EditItemTemplate> 
                                         <asp:TextBox ID="tbxCodDAS" runat="server"  Text='<%# Bind("Cod_DAS") %>'  Width ="100px"></asp:TextBox> 
-                                    </EditItemTemplate> --%>
+                                    </EditItemTemplate> 
                                     <ItemTemplate> 
                                         <asp:Label ID="lblCodDAS" runat="server"  Text='<%# Bind("Cod_DAS") %>' Width ="100px"></asp:Label> 
                                     </ItemTemplate> 
                                 </asp:TemplateField> 
                                 <asp:TemplateField > 
-                           <%--         <EditItemTemplate> 
+                               <EditItemTemplate> 
                                         <asp:TextBox ID="tbxCodActi" runat="server" Text='<%# Bind("Cod_Activity") %>'  Width ="100px"></asp:TextBox> 
-                                    </EditItemTemplate> --%>
+                                    </EditItemTemplate> 
                                     <ItemTemplate> 
                                         <asp:Label ID="lblCodActi" runat="server" Text='<%# Bind("Cod_Activity") %>' Width ="100px"></asp:Label> 
                                     </ItemTemplate> 
@@ -247,7 +231,7 @@
           </div> 
              <button ID="btnAddDas" class="btnAdd" type="button">Créer</button>
              <button ID="btnEditDas" class="btnEdit" type="button">Modifier</button>
-             <button ID="btnDisableDas" class="btnDeac" type="button">Désactiver</button>
+        <%--     <button ID="btnDisableDas" class="btnDeac" type="button">Désactiver</button>--%>
          </div>
          <div class="col">
              <a class="entete">Segment</a>
@@ -317,7 +301,7 @@
          </div>
              <button ID="btnAddSeg" class="btnAdd" type="button">Créer</button>
              <button ID="btnEditSeg" class="btnEdit" type="button">Modifier</button>
-             <button ID="btnDisableSeg" class="btnDeac" type="button">Désactiver</button>
+           <%--  <button ID="btnDisableSeg" class="btnDeac" type="button">Désactiver</button>--%>
          </div>
        <div class="col" style="width:600px">
              <a class="entete">Sous Segment</a>
@@ -384,7 +368,7 @@
           </div>
              <button ID="btnAddSubSeg" class="btnAdd" type="button">Créer</button>
              <button ID="btnEditSubSeg" class="btnEdit" type="button">Modifier</button>
-             <button ID="btnDisableSubSeg" class="btnDeac" type="button">Désactiver</button>
+       <%--      <button ID="btnDisableSubSeg" class="btnDeac" type="button">Désactiver</button>--%>
          </div> 
      </div>
 </div> 
@@ -399,7 +383,7 @@
       <input type="text" name="Code Das" id="codDas" value="" class="text ui-widget-content ui-corner-all"/>
       <br />
       <label for="Code Activity">Code Activity</label>
-      <br />
+
       <label for="CodActi Info"> (Les deux premiers lettres de code DAS)</label>
       <br />
       <input type="text" name="Code Activity" id="codActi" value="" class="text ui-widget-content ui-corner-all"/>
@@ -408,24 +392,22 @@
       <br />
       <input type="text" name="libDas" id="libDas" value="" class="text ui-widget-content ui-corner-all"/>
       <br /> 
-      <label for="libDasEn">Désignation DAS En Anglais</label>
+<%--      <label for="libDasEn">Désignation DAS En Anglais</label>
       <br />
-      <input type="text" name="libDasEn" id="libDasEn" value="" class="text ui-widget-content ui-corner-all"/>
-     <%-- <asp:Button ID="Button1" runat="server" Text="Valider la création" />
-      <asp:Button ID="Button2" runat="server" Text="Annuler" />--%>
+      <input type="text" name="libDasEn" id="libDasEn" value="" class="text ui-widget-content ui-corner-all"/>--%>
 </div>
 
 <div id="edit-das" title="Modifier d'un DAS">
 
   <p class="validateTips">Tous les champs sont requis.</p >
 
-      <label for="Code DAS">Code DAS</label>
+<%--      <label for="Code DAS">Code DAS</label>
+      <br />--%>
+      <input type="hidden" name="Code Das" id="codDasEdit" value="" class="text ui-widget-content ui-corner-all"/>
       <br />
-      <input type="text" name="Code Das" id="codDasEdit" value="" class="text ui-widget-content ui-corner-all"/>
+ <%--     <label for="Code Activity">Code Activity</label>
       <br />
-      <label for="Code Activity">Code Activity</label>
-      <br />
-      <input type="text" name="Code Activity" id="codActiEdit" value="" class="text ui-widget-content ui-corner-all"/>
+      <input type="text" name="Code Activity" id="codActiEdit" value="" class="text ui-widget-content ui-corner-all"/>--%>
       <br />
       <label for="libDas">Désignation DAS</label>
       <br />
@@ -465,9 +447,9 @@
 
   <p class="validateTips">Tous les champs sont requis.</p >
 
-      <label for="Code Segment">Code Segment</label>
-      <br />
-      <input type="text" name="Code Segment" id="codSegEdit" value="" class="text ui-widget-content ui-corner-all"/>
+<%--      <label for="Code Segment">Code Segment</label>
+      <br />--%>
+      <input type="hidden" name="Code Segment" id="codSegEdit" value="" class="text ui-widget-content ui-corner-all"/>
       <br />
       <label for="libSegment">Désignation Segment</label>
       <br />
@@ -508,9 +490,9 @@
 
   <p class="validateTips">Tous les champs sont requis.</p >
 
-      <label for="Code Sous Segment">Code Sous Segment</label>
-      <br />
-      <input type="text" name="Code Sous Segment" id="codSubSegEdit" value="" class="text ui-widget-content ui-corner-all"/>
+<%--      <label for="Code Sous Segment">Code Sous Segment</label>
+      <br />--%>
+      <input type="hidden" name="Code Sous Segment" id="codSubSegEdit" value="" class="text ui-widget-content ui-corner-all"/>
       <br />
       <label for="libSubSegment">Désignation Sous Segment</label>
       <br />
@@ -546,10 +528,9 @@
         $("#btnEditDas").click(function () {
 
           var codDasForPop = $("td", row).eq(0).text();
-          var codActiForPop = $("td", row).eq(1).text();
           var LibDasForPop = $("td", row).eq(2).text();
+
           document.getElementById("codDasEdit").value = codDasForPop.trim();
-          document.getElementById("codActiEdit").value = codActiForPop.trim();
           document.getElementById("libDasEdit").value = LibDasForPop.trim();
 
           dialogEditDas.dialog("open");
@@ -711,26 +692,19 @@
 
             var libDasPopUp = document.getElementById("libDas").value;
  
-            var libDasEnPopUp = document.getElementById("libDasEn").value;
-          
+            //var libDasEnPopUp = document.getElementById("libDasEn").value;
+
             $.ajax({
 
                 url: "api/DasDataController?",
 
                 methode: "POST",
 
-                data: "param=codDas:"+codDasPopUp+",codActi:"+codActiPopUp+",libDas:"+libDasPopUp ,
-
-                    //success: function (data, text) {
-                    //    //...
-                    //},
-                    //error: function (request, status, error) {
-                    //    alert(request.responseText);
-                    //}
+                data: "param=codDas:" + codDasPopUp + ",codActi:" + codActiPopUp + ",libDas:" + libDasPopUp,
 
             }).done(function () {
 
-                addRowToTable($('#das tbody'), codDasPopUp, codActiPopUp, libDasPopUp);
+                addRowToDas($('#das tbody'), codDasPopUp, codActiPopUp, libDasPopUp);
 
             });
 
@@ -756,7 +730,7 @@
 
                                         + '<td>'
 
-                                        + '<span id="das_lblLibDasFr_2" style="display:inline-block;width:100px;">' + designation + '</span>'
+                                        + '<span id="das_lblLibDasFr_2" style="display:inline-block;width:180px;">' + designation + '</span>'
 
                                         + '</td>'
 
@@ -777,7 +751,7 @@
 
             buttons: {
 
-                "Valider la modification": insertDas,
+                "Valider la modification": updateDas,
 
                 Cancel: function () {
 
@@ -801,23 +775,36 @@
 
         });
 
-        function insertDas() {
+        function updateDas() {
 
             var codDasModif = document.getElementById("codDasEdit").value;
 
-            var codActiModif = document.getElementById("codActiEdit").value;
+            //var codActiModif = document.getElementById("codActiEdit").value;
 
             var libDasModif = document.getElementById("libDasEdit").value;
 
             var row = $("#selectedRowId");
 
-            $("td", row).eq(0).html(codDasModif);
+            //$("td", row).eq(0).html(codDasModif);
 
-            $("td", row).eq(1).html(codActiModif);
+            //$("td", row).eq(1).html(codActiModif);
 
             $("td", row).eq(2).html(libDasModif);
 
             row.attr("id", "");
+
+            $.ajax({
+
+                url: "api/DasModifyController",
+
+                methode: "POST",
+
+                data: "param=CodDas:" + codDasModif + ",libDas:" + libDasModif,
+
+            }).done(function () {
+
+            });
+
 
             dialogEditDas.dialog("close");
         }
@@ -863,7 +850,7 @@
 
                 var libSegPopUp = document.getElementById("libSegment").value;
 
-                addRowToTable($('#segment tbody'), codSegPopUp, libSegPopUp);
+                //addRowToTable($('#segment tbody'), codSegPopUp, libSegPopUp);
 
           
                 $.ajax({
@@ -880,7 +867,7 @@
 
                 });
 
-                dialog.dialog("close");
+                dialogSegment.dialog("close");
 
             }
 
@@ -923,7 +910,7 @@
 
                 buttons: {
 
-                    "Valider la modification": insertSegment,
+                    "Valider la modification": updateSegment,
 
                     Cancel: function () {
 
@@ -947,7 +934,7 @@
 
             });
 
-            function insertSegment() {
+            function updateSegment() {
 
                 var codSegModif = document.getElementById("codSegEdit").value;
 
@@ -960,6 +947,18 @@
                 $("td", row).eq(1).html(libSegModif);
 
                 row.attr("id", "");
+
+                $.ajax({
+
+                    url: "api/SegmentModifyController",
+
+                    methode: "POST",
+
+                    data: "param=CodSegment:" + codSegModif + ",libSegment:" + libSegModif,
+
+                }).done(function () {
+
+                });
 
                 dialogEditSeg.dialog("close");
             }
@@ -1004,14 +1003,11 @@
 
             function addSubSegment() {
 
-                var codSubSegPopUp = document.getElementById("libSegmentForPopup").value;
+                var libSegPopUp = document.getElementById("libSegmentForPopup").value;
 
                 var codSubSegPopUp = document.getElementById("codSubSegment").value;
 
                 var libSubSegPopUp = document.getElementById("libSubSegment").value;
-
-                addRowToTable($('#subSegment tbody'), codSubSegPopUp, libSubSegPopUp);
-
 
                 $.ajax({
 
@@ -1019,7 +1015,7 @@
 
                     methode: "POST",
 
-                    data: "param=libSegment:" + codSubSegPopUp + ",codSubSeg:" + codSubSegPopUp + ",libSubSeg:" + libSubSegPopUp,
+                    data: "param=libSegment:" + libSegPopUp + ",codSubSeg:" + codSubSegPopUp + ",libSubSeg:" + libSubSegPopUp,
 
                 }).done(function () {
 
@@ -1027,7 +1023,7 @@
 
                 });
 
-                dialog.dialog("close");
+                dialogSubSegment.dialog("close");
 
             }
           //modification Sous Segment
@@ -1053,7 +1049,7 @@
 
                 buttons: {
 
-                    "Valider la modification": insertSubSeg,
+                    "Valider la modification": updateSubSeg,
 
                     Cancel: function () {
 
@@ -1077,7 +1073,7 @@
 
             });
 
-            function insertSubSeg() {
+            function updateSubSeg() {
 
                 var codSubSegModif = document.getElementById("codSubSegEdit").value;
 
@@ -1091,6 +1087,18 @@
 
                 row.attr("id", "");
 
+
+                $.ajax({
+
+                    url: "api/SubSegmentModifyController",
+
+                    methode: "POST",
+
+                    data: "param=CodSubSegment:" + codSubSegModif + ",libSubSegment:" + libSubSegModif,
+
+                }).done(function () {
+
+                });
                 dialogEditSubSeg.dialog("close");
             }
 </script>
