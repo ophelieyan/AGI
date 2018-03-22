@@ -403,8 +403,7 @@
 
 <%--      <label for="Code DAS">Code DAS</label>
       <br />--%>
-      <input type="hidden" name="Code Das" id="codDasEdit" value="" class="text ui-widget-content ui-corner-all"/>
-      <br />
+     <br />
  <%--     <label for="Code Activity">Code Activity</label>
       <br />
       <input type="text" name="Code Activity" id="codActiEdit" value="" class="text ui-widget-content ui-corner-all"/>--%>
@@ -412,7 +411,7 @@
       <label for="libDas">Désignation DAS</label>
       <br />
       <input type="text" name="libDas" id="libDasEdit" value="" class="text ui-widget-content ui-corner-all"/>
-   <%--  <input type="hidden" name="idDas" id="idOfSelectedDas" value="" class="text ui-widget-content ui-corner-all"/>--%>
+      <input type="hidden" name="Code Das" id="codDasEdit" value="" class="text ui-widget-content ui-corner-all"/>
 </div>
 
 <div id="dialog-form-segment" title="Creation d'un nouveau Segment">
@@ -449,14 +448,14 @@
 
 <%--      <label for="Code Segment">Code Segment</label>
       <br />--%>
-      <input type="hidden" name="Code Segment" id="codSegEdit" value="" class="text ui-widget-content ui-corner-all"/>
       <br />
       <label for="libSegment">Désignation Segment</label>
       <br />
       <input type="text" name="libDas" id="libSegEdit" value="" class="text ui-widget-content ui-corner-all"/>
       <br />
       <input type="hidden" name="idSegment" id="idOfSelectedSegment" value="" class="text ui-widget-content ui-corner-all"/>
-
+      <input type="hidden" name="Code Segment" id="codSegEdit" value="" class="text ui-widget-content ui-corner-all"/>
+  
 </div>
 
 <div id="dialog-form-subSegment" title="Creation d'un nouveau Sous Segment">
@@ -492,12 +491,12 @@
 
 <%--      <label for="Code Sous Segment">Code Sous Segment</label>
       <br />--%>
-      <input type="hidden" name="Code Sous Segment" id="codSubSegEdit" value="" class="text ui-widget-content ui-corner-all"/>
       <br />
       <label for="libSubSegment">Désignation Sous Segment</label>
       <br />
       <input type="text" name="libDas" id="libSubSegEdit" value="" class="text ui-widget-content ui-corner-all"/>
-
+      <input type="hidden" name="Code Sous Segment" id="codSubSegEdit" value="" class="text ui-widget-content ui-corner-all"/>
+   
 </div>
     </form>
 <br/>
