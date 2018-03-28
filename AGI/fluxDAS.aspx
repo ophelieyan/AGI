@@ -1,5 +1,4 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="fluxDAS.aspx.cs" Inherits="AGI.fluxDAS" EnableEventValidation = "false"%>
-<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -18,18 +17,18 @@
     <title>Flux DAS</title>
 </head>
 <body>
-<div class="row">
+
+
 <div id ="topMenu">
 <ul>
       <li class ="menu">
           <asp:Image ID="MainCompanylogo" runat="server" Height="76px" Width="150px" ImageUrl="Images/logo.png"/>
       </li>
       <li class="menu-element1 ">
-        <a href="gestionArticles" class="dropbtn">Articles</a>
+        <a href="gestionArticles" class="dropbtn">ARTICLES</a>
         <div class="submenu">
           <a href="#">Flux codification articles</a>
           <a href="#">Gammes</a>
-          <a href="#">Hierarchie</a>
           <a href="#">Infos achats</a>
           <a href="#">Infos dimensionnelles</a>
           <a href="gestionArticlesInfo">Infos générales</a>
@@ -43,7 +42,12 @@
         </div>
       </li>
       <li class="menu">
-        <a href="gestionClients" class="dropbtn">Clients</a>
+        <a href="gestionHierar" class="dropbtn">HIERARCHIE</a>
+        <div class="submenu">
+        </div>
+      </li>
+      <li class="menu">
+        <a href="gestionClients" class="dropbtn">CLIENTS</a>
         <div class="submenu">
           <a href="#">Flux codification Clients</a>
           <a href="gestionClientsInfo">Infos générales</a>
@@ -52,7 +56,7 @@
         </div>
       </li>
       <li class="menu">
-        <a href="gestionFournisseurs" class="dropbtn">Fournisseurs</a>
+        <a href="gestionFournisseurs" class="dropbtn">FOURNISSEURS</a>
         <div class="submenu">
           <a href ="#">flux codification fournisseurs</a>
           <a href="gestionFournisseursInfo">Infos générales</a>
@@ -61,7 +65,7 @@
         </div>
       </li>
       <li class="menu">
-        <a href="gestionDonnees" class="dropbtn">Données Systèmes</a>
+        <a href="gestionDonnees" class="dropbtn">DONNEES TECHNIQUES</a>
         <div class="submenu">       
           <a href="#">Flux Activity</a>
           <a href="#">Flux Amalgamme</a>
@@ -91,10 +95,10 @@
         </div>
       </li>
       <li class="menu">
-          <a href="gestionDonnees" class="dropbtn">Dynasys</a>
+          <a href="gestionDonnees" class="dropbtn">DYNASYS</a>
       </li>
       <li class="menu">
-          <a href="gestionDonnees" class="dropbtn">Ortems</a>
+          <a href="gestionDonnees" class="dropbtn">ORTEMS</a>
       </li>
       <li style="float:right"> 
           <form class="form-wrapper">
@@ -104,410 +108,411 @@
       </li>
 </ul>
 </div>
-</div>
-<div class="row">
+
+
 <form runat ="server" >
-<asp:TreeView ID="TreeViewSideMenu" runat="server" BackColor ="#0f4396" Width ="220px" BorderStyle ="Solid" border-radius="10px" 
-              BorderColor ="#dedede" BorderWidth ="1px" ForeColor ="#555" style="margin-left:0px;font-family:Arial, Helvetica, sans-serif" >
-    <HoverNodeStyle ForeColor="#555"  BackColor ="#edb93b"/>
-    <Nodes>
-        <asp:TreeNode Text="Flux Activity" Value="Flux Activity">
-            <asp:TreeNode Text="Organic" Value="Organic"></asp:TreeNode>
-            <asp:TreeNode Text="Primary Brand" Value="Primary Brand"></asp:TreeNode>
-            <asp:TreeNode Text="Secondary Brand" Value="Secondary Brand"></asp:TreeNode>
-            <asp:TreeNode Text="Range" Value="Ranger"></asp:TreeNode>
-        </asp:TreeNode>
-        <asp:TreeNode Text="Flux Amalgamme" Value="Flux Amalgamme"></asp:TreeNode>
-        <asp:TreeNode Text="Flux APV" Value="Flux APV"></asp:TreeNode>
-        <asp:TreeNode Text="Flux Article Codification" Value="Flux Article Codification"></asp:TreeNode>
-        <asp:TreeNode Text="Flux Article Record" Value="Flux Article Record"></asp:TreeNode>
-        <asp:TreeNode Text="Flux Article Sizing" Value="Flux Article Sizing"></asp:TreeNode>
-        <asp:TreeNode Text="Flux BOM" Value="Flux BOM"></asp:TreeNode>
-        <asp:TreeNode Text="Flux BUYER PURVEYOR" Value="Flux BUYER PURVEYOR"></asp:TreeNode>
-        <asp:TreeNode Text="Flux Currency" Value="Flux Currency"></asp:TreeNode>
-        <asp:TreeNode Text="Flux Costum Record" Value="Flux Costum Record"></asp:TreeNode>
-        <asp:TreeNode Text="Flux Customer Hierarchie" Value="Flux Customer Hierarchie"></asp:TreeNode>
-        <asp:TreeNode Target="new" Text="Flux DAS" Value="Flux DAS">
-            <asp:TreeNode Text="DAS" Value="DAS" NavigateUrl ="~/ConsulDAS.aspx"></asp:TreeNode>
-            <asp:TreeNode Text="Segment" Value="Segment" NavigateUrl ="~/ConsulSegment.aspx"></asp:TreeNode>
-            <asp:TreeNode Text="Sous Segment" Value="Sous Segment" NavigateUrl ="~/ConsulSousSeg.aspx"></asp:TreeNode>
-        </asp:TreeNode>
-        <asp:TreeNode Text="Flux Dynasys" Value="Flux Dynasys"></asp:TreeNode>
-        <asp:TreeNode Text="Flux Labelling" Value="Flux Labelling"></asp:TreeNode>
-        <asp:TreeNode Text="Flux Life Cycle" Value="Flux Life Cycle"></asp:TreeNode>
-        <asp:TreeNode Text="Flux Logistique" Value="Flux Logistique"></asp:TreeNode>
-        <asp:TreeNode Text="Flux IMS" Value="Flux IMS"></asp:TreeNode>
-        <%--<asp:TreeNode Text="Flux ISO639 Language ISO3166 Country" Value="Flux ISO639 Language ISO3166 Country"></asp:TreeNode>--%>
-        <asp:TreeNode Text="Flux OF" Value="Flux OF"></asp:TreeNode>
-        <asp:TreeNode Text="Flux Ortems" Value="Flux Ortems"></asp:TreeNode>
-        <asp:TreeNode Text="Flux Partner" Value="Flux Partner"></asp:TreeNode>
-        <asp:TreeNode Text="Flux Purchase Family" Value="Flux Purchase Family"></asp:TreeNode>
-        <asp:TreeNode Text="Flux Stock" Value="Flux Stock"></asp:TreeNode>
-        <asp:TreeNode Text="Flux Supplier Prices" Value="Flux Supplier Prices"></asp:TreeNode>
-        <asp:TreeNode Text="Flux Machine" Value="Flux Machine"></asp:TreeNode>      
-    </Nodes> 
-     <NodeStyle Font-Size="14px" ForeColor="white" HorizontalPadding="5px" NodeSpacing="0px" VerticalPadding="0px"  />
-     <ParentNodeStyle Font-Bold="False" />
-     <SelectedNodeStyle Font-Underline="True" ForeColor="#555" HorizontalPadding="0px" VerticalPadding="0px" />
-</asp:TreeView>
-
 <div class ="mainContent">
-     <input type="text" placeholder="Recherche" id="searchInput" onkeyup ="filterAll();" autocomplete ="on" style="background-image:url(images/recherche.png);background-position:right;background-repeat:no-repeat;padding-left:2px;width:300px;height:30px; border-radius:6px;margin-left:2px"/> 
-       <br />
-       <br />
-     <div class="row">      
-         <div class ="col">
-             <a class="entete">DAS</a>
-          
-             <%--<input type="text" placeholder="Recherche" id="searchDas" onkeyup ="searchDas()" >--%>  
-             <br />
-             <div>
-                 <table id="tblHeader" class ="gvDas" border="1" style ="font-size :small">
-                     <tbody>
-                         <tr>
-                             <%--<th style="text-align :center ;width:150px; color:white;background-color:#edb93b">ID DAS</th>--%>
-                             <th style="text-align :center ;width:80px; color:white;background-color:#edb93b">Code DAS</th>
-                             <th style="text-align :center ;width:100px; color:white;background-color:#edb93b">Code Activity</th>
-                             <th style="text-align :center ;width:160px; color:white;background-color:#edb93b">Désignation DAS</th>
-                         </tr>
-                     </tbody>
-                 </table>
-             </div>
-             <div style="overflow-y:scroll; overflow-x:hidden; width:340px ; height:330px" >
-                   
-             <asp:GridView ID="das" runat="server" AutoGenerateColumns="False" CellPadding="4" ShowHeader="false" 
-                        HeaderStyle-Font-Underline="false" OnSelectedIndexChanged="das_SelectedIndexChanged"
-                        onrowcancelingedit="das_RowCancelingEdit" Font-Names="Arial, Helvetica, sans-serif"
-                        onrowdatabound="das_RowDataBound" onrowdeleting="das_RowDeleting" Font-Size ="X-Small"
-                        onrowediting="das_RowEditing" onrowupdating="das_RowUpdating" 
-                        onsorting="das_Sorting" ForeColor="#333333" GridLines="None"> 
-                        <RowStyle BackColor="White"  ForeColor="#333333" /> 
-                            <%--<AlternatingRowStyle BackColor="White" ForeColor="#284775" />--%>
-                            <Columns> 
-                               <asp:TemplateField   Visible="false" > 
-                               <EditItemTemplate> 
-                                        <asp:TextBox ID="tbxIdDAS" runat="server" Text='<%# Bind("ID_DAS") %>' Visible="false" ></asp:TextBox> 
-                                    </EditItemTemplate>
-                                    <ItemTemplate> 
-                                        <asp:Label ID="lblIdDAS" runat="server" Text='<%# Bind("ID_DAS") %>' Visible="false"></asp:Label> 
-                                    </ItemTemplate> 
-                                </asp:TemplateField> 
-                                <asp:TemplateField > 
-                                <EditItemTemplate> 
-                                        <asp:TextBox ID="tbxCodDAS" runat="server"  Text='<%# Bind("Cod_DAS") %>'  Width ="80px"></asp:TextBox> 
-                                    </EditItemTemplate> 
-                                    <ItemTemplate> 
-                                        <asp:Label ID="lblCodDAS" runat="server"  Text='<%# Bind("Cod_DAS") %>' Width ="80px"></asp:Label> 
-                                    </ItemTemplate> 
-                                </asp:TemplateField> 
-                                <asp:TemplateField > 
-                               <EditItemTemplate> 
-                                        <asp:TextBox ID="tbxCodActi" runat="server" Text='<%# Bind("Cod_Activity") %>'  Width ="100px"></asp:TextBox> 
-                                    </EditItemTemplate> 
-                                    <ItemTemplate> 
-                                        <asp:Label ID="lblCodActi" runat="server" Text='<%# Bind("Cod_Activity") %>' Width ="100px"></asp:Label> 
-                                    </ItemTemplate> 
-                                </asp:TemplateField> 
-                                <asp:TemplateField > 
-                                   <EditItemTemplate> 
-                                        <asp:TextBox ID="tbxLibDasFr" runat="server" Text='<%# Bind("Lib_DAS_Fr") %>'  Width ="160px"></asp:TextBox> 
-                                    </EditItemTemplate> 
-                                    <ItemTemplate> 
-                                        <asp:Label ID="lblLibDasFr" runat="server" Text='<%# Bind("Lib_DAS_Fr") %>' Width ="160px"></asp:Label> 
-                                    </ItemTemplate> 
-                                </asp:TemplateField> 
-                            </Columns> 
-                            <EditRowStyle BackColor="#999999" />
-                            <FooterStyle BackColor="#edb93b" ForeColor="White" Font-Bold="True" /> 
-                            <PagerStyle BackColor="#edb93b" ForeColor="White" HorizontalAlign="Center" /> 
-                            <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" /> 
-                        <%--    <HeaderStyle BackColor="#edb93b" Font-Bold="True" ForeColor="white" CssClass ="header" />--%>
-       <%--                 <HeaderStyle CssClass="fixedHeader" />--%>
-                        <SortedAscendingCellStyle BackColor="#E9E7E2" />
-                        <SortedAscendingHeaderStyle BackColor="#506C8C" />
-                        <SortedDescendingCellStyle BackColor="#FFFDF8" />
-                        <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
-          </asp:GridView> 
-                      <%-- </asp:Panel>--%>
-          </div> 
-             <button ID="btnAddDas" class="btnAdd" type="button">Créer</button>
-             <button ID="btnEditDas" class="btnEdit" type="button">Modifier</button>
-        <%--     <button ID="btnDisableDas" class="btnDeac" type="button">Désactiver</button>--%>
-         </div>
+<div class="row">
+    <div class ="col-lg-2">
+
+    <asp:TreeView ID="TreeViewSideMenu" runat="server" BackColor ="#0f4396" BorderStyle ="Solid" border-radius="10px" 
+                  BorderColor ="#dedede" BorderWidth ="1px" ForeColor ="#555" style="margin-left:0px;font-family:Arial, Helvetica, sans-serif" >
+        <HoverNodeStyle ForeColor="#555"  BackColor ="#edb93b"/>
+        <Nodes>
+            <asp:TreeNode Text="Flux Activity" Value="Flux Activity">
+                <asp:TreeNode Text="Organic" Value="Organic"></asp:TreeNode>
+                <asp:TreeNode Text="Primary Brand" Value="Primary Brand"></asp:TreeNode>
+                <asp:TreeNode Text="Secondary Brand" Value="Secondary Brand"></asp:TreeNode>
+                <asp:TreeNode Text="Range" Value="Ranger"></asp:TreeNode>
+            </asp:TreeNode>
+          <%--  <asp:TreeNode Text="Flux Amalgamme" Value="Flux Amalgamme"></asp:TreeNode>
+            <asp:TreeNode Text="Flux APV" Value="Flux APV"></asp:TreeNode>
+            <asp:TreeNode Text="Flux Article Codification" Value="Flux Article Codification"></asp:TreeNode>
+            <asp:TreeNode Text="Flux Article Record" Value="Flux Article Record"></asp:TreeNode>--%>   
+            <asp:TreeNode Text="Flux Article" Value="Flux Article"></asp:TreeNode>
+            <asp:TreeNode Text="Flux BOM" Value="Flux BOM"></asp:TreeNode>
+            <asp:TreeNode Text="Flux BUYER PURVEYOR" Value="Flux BUYER PURVEYOR"></asp:TreeNode>
+            <asp:TreeNode Text="Flux Currency" Value="Flux Currency"></asp:TreeNode>
+            <asp:TreeNode Text="Flux Costum Record" Value="Flux Costum Record"></asp:TreeNode>
+            <asp:TreeNode Text="Flux Customer" Value="Flux Customer"></asp:TreeNode>
+            <asp:TreeNode Target="new" Text="Flux DAS" Value="Flux DAS">
+                <asp:TreeNode Text="DAS" Value="DAS" NavigateUrl ="~/ConsulDAS.aspx"></asp:TreeNode>
+                <asp:TreeNode Text="Segment" Value="Segment" NavigateUrl ="~/ConsulSegment.aspx"></asp:TreeNode>
+                <asp:TreeNode Text="Sous Segment" Value="Sous Segment" NavigateUrl ="~/ConsulSousSeg.aspx"></asp:TreeNode>
+            </asp:TreeNode>
+            <asp:TreeNode Text="Flux Logistique" Value="Flux Logistique"></asp:TreeNode>
+            <asp:TreeNode Text="Flux IMS" Value="Flux IMS"></asp:TreeNode>
+            <%--<asp:TreeNode Text="Flux ISO639 Language ISO3166 Country" Value="Flux ISO639 Language ISO3166 Country"></asp:TreeNode>--%>
+            <asp:TreeNode Text="Flux Purchase" Value="Flux Purchase"></asp:TreeNode>
+            <asp:TreeNode Text="Flux Supplier" Value="Flux Supplier"></asp:TreeNode>
+        </Nodes> 
+         <NodeStyle Font-Size="14px" ForeColor="white" HorizontalPadding="5px" NodeSpacing="0px" VerticalPadding="0px"  />
+         <ParentNodeStyle Font-Bold="False" />
+         <SelectedNodeStyle Font-Underline="True" ForeColor="#555" HorizontalPadding="0px" VerticalPadding="0px" />
+    </asp:TreeView>
+    </div>
+      <div class="col-lg-10">
+        <div class="row"> 
+           <input type="text" placeholder="Recherche" id="searchInput" onkeyup ="filterAll();" autocomplete ="on" style="background-image:url(images/recherche.png);background-position:right;background-repeat:no-repeat;padding-left:2px;width:300px;height:30px; border-radius:6px;margin-left:2px"/> 
+           <br />
+           <br />
+        </div>
     
-         <div class="col">
-             <a class="entete">Segment</a>
-             <br />
-             <div>
-                 <table id="tblHeaderSeg" class ="gvSegment" border="1" style ="font-size :small">
-                     <tbody>
-                         <tr>
-                            <%-- <th style="text-align :center ;width:150px; color:white;background-color:#edb93b">ID Segment</th>--%>
-                             <%--<th style="text-align :center ;width:150px; color:white;background-color:#edb93b">ID DAS</th>--%>
-                             <th style="text-align :center ;width:80px; color:white;background-color:#edb93b">Code SEG</th>
-                             <th style="text-align :center ;width:200px; color:white;background-color:#edb93b">Désignation Segment</th>
-                         </tr>
-                     </tbody>
-                 </table>
+        <div class="row">  
+          
+             <div class ="col">
+                 <a class="entete">DAS</a>
+          
+                 <%--<input type="text" placeholder="Recherche" id="searchDas" onkeyup ="searchDas()" >--%>  
+                 <br />
+                 <div>
+                     <table id="tblHeader" class ="gvDas" border="1" style ="font-size :small">
+                         <tbody>
+                             <tr>
+                                 <%--<th style="text-align :center ;width:150px; color:white;background-color:#edb93b">ID DAS</th>--%>
+                                 <th style="text-align :center ;width:80px; color:white;background-color:#edb93b">Code DAS</th>
+                                 <th style="text-align :center ;width:100px; color:white;background-color:#edb93b">Code Activity</th>
+                                 <th style="text-align :center ;width:160px; color:white;background-color:#edb93b">Désignation DAS</th>
+                             </tr>
+                         </tbody>
+                     </table>
+                 </div>
+                 <div style="overflow-y:scroll; overflow-x:hidden; width:340px ; height:330px" >
+                   
+                 <asp:GridView ID="das" runat="server" AutoGenerateColumns="False" CellPadding="4" ShowHeader="false" 
+                            HeaderStyle-Font-Underline="false" OnSelectedIndexChanged="das_SelectedIndexChanged"
+                            onrowcancelingedit="das_RowCancelingEdit" Font-Names="Arial, Helvetica, sans-serif"
+                            onrowdatabound="das_RowDataBound" onrowdeleting="das_RowDeleting" Font-Size ="X-Small"
+                            onrowediting="das_RowEditing" onrowupdating="das_RowUpdating" 
+                            onsorting="das_Sorting" ForeColor="#333333" GridLines="None"> 
+                            <RowStyle BackColor="White"  ForeColor="#333333" /> 
+                                <%--<AlternatingRowStyle BackColor="White" ForeColor="#284775" />--%>
+                                <Columns> 
+                                   <asp:TemplateField   Visible="false" > 
+                                   <EditItemTemplate> 
+                                            <asp:TextBox ID="tbxIdDAS" runat="server" Text='<%# Bind("ID_DAS") %>' Visible="false" ></asp:TextBox> 
+                                        </EditItemTemplate>
+                                        <ItemTemplate> 
+                                            <asp:Label ID="lblIdDAS" runat="server" Text='<%# Bind("ID_DAS") %>' Visible="false"></asp:Label> 
+                                        </ItemTemplate> 
+                                    </asp:TemplateField> 
+                                    <asp:TemplateField > 
+                                    <EditItemTemplate> 
+                                            <asp:TextBox ID="tbxCodDAS" runat="server"  Text='<%# Bind("Cod_DAS") %>'  Width ="80px"></asp:TextBox> 
+                                        </EditItemTemplate> 
+                                        <ItemTemplate> 
+                                            <asp:Label ID="lblCodDAS" runat="server"  Text='<%# Bind("Cod_DAS") %>' Width ="80px"></asp:Label> 
+                                        </ItemTemplate> 
+                                    </asp:TemplateField> 
+                                    <asp:TemplateField > 
+                                   <EditItemTemplate> 
+                                            <asp:TextBox ID="tbxCodActi" runat="server" Text='<%# Bind("Cod_Activity") %>'  Width ="100px"></asp:TextBox> 
+                                        </EditItemTemplate> 
+                                        <ItemTemplate> 
+                                            <asp:Label ID="lblCodActi" runat="server" Text='<%# Bind("Cod_Activity") %>' Width ="100px"></asp:Label> 
+                                        </ItemTemplate> 
+                                    </asp:TemplateField> 
+                                    <asp:TemplateField > 
+                                       <EditItemTemplate> 
+                                            <asp:TextBox ID="tbxLibDasFr" runat="server" Text='<%# Bind("Lib_DAS_Fr") %>'  Width ="160px"></asp:TextBox> 
+                                        </EditItemTemplate> 
+                                        <ItemTemplate> 
+                                            <asp:Label ID="lblLibDasFr" runat="server" Text='<%# Bind("Lib_DAS_Fr") %>' Width ="160px"></asp:Label> 
+                                        </ItemTemplate> 
+                                    </asp:TemplateField> 
+                                </Columns> 
+                                <EditRowStyle BackColor="#999999" />
+                                <FooterStyle BackColor="#edb93b" ForeColor="White" Font-Bold="True" /> 
+                                <PagerStyle BackColor="#edb93b" ForeColor="White" HorizontalAlign="Center" /> 
+                                <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" /> 
+                            <%--    <HeaderStyle BackColor="#edb93b" Font-Bold="True" ForeColor="white" CssClass ="header" />--%>
+           <%--                 <HeaderStyle CssClass="fixedHeader" />--%>
+                            <SortedAscendingCellStyle BackColor="#E9E7E2" />
+                            <SortedAscendingHeaderStyle BackColor="#506C8C" />
+                            <SortedDescendingCellStyle BackColor="#FFFDF8" />
+                            <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+              </asp:GridView> 
+                          <%-- </asp:Panel>--%>
+              </div> 
+                 <button ID="btnAddDas" class="btnAdd" type="button">Créer</button>
+                 <button ID="btnEditDas" class="btnEdit" type="button">Modifier</button>
+            <%--     <button ID="btnDisableDas" class="btnDeac" type="button">Désactiver</button>--%>
              </div>
-             <div style="overflow-y:scroll; overflow-x:hidden; width:280px ; height:330px" >
-             <asp:GridView ID="segment" runat="server" AutoGenerateColumns="False" CellPadding="4"  
-                        HeaderStyle-Font-Underline="false" ShowHeader="false" Font-Size ="X-Small"
-                        onrowcancelingedit="segment_RowCancelingEdit"   Font-Names="Arial, Helvetica, sans-serif"
-                        onrowdatabound="segment_RowDataBound" onrowdeleting="segment_RowDeleting"   
-                        onrowediting="segment_RowEditing" onrowupdating="segment_RowUpdating"  
-                        onsorting="segment_Sorting" ForeColor="#333333" GridLines="None"> 
-                        <RowStyle BackColor="White" ForeColor="#333333" Width ="140px" /> 
-                            <%--<AlternatingRowStyle BackColor="White" ForeColor="#284775" />--%>
-                            <Columns> 
-                                <asp:BoundField DataField="ID_Segment"  ReadOnly="True"  
-                                    SortExpression="ID_Segment" visible="false" /> 
-                                <asp:TemplateField Visible ="false"> 
-                                    <EditItemTemplate> 
-                                        <asp:TextBox ID="tbxIdDAS" runat="server"  Visible ="false" Text='<%# Bind("ID_DAS") %>'></asp:TextBox> 
-                                    </EditItemTemplate> 
-                                    <ItemTemplate> 
-                                        <asp:Label ID="lblIdDAS" runat="server"  Visible ="false" Text='<%# Bind("ID_DAS") %>'></asp:Label> 
-                                    </ItemTemplate> 
-                                </asp:TemplateField> 
-                                <asp:TemplateField > 
-                                    <EditItemTemplate> 
-                                        <asp:TextBox ID="tbxCodSeg" runat="server" Text='<%# Bind("Cod_Segment") %>' Width ="80px"></asp:TextBox> 
-                                    </EditItemTemplate> 
-                                    <ItemTemplate> 
-                                        <asp:Label ID="lblCodSeg" runat="server" Text='<%# Bind("Cod_Segment") %>' Width ="80px"></asp:Label> 
-                                    </ItemTemplate> 
-                                </asp:TemplateField> 
-                                <asp:TemplateField > 
-                                    <EditItemTemplate> 
-                                        <asp:TextBox ID="tbxLibSegFr" runat="server" Text='<%# Bind("Lib_Segment_Fr") %>' Width ="200px"></asp:TextBox> 
-                                    </EditItemTemplate> 
-                                    <ItemTemplate> 
-                                        <asp:Label ID="lblLibSegFr" runat="server" Text='<%# Bind("Lib_Segment_Fr") %>' Width ="200px"></asp:Label> 
-                                    </ItemTemplate> 
-                                </asp:TemplateField> 
-                            </Columns> 
-                            <EditRowStyle BackColor="#999999" />
-                            <FooterStyle BackColor="#edb93b" ForeColor="black" Font-Bold="True" /> 
-                            <PagerStyle BackColor="#edb93b" ForeColor="White" HorizontalAlign="Center" /> 
-                            <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" /> 
-                        <SortedAscendingCellStyle BackColor="#E9E7E2" />
-                        <SortedAscendingHeaderStyle BackColor="#506C8C" />
-                        <SortedDescendingCellStyle BackColor="#FFFDF8" />
-                        <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
-         </asp:GridView> 
-         </div>
-             <button ID="btnAddSeg" class="btnAdd" type="button">Créer</button>
-             <button ID="btnEditSeg" class="btnEdit" type="button">Modifier</button>
-           <%--  <button ID="btnDisableSeg" class="btnDeac" type="button">Désactiver</button>--%>
-         </div>
+    
+             <div class="col">
+                 <a class="entete">Segment</a>
+                 <br />
+                 <div>
+                     <table id="tblHeaderSeg" class ="gvSegment" border="1" style ="font-size :small">
+                         <tbody>
+                             <tr>
+                                <%-- <th style="text-align :center ;width:150px; color:white;background-color:#edb93b">ID Segment</th>--%>
+                                 <%--<th style="text-align :center ;width:150px; color:white;background-color:#edb93b">ID DAS</th>--%>
+                                 <th style="text-align :center ;width:100px; color:white;background-color:#edb93b">Code SEG</th>
+                                 <th style="text-align :center ;width:200px; color:white;background-color:#edb93b">Désignation Segment</th>
+                             </tr>
+                         </tbody>
+                     </table>
+                 </div>
+                 <div style="overflow-y:scroll; overflow-x:hidden; width:300px ; height:330px" >
+                 <asp:GridView ID="segment" runat="server" AutoGenerateColumns="False" CellPadding="4"  
+                            HeaderStyle-Font-Underline="false" ShowHeader="false" Font-Size ="X-Small"
+                            onrowcancelingedit="segment_RowCancelingEdit"   Font-Names="Arial, Helvetica, sans-serif"
+                            onrowdatabound="segment_RowDataBound" onrowdeleting="segment_RowDeleting"   
+                            onrowediting="segment_RowEditing" onrowupdating="segment_RowUpdating"  
+                            onsorting="segment_Sorting" ForeColor="#333333" GridLines="None"> 
+                            <RowStyle BackColor="White" ForeColor="#333333" Width ="140px" /> 
+                                <%--<AlternatingRowStyle BackColor="White" ForeColor="#284775" />--%>
+                                <Columns> 
+                                    <asp:BoundField DataField="ID_Segment"  ReadOnly="True"  
+                                        SortExpression="ID_Segment" visible="false" /> 
+                                    <asp:TemplateField Visible ="false"> 
+                                        <EditItemTemplate> 
+                                            <asp:TextBox ID="tbxIdDAS" runat="server"  Visible ="false" Text='<%# Bind("ID_DAS") %>'></asp:TextBox> 
+                                        </EditItemTemplate> 
+                                        <ItemTemplate> 
+                                            <asp:Label ID="lblIdDAS" runat="server"  Visible ="false" Text='<%# Bind("ID_DAS") %>'></asp:Label> 
+                                        </ItemTemplate> 
+                                    </asp:TemplateField> 
+                                    <asp:TemplateField > 
+                                        <EditItemTemplate> 
+                                            <asp:TextBox ID="tbxCodSeg" runat="server" Text='<%# Bind("Cod_Segment") %>' Width ="100px"></asp:TextBox> 
+                                        </EditItemTemplate> 
+                                        <ItemTemplate> 
+                                            <asp:Label ID="lblCodSeg" runat="server" Text='<%# Bind("Cod_Segment") %>' Width ="100px"></asp:Label> 
+                                        </ItemTemplate> 
+                                    </asp:TemplateField> 
+                                    <asp:TemplateField > 
+                                        <EditItemTemplate> 
+                                            <asp:TextBox ID="tbxLibSegFr" runat="server" Text='<%# Bind("Lib_Segment_Fr") %>' Width ="200px"></asp:TextBox> 
+                                        </EditItemTemplate> 
+                                        <ItemTemplate> 
+                                            <asp:Label ID="lblLibSegFr" runat="server" Text='<%# Bind("Lib_Segment_Fr") %>' Width ="200px"></asp:Label> 
+                                        </ItemTemplate> 
+                                    </asp:TemplateField> 
+                                </Columns> 
+                                <EditRowStyle BackColor="#999999" />
+                                <FooterStyle BackColor="#edb93b" ForeColor="black" Font-Bold="True" /> 
+                                <PagerStyle BackColor="#edb93b" ForeColor="White" HorizontalAlign="Center" /> 
+                                <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" /> 
+                            <SortedAscendingCellStyle BackColor="#E9E7E2" />
+                            <SortedAscendingHeaderStyle BackColor="#506C8C" />
+                            <SortedDescendingCellStyle BackColor="#FFFDF8" />
+                            <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+             </asp:GridView> 
+             </div>
+                 <button ID="btnAddSeg" class="btnAdd" type="button">Créer</button>
+                 <button ID="btnEditSeg" class="btnEdit" type="button">Modifier</button>
+               <%--  <button ID="btnDisableSeg" class="btnDeac" type="button">Désactiver</button>--%>
+             </div>
         
-         <div class="col">
-             <a class="entete">Sous Segment</a>
-             <br />
-           <div>
-                <table id="tblHeaderSubSeg" class ="gvSubSegment" border="1" style ="font-size:small">
-                    <tbody>
-                        <tr>
-                           <%-- <th style="text-align :center ;width:150px; color:white;background-color:#edb93b">ID Sous Segment</th>
-                            <th style="text-align :center ;width:150px; color:white;background-color:#edb93b">ID Segment</th>--%>
-                            <th style="text-align :center ;width:90px; color:white;background-color:#edb93b">Code S/S SEG</th>
-                            <th style="text-align :center ;width:230px; color:white;background-color:#edb93b">Désignation Sous Segment</th>
-                        </tr>
-                    </tbody>
-                </table>   
-             </div>
-             <div style="overflow-y:scroll; overflow-x:hidden; width:320px; height:330px" >
-             <asp:GridView ID="subSegment" runat="server" AutoGenerateColumns="False" CellPadding="4"  
-                        HeaderStyle-Font-Underline="false" ShowHeader="false" Font-Size ="X-Small"
-                        onrowcancelingedit="subSegment_RowCancelingEdit"   Font-Names="Arial, Helvetica, sans-serif"
-                        onrowdatabound="subSegment_RowDataBound" onrowdeleting="subSegment_RowDeleting"  
-                        onrowediting="subSegment_RowEditing" onrowupdating="subSegment_RowUpdating"  
-                        onsorting="subSegment_Sorting" ForeColor="#333333" GridLines="None"> 
-                        <RowStyle BackColor="White" ForeColor="#333333" /> 
-                         <%--  <AlternatingRowStyle BackColor="White" ForeColor="#284775" />--%>
-                            <Columns> 
-                                <asp:BoundField DataField="ID_Sub_Segment" ReadOnly="True"  
-                                    SortExpression="ID_Sub_Segment" visible="false" /> 
-                                <asp:TemplateField  Visible ="false"> 
-                                    <EditItemTemplate> 
-                                        <asp:TextBox ID="tbxIdSeg" runat="server" Visible="false" Text='<%# Bind("ID_Segment") %>'></asp:TextBox> 
-                                    </EditItemTemplate> 
-                                    <ItemTemplate> 
-                                        <asp:Label ID="lblIdSeg" runat="server" Visible ="false" Text='<%# Bind("ID_Segment") %>'></asp:Label> 
-                                    </ItemTemplate> 
-                                </asp:TemplateField> 
-                                <asp:TemplateField > 
-                                    <EditItemTemplate> 
-                                        <asp:TextBox ID="tbxCodSubSeg" runat="server" Text='<%# Bind("Cod_Sub_Segment") %>' ></asp:TextBox> 
-                                    </EditItemTemplate> 
-                                    <ItemTemplate> 
-                                        <asp:Label ID="lblCodSubSeg" runat="server" Text='<%# Bind("Cod_Sub_Segment") %>' Width="90px"></asp:Label> 
-                                    </ItemTemplate> 
-                                </asp:TemplateField> 
-                                <asp:TemplateField > 
-                                    <EditItemTemplate> 
-                                        <asp:TextBox ID="tbxLibSouSegFr" runat="server" Text='<%# Bind("Lib_Sub_Segment_Fr") %>'></asp:TextBox> 
-                                    </EditItemTemplate> 
-                                    <ItemTemplate> 
-                                        <asp:Label ID="lblLibSouSegFr" runat="server" Text='<%# Bind("Lib_Sub_Segment_Fr") %>' Width="230px"></asp:Label> 
-                                    </ItemTemplate> 
-                                </asp:TemplateField> 
-                            </Columns> 
-                            <EditRowStyle BackColor="#999999" />
-                            <FooterStyle BackColor="#edb93b" ForeColor="White" Font-Bold="True" /> 
-                            <PagerStyle BackColor="#edb93b" ForeColor="White" HorizontalAlign="Center" /> 
-                            <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" /> 
-                        <SortedAscendingCellStyle BackColor="#E9E7E2" />
-                        <SortedAscendingHeaderStyle BackColor="#506C8C" />
-                        <SortedDescendingCellStyle BackColor="#FFFDF8" />
-                        <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
-          </asp:GridView>    
-          </div>
-             <button ID="btnAddSubSeg" class="btnAdd" type="button">Créer</button>
-             <button ID="btnEditSubSeg" class="btnEdit" type="button">Modifier</button>
-       <%--      <button ID="btnDisableSubSeg" class="btnDeac" type="button">Désactiver</button>--%>
-         </div> 
-         <div class ="col"></div>
-     </div>
-</div> 
-
-
-<div id="dialog-form" title="Creation d'un nouveau DAS">
-
-  <p class="validateTips">Tous les champs sont requis.</p >
-
-      <label for="Code DAS">Code DAS</label>
-      <br />
-      <input type="text" name="Code Das" id="codDas" value="" class="text ui-widget-content ui-corner-all"/>
-      <br />
-      <label for="Code Activity">Code Activity</label>
-
-      <label for="CodActi Info"> (Les deux premiers lettres de code DAS)</label>
-      <br />
-      <input type="text" name="Code Activity" id="codActi" value="" class="text ui-widget-content ui-corner-all"/>
-      <br />
-      <label for="libDas">Désignation DAS</label>
-      <br />
-      <input type="text" name="libDas" id="libDas" value="" class="text ui-widget-content ui-corner-all"/>
-      <br /> 
-<%--      <label for="libDasEn">Désignation DAS En Anglais</label>
-      <br />
-      <input type="text" name="libDasEn" id="libDasEn" value="" class="text ui-widget-content ui-corner-all"/>--%>
-</div>
-
-<div id="edit-das" title="Modifier d'un DAS">
-
-  <p class="validateTips">Tous les champs sont requis.</p >
-
-<%--      <label for="Code DAS">Code DAS</label>
-      <br />--%>
-     <br />
- <%--     <label for="Code Activity">Code Activity</label>
-      <br />
-      <input type="text" name="Code Activity" id="codActiEdit" value="" class="text ui-widget-content ui-corner-all"/>--%>
-      <br />
-      <label for="libDas">Désignation DAS</label>
-      <br />
-      <input type="text" name="libDas" id="libDasEdit" value="" class="text ui-widget-content ui-corner-all"/>
-      <input type="hidden" name="Code Das" id="codDasEdit" value="" class="text ui-widget-content ui-corner-all"/>
-</div>
-
-<div id="dialog-form-segment" title="Creation d'un nouveau Segment">
-
-  <p class="validateTips">Tous les champs sont requis.</p >
-    <label for="DAS">DAS</label>  
-    <br />
-    <select id="libDasForPopup" name="DAS" style ="font-family :Arial, Helvetica, sans-serif">
-        <option></option>
-        <script type="text/javascript">
-              
-                $("#das tr").each(function () {
-                    das = $(this).find("td").eq(2).text().trim();
-                    $("#libDasForPopup").append('<option>' + das + '</option>');     
-                });
+             <div class="col">
+                 <a class="entete">Sous Segment</a>
+                 <br />
+               <div>
+                    <table id="tblHeaderSubSeg" class ="gvSubSegment" border="1" style ="font-size:small">
+                        <tbody>
+                            <tr>
+                               <%-- <th style="text-align :center ;width:150px; color:white;background-color:#edb93b">ID Sous Segment</th>
+                                <th style="text-align :center ;width:150px; color:white;background-color:#edb93b">ID Segment</th>--%>
+                                <th style="text-align :center ;width:90px; color:white;background-color:#edb93b">Code S/S SEG</th>
+                                <th style="text-align :center ;width:230px; color:white;background-color:#edb93b">Désignation Sous Segment</th>
+                            </tr>
+                        </tbody>
+                    </table>   
+                 </div>
+                 <div style="overflow-y:scroll; overflow-x:hidden; width:320px; height:330px" >
+                 <asp:GridView ID="subSegment" runat="server" AutoGenerateColumns="False" CellPadding="4"  
+                            HeaderStyle-Font-Underline="false" ShowHeader="false" Font-Size ="X-Small"
+                            onrowcancelingedit="subSegment_RowCancelingEdit"   Font-Names="Arial, Helvetica, sans-serif"
+                            onrowdatabound="subSegment_RowDataBound" onrowdeleting="subSegment_RowDeleting"  
+                            onrowediting="subSegment_RowEditing" onrowupdating="subSegment_RowUpdating"  
+                            onsorting="subSegment_Sorting" ForeColor="#333333" GridLines="None"> 
+                            <RowStyle BackColor="White" ForeColor="#333333" /> 
+                             <%--  <AlternatingRowStyle BackColor="White" ForeColor="#284775" />--%>
+                                <Columns> 
+                                    <asp:BoundField DataField="ID_Sub_Segment" ReadOnly="True"  
+                                        SortExpression="ID_Sub_Segment" visible="false" /> 
+                                    <asp:TemplateField  Visible ="false"> 
+                                        <EditItemTemplate> 
+                                            <asp:TextBox ID="tbxIdSeg" runat="server" Visible="false" Text='<%# Bind("ID_Segment") %>'></asp:TextBox> 
+                                        </EditItemTemplate> 
+                                        <ItemTemplate> 
+                                            <asp:Label ID="lblIdSeg" runat="server" Visible ="false" Text='<%# Bind("ID_Segment") %>'></asp:Label> 
+                                        </ItemTemplate> 
+                                    </asp:TemplateField> 
+                                    <asp:TemplateField > 
+                                        <EditItemTemplate> 
+                                            <asp:TextBox ID="tbxCodSubSeg" runat="server" Text='<%# Bind("Cod_Sub_Segment") %>' ></asp:TextBox> 
+                                        </EditItemTemplate> 
+                                        <ItemTemplate> 
+                                            <asp:Label ID="lblCodSubSeg" runat="server" Text='<%# Bind("Cod_Sub_Segment") %>' Width="90px"></asp:Label> 
+                                        </ItemTemplate> 
+                                    </asp:TemplateField> 
+                                    <asp:TemplateField > 
+                                        <EditItemTemplate> 
+                                            <asp:TextBox ID="tbxLibSouSegFr" runat="server" Text='<%# Bind("Lib_Sub_Segment_Fr") %>'></asp:TextBox> 
+                                        </EditItemTemplate> 
+                                        <ItemTemplate> 
+                                            <asp:Label ID="lblLibSouSegFr" runat="server" Text='<%# Bind("Lib_Sub_Segment_Fr") %>' Width="230px"></asp:Label> 
+                                        </ItemTemplate> 
+                                    </asp:TemplateField> 
+                                </Columns> 
+                                <EditRowStyle BackColor="#999999" />
+                                <FooterStyle BackColor="#edb93b" ForeColor="White" Font-Bold="True" /> 
+                                <PagerStyle BackColor="#edb93b" ForeColor="White" HorizontalAlign="Center" /> 
+                                <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" /> 
+                            <SortedAscendingCellStyle BackColor="#E9E7E2" />
+                            <SortedAscendingHeaderStyle BackColor="#506C8C" />
+                            <SortedDescendingCellStyle BackColor="#FFFDF8" />
+                            <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+              </asp:GridView>    
+              </div>
+                 <button ID="btnAddSubSeg" class="btnAdd" type="button">Créer</button>
+                 <button ID="btnEditSubSeg" class="btnEdit" type="button">Modifier</button>
+           <%--      <button ID="btnDisableSubSeg" class="btnDeac" type="button">Désactiver</button>--%>
+             </div> 
        
-        </script>
-      </select>
-      <br />
-      <label for="Code Segment">Code Segment</label>
-      <br />
-      <input type="text" name="Code Segment" id="codSegment" value="" class="text ui-widget-content ui-corner-all"/>
-      <br />
-      <label for="libSegment">Désignation Segment</label>
-      <br />
-      <input type="text" name="libDas" id="libSegment" value="" class="text ui-widget-content ui-corner-all"/>  
-      <br />
-        
-</div>
-
-<div id="edit-segment" title="Modifier d'un Segment">
-
-  <p class="validateTips">Tous les champs sont requis.</p >
-
-<%--      <label for="Code Segment">Code Segment</label>
-      <br />--%>
-      <br />
-      <label for="libSegment">Désignation Segment</label>
-      <br />
-      <input type="text" name="libDas" id="libSegEdit" value="" class="text ui-widget-content ui-corner-all"/>
-      <br />
-      <input type="hidden" name="idSegment" id="idOfSelectedSegment" value="" class="text ui-widget-content ui-corner-all"/>
-      <input type="hidden" name="Code Segment" id="codSegEdit" value="" class="text ui-widget-content ui-corner-all"/>
-  
-</div>
-
-<div id="dialog-form-subSegment" title="Creation d'un nouveau Sous Segment">
-
-  <p class="validateTips">Tous les champs sont requis.</p >
-      <label for="Segment">Segment</label>
-      <br />
-      <select id="libSegmentForPopup" name="Segment" style ="font-family :Arial, Helvetica, sans-serif">
-          <option></option>
-          <script type="text/javascript">
-
-                $("#segment tr").each(function () {
-                    segment = $(this).find("td").eq(1).text().trim();
-                    $("#libSegmentForPopup").append('<option>' + segment + '</option>');     
-                });
-            
-        </script>
-      </select>
-
-      <label for="Code Sous Segment">Code Sous Segment</label>
-      <br />
-      <input type="text" name="Code Sous Segment" id="codSubSegment" value="" class="text ui-widget-content ui-corner-all"/>
-      <br />
-      <label for="libSubSegment">Désignation Sous Segment</label>
-      <br />
-      <input type="text" name="libDas" id="libSubSegment" value="" class="text ui-widget-content ui-corner-all"/>
-      <br />
-</div>
-
-<div id="edit-subSeg" title="Modification d'un Sous Segment">
-
-  <p class="validateTips">Tous les champs sont requis.</p >
-
-<%--      <label for="Code Sous Segment">Code Sous Segment</label>
-      <br />--%>
-      <br />
-      <label for="libSubSegment">Désignation Sous Segment</label>
-      <br />
-      <input type="text" name="libDas" id="libSubSegEdit" value="" class="text ui-widget-content ui-corner-all"/>
-      <input type="hidden" name="Code Sous Segment" id="codSubSegEdit" value="" class="text ui-widget-content ui-corner-all"/>
-   
-</div>
-    </form>
-<br/>
-<br/>
-<br/>
-<br/>
+         </div>
+     </div>
 </div>
 <div class="row">
+    <div id="dialog-form" title="Creation d'un nouveau DAS">
+
+      <p class="validateTips">Tous les champs sont requis.</p >
+
+          <label for="Code DAS">Code DAS</label>
+          <br />
+          <input type="text" name="Code Das" id="codDas" value="" class="text ui-widget-content ui-corner-all"/>
+          <br />
+          <label for="Code Activity">Code Activity</label>
+
+          <label for="CodActi Info"> (Les deux premiers lettres de code DAS)</label>
+          <br />
+          <input type="text" name="Code Activity" id="codActi" value="" class="text ui-widget-content ui-corner-all"/>
+          <br />
+          <label for="libDas">Désignation DAS</label>
+          <br />
+          <input type="text" name="libDas" id="libDas" value="" class="text ui-widget-content ui-corner-all"/>
+          <br /> 
+    <%--      <label for="libDasEn">Désignation DAS En Anglais</label>
+          <br />
+          <input type="text" name="libDasEn" id="libDasEn" value="" class="text ui-widget-content ui-corner-all"/>--%>
+    </div>
+
+    <div id="edit-das" title="Modifier d'un DAS">
+
+      <p class="validateTips">Tous les champs sont requis.</p >
+
+    <%--      <label for="Code DAS">Code DAS</label>
+          <br />--%>
+         <br />
+     <%--     <label for="Code Activity">Code Activity</label>
+          <br />
+          <input type="text" name="Code Activity" id="codActiEdit" value="" class="text ui-widget-content ui-corner-all"/>--%>
+          <br />
+          <label for="libDas">Désignation DAS</label>
+          <br />
+          <input type="text" name="libDas" id="libDasEdit" value="" class="text ui-widget-content ui-corner-all"/>
+          <input type="hidden" name="Code Das" id="codDasEdit" value="" class="text ui-widget-content ui-corner-all"/>
+    </div>
+
+    <div id="dialog-form-segment" title="Creation d'un nouveau Segment">
+
+      <p class="validateTips">Tous les champs sont requis.</p >
+        <label for="DAS">DAS</label>  
+        <br />
+        <select id="libDasForPopup" name="DAS" style ="font-family :Arial, Helvetica, sans-serif">
+            <option></option>
+            <script type="text/javascript">
+              
+                    $("#das tr").each(function () {
+                        das = $(this).find("td").eq(2).text().trim();
+                        $("#libDasForPopup").append('<option>' + das + '</option>');     
+                    });
+       
+            </script>
+          </select>
+          <br />
+          <label for="Code Segment">Code Segment</label>
+          <br />
+          <input type="text" name="Code Segment" id="codSegment" value="" class="text ui-widget-content ui-corner-all"/>
+          <br />
+          <label for="libSegment">Désignation Segment</label>
+          <br />
+          <input type="text" name="libDas" id="libSegment" value="" class="text ui-widget-content ui-corner-all"/>  
+          <br />
+        
+    </div>
+
+    <div id="edit-segment" title="Modifier d'un Segment">
+
+      <p class="validateTips">Tous les champs sont requis.</p >
+
+    <%--      <label for="Code Segment">Code Segment</label>
+          <br />--%>
+          <br />
+          <label for="libSegment">Désignation Segment</label>
+          <br />
+          <input type="text" name="libDas" id="libSegEdit" value="" class="text ui-widget-content ui-corner-all"/>
+          <br />
+          <input type="hidden" name="idSegment" id="idOfSelectedSegment" value="" class="text ui-widget-content ui-corner-all"/>
+          <input type="hidden" name="Code Segment" id="codSegEdit" value="" class="text ui-widget-content ui-corner-all"/>
+  
+    </div>
+
+    <div id="dialog-form-subSegment" title="Creation d'un nouveau Sous Segment">
+
+      <p class="validateTips">Tous les champs sont requis.</p >
+          <label for="Segment">Segment</label>
+          <br />
+          <select id="libSegmentForPopup" name="Segment" style ="font-family :Arial, Helvetica, sans-serif">
+              <option></option>
+              <script type="text/javascript">
+
+                    $("#segment tr").each(function () {
+                        segment = $(this).find("td").eq(1).text().trim();
+                        $("#libSegmentForPopup").append('<option>' + segment + '</option>');     
+                    });
+            
+            </script>
+          </select>
+
+          <label for="Code Sous Segment">Code Sous Segment</label>
+          <br />
+          <input type="text" name="Code Sous Segment" id="codSubSegment" value="" class="text ui-widget-content ui-corner-all"/>
+          <br />
+          <label for="libSubSegment">Désignation Sous Segment</label>
+          <br />
+          <input type="text" name="libDas" id="libSubSegment" value="" class="text ui-widget-content ui-corner-all"/>
+          <br />
+    </div>
+
+    <div id="edit-subSeg" title="Modification d'un Sous Segment">
+
+      <p class="validateTips">Tous les champs sont requis.</p >
+
+    <%--      <label for="Code Sous Segment">Code Sous Segment</label>
+          <br />--%>
+          <br />
+          <label for="libSubSegment">Désignation Sous Segment</label>
+          <br />
+          <input type="text" name="libDas" id="libSubSegEdit" value="" class="text ui-widget-content ui-corner-all"/>
+          <input type="hidden" name="Code Sous Segment" id="codSubSegEdit" value="" class="text ui-widget-content ui-corner-all"/>
+   
+    </div>
+</div>
+</div>
+
+</form>
+<br/>
+<br/>
+<br/>
+
 <div class="footer">
     <p>&copy; <%: DateTime.Now.Year %> - Alès Groupe</p>
 </div>
-</div>
+
 </body>
 
 </html>
