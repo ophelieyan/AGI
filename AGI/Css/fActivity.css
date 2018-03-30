@@ -1,0 +1,412 @@
+﻿
+#topMenu ul {
+    list-style-type: none;
+    margin-left:0px;
+    padding: 0;
+    overflow: hidden;
+    background-color: #0f4396; 
+    font-family :Arial, Helvetica, sans-serif;
+    width:100%;
+    border-radius:10px;
+}
+
+#topMenu li {
+    float: left;
+}
+
+#topMenu li:last-child {
+    border-right :none;
+}
+ 
+#topMenu li.menu-element1 {
+    padding-left:20px;
+}
+
+#topMenu li a, .dropbtn{
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 30px 4px;
+    text-decoration: none;
+    padding-left:20px;
+    padding-right:20px;
+}
+
+#topMenu li a:hover, .menu:hover .dropbtn {
+    background-color: #edb93b;
+}
+
+#topMenu li.menu {
+    display: inline-block;
+}
+
+#topMenu .submenu {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+#topMenu .submenu a {
+    color: black;
+    padding: 7px 8px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    border-bottom: 1px solid #c9c9c9;
+    font-family :Arial, Helvetica, sans-serif;
+    font-size:small;
+}
+
+#topMenu .submenu a:last-child {
+    border-bottom: none;
+}
+
+#topMenu .submenu a:hover {
+    background-color: lightcyan;
+}
+
+#topMenu .menu:hover .submenu {
+    display: block;
+}
+
+#topMenu .menu-element1:hover .submenu {
+    display: block;
+}
+
+
+.form-wrapper {
+    width: 250px;
+    padding: 5px;
+    margin: 20px auto;  
+    margin-right :15px; 
+    overflow: hidden;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #dedede #bababa #aaa #bababa;
+    box-shadow: 0 3px 3px rgba(255,255,255,.1), 0 3px 0 #bbb, 0 4px 0 #aaa, 0 5px 5px #444;
+    border-radius: 10px;    
+    background-color: #f6f6f6;
+    background-image: linear-gradient(top, #f6f6f6, #eae8e8);
+}
+
+.form-wrapper #search {
+    width: 200px;
+    height: 30px;
+    padding: 5px 5px;
+    float: left;    
+    font: 14px Arial, Helvetica, sans-serif;
+    border: 1px solid #ccc;
+    box-shadow: 0 1px 1px #ddd inset, 0 1px 0 #fff;
+    border-radius: 3px;      
+}
+
+.form-wrapper #search:focus {
+    outline: 0; 
+    border-color: #aaa;
+    box-shadow: 0 1px 1px #bbb inset;  
+}
+
+.form-wrapper #search::-webkit-input-placeholder {
+   color: #999;
+   font-weight: normal;
+}
+
+.form-wrapper #search:-moz-placeholder {
+    color: #999;
+    font-weight: normal;
+}
+
+.form-wrapper #search:-ms-input-placeholder {
+    color: #999;
+    font-weight: normal;
+} 
+
+.form-wrapper #submit {
+    float: right;    
+    border: 1px solid #00748f;
+    height: 30px;
+    width: 30px;
+    padding: 5px;
+    cursor: pointer;
+    font: 12px Arial, Helvetica;
+    color: #fff;
+    text-transform: uppercase;    
+    background-color: #0f4396;
+    background-image: linear-gradient(top, #31b2c3, #0483a0);
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;      
+    text-shadow: 0 1px 0 rgba(0, 0 ,0, .3);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset, 0 1px 0 #fff;
+}
+  
+.form-wrapper #submit:hover,
+.form-wrapper #submit:focus {       
+    background-color: #0f4396;
+    background-image: linear-gradient(top, #0483a0, #31b2c3);
+}   
+  
+.form-wrapper #submit:active {
+    outline: 0;    
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;    
+}
+  
+.form-wrapper #submit::-moz-focus-inner {
+    border: 0;
+}
+
+
+
+.mainContent {
+    position:absolute;
+    /*height:500px;*/
+    /*width:85%;*/
+    /*top:100px;*/
+    /*left:230px;*/
+    width:100%;
+}
+
+.btnAdd {
+    color :white;
+    background-color :#0f4396;
+    margin-left :40px;
+    margin-top :20px;
+    border-radius :8px;
+    outline :none;
+}
+
+.btnEdit {
+    color :white;
+    background-color :#0f4396;
+    margin-left:10px;
+    margin-top:20px;
+    border-radius :8px;
+    outline :none;
+}
+
+.btnDeac {
+    color :white;
+    background-color :#0f4396;
+    margin-left :10px;
+    margin-top :20px;
+    border-radius :8px;
+    outline :none;
+}
+
+.footer {
+    position:fixed;
+    left:4px;
+    bottom:0px;
+    width:100%;
+    background-color:#eeeeee;
+    color:black;
+    text-align-last:center;
+}
+
+.selected {
+    background-color :mistyrose;
+}
+
+#segment {
+    scrollbar-arrow-color:cornflowerblue ; 
+}
+
+.Popup
+{
+
+    background-color: #FFFFFF;
+
+    border-width: 3px;
+
+    border-style: solid;
+
+    border-color: black;
+
+    padding-top: 10px;
+
+    padding-left: 10px;
+
+    width: 400px;
+
+    height: 350px;
+}
+
+.popup {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* The actual popup */
+.popup .popuptext {
+    visibility: hidden;
+    width: 160px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -80px;
+}
+
+/* Popup arrow */
+.popup .popuptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+/* Toggle this class - hide and show the popup */
+.popup .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+    from {opacity: 0;} 
+    to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
+}
+
+
+#submitDas {
+    background-color :#0f4396;
+    color:white;
+    border-radius :5px;
+    cursor :pointer;
+}
+
+#submitSeg {
+    background-color :#0f4396;
+    color:white;
+    border-radius :5px;
+    cursor :pointer;
+}
+
+#submitSouSeg {
+    background-color :#0f4396;
+    color:white;
+    border-radius :5px;
+    cursor :pointer;
+}
+ #pBrand tr:hover {
+  background-color: #f1f1f1;
+}
+
+ 
+.lbl{
+     font-family :Arial, Helvetica, sans-serif ;
+     color :#404040;
+  }
+#ddlCodActi {
+    font-family :Arial, Helvetica, sans-serif ;
+    color :#404040 ;
+    width :180px;
+}
+
+.tbx {
+    border-radius :8px;
+    color:#0f4396;
+}
+
+.validateTips{
+    font-family :Arial, Helvetica, sans-serif ;
+    color: red;
+}
+
+.header {
+    display:none;                                                    
+}
+
+.gvPBrand {
+        border-color :white;
+}
+
+.gvSBrand {
+        border-color :white;
+}
+
+.gvRange {
+        border-color :white;
+}
+
+dialog-form.label, dialog-form.input, dialog-form.select{ 
+    display:block; 
+}
+
+dialog-form.input.text { 
+    margin-bottom:12px; 
+    padding: .4em; 
+}
+
+dialog-form.select.text {
+    margin-bottom:12px; 
+    padding: .4em; 
+}
+
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+/*.fixedheadertable
+{
+    left: 0px;
+    position: relative;
+    top: 0px;
+    padding-right: 2px;
+    padding-left: 2px;
+    padding-bottom: 2px;
+    padding-top: 2px;
+}
+.HeaderFreez
+{
+   position:relative ;
+   top:expression(this.offsetParent.scrollTop);
+   z-index: 10;
+}*/
+
+/*.fixedHeader{font-weight:bold;
+position:absolute;
+
+background-color: #006699;
+
+color: #ffffff;
+
+height: 50px;
+
+top: expression(Sys.UI.DomElement.getBounds(document.getElementById("panelContainer1")).y-80);
+
+}*/

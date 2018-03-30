@@ -210,7 +210,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Css\fActivity.css" />
     <Content Include="Css\fDas.css" />
+    <Content Include="fluxActivity.aspx" />
     <Content Include="gestionArticleRefInternational.aspx" />
     <Content Include="Js\fDas.js" />
     <Content Include="WebForm2.aspx" />
@@ -335,7 +337,14 @@
     <Compile Include="2.aspx.designer.cs">
       <DependentUpon>2.aspx</DependentUpon>
     </Compile>
-    <Compile Include="webservice\DataController\DasDataController.cs" />
+    <Compile Include="fluxActivity.aspx.cs">
+      <DependentUpon>fluxActivity.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="fluxActivity.aspx.designer.cs">
+      <DependentUpon>fluxActivity.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="webservice\DataController\DataController.cs" />
     <Compile Include="CreatedResult.cs" />
     <Compile Include="garde\1.aspx.cs">
       <DependentUpon>searchaspx</DependentUpon>

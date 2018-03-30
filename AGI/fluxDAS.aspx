@@ -102,8 +102,8 @@
       </li>
       <li style="float:right"> 
           <form class="form-wrapper">
-              <input type="text" id="search" placeholder="Recherche" required>
-              <input type="submit" value="OK" id="submit">
+              <input type="text" id="search" placeholder="Recherche"/>
+              <input type="submit" value="OK" id="submit"/>
           </form>
       </li>
 </ul>
@@ -440,7 +440,7 @@
           <br />
           <label for="libSegment">Désignation Segment</label>
           <br />
-          <input type="text" name="libDas" id="libSegment" value="" class="text ui-widget-content ui-corner-all"/>  
+          <input type="text" name="libSegment" id="libSegment" value="" class="text ui-widget-content ui-corner-all"/>  
           <br />
         
     </div>
@@ -633,10 +633,14 @@
                 EditSubSegment($(this).closest("tr"));
 
                 filterInverseSegment($(this).closest("tr"));
+          
+                filterInverseDas( $("#filteredSegment"));
 
-                $(this).closest("tr").attr("id", "selectedRowId");
-            })
+            });
+
+            $(this).closest("tr").attr("id", "selectedRowId");
         })
+
 
         //filtrer Segment en cliquant sur une ligne de subSegment
         function filterInverseSegment(row) {
@@ -645,9 +649,11 @@
       
             $("#segment tr").each(function () {
                 var codeSegment = $(this).find("td").eq(0).text().trim();
+                $(this).closest("tr").attr("id", "");
                 if (codeSegment != null) {
                     if (codeSegment == codeSegmentInSubseg) {
                         $(this).show();
+                        $(this).closest("tr").attr("id", "filteredSegment");
                     }
                     else {
                         $(this).hide();
