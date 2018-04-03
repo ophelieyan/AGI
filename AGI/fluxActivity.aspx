@@ -588,6 +588,7 @@
                 EditRange($(this).closest("tr"));
 
                 filterInverseSBrand($(this).closest("tr"));
+                filterInversePBrand($("#filteredSegment"));
 
                 $(this).closest("tr").attr("id", "selectedRowId");
             })
@@ -600,9 +601,11 @@
       
             $("#sBrand tr").each(function () {
                 var codeSBrand = $(this).find("td").eq(0).text().trim();
+                $(this).closest("tr").attr("id", "");
                 if (codeSBrand != null) {
                     if (codeSBrand == codeSBrandInRange) {
                         $(this).show();
+                        $(this).closest("tr").attr("id", "filteredSBrand");
                     }
                     else {
                         $(this).hide();
@@ -706,12 +709,6 @@
                                         + '<span id="das_lblCodPBrand_2" style="display:inline-block;width:100px;">' + code + '</span>'
 
                                         + '</td>'
-
-                                        //+ '<td>'
-
-                                        //+ '<span id="das_lblCodActi_2" style="display:inline-block;width:100px;">' + codeActivity + '</span>'
-
-                                        //+ '</td>'
 
                                         + '<td>'
 
