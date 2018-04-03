@@ -212,7 +212,9 @@
   <ItemGroup>
     <Content Include="Css\fActivity.css" />
     <Content Include="Css\fDas.css" />
+    <Content Include="Css\fIMS.css" />
     <Content Include="fluxActivity.aspx" />
+    <Content Include="FluxIMS.aspx" />
     <Content Include="gestionArticleRefInternational.aspx" />
     <Content Include="Js\fDas.js" />
     <Content Include="WebForm2.aspx" />
@@ -343,6 +345,13 @@
     </Compile>
     <Compile Include="fluxActivity.aspx.designer.cs">
       <DependentUpon>fluxActivity.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FluxIMS.aspx.cs">
+      <DependentUpon>FluxIMS.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FluxIMS.aspx.designer.cs">
+      <DependentUpon>FluxIMS.aspx</DependentUpon>
     </Compile>
     <Compile Include="webservice\DataController\DataController.cs" />
     <Compile Include="CreatedResult.cs" />

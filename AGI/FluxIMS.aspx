@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="fluxActivity.aspx.cs" Inherits="AGI.fluxActivity" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="FluxIMS.aspx.cs" Inherits="AGI.FluxIMS" %>
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -13,8 +13,8 @@
     <script type="text/javascript" src="script.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"/>   
-    <link href="Css/fActivity.css" type='text/css' rel='stylesheet' /> 
-    <title>Flux Activity</title>
+    <link href="Css/fIMS.css" type='text/css' rel='stylesheet' /> 
+    <title>Flux IMS</title>
 </head>
 <body>
 
@@ -83,7 +83,7 @@
           <a href="#">Flux Labelling</a>
           <a href="#">Flux Life Cycle</a>
           <a href="#">Flux Logistique</a>
-          <a href="#">Flux IMS</a>
+          <a href="fluxIMS">Flux IMS</a>
           <a href="#">Flux ISO639 Language ISO3166 Country</a>
           <a href="#">Flux OF</a>
           <a href="#">Flux Ortems</a>
@@ -141,7 +141,7 @@
                 <asp:TreeNode Text="Sous Segment" Value="Sous Segment" NavigateUrl ="~/ConsulSousSeg.aspx"></asp:TreeNode>
             </asp:TreeNode>
             <asp:TreeNode Text="Flux Logistique" Value="Flux Logistique"></asp:TreeNode>
-            <asp:TreeNode Text="Flux IMS" Value="Flux IMS"></asp:TreeNode>
+            <asp:TreeNode Text="Flux IMS" Value="Flux IMS" NavigateUrl ="~/fluxIMS.aspx"></asp:TreeNode>
             <%--<asp:TreeNode Text="Flux ISO639 Language ISO3166 Country" Value="Flux ISO639 Language ISO3166 Country"></asp:TreeNode>--%>
             <asp:TreeNode Text="Flux Purchase" Value="Flux Purchase"></asp:TreeNode>
             <asp:TreeNode Text="Flux Supplier" Value="Flux Supplier"></asp:TreeNode>
@@ -161,50 +161,31 @@
         <br />
         <div class="row">         
              <div class ="col">
-                 <a class="entete">Marque Première</a>
+                 <a class="entete">IMS Level 1</a>
                  <br />
                  <div>
-                     <table id="tblHeaderPBrand" class ="gvPBrand" border="1" style ="font-size :small">
+                     <table id="tblHeaderImsL1" class ="gvImsL1" border="1" style ="font-size :small">
                          <tbody>
                              <tr>
-                                 <th style="text-align:center; width:100px; color:white; background-color:#edb93b">Code Marque P</th>
-                                 <th style="text-align:center; width:235px; color:white; background-color:#edb93b">Désignation Marque Première</th>
+                               <%--  <th style="text-align:center; width:100px; color:white; background-color:#edb93b">Code Marque P</th>--%>
+                                 <th style="text-align:center; width:235px; color:white; background-color:#edb93b">Désignation IMS Level 1</th>
                              </tr>
                          </tbody>
                      </table>
                  </div>
-                 <div style="overflow-y:scroll; overflow-x:hidden; width:335px ; height:330px" >
-                  <%--  onrowediting="pBrand_RowEditing" onrowupdating="pBrand_RowUpdating"  OnSelectedIndexChanged="pBrand_SelectedIndexChanged"
-                            onrowcancelingedit="pBrand_RowCancelingEdit"
-                            onsorting="pBrand_Sorting"      onrowdatabound="pBrand_RowDataBound" onrowdeleting="pBrand_RowDeleting"--%>
-                 <asp:GridView ID="pBrand" runat="server" AutoGenerateColumns="False" CellPadding="4" ShowHeader="false" 
+                 <div style="overflow-y:scroll; overflow-x:hidden; width:235px ; height:330px" >
+                 <asp:GridView ID="imsL1" runat="server" AutoGenerateColumns="False" CellPadding="4" ShowHeader="false" 
                             HeaderStyle-Font-Underline="false" Font-Names="Arial, Helvetica, sans-serif"
                             Font-Size ="X-Small" ForeColor="#333333" GridLines="None"> 
                             <RowStyle BackColor="White"  ForeColor="#333333" /> 
                                 <%--<AlternatingRowStyle BackColor="White" ForeColor="#284775" />--%>
                                 <Columns> 
-                                   <asp:TemplateField   Visible="false" > 
-                                   <EditItemTemplate> 
-                                            <asp:TextBox ID="tbxIdPBrand" runat="server" Text='<%# Bind("ID_Primary_Brand") %>' Visible="false" ></asp:TextBox> 
-                                        </EditItemTemplate>
-                                        <ItemTemplate> 
-                                            <asp:Label ID="lblIdIdPBrand" runat="server" Text='<%# Bind("ID_Primary_Brand") %>' Visible="false"></asp:Label> 
-                                        </ItemTemplate> 
-                                    </asp:TemplateField> 
-                                    <asp:TemplateField > 
-                                    <EditItemTemplate> 
-                                            <asp:TextBox ID="tbxCodIdPBrand" runat="server"  Text='<%# Bind("Cod_Primary_Brand") %>'  Width ="90px"></asp:TextBox> 
-                                        </EditItemTemplate> 
-                                        <ItemTemplate> 
-                                            <asp:Label ID="lblCodIdPBrand" runat="server"  Text='<%# Bind("Cod_Primary_Brand") %>' Width ="90px"></asp:Label> 
-                                        </ItemTemplate> 
-                                    </asp:TemplateField> 
                                     <asp:TemplateField > 
                                        <EditItemTemplate> 
-                                            <asp:TextBox ID="tbxLibPBrandFr" runat="server" Text='<%# Bind("Lib_Primary_Brand_Fr") %>'  Width ="235px"></asp:TextBox> 
+                                            <asp:TextBox ID="tbxLibPBrandFr" runat="server" Text='<%# Bind("Lib_IMS_Level_1_FR") %>'  Width ="235px"></asp:TextBox> 
                                         </EditItemTemplate> 
                                         <ItemTemplate> 
-                                            <asp:Label ID="lblLibPBrandFr" runat="server" Text='<%# Bind("Lib_Primary_Brand_Fr") %>' Width ="235px"></asp:Label> 
+                                            <asp:Label ID="lblLibPBrandFr" runat="server" Text='<%# Bind("Lib_IMS_Level_1_FR") %>' Width ="235px"></asp:Label> 
                                         </ItemTemplate> 
                                     </asp:TemplateField> 
                                 </Columns> 
@@ -217,36 +198,32 @@
                             <SortedDescendingCellStyle BackColor="#FFFDF8" />
                             <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
               </asp:GridView> 
-                          <%-- </asp:Panel>--%>
               </div> 
-                 <button id="btnAddPBrand" class="btnAdd" type="button">Créer</button>
-                 <button id="btnEditPBrand" class="btnEdit" type="button">Modifier</button>
+                 <button id="btnAddImsL1" class="btnAdd" type="button">Créer</button>
+                 <button id="btnEditImsL1" class="btnEdit" type="button">Modifier</button>
             <%--     <button ID="btnDisablePBrand" class="btnDeac" type="button">Désactiver</button>--%>
              </div>
     
              <div class="col">
-                 <a class="entete">Marque Secondaire</a>
+                 <a class="entete">IMS Level 2</a>
                  <br />
                  <div>
-                     <table id="tblHeaderSBrand" class ="gvSBrand" border="1" style ="font-size :small">
+                     <table id="tblHeaderImsL2" class ="gvImsL2" border="1" style ="font-size :small">
                          <tbody>
                              <tr>
-                                 <th style="text-align :center ;width:100px; color:white;background-color:#edb93b">Code Marque S</th>
-                                 <th style="text-align :center ;width:200px; color:white;background-color:#edb93b">Désignation Marque S</th>
+<%--                                 <th style="text-align :center ;width:100px; color:white;background-color:#edb93b">Code Marque S</th>--%>
+                                 <th style="text-align :center ;width:235px; color:white;background-color:#edb93b">Désignation IMS Level 2</th>
                              </tr>
                          </tbody>
                      </table>
                  </div>
-                 <div style="overflow-y:scroll; overflow-x:hidden; width:300px ; height:330px" >
-                     <%--onrowcancelingedit="sBrand_RowCancelingEdit"    onrowdatabound="sBrand_RowDataBound" onrowdeleting="sBrand_RowDeleting"   
-                            onrowediting="sBrand_RowEditing" onrowupdating="sBrand_RowUpdating"  
-                            onsorting="sBrand_Sorting"--%>
-                 <asp:GridView ID="sBrand" runat="server" AutoGenerateColumns="False" CellPadding="4"  
+                 <div style="overflow-y:scroll; overflow-x:hidden; width:235px ; height:330px" >
+                 <asp:GridView ID="imsL2" runat="server" AutoGenerateColumns="False" CellPadding="4"  
                             HeaderStyle-Font-Underline="false" ShowHeader="false" Font-Size ="X-Small"
                             Font-Names="Arial, Helvetica, sans-serif" ForeColor="#333333" GridLines="None"> 
                             <RowStyle BackColor="White" ForeColor="#333333" Width ="140px" /> 
                                  <Columns> 
-                                    <asp:BoundField DataField="ID_Secondary_Brand"  ReadOnly="True"  
+<%--                                    <asp:BoundField DataField="ID_Secondary_Brand"  ReadOnly="True"  
                                         SortExpression="ID_Secondary_Brand" visible="false" /> 
                                     <asp:TemplateField Visible ="false"> 
                                         <EditItemTemplate> 
@@ -263,13 +240,13 @@
                                         <ItemTemplate> 
                                             <asp:Label ID="lblCodSBrand" runat="server" Text='<%# Bind("Cod_Secondary_Brand") %>' Width ="100px"></asp:Label> 
                                         </ItemTemplate> 
-                                    </asp:TemplateField> 
+                                    </asp:TemplateField> --%>
                                     <asp:TemplateField > 
                                         <EditItemTemplate> 
-                                            <asp:TextBox ID="tbxLibSBrandFr" runat="server" Text='<%# Bind("Lib_Secondary_Brand_Fr") %>' Width ="200px"></asp:TextBox> 
+                                            <asp:TextBox ID="tbxLibSBrandFr" runat="server" Text='<%# Bind("Lib_IMS_Level_2_FR") %>' Width ="200px"></asp:TextBox> 
                                         </EditItemTemplate> 
                                         <ItemTemplate> 
-                                            <asp:Label ID="lblLibSBrandFr" runat="server" Text='<%# Bind("Lib_Secondary_Brand_Fr") %>' Width ="200px"></asp:Label> 
+                                            <asp:Label ID="lblLibSBrandFr" runat="server" Text='<%# Bind("Lib_IMS_Level_2_FR") %>' Width ="200px"></asp:Label> 
                                         </ItemTemplate> 
                                     </asp:TemplateField> 
                                 </Columns> 
@@ -283,57 +260,36 @@
                             <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
              </asp:GridView> 
              </div>
-                 <button id="btnAddSBrand" class="btnAdd" type="button">Créer</button>
-                 <button id="btnEditSBrand" class="btnEdit" type="button">Modifier</button>
-               <%--  <button ID="btnDisableSBrand" class="btnDeac" type="button">Désactiver</button>--%>
+                 <button id="btnAddImsL2" class="btnAdd" type="button">Créer</button>
+                 <button id="btnEditImsL2" class="btnEdit" type="button">Modifier</button>
+               <%--  <button ID="btnDisableImsL2" class="btnDeac" type="button">Désactiver</button>--%>
              </div>
         
              <div class="col">
-                 <a class="entete">Gamme</a>
+                 <a class="entete">IMS Level 3</a>
                  <br />
                <div>
-                    <table id="tblHeaderRange" class ="gvRange" border="1" style ="font-size:small">
+                    <table id="tblHeaderImsL3" class ="gvImsL3" border="1" style ="font-size:small">
                         <tbody>
                             <tr>
-                                <th style="text-align :center ;width:90px; color:white;background-color:#edb93b">Code Gamme</th>
-                                <th style="text-align :center ;width:230px; color:white;background-color:#edb93b">Désignation Gamme</th>
+<%--                                <th style="text-align :center ;width:90px; color:white;background-color:#edb93b">Code Gamme</th>--%>
+                                <th style="text-align :center ;width:235px; color:white;background-color:#edb93b">Désignation IMS Level 3</th>
                             </tr>
                         </tbody>
                     </table>   
                  </div>
-                 <div style="overflow-y:scroll; overflow-x:hidden; width:320px; height:330px" >
-            <%--     onrowdatabound="range_RowDataBound" onrowdeleting="range_RowDeleting"  
-                            onrowediting="range_RowEditing" onrowupdating="range_RowUpdating"  
-                            onsorting="range_Sorting"  onrowcancelingedit="range_RowCancelingEdit"--%>
-                 <asp:GridView ID="range" runat="server" AutoGenerateColumns="False" CellPadding="4"  
+                 <div style="overflow-y:scroll; overflow-x:hidden; width:235px; height:330px" >
+                 <asp:GridView ID="imsL3" runat="server" AutoGenerateColumns="False" CellPadding="4"  
                             HeaderStyle-Font-Underline="false" ShowHeader="false" Font-Size ="X-Small"
                             Font-Names="Arial, Helvetica, sans-serif" ForeColor="#333333" GridLines="None"> 
                             <RowStyle BackColor="White" ForeColor="#333333" /> 
                                 <Columns> 
-                                    <asp:BoundField DataField="ID_Range" ReadOnly="True"  
-                                        SortExpression="ID_Range" visible="false" /> 
-                                    <asp:TemplateField  Visible ="false"> 
-                                        <EditItemTemplate> 
-                                            <asp:TextBox ID="tbxIdRange" runat="server" Visible="false" Text='<%# Bind("ID_Range") %>'></asp:TextBox> 
-                                        </EditItemTemplate> 
-                                        <ItemTemplate> 
-                                            <asp:Label ID="lblIdRange" runat="server" Visible ="false" Text='<%# Bind("ID_Range") %>'></asp:Label> 
-                                        </ItemTemplate> 
-                                    </asp:TemplateField> 
                                     <asp:TemplateField > 
                                         <EditItemTemplate> 
-                                            <asp:TextBox ID="tbxCodRange" runat="server" Text='<%# Bind("Cod_Range") %>' ></asp:TextBox> 
+                                            <asp:TextBox ID="tbxLibImsL3" runat="server" Text='<%# Bind("Lib_IMS_Level_3_FR") %>'></asp:TextBox> 
                                         </EditItemTemplate> 
                                         <ItemTemplate> 
-                                            <asp:Label ID="lblCodRange" runat="server" Text='<%# Bind("Cod_Range") %>' Width="80px"></asp:Label> 
-                                        </ItemTemplate> 
-                                    </asp:TemplateField> 
-                                    <asp:TemplateField > 
-                                        <EditItemTemplate> 
-                                            <asp:TextBox ID="tbxLibRangeFr" runat="server" Text='<%# Bind("Lib_Range_Fr") %>'></asp:TextBox> 
-                                        </EditItemTemplate> 
-                                        <ItemTemplate> 
-                                            <asp:Label ID="lblLibRangeFr" runat="server" Text='<%# Bind("Lib_Range_Fr") %>' Width="230px"></asp:Label> 
+                                            <asp:Label ID="lblLibImsL3" runat="server" Text='<%# Bind("Lib_IMS_Level_3_FR") %>' Width="230px"></asp:Label> 
                                         </ItemTemplate> 
                                     </asp:TemplateField> 
                                 </Columns> 
@@ -347,115 +303,171 @@
                             <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
               </asp:GridView>    
               </div>
-                 <button id="btnAddRange" class="btnAdd" type="button">Créer</button>
-                 <button id="btnEditRange" class="btnEdit" type="button">Modifier</button>
-           <%--      <button id="btnDisableRange" class="btnDeac" type="button">Désactiver</button>--%>
+                 <button id="btnAddImsL3" class="btnAdd" type="button">Créer</button>
+                 <button id="btnEditImsL3" class="btnEdit" type="button">Modifier</button>
+           <%--      <button id="btnDisableImsL3" class="btnDeac" type="button">Désactiver</button>--%>
              </div> 
        
+             <div class="col">
+                 <a class="entete">IMS Level 4</a>
+                 <br />
+               <div>
+                    <table id="tblHeaderImsL4" class ="gvImsL4" border="1" style ="font-size:small">
+                        <tbody>
+                            <tr>
+<%--                                <th style="text-align :center ;width:90px; color:white;background-color:#edb93b">Code Gamme</th>--%>
+                                <th style="text-align :center ;width:235px; color:white;background-color:#edb93b">Désignation IMS Level 4</th>
+                            </tr>
+                        </tbody>
+                    </table>   
+                 </div>
+                 <div style="overflow-y:scroll; overflow-x:hidden; width:235px; height:330px" >
+                 <asp:GridView ID="imsL4" runat="server" AutoGenerateColumns="False" CellPadding="4"  
+                            HeaderStyle-Font-Underline="false" ShowHeader="false" Font-Size ="X-Small"
+                            Font-Names="Arial, Helvetica, sans-serif" ForeColor="#333333" GridLines="None"> 
+                            <RowStyle BackColor="White" ForeColor="#333333" /> 
+                                <Columns> 
+                                    <asp:TemplateField > 
+                                        <EditItemTemplate> 
+                                            <asp:TextBox ID="tbxLibImsL3" runat="server" Text='<%# Bind("Lib_IMS_Level_4_FR") %>'></asp:TextBox> 
+                                        </EditItemTemplate> 
+                                        <ItemTemplate> 
+                                            <asp:Label ID="lblLibImsL3" runat="server" Text='<%# Bind("Lib_IMS_Level_4_FR") %>' Width="230px"></asp:Label> 
+                                        </ItemTemplate> 
+                                    </asp:TemplateField> 
+                                </Columns> 
+                                <EditRowStyle BackColor="#999999" />
+                                <FooterStyle BackColor="#edb93b" ForeColor="White" Font-Bold="True" /> 
+                                <PagerStyle BackColor="#edb93b" ForeColor="White" HorizontalAlign="Center" /> 
+                                <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" /> 
+                            <SortedAscendingCellStyle BackColor="#E9E7E2" />
+                            <SortedAscendingHeaderStyle BackColor="#506C8C" />
+                            <SortedDescendingCellStyle BackColor="#FFFDF8" />
+                            <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+              </asp:GridView>    
+              </div>
+                 <button id="btnAddImsL4" class="btnAdd" type="button">Créer</button>
+                 <button id="btnEditImsL4" class="btnEdit" type="button">Modifier</button>
+           <%--      <button id="btnDisableImsL4" class="btnDeac" type="button">Désactiver</button>--%>
+             </div> 
          </div>
      </div>
 </div>
 <div class="row">
-    <div id="dialog-form" title="Creation d'une nouvelle Marque Primière">
+    <div id="dialog-form" title="Creation d'un nouveau IMS Level 1">
 
       <p class="validateTips">Tous les champs sont requis.</p >
 
-          <label for="Code Primary Brand">Code Marque Première</label>
+          <label for="libImsL1">Désignation IMS Level 1</label>
           <br />
-          <input type="text" name="Code Primary Brand" id="codPBrand" value="" class="text ui-widget-content ui-corner-all"/>
-          <br />
-
-          <label for="libPBrand">Désignation Marque Première</label>
-          <br />
-          <input type="text" name="libPBrand" id="libPBrand" value="" class="text ui-widget-content ui-corner-all"/>
+          <input type="text" name="libImsL1" id="libImsL1" value="" class="text ui-widget-content ui-corner-all"/>
           <br /> 
     </div>
 
-    <div id="edit-pBrand" title="Modifier d'un Marque Première">
+    <div id="edit-imsL1" title="Modifier d'un IMS Level 1">
 
       <p class="validateTips">Tous les champs sont requis.</p >
           <br />
-          <label for="libDas">Désignation Marque Première</label>
+          <label for="libImsL1">Désignation IMS Level 1</label>
           <br />
-          <input type="text" name="libDas" id="libDasEdit" value="" class="text ui-widget-content ui-corner-all"/>
-          <input type="hidden" name="CodDas" id="codDasEdit" value="" class="text ui-widget-content ui-corner-all"/>
+          <input type="text" name="libImsL1" id="libImsL1Edit" value="" class="text ui-widget-content ui-corner-all"/>
     </div>
 
-    <div id="dialog-form-sBrand" title="Creation d'une nouvelle marque secondaire">
+    <div id="dialog-form-imsL2" title="Creation d'un nouveau IMS Level 2">
       <p class="validateTips">Tous les champs sont requis.</p >
-        <label for="pbrand">Marque Première</label>  
+        <label for="pbrand">IMS Level 2</label>  
         <br />
-        <select id="libPBrandForPopup" name="pbrand" style ="font-family :Arial, Helvetica, sans-serif; font-size:12px">
+        <select id="libImsL1ForPopup" name="imsL1" style ="font-family :Arial, Helvetica, sans-serif; font-size:12px">
             <option></option>
             <script type="text/javascript">             
-                    $("#pBrand tr").each(function () {
-                        pBrand = $(this).find("td").eq(1).text().trim();
-                        $("#libPBrandForPopup").append('<option>' + pBrand + '</option>');
+                    $("#imsL1 tr").each(function () {
+                        imsL1 = $(this).find("td").eq(0).text().trim();
+                        $("#libImsL1ForPopup").append('<option>' + imsL1 + '</option>');
                     });
        
             </script>
           </select>
           <br />
-          <label for="Code Secondary Brand">Code Marque Secondaire</label>
+          <label for="libImsL2">Désignation IMS Level 2</label>
           <br />
-          <input type="text" name="Code Secondary Brand" id="codSBrand" value="" class="text ui-widget-content ui-corner-all"/>
-          <br />
-          <label for="libSBrand">Désignation Marque Secondaire</label>
-          <br />
-          <input type="text" name="libSBrand" id="libSBrand" value="" class="text ui-widget-content ui-corner-all"/>  
+          <input type="text" name="libImsL2" id="libImsL2" value="" class="text ui-widget-content ui-corner-all"/>  
           <br />
         
     </div>
 
-    <div id="edit-sBrand" title="Modifier d'une marque secondaire">
+    <div id="edit-imsL2" title="Modifier d'un IMS Level 2">
 
       <p class="validateTips">Tous les champs sont requis.</p >
           <br />
-          <label for="libSBrand">Désignation Marque Secondaire</label>
+          <label for="libImsL2">Désignation IMS Level 2</label>
           <br />
-          <input type="text" name="libSBrand" id="libSBrandEdit" value="" class="text ui-widget-content ui-corner-all"/>
+          <input type="text" name="libImsL2" id="libImsL2Edit" value="" class="text ui-widget-content ui-corner-all"/>
           <br />
-          <input type="hidden" name="idPBrand" id="idOfSelectedPBrand" value="" class="text ui-widget-content ui-corner-all"/>
-          <input type="hidden" name="Code PBrand" id="codPBrandEdit" value="" class="text ui-widget-content ui-corner-all"/>
+  <%--        <input type="hidden" name="idPBrand" id="idOfSelectedPBrand" value="" class="text ui-widget-content ui-corner-all"/>
+          <input type="hidden" name="Code PBrand" id="codPBrandEdit" value="" class="text ui-widget-content ui-corner-all"/>--%>
   
     </div>
 
-    <div id="dialog-form-range" title="Creation d'une nouvelle Gamme">
+    <div id="dialog-form-imsL3" title="Creation d'un nouveau IMS Level 3">
 
       <p class="validateTips">Tous les champs sont requis.</p >
-          <label for="SBrand">Marque Secondaire</label>
+          <label for="imsL2">IMS Level 2</label>
           <br />
-          <select id="libSBrandForPopup" name="SBrand" style ="font-family :Arial, Helvetica, sans-serif">
+          <select id="libImsL2ForPopup" name="ImsL2" style ="font-family :Arial, Helvetica, sans-serif">
               <option></option>
               <script type="text/javascript">
 
-                    $("#sBrand tr").each(function () {
-                        sBrand = $(this).find("td").eq(1).text().trim();
-                        $("#libSBrandForPopup").append('<option>' + sBrand + '</option>');     
+                    $("#imsL2 tr").each(function () {
+                        imsL2 = $(this).find("td").eq(0).text().trim();
+                        $("#libImsL2ForPopup").append('<option>' + imsL2 + '</option>');
                     });
             
             </script>
           </select>
 
-          <label for="Code Range">Code Gamme</label>
+          <label for="libImsL3">Désignation IMS Level 3</label>
           <br />
-          <input type="text" name="Code Range" id="codRange" value="" class="text ui-widget-content ui-corner-all"/>
-          <br />
-          <label for="libRange">Désignation Gamme</label>
-          <br />
-          <input type="text" name="libRange" id="libRange" value="" class="text ui-widget-content ui-corner-all"/>
+          <input type="text" name="libImsL3" id="libImsL3" value="" class="text ui-widget-content ui-corner-all"/>
           <br />
     </div>
 
-    <div id="edit-range" title="Modification d'une Gamme">
+    <div id="edit-imsL3" title="Modification d'un IMS Level 3">
 
       <p class="validateTips">Tous les champs sont requis.</p >
           <br />
-          <label for="libRange">Désignation Gamme</label>
+          <label for="libImsL3">Désignation IMS Level 3</label>
+          <br />   
+    </div>
+
+     <div id="dialog-form-imsL4" title="Creation d'un nouveau IMS Level 4">
+
+      <p class="validateTips">Tous les champs sont requis.</p >
+          <label for="imsL3">IMS Level 3</label>
           <br />
-          <input type="text" name="libRange" id="libRangeEdit" value="" class="text ui-widget-content ui-corner-all"/>
-          <input type="hidden" name="Code Range" id="codRangeEdit" value="" class="text ui-widget-content ui-corner-all"/>
-   
+          <select id="libImsL3ForPopup" name="ImsL3" style ="font-family :Arial, Helvetica, sans-serif">
+              <option></option>
+              <script type="text/javascript">
+
+                    $("#imsL3 tr").each(function () {
+                        imsL3 = $(this).find("td").eq(0).text().trim();
+                        $("#libImsL3ForPopup").append('<option>' + imsL3 + '</option>');
+                    });
+            
+            </script>
+          </select>
+
+          <label for="libImsL4">Désignation IMS Level 4</label>
+          <br />
+          <input type="text" name="libImsL4" id="libImsL4" value="" class="text ui-widget-content ui-corner-all"/>
+          <br />
+    </div>
+
+    <div id="edit-imsL4" title="Modification d'un IMS Level 4">
+
+      <p class="validateTips">Tous les champs sont requis.</p >
+          <br />
+          <label for="libImsL4">Désignation IMS Level 4</label>
+          <br />   
     </div>
 </div>
 </div>
@@ -616,15 +628,16 @@
 
         //search fonctionne
         function filterAll() {
-            filterTable($('#pBrand tr'));
-            filterTable($('#sBrand tr'));
-            filterTable($('#range tr'));
+            filterTable($('#imsL1 tr'));
+            filterTable($('#imsL2 tr'));
+            filterTable($('#imsL3 tr'));
+            filterTable($('#imsL4 tr'));
         }
 
         function filterTable(allTr) {
             var keyWord = $('#searchInput').val();
             allTr.each(function () {
-                var designation = $(this).find("td").eq(1).text();
+                var designation = $(this).find("td").eq(0).text();
                 if (designation && designation.length > 0 && keyWord && keyWord.length > 0) {
                     keyWord = keyWord.toLowerCase();
                     designation = designation.toLowerCase();
@@ -652,7 +665,7 @@
 
             buttons: {
 
-                "Créer une nouvelle marque première": addPBrand,
+                "Créer un nouveau IMS Level 1": addImsL1,
 
                 Cancel: function () {
 
@@ -670,29 +683,27 @@
 
         });
 
-        $("#btnAddPBrand").click(function () {
+        $("#btnAddImsL1").click(function () {
 
             dialog.dialog("open");
 
         });
 
-        function addPBrand() {
+        function addImsL1() {
       
-            var codPBrandPopUp = document.getElementById("codPBrand").value;
-
-            var libPBrandPopUp = document.getElementById("libPBrand").value;
+            var libImsL1PopUp = document.getElementById("libImsL1").value;
 
             $.ajax({
 
-                url: "api/PBrandDataController?",
+                url: "api/ImsL1DataController?",
 
                 methode: "POST",
 
-                data: "param=codPBrand:" + codPBrandPopUp + ",libPBrand:" + libPBrandPopUp,
+                data: "param=libImsL1:" + libImsL1PopUp,
 
             }).done(function () {
 
-                addRowToDas($('#das tbody'), codDasPopUp, codActiPopUp, libDasPopUp);
+                addRowToImsL1($('#imsL1 tbody'), libImsL1PopUp);
 
             });
 
@@ -700,19 +711,13 @@
 
         }
 
-        function addRowToPBrand(tableBody, code, designation) {
+        function addRowToImsL1(tableBody,designation) {
 
             tableBody.append('<tr onmouseover="MouseEvents(this, event)" onmouseout="MouseEvents(this, event)" style="color:#333333;background-color:White;">'
 
                                         + '<td>'
 
-                                        + '<span id="das_lblCodPBrand_2" style="display:inline-block;width:100px;">' + code + '</span>'
-
-                                        + '</td>'
-
-                                        + '<td>'
-
-                                        + '<span id="das_lblLibPBrandFr_2" style="display:inline-block;width:180px;">' + designation + '</span>'
+                                        + '<span id="das_lblLib" style="display:inline-block;width:180px;">' + designation + '</span>'
 
                                         + '</td>'
 
@@ -720,8 +725,8 @@
 
         }
 
-        //La partie de Modification de Marque Première
-        var dialogEditPBrand = $("#edit-pBrand").dialog({
+        //La partie de Modification de IMS Level 1
+        var dialogEditImsL1 = $("#edit-imsL1").dialog({
 
             autoOpen: false,
 
@@ -733,11 +738,11 @@
 
             buttons: {
 
-                "Valider la modification": updatePBrand,
+                "Valider la modification": updateImsL1,
 
                 Cancel: function () {
 
-                    dialogEditPBrand.dialog("close");
+                    dialogEditImsL1.dialog("close");
 
                 }
 
@@ -745,51 +750,47 @@
 
             close: function () {
 
-                dialogEditPBrand.dialog("close");
+                dialogEditImsL1.dialog("close");
 
             }
 
         });
 
-        $("#btnEditPBrand").click(function () {
+        $("#btnEditImsL1").click(function () {
 
-            dialogEditPBrand.dialog("open");
+            dialogEditImsL1.dialog("open");
 
         });
 
-        function updatePBrand() {
+        function updateImsL1() {
 
-            var codPBrandModif = document.getElementById("codPBrandEdit").value;
-
-            var libPBrandModif = document.getElementById("libPBrandEdit").value;
+            var libImsL1Modif = document.getElementById("libImsL1Edit").value;
 
             var row = $("#selectedRowId");
 
-            //$("td", row).eq(0).html(codDasModif);
-
-            $("td", row).eq(1).html(libPBrandModif);
+            $("td", row).eq(0).html(libImsL1Modif);
 
             row.attr("id", "");
 
             $.ajax({
 
-                url: "api/PBrandModifyController",
+                url: "api/ImsL1ModifyController",
 
                 methode: "POST",
 
-                data: "param=CodPBrand:" + codPBrandModif + ",libPBrand:" + libPBrandModif,
+                data: "param=libImsL1:" + libImsL1Modif,
 
             }).done(function () {
 
             });
 
 
-            dialogEditPBrand.dialog("close");
+            dialogEditIMSL1.dialog("close");
         }
 
-            //Marque Secondaire popUp
+            //IMS L2 popUp
 
-            var dialogSBrand = $("#dialog-form-sBrand").dialog({
+            var dialogImsL2 = $("#dialog-form-imsL2").dialog({
 
                 autoOpen: false,
 
@@ -801,11 +802,11 @@
 
                 buttons: {
 
-                    "Créer une nouvelle marque secondaire": addSBrand,
+                    "Créer un nouveau IMS Level 2": addImsL2,
 
                     Cancel: function () {
 
-                        dialogSBrand.dialog("close");
+                        dialogImsL2.dialog("close");
 
                     }
 
@@ -813,51 +814,43 @@
 
                 close: function () {
 
-                    dialogSBrand.dialog("close");
+                    dialogImsL2.dialog("close");
 
                 }
 
             });
 
 
-            function addSBrand() {
+            function addImsL2() {
 
-                var sBrandPopUp = document.getElementById("libSBrandForPopup").value;
-                //var das = $('#libDasForPopup option:selected').text();
-                var codSBrandPopUp = document.getElementById("codSBrand").value;
+                var imsL1PopUp = document.getElementById("libImsL1ForPopup").value;
 
-                var libSBrandPopUp = document.getElementById("libSBrand").value;
+                var libImsL2PopUp = document.getElementById("libImsL2").value;
 
                 //addRowToTable($('#segment tbody'), codSegPopUp, libSegPopUp);
 
           
                 $.ajax({
 
-                    url: "api/SBrandDataController?",
+                    url: "api/ImsL2DataController?",
 
                     methode: "POST",
 
-                    data: "param=libPBrand:" + pBrandPopUp + ",codSegment:" + codSegPopUp + ",libSegment:" + libSegPopUp,
+                    data: "param=libImsL1:" + imsL1PopUp + ",libImsL2:" + libImsL2PopUp,
 
                 }).done(function () {
 
-                    addRowToTable($('#sBrand tbody'), codSBrandPopUp, libSBrandPopUp);
+                    addRowToTable($('#imsL2 tbody'), libImsL2PopUp);
 
                 });
 
-                dialogSBrand.dialog("close");
+                dialogImsL2.dialog("close");
 
             }
 
-            function addRowToTable(tableBody, code, designation) {
+            function addRowToTable(tableBody, designation) {
 
                 tableBody.append('<tr onmouseover="MouseEvents(this, event)" onmouseout="MouseEvents(this, event)" style="color:#333333;background-color:White;">'
-
-                                            + '<td>'
-
-                                            + '<span id="das_lblCod_2" style="display:inline-block;width:100px;">' + code + '</span>'
-
-                                            + '</td>'
 
                                             + '<td>'
 
@@ -869,14 +862,14 @@
 
             }
 
-            $("#btnAddSBrand").click(function () {
+            $("#btnAddImsL2").click(function () {
 
-                dialogSBrand.dialog("open");
+                dialogImsL2.dialog("open");
 
             });
 
-            //La partie de Modification de la Marque Secondaire
-            var dialogEditSBrand = $("#edit-sBrand").dialog({
+            //La partie de Modification de IMS Level 2
+            var dialogEditImsL2 = $("#edit-imsL2").dialog({
 
                 autoOpen: false,
 
@@ -888,11 +881,11 @@
 
                 buttons: {
 
-                    "Valider la modification": updateSBrand,
+                    "Valider la modification": updateImsL2,
 
                     Cancel: function () {
 
-                        dialogEditSBrand.dialog("close");
+                        dialogEditImsL2.dialog("close");
 
                     }
 
@@ -900,50 +893,46 @@
 
                 close: function () {
 
-                    dialogEditSBrand.dialog("close");
+                    dialogEditImsL2.dialog("close");
 
                 }
 
             });
 
-            $("#btnEditSBrand").click(function () {
+            $("#btnEditImsL2").click(function () {
 
-                dialogEditSBrand.dialog("open");
+                dialogEditImsL2.dialog("open");
 
             });
 
-            function updateSBrand() {
+            function updateImsL2() {
 
-                var codSBrandModif = document.getElementById("codSBrandEdit").value;
-
-                var libSBrandModif = document.getElementById("libSBrandEdit").value;
+                var libImsL2Modif = document.getElementById("libImsL2Edit").value;
 
                 var row = $("#selectedRowId");
 
-                $("td", row).eq(0).html(codSBrandModif);
-
-                $("td", row).eq(1).html(libSBrandModif);
+                $("td", row).eq(0).html(libImsL2Modif);
 
                 row.attr("id", "");
 
                 $.ajax({
 
-                    url: "api/SBrandModifyController",
+                    url: "api/ImsL2ModifyController",
 
                     methode: "POST",
 
-                    data: "param=CodSBrand:" + codSBrandModif + ",libSBrand:" + libSBrandModif,
+                    data: "param=libImsL2:" + libImsL2Modif,
 
                 }).done(function () {
 
                 });
 
-                dialogEditSBrand.dialog("close");
+                dialogEditImsL2.dialog("close");
             }
 
-            //Gamme popUp
+            //IMS L3 popUp
 
-            var dialogRange = $("#dialog-form-range").dialog({
+            var dialogImsL3 = $("#dialog-form-imsL3").dialog({
 
                 autoOpen: false,
 
@@ -955,11 +944,11 @@
 
                 buttons: {
 
-                    "Créer une nouvelle gamme": addRange,
+                    "Créer un nouveau IMS L3": addImsL3,
 
                     Cancel: function () {
 
-                        dialogRange.dialog("close");
+                        dialogImsL3.dialog("close");
 
                     }
 
@@ -967,55 +956,53 @@
 
                 close: function () {
 
-                    dialogRange.dialog("close");
+                    dialogImsL3.dialog("close");
 
                 }
 
             });
 
-            $("#btnAddRange").click(function () {
+            $("#btnAddImsL3").click(function () {
 
-                dialogRange.dialog("open");
+                dialogImsL3.dialog("open");
 
             });
 
-            function addRange() {
+            function addImsL3() {
 
-                var libSBrandPopUp = document.getElementById("libSBrandForPopup").value;
+                var libImsL2PopUp = document.getElementById("libImsL2PopUp").value;
 
-                var codRangePopUp = document.getElementById("codRange").value;
-
-                var libRangePopUp = document.getElementById("libRange").value;
+                var libImsL3PopUp = document.getElementById("libImsL3PopUp").value;
 
                 $.ajax({
 
-                    url: "api/rangeDataController?",
+                    url: "api/ImsL2DataController?",
 
                     methode: "POST",
 
-                    data: "param=libSBrand:" + libSBrandPopUp + ",codRange:" + codRangePopUp + ",libRange:" + libRangePopUp,
+                    data: "param=libImsL2:" + libImsL2PopUp + ",libImsL3:" + libImsL3PopUp,
 
                 }).done(function () {
 
-                    addRowToTable($('#range tbody'), codRangePopUp, libRangePopUp);
+                    addRowToTable($('#imsL3 tbody'), libImsL3PopUp);
 
                 });
 
-                dialogRange.dialog("close");
+                dialogImsL3.dialog("close");
 
             }
-          //modification de Gamme
-            function EditRange(row) {
-                $("#btnEditRange").click(function () {
-                    var codRangeForPop = $("td", row).eq(0).text();
-                    var libRangeForPop = $("td", row).eq(1).text();
-                    document.getElementById("codRangeEdit").value = codRangeForPop.trim();
-                    document.getElementById("libRangeEdit").value = libRangeForPop.trim();
-                    dialogRange.dialog("open");
+
+          //modification de Ims L3
+            function EditImsL3(row) {
+                $("#btnEditImsL3").click(function () {
+                    var libImsL3ForPop = $("td", row).eq(0).text();
+
+                    document.getElementById("libImsL3Edit").value = libImsL3ForPop.trim();
+                    dialogImsL3.dialog("open");
                 });
             }
             
-            var dialogEditRange = $("#edit-range").dialog({
+            var dialogEditImsL3 = $("#edit-imsL3").dialog({
 
                 autoOpen: false,
 
@@ -1027,11 +1014,11 @@
 
                 buttons: {
 
-                    "Valider la modification": updateRange,
+                    "Valider la modification": updateImsL3,
 
                     Cancel: function () {
 
-                        dialogEditRange.dialog("close");
+                        dialogEditImsL3.dialog("close");
 
                     }
 
@@ -1039,45 +1026,178 @@
 
                 close: function () {
 
-                    dialogEditRange.dialog("close");
+                    dialogEditImsL3.dialog("close");
 
                 }
 
             });
 
-            $("#btnEditRange").click(function () {
+            $("#btnEditImsL3").click(function () {
 
-                dialogEditRange.dialog("open");
+                dialogEditImsL3.dialog("open");
 
             });
 
-            function updateRange() {
+            function updateImsL3() {
 
-                var codRangeModif = document.getElementById("codRangeEdit").value;
-
-                var libRangeModif = document.getElementById("libRangeEdit").value;
+                var libImsL3Modif = document.getElementById("libImsL3Edit").value;
 
                 var row = $("#selectedRowId");
 
-                $("td", row).eq(0).html(codRangeModif);
-
-                $("td", row).eq(1).html(libRangeModif);
+                $("td", row).eq(0).html(libImsL3Modif);
 
                 row.attr("id", "");
 
 
                 $.ajax({
 
-                    url: "api/RangeModifyController",
+                    url: "api/ImsL3ModifyController",
 
                     methode: "POST",
 
-                    data: "param=CodRange:" + codRangeModif + ",libRange:" + libRangeModif,
+                    data: "param=libImsL3:" + libImsL3Modif,
 
                 }).done(function () {
 
                 });
-                dialogRange.dialog("close");
+
+                dialogImsL3.dialog("close");
+            }
+
+
+
+            //IMS L4 popUp
+
+            var dialogImsL4 = $("#dialog-form-imsL4").dialog({
+
+                autoOpen: false,
+
+                height: 400,
+
+                width: 350,
+
+                modal: true,
+
+                buttons: {
+
+                    "Créer un nouveau IMS L4": addImsL4,
+
+                    Cancel: function () {
+
+                        dialogImsL4.dialog("close");
+
+                    }
+
+                },
+
+                close: function () {
+
+                    dialogImsL4.dialog("close");
+
+                }
+
+            });
+
+            $("#btnAddImsL4").click(function () {
+
+                dialogImsL4.dialog("open");
+
+            });
+
+            function addImsL4() {
+
+                var libImsL3PopUp = document.getElementById("libImsL3PopUp").value;
+
+                var libImsL4PopUp = document.getElementById("libImsL4PopUp").value;
+
+                $.ajax({
+
+                    url: "api/ImsL4DataController?",
+
+                    methode: "POST",
+
+                    data: "param=libImsL3:" + libImsL3PopUp + ",libImsL4:" + libImsL4PopUp,
+
+                }).done(function () {
+
+                    addRowToTable($('#imsL4 tbody'), libImsL4PopUp);
+
+                });
+
+                dialogImsL4.dialog("close");
+
+            }
+
+            //modification de Ims L4
+            function EditImsL4(row) {
+                $("#btnEditImsL4").click(function () {
+                    var libImsL4ForPop = $("td", row).eq(0).text();
+
+                    document.getElementById("libImsL3Edit").value = libImsL4ForPop.trim();
+                    dialogImsL4.dialog("open");
+                });
+            }
+
+            var dialogEditImsL4 = $("#edit-imsL4").dialog({
+
+                autoOpen: false,
+
+                height: 400,
+
+                width: 350,
+
+                modal: true,
+
+                buttons: {
+
+                    "Valider la modification": updateImsL4,
+
+                    Cancel: function () {
+
+                        dialogEditImsL4.dialog("close");
+
+                    }
+
+                },
+
+                close: function () {
+
+                    dialogEditImsL4.dialog("close");
+
+                }
+
+            });
+
+            $("#btnEditImsL4").click(function () {
+
+                dialogEditImsL4.dialog("open");
+
+            });
+
+            function updateImsL4() {
+
+                var libImsL4Modif = document.getElementById("libImsL4Edit").value;
+
+                var row = $("#selectedRowId");
+
+                $("td", row).eq(0).html(libImsL4Modif);
+
+                row.attr("id", "");
+
+
+                $.ajax({
+
+                    url: "api/ImsL4ModifyController",
+
+                    methode: "POST",
+
+                    data: "param=libImsL4:" + libImsL4Modif,
+
+                }).done(function () {
+
+                });
+
+                dialogImsL4.dialog("close");
             }
 </script>
 
