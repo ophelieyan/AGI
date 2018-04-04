@@ -124,11 +124,7 @@
                 <asp:TreeNode Text="Primary Brand" Value="Primary Brand"></asp:TreeNode>
                 <asp:TreeNode Text="Secondary Brand" Value="Secondary Brand"></asp:TreeNode>
                 <asp:TreeNode Text="Range" Value="Ranger"></asp:TreeNode>
-            </asp:TreeNode>
-          <%--  <asp:TreeNode Text="Flux Amalgamme" Value="Flux Amalgamme"></asp:TreeNode>
-            <asp:TreeNode Text="Flux APV" Value="Flux APV"></asp:TreeNode>
-            <asp:TreeNode Text="Flux Article Codification" Value="Flux Article Codification"></asp:TreeNode>
-            <asp:TreeNode Text="Flux Article Record" Value="Flux Article Record"></asp:TreeNode>--%>   
+            </asp:TreeNode> 
             <asp:TreeNode Text="Flux Article" Value="Flux Article"></asp:TreeNode>
             <asp:TreeNode Text="Flux BOM" Value="Flux BOM"></asp:TreeNode>
             <asp:TreeNode Text="Flux BUYER PURVEYOR" Value="Flux BUYER PURVEYOR"></asp:TreeNode>
@@ -181,11 +177,16 @@
                                 <%--<AlternatingRowStyle BackColor="White" ForeColor="#284775" />--%>
                                 <Columns> 
                                     <asp:TemplateField > 
-                                       <EditItemTemplate> 
-                                            <asp:TextBox ID="tbxLibPBrandFr" runat="server" Text='<%# Bind("Lib_IMS_Level_1_FR") %>'  Width ="235px"></asp:TextBox> 
+                                        <ItemTemplate> 
+                                            <asp:Label ID="lblIdImsL1" runat="server" Text='<%# Bind("ID_IMS_Level_1") %>' Width ="235px" visible ="false"></asp:Label> 
+                                        </ItemTemplate> 
+                                    </asp:TemplateField> 
+                                    <asp:TemplateField > 
+                                        <EditItemTemplate> 
+                                            <asp:TextBox ID="tbxLibImsL1Fr" runat="server" Text='<%# Bind("Lib_IMS_Level_1_FR") %>'  Width ="235px"></asp:TextBox> 
                                         </EditItemTemplate> 
                                         <ItemTemplate> 
-                                            <asp:Label ID="lblLibPBrandFr" runat="server" Text='<%# Bind("Lib_IMS_Level_1_FR") %>' Width ="235px"></asp:Label> 
+                                            <asp:Label ID="lblLibImsL1Fr" runat="server" Text='<%# Bind("Lib_IMS_Level_1_FR") %>' Width ="235px"></asp:Label> 
                                         </ItemTemplate> 
                                     </asp:TemplateField> 
                                 </Columns> 
@@ -222,31 +223,23 @@
                             HeaderStyle-Font-Underline="false" ShowHeader="false" Font-Size ="X-Small"
                             Font-Names="Arial, Helvetica, sans-serif" ForeColor="#333333" GridLines="None"> 
                             <RowStyle BackColor="White" ForeColor="#333333" Width ="140px" /> 
-                                 <Columns> 
-<%--                                    <asp:BoundField DataField="ID_Secondary_Brand"  ReadOnly="True"  
-                                        SortExpression="ID_Secondary_Brand" visible="false" /> 
-                                    <asp:TemplateField Visible ="false"> 
-                                        <EditItemTemplate> 
-                                            <asp:TextBox ID="tbxIdSBrand" runat="server" Visible ="false" Text='<%# Bind("ID_Secondary_Brand") %>'></asp:TextBox> 
-                                        </EditItemTemplate> 
-                                        <ItemTemplate> 
-                                            <asp:Label ID="lblIdSBrand" runat="server"  Visible ="false" Text='<%# Bind("ID_Secondary_Brand") %>'></asp:Label> 
+                                 <Columns>
+                                    <asp:TemplateField > 
+                                         <ItemTemplate> 
+                                            <asp:Label ID="lblIdImsL2" runat="server" Text='<%# Bind("ID_IMS_Level_2") %>' Width ="235px" visible ="false"></asp:Label> 
+                                        </ItemTemplate> 
+                                    </asp:TemplateField> 
+                                    <asp:TemplateField > 
+                                         <ItemTemplate> 
+                                            <asp:Label ID="lblIdImsL1InL2" runat="server" Text='<%# Bind("ID_IMS_Level_1") %>' Width ="235px" visible ="false"></asp:Label> 
                                         </ItemTemplate> 
                                     </asp:TemplateField> 
                                     <asp:TemplateField > 
                                         <EditItemTemplate> 
-                                            <asp:TextBox ID="tbxCodSBrand" runat="server" Text='<%# Bind("Cod_Secondary_Brand") %>' Width ="100px"></asp:TextBox> 
+                                            <asp:TextBox ID="tbxLibImsL2Fr" runat="server" Text='<%# Bind("Lib_IMS_Level_2_FR") %>' Width ="200px"></asp:TextBox> 
                                         </EditItemTemplate> 
                                         <ItemTemplate> 
-                                            <asp:Label ID="lblCodSBrand" runat="server" Text='<%# Bind("Cod_Secondary_Brand") %>' Width ="100px"></asp:Label> 
-                                        </ItemTemplate> 
-                                    </asp:TemplateField> --%>
-                                    <asp:TemplateField > 
-                                        <EditItemTemplate> 
-                                            <asp:TextBox ID="tbxLibSBrandFr" runat="server" Text='<%# Bind("Lib_IMS_Level_2_FR") %>' Width ="200px"></asp:TextBox> 
-                                        </EditItemTemplate> 
-                                        <ItemTemplate> 
-                                            <asp:Label ID="lblLibSBrandFr" runat="server" Text='<%# Bind("Lib_IMS_Level_2_FR") %>' Width ="200px"></asp:Label> 
+                                            <asp:Label ID="lblLibImsL2Fr" runat="server" Text='<%# Bind("Lib_IMS_Level_2_FR") %>' Width ="200px"></asp:Label> 
                                         </ItemTemplate> 
                                     </asp:TemplateField> 
                                 </Columns> 
@@ -283,7 +276,17 @@
                             HeaderStyle-Font-Underline="false" ShowHeader="false" Font-Size ="X-Small"
                             Font-Names="Arial, Helvetica, sans-serif" ForeColor="#333333" GridLines="None"> 
                             <RowStyle BackColor="White" ForeColor="#333333" /> 
-                                <Columns> 
+                                <Columns>
+                                   <asp:TemplateField > 
+                                         <ItemTemplate> 
+                                            <asp:Label ID="lblIdImsL3" runat="server" Text='<%# Bind("ID_IMS_Level_3") %>' Width ="235px" visible ="false"></asp:Label> 
+                                        </ItemTemplate> 
+                                    </asp:TemplateField> 
+                                    <asp:TemplateField > 
+                                         <ItemTemplate> 
+                                            <asp:Label ID="lblIdImsL2InL3" runat="server" Text='<%# Bind("ID_IMS_Level_2") %>' Width ="235px" visible ="false"></asp:Label> 
+                                        </ItemTemplate> 
+                                    </asp:TemplateField> 
                                     <asp:TemplateField > 
                                         <EditItemTemplate> 
                                             <asp:TextBox ID="tbxLibImsL3" runat="server" Text='<%# Bind("Lib_IMS_Level_3_FR") %>'></asp:TextBox> 
@@ -326,7 +329,17 @@
                             HeaderStyle-Font-Underline="false" ShowHeader="false" Font-Size ="X-Small"
                             Font-Names="Arial, Helvetica, sans-serif" ForeColor="#333333" GridLines="None"> 
                             <RowStyle BackColor="White" ForeColor="#333333" /> 
-                                <Columns> 
+                                <Columns>
+                                    <asp:TemplateField > 
+                                         <ItemTemplate> 
+                                            <asp:Label ID="lblIdImsL4" runat="server" Text='<%# Bind("ID_IMS_Level_4") %>' Width ="235px" visible ="false"></asp:Label> 
+                                        </ItemTemplate> 
+                                    </asp:TemplateField> 
+                                    <asp:TemplateField > 
+                                         <ItemTemplate> 
+                                            <asp:Label ID="lblIdImsL3InL4" runat="server" Text='<%# Bind("ID_IMS_Level_3") %>' Width ="235px" visible ="false"></asp:Label> 
+                                        </ItemTemplate> 
+                                    </asp:TemplateField> 
                                     <asp:TemplateField > 
                                         <EditItemTemplate> 
                                             <asp:TextBox ID="tbxLibImsL3" runat="server" Text='<%# Bind("Lib_IMS_Level_4_FR") %>'></asp:TextBox> 
@@ -381,7 +394,7 @@
             <option></option>
             <script type="text/javascript">             
                     $("#imsL1 tr").each(function () {
-                        imsL1 = $(this).find("td").eq(0).text().trim();
+                        imsL1 = $(this).find("td").eq(1).text().trim();
                         $("#libImsL1ForPopup").append('<option>' + imsL1 + '</option>');
                     });
        
@@ -418,7 +431,7 @@
               <script type="text/javascript">
 
                     $("#imsL2 tr").each(function () {
-                        imsL2 = $(this).find("td").eq(0).text().trim();
+                        imsL2 = $(this).find("td").eq(2).text().trim();
                         $("#libImsL2ForPopup").append('<option>' + imsL2 + '</option>');
                     });
             
@@ -437,6 +450,8 @@
           <br />
           <label for="libImsL3">Désignation IMS Level 3</label>
           <br />   
+          <input type="text" name="libImsL3" id="libImsL3Edit" value="" class="text ui-widget-content ui-corner-all"/>
+          <br />
     </div>
 
      <div id="dialog-form-imsL4" title="Creation d'un nouveau IMS Level 4">
@@ -449,7 +464,7 @@
               <script type="text/javascript">
 
                     $("#imsL3 tr").each(function () {
-                        imsL3 = $(this).find("td").eq(0).text().trim();
+                        imsL3 = $(this).find("td").eq(2).text().trim();
                         $("#libImsL3ForPopup").append('<option>' + imsL3 + '</option>');
                     });
             
@@ -467,6 +482,8 @@
       <p class="validateTips">Tous les champs sont requis.</p >
           <br />
           <label for="libImsL4">Désignation IMS Level 4</label>
+          <br />
+          <input type="text" name="libImsL4" id="libImsL4Edit" value="" class="text ui-widget-content ui-corner-all"/>
           <br />   
     </div>
 </div>
@@ -486,44 +503,43 @@
 </html>
 
 <script>
-    //la partie pour filtrer Marque Secondaire selon la ligne de la Marque première Choisie
+    //la partie pour filtrer IMS Level 2 selon la ligne de IMS Level 1 Choisie
     $(function () {
-        $("#pBrand td").click(function () {
-            $("#pBrand tr").css('background-color', '#ffffff');
+        $("#imsL1 td").click(function () {
+            $("#imsL1 tr").css('background-color', '#ffffff');
             $(this).closest("tr").css('background-color', '#eeeeee');
-            filterSBrand($(this).closest("tr"));
-            EditPBrand($(this).closest("tr"));
+            filterImsL2($(this).closest("tr"));
+            EditImsL1($(this).closest("tr"));
             $(this).closest("tr").attr("id", "selectedRowId");
         });
     });
 
-    //modification de Marque Première
-    function EditPBrand(row){            
-        $("#btnEditPBrand").click(function () {
+    //modification de IMS Level 1
+    function EditImsL1(row) {
+        $("#btnEditImsL1").click(function () {
 
-          var codPBrandForPop = $("td", row).eq(0).text();
-          var LibPBrandForPop = $("td", row).eq(1).text();
+          var LibImsL1ForPop = $("td", row).eq(1).text();
 
-          document.getElementById("codPBrandEdit").value = codPBrandForPop.trim();
-          document.getElementById("libPBrandEdit").value = LibPBrandForPop.trim();
+          document.getElementById("libImsL1Edit").value = LibImsL1ForPop.trim();
 
-          dialogEditPBrand.dialog("open");
+          dialogEditImsL1.dialog("open");
       });
     }
 
-    function DisablePBrand(row) {
-        $("#btnDisablePBrand").click(function () {
+    function DisableImsL1(row) {
+        $("#btnDisableImsL1").click(function () {
         });
     }
 
-    function filterSBrand(row) {
-        var codSBrand = $("td", row).eq(0).text();
-        $("#sBrand tr").each(function () {
-            var codePBrandInSBrand,
-            codePBrandInSBrand = $(this).find("td").eq(0).text().trim();
-            if (codePBrandInSBrand != null) {
-                codePBrandInSBrand = codePBrandInSBrand.substring(0,2);
-                if (codePBrandInSBrand == codSBrand.trim().substring(0, 2)) {
+    function filterImsL2(row) {
+        var idImsL1 = $("td", row).eq(0).text();
+        alert(idImsL1);
+        $("#imsL2 tr").each(function () {
+            var idImsL1InL2,
+            idImsL1InL2 = $(this).find("td").eq(1).text().trim();
+            alert(idImsL2);
+            if (idImsL1InL2 != null) {
+                if (idImsL1InL2 == idImsL1.trim()) {
                     $(this).show();
                 } else {
                     $(this).hide();
@@ -532,21 +548,21 @@
         });
     }
 
-        //la partie pour filtrer Gamme selon la ligne de Marque Secondaire Choisie
+        //la partie pour filtrer Ims Level 3 selon la ligne de Ims Level 2 Choisie
         $(function () {
-            $("#sBrand td").click(function () {
-                $("#sBrand tr").css('background-color', '#ffffff');
+            $("#imsL2 td").click(function () {
+                $("#imsL2 tr").css('background-color', '#ffffff');
                 $(this).closest("tr").css('background-color', '#eeeeee');
-                filterRange($(this).closest("tr"));
+                filterImsL3($(this).closest("tr"));
                 
-                filterInversePBrand($(this).closest("tr"));
+                filterInverseImsL1($(this).closest("tr"));
 
-                EditSBrand($(this).closest("tr"));
+                EditImsL2($(this).closest("tr"));
                 $(this).closest("tr").attr("id", "selectedRowId");
             });
         });
         
-        //Modification de Marque Secondaire
+        //Modification de Ims L2
         function EditSBrand(row) {
             $("#btnEditSBrand").click(function () {
                 var codSBrandForPop = $("td", row).eq(0).text();

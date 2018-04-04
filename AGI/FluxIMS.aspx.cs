@@ -84,7 +84,7 @@ namespace AGI
 
 
                 // Create a SELECT query. 
-                string strSelectCmd = "SELECT ID_IMS_Level_2, Lib_IMS_Level_2_FR FROM ST_IMS_Level_2";
+                string strSelectCmd = "SELECT ID_IMS_Level_2, ID_IMS_Level_1, Lib_IMS_Level_2_FR FROM ST_IMS_Level_2";
 
 
                 SqlDataAdapter da = new SqlDataAdapter(strSelectCmd, conn);
@@ -118,7 +118,7 @@ namespace AGI
 
 
                 // Create a SELECT query. 
-                string strSelectCmd = "SELECT ID_IMS_Level_3, Lib_IMS_Level_3_FR FROM ST_IMS_Level_3";
+                string strSelectCmd = "SELECT ID_IMS_Level_3, ID_IMS_Level_2, Lib_IMS_Level_3_FR FROM ST_IMS_Level_3";
 
 
                 SqlDataAdapter da = new SqlDataAdapter(strSelectCmd, conn);
@@ -152,7 +152,7 @@ namespace AGI
 
 
                 // Create a SELECT query. 
-                string strSelectCmd = "SELECT ID_IMS_Level_4, Lib_IMS_Level_4_FR FROM ST_IMS_Level_4";
+                string strSelectCmd = "SELECT ID_IMS_Level_4, ID_IMS_Level_3, Lib_IMS_Level_4_FR FROM ST_IMS_Level_4";
 
 
                 SqlDataAdapter da = new SqlDataAdapter(strSelectCmd, conn);
