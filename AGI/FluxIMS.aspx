@@ -163,13 +163,13 @@
                      <table id="tblHeaderImsL1" class ="gvImsL1" border="1" style ="font-size :small">
                          <tbody>
                              <tr>
-                               <%--  <th style="text-align:center; width:100px; color:white; background-color:#edb93b">Code Marque P</th>--%>
+                                 <th style="text-align:center; width:10px; color:white; background-color:#edb93b; visibility:hidden ">ID 1</th>
                                  <th style="text-align:center; width:235px; color:white; background-color:#edb93b">Désignation IMS Level 1</th>
                              </tr>
                          </tbody>
                      </table>
                  </div>
-                 <div style="overflow-y:scroll; overflow-x:hidden; width:235px ; height:330px" >
+                 <div style="overflow-y:scroll; overflow-x:hidden; width:245px ; height:330px" >
                  <asp:GridView ID="imsL1" runat="server" AutoGenerateColumns="False" CellPadding="4" ShowHeader="false" 
                             HeaderStyle-Font-Underline="false" Font-Names="Arial, Helvetica, sans-serif"
                             Font-Size ="X-Small" ForeColor="#333333" GridLines="None"> 
@@ -178,7 +178,7 @@
                                 <Columns> 
                                     <asp:TemplateField > 
                                         <ItemTemplate> 
-                                            <asp:Label ID="lblIdImsL1" runat="server" Text='<%# Bind("ID_IMS_Level_1") %>' Width ="235px" visible ="false"></asp:Label> 
+                                            <asp:Label ID="lblIdImsL1" runat="server" Text='<%# Bind("ID_IMS_Level_1") %>' Width ="20px" style="display :none"></asp:Label> 
                                         </ItemTemplate> 
                                     </asp:TemplateField> 
                                     <asp:TemplateField > 
@@ -212,8 +212,7 @@
                      <table id="tblHeaderImsL2" class ="gvImsL2" border="1" style ="font-size :small">
                          <tbody>
                              <tr>
-<%--                                 <th style="text-align :center ;width:100px; color:white;background-color:#edb93b">Code Marque S</th>--%>
-                                 <th style="text-align :center ;width:235px; color:white;background-color:#edb93b">Désignation IMS Level 2</th>
+                               <th style="text-align:center; width:10px; color:white; background-color:#edb93b; visibility:hidden ">ID 2</th>                                 <th style="text-align :center ;width:235px; color:white;background-color:#edb93b">Désignation IMS Level 2</th>
                              </tr>
                          </tbody>
                      </table>
@@ -226,12 +225,12 @@
                                  <Columns>
                                     <asp:TemplateField > 
                                          <ItemTemplate> 
-                                            <asp:Label ID="lblIdImsL2" runat="server" Text='<%# Bind("ID_IMS_Level_2") %>' Width ="235px" visible ="false"></asp:Label> 
+                                            <asp:Label ID="lblIdImsL2" runat="server" Text='<%# Bind("ID_IMS_Level_2") %>' Width ="235px" style="display :none"></asp:Label> 
                                         </ItemTemplate> 
                                     </asp:TemplateField> 
                                     <asp:TemplateField > 
                                          <ItemTemplate> 
-                                            <asp:Label ID="lblIdImsL1InL2" runat="server" Text='<%# Bind("ID_IMS_Level_1") %>' Width ="235px" visible ="false"></asp:Label> 
+                                            <asp:Label ID="lblIdImsL1InL2" runat="server" Text='<%# Bind("ID_IMS_Level_1") %>' Width ="235px" style="display :none"></asp:Label> 
                                         </ItemTemplate> 
                                     </asp:TemplateField> 
                                     <asp:TemplateField > 
@@ -279,12 +278,12 @@
                                 <Columns>
                                    <asp:TemplateField > 
                                          <ItemTemplate> 
-                                            <asp:Label ID="lblIdImsL3" runat="server" Text='<%# Bind("ID_IMS_Level_3") %>' Width ="235px" visible ="false"></asp:Label> 
+                                            <asp:Label ID="lblIdImsL3" runat="server" Text='<%# Bind("ID_IMS_Level_3") %>' Width ="235px" style="display :none"></asp:Label> 
                                         </ItemTemplate> 
                                     </asp:TemplateField> 
                                     <asp:TemplateField > 
                                          <ItemTemplate> 
-                                            <asp:Label ID="lblIdImsL2InL3" runat="server" Text='<%# Bind("ID_IMS_Level_2") %>' Width ="235px" visible ="false"></asp:Label> 
+                                            <asp:Label ID="lblIdImsL2InL3" runat="server" Text='<%# Bind("ID_IMS_Level_2") %>' Width ="235px" style="display :none"></asp:Label> 
                                         </ItemTemplate> 
                                     </asp:TemplateField> 
                                     <asp:TemplateField > 
@@ -332,12 +331,12 @@
                                 <Columns>
                                     <asp:TemplateField > 
                                          <ItemTemplate> 
-                                            <asp:Label ID="lblIdImsL4" runat="server" Text='<%# Bind("ID_IMS_Level_4") %>' Width ="235px" visible ="false"></asp:Label> 
+                                            <asp:Label ID="lblIdImsL4" runat="server" Text='<%# Bind("ID_IMS_Level_4") %>' Width ="235px" style="display:none"></asp:Label> 
                                         </ItemTemplate> 
                                     </asp:TemplateField> 
                                     <asp:TemplateField > 
                                          <ItemTemplate> 
-                                            <asp:Label ID="lblIdImsL3InL4" runat="server" Text='<%# Bind("ID_IMS_Level_3") %>' Width ="235px" visible ="false"></asp:Label> 
+                                            <asp:Label ID="lblIdImsL3InL4" runat="server" Text='<%# Bind("ID_IMS_Level_3") %>' Width ="235px" style="display:none"></asp:Label> 
                                         </ItemTemplate> 
                                     </asp:TemplateField> 
                                     <asp:TemplateField > 
@@ -462,7 +461,6 @@
           <select id="libImsL3ForPopup" name="ImsL3" style ="font-family :Arial, Helvetica, sans-serif">
               <option></option>
               <script type="text/javascript">
-
                     $("#imsL3 tr").each(function () {
                         imsL3 = $(this).find("td").eq(2).text().trim();
                         $("#libImsL3ForPopup").append('<option>' + imsL3 + '</option>');
@@ -503,43 +501,103 @@
 </html>
 
 <script>
+    //search fonctionne
+    function filterAll() {
+        filterTable($('#imsL1 tr'));
+        filterTable($('#imsL2 tr'));
+        filterTable($('#imsL3 tr'));
+        filterTable($('#imsL4 tr'));
+    }
+
+    function filterTable(allTr) {
+        var keyWord = $('#searchInput').val();
+        allTr.each(function () {
+            var designation = $(this).find("td").eq(2).text();
+            if (designation && designation.length > 0 && keyWord && keyWord.length > 0) {
+                keyWord = keyWord.toLowerCase();
+                designation = designation.toLowerCase();
+                if (designation.indexOf(keyWord) < 0) {
+                    $(this).hide();
+                } else {
+                    $(this).show();
+                }
+            } else {
+                $(this).show();
+            }
+        });
+    }
+
     //la partie pour filtrer IMS Level 2 selon la ligne de IMS Level 1 Choisie
     $(function () {
         $("#imsL1 td").click(function () {
             $("#imsL1 tr").css('background-color', '#ffffff');
             $(this).closest("tr").css('background-color', '#eeeeee');
+
             filterImsL2($(this).closest("tr"));
             EditImsL1($(this).closest("tr"));
-            $(this).closest("tr").attr("id", "selectedRowId");
+
+            $(this).closest("tr").attr("id1", "selectedRowId");
         });
     });
 
-    //modification de IMS Level 1
-    function EditImsL1(row) {
-        $("#btnEditImsL1").click(function () {
+    //la partie pour filtrer Ims Level 3 selon la ligne de Ims Level 2 Choisie
+    $(function () {
+        $("#imsL2 td").click(function () {
+            $("#imsL2 tr").css('background-color', '#ffffff');
+            $(this).closest("tr").css('background-color', '#eeeeee');
 
-          var LibImsL1ForPop = $("td", row).eq(1).text();
+            filterImsL3($(this).closest("tr"));
+            filterInverseImsL1($(this).closest("tr"));
+            EditImsL2($(this).closest("tr"));
 
-          document.getElementById("libImsL1Edit").value = LibImsL1ForPop.trim();
-
-          dialogEditImsL1.dialog("open");
-      });
-    }
-
-    function DisableImsL1(row) {
-        $("#btnDisableImsL1").click(function () {
+            $(this).closest("tr").attr("id2", "selectedRowId");
         });
-    }
+    });
 
+    //la partie pour filtrer Ims Level 4 selon la ligne de Ims Level 3 Choisie
+    $(function () {
+        $("#imsL3 td").click(function () {
+
+            $("#imsL3 tr").css('background-color', '#ffffff');
+            $(this).closest("tr").css('background-color', '#eeeeee');
+
+            EditImsL3($(this).closest("tr"));
+            filterImsL4($(this).closest("tr"));
+            filterInverseImsL2($(this).closest("tr"));
+            filterInverseImsL1($("#filteredImsL2"));
+
+            $(this).closest("tr").attr("id3", "selectedRowId");
+        })
+    })
+
+    //la partie pour filtrer Ims Level 4 selon la ligne de Ims Level 3 Choisie
+    $(function () {
+        $("#imsL4 td").click(function () {
+
+            $("#imsL4 tr").css('background-color', '#ffffff');
+            $(this).closest("tr").css('background-color', '#eeeeee');
+
+            EditImsL4($(this).closest("tr"));
+            filterInverseImsL3($(this).closest("tr"));
+            filterInverseImsL2($("#filteredImsL2"));
+            filterInverseImsL1($("#filteredImsL1"));
+
+            $(this).closest("tr").attr("id4", "selectedRowId");
+        })
+    })
+
+
+    // filtre IMS L2 en cliquant sur une ligne de IMS L1
     function filterImsL2(row) {
+
         var idImsL1 = $("td", row).eq(0).text();
-        alert(idImsL1);
+
         $("#imsL2 tr").each(function () {
             var idImsL1InL2,
-            idImsL1InL2 = $(this).find("td").eq(1).text().trim();
-            alert(idImsL2);
+            idImsL1InL2 = $(this).find("td").eq(1).text();
+
             if (idImsL1InL2 != null) {
-                if (idImsL1InL2 == idImsL1.trim()) {
+                if (idImsL1InL2 == idImsL1) {
                     $(this).show();
                 } else {
                     $(this).hide();
@@ -547,23 +605,105 @@
             }
         });
     }
+    
+    // filtre IMS L3 en cliquant sur une ligne de IMS L2
+    function filterImsL3(row) {
 
-        //la partie pour filtrer Ims Level 3 selon la ligne de Ims Level 2 Choisie
-        $(function () {
-            $("#imsL2 td").click(function () {
-                $("#imsL2 tr").css('background-color', '#ffffff');
-                $(this).closest("tr").css('background-color', '#eeeeee');
-                filterImsL3($(this).closest("tr"));
-                
-                filterInverseImsL1($(this).closest("tr"));
+        var idImsL2 = $("td", row).eq(0).text();
 
-                EditImsL2($(this).closest("tr"));
-                $(this).closest("tr").attr("id", "selectedRowId");
-            });
+        $("#imsL3 tr").each(function () {
+            var idImsL2InImsL3 = $(this).find("td").eq(1).text();
+            if (idImsL2InImsL3 != null) {
+                if (idImsL2InImsL3 == idImsL2) {
+                    $(this).show();
+                }
+                else {
+                    $(this).hide();
+                }
+            }
         });
-        
+    }
+
+    // filtre IMS L4 en cliquant sur une ligne de IMS L3
+    function filterImsL4(row) {
+        var idImsL3 = $("td", row).eq(0).text();
+        $("#imsL4 tr").each(function () {
+            var idImsL3InImsL4 = $(this).find("td").eq(1).text();
+            if (idImsL3InImsL4 != null) {
+                if (idImsL3InImsL4 == idImsL3) {
+                    $(this).show();
+                }
+                else {
+                    $(this).hide();
+                }
+            }
+        });
+    }
+
+    //filtrer ImsL1 en cliquant sur une ligne de ImsL2
+    function filterInverseImsL1(row) {
+
+        var idImsL1InL2 = $("td", row).eq(1).text();
+
+        $("#imsL1 tr").each(function () {
+
+            var idImsL1 = $(this).find("td").eq(0).text();
+            if (idImsL1 != null) {
+                if (idImsL1 == idImsL1InL2) {
+                    $(this).show();
+                    $(this).closest("tr").attr("id", "filteredImsL1");
+                }
+                else {
+                    $(this).hide();
+                }
+            }
+        });
+    }
+
+
+    //filtrer IMS L2 en cliquant sur une ligne de IMS L3
+    function filterInverseImsL2(row) {
+
+        var idImsL2InL3 = $("td", row).eq(1).text();
+
+        $("#imsL2 tr").each(function () {
+            var idImsL2 = $(this).find("td").eq(0).text();
+            $(this).closest("tr").attr("id", "");
+            if (idImsL2 != null) {
+                if (idImsL2 == idImsL2InL3) {
+                    $(this).show();
+                    $(this).closest("tr").attr("id", "filteredImsL2");
+                }
+                else {
+                    $(this).hide();
+                }
+            }
+        });
+    }
+
+
+    //filtrer IMS L3 en cliquant sur une ligne de IMS L4
+    function filterInverseImsL3(row) {
+
+        var idImsL3InL4 = $("td", row).eq(1).text();
+
+        $("#imsL4 tr").each(function () {
+            var idImsL3 = $(this).find("td").eq(0).text();
+            $(this).closest("tr").attr("idL3", "");
+            if (idImsL3 != null) {
+                if (idImsL3 == idImsL3InL4) {
+                    $(this).show();
+                    $(this).closest("tr").attr("id", "filteredImsL3");
+                }
+                else {
+                    $(this).hide();
+                }
+            }
+        });
+    }
         //Modification de Ims L2
         function EditSBrand(row) {
+
             $("#btnEditSBrand").click(function () {
                 var codSBrandForPop = $("td", row).eq(0).text();
                 var libSBrandForPop = $("td", row).eq(1).text();
@@ -571,103 +711,28 @@
                 document.getElementById("libSBrandEdit").value = libSBrandForPop.trim();
                 dialogEditSBrand.dialog("open");
             });
+
         }
 
-        function filterRange(row) {
-            var codeSBrand = $("td", row).eq(0).text();
-            $("#range tr").each(function () {
-                var codeSBrandInRange = $(this).find("td").eq(0).text().trim();
-                if (codeSBrandInRange != null) {
-                    codeSBrandInRange = codeSBrandInRange.substring(0, 4);
-                    if (codeSBrandInRange == codeSBrand.trim()) {
-                        $(this).show();
-                    }
-                    else {
-                        $(this).hide();
-                    }
-                }
+
+
+
+        //modification de IMS Level 1
+        function EditImsL1(row) {
+            $("#btnEditImsL1").click(function () {
+
+                var LibImsL1ForPop = $("td", row).eq(1).text();
+
+                document.getElementById("libImsL1Edit").value = LibImsL1ForPop.trim();
+
+                dialogEditImsL1.dialog("open");
             });
         }
 
-        //filtrer Marque Première en cliquant sur une ligne de Marque Secondaire
-        function filterInversePBrand(row) {
-            var codeSBrand = $("td", row).eq(0).text().trim();
-            var codePBrandInSBrand = codeSBrand.substring(0, 2);
-          
-            $("#pBrand tr").each(function(){
-                var codePBrand = $(this).find("td").eq(0).text().trim();
-                if (codePBrand != null) {
-                    if (codePBrand == codePBrandInSBrand) {
-                        $(this).show();
-                    }
-                    else {
-                        $(this).hide();
-                    }
-                }
+        function DisableImsL1(row) {
+            $("#btnDisableImsL1").click(function () {
             });
         }
-
-        $(function () {
-            $("#range td").click(function () {
-
-                $("#range tr").css('background-color', '#ffffff');
-                $(this).closest("tr").css('background-color', '#eeeeee');
-
-                EditRange($(this).closest("tr"));
-
-                filterInverseSBrand($(this).closest("tr"));
-                filterInversePBrand($("#filteredSegment"));
-
-                $(this).closest("tr").attr("id", "selectedRowId");
-            })
-        })
-
-        //filtrer Marque Secondaire en cliquant sur une ligne de Range
-        function filterInverseSBrand(row) {
-            var codeSBrand = $("td", row).eq(0).text().trim();
-            var codeSBrandInRange = codeSBrand.substring(0, 4);
-      
-            $("#sBrand tr").each(function () {
-                var codeSBrand = $(this).find("td").eq(0).text().trim();
-                $(this).closest("tr").attr("id", "");
-                if (codeSBrand != null) {
-                    if (codeSBrand == codeSBrandInRange) {
-                        $(this).show();
-                        $(this).closest("tr").attr("id", "filteredSBrand");
-                    }
-                    else {
-                        $(this).hide();
-                    }
-                }
-            });
-        }
-
-        //search fonctionne
-        function filterAll() {
-            filterTable($('#imsL1 tr'));
-            filterTable($('#imsL2 tr'));
-            filterTable($('#imsL3 tr'));
-            filterTable($('#imsL4 tr'));
-        }
-
-        function filterTable(allTr) {
-            var keyWord = $('#searchInput').val();
-            allTr.each(function () {
-                var designation = $(this).find("td").eq(0).text();
-                if (designation && designation.length > 0 && keyWord && keyWord.length > 0) {
-                    keyWord = keyWord.toLowerCase();
-                    designation = designation.toLowerCase();
-                    if (designation.indexOf(keyWord) < 0) {
-                        $(this).hide();
-                    } else {
-                        $(this).show();
-                    }
-                } else {
-                    $(this).show();
-                }
-            });
-        }
-
         //La partie de pop-up
         var dialog = $("#dialog-form").dialog({
 

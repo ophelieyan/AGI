@@ -376,7 +376,7 @@
       <li class="menu">
         <a href="gestionDonnees" class="dropbtn">Gestion des Données Systèmes</a>
         <div class="submenu">       
-          <a href="#">Flux Activity</a>
+          <a href="fluxActivity">Flux Activity</a>
           <a href="#">Flux Amalgamme</a>
           <a href="#">Flux APV</a>
           <a href="#">Flux Article Codification</a>
@@ -392,7 +392,7 @@
           <a href="#">Flux Labelling</a>
           <a href="#">Flux Life Cycle</a>
           <a href="#">Flux Logistique</a>
-          <a href="#">Flux IMS</a>
+          <a href="fluxIMS">Flux IMS</a>
           <a href="#">Flux ISO639 Language ISO3166 Country</a>
           <a href="#">Flux OF</a>
           <a href="#">Flux Ortems</a>

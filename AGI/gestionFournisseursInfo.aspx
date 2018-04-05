@@ -390,7 +390,7 @@
           <a href="#">Flux Labelling</a>
           <a href="#">Flux Life Cycle</a>
           <a href="#">Flux Logistique</a>
-          <a href="#">Flux IMS</a>
+          <a href="fluxIMS">Flux IMS</a>
           <a href="#">Flux ISO639 Language ISO3166 Country</a>
           <a href="#">Flux OF</a>
           <a href="#">Flux Ortems</a>

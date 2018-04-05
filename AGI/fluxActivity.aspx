@@ -83,7 +83,7 @@
           <a href="#">Flux Labelling</a>
           <a href="#">Flux Life Cycle</a>
           <a href="#">Flux Logistique</a>
-          <a href="#">Flux IMS</a>
+          <a href="fluxIMS">Flux IMS</a>
           <a href="#">Flux ISO639 Language ISO3166 Country</a>
           <a href="#">Flux OF</a>
           <a href="#">Flux Ortems</a>
@@ -141,7 +141,7 @@
                 <asp:TreeNode Text="Sous Segment" Value="Sous Segment" NavigateUrl ="~/ConsulSousSeg.aspx"></asp:TreeNode>
             </asp:TreeNode>
             <asp:TreeNode Text="Flux Logistique" Value="Flux Logistique"></asp:TreeNode>
-            <asp:TreeNode Text="Flux IMS" Value="Flux IMS"></asp:TreeNode>
+            <asp:TreeNode Text="Flux IMS" Value="Flux IMS" NavigateUrl ="~/fluxIMS.aspx"></asp:TreeNode>
             <%--<asp:TreeNode Text="Flux ISO639 Language ISO3166 Country" Value="Flux ISO639 Language ISO3166 Country"></asp:TreeNode>--%>
             <asp:TreeNode Text="Flux Purchase" Value="Flux Purchase"></asp:TreeNode>
             <asp:TreeNode Text="Flux Supplier" Value="Flux Supplier"></asp:TreeNode>
