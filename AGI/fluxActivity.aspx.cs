@@ -109,7 +109,7 @@ namespace AGI
 
 
                 // Create a SELECT query. 
-                string strSelectCmd = "SELECT ID_Secondary_Brand, Cod_Secondary_Brand, Lib_Secondary_Brand_Fr FROM ST_Secondary_Brand";
+                string strSelectCmd = "SELECT ID_Secondary_Brand, ID_Primary_Brand, Cod_Secondary_Brand, Lib_Secondary_Brand_Fr FROM ST_Secondary_Brand";
 
 
                 // Create a SqlDataAdapter object 
@@ -152,7 +152,7 @@ namespace AGI
 
 
                 // Create a SELECT query. 
-                string strSelectCmd = "SELECT ID_Range, Cod_Range, Lib_Range_Fr FROM ST_Range";
+                string strSelectCmd = "SELECT ID_Range, ID_Secondary_Brand, Cod_Range, Lib_Range_Fr FROM ST_Range";
 
 
                 // Create a SqlDataAdapter object 

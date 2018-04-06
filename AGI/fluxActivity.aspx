@@ -125,10 +125,6 @@
                 <asp:TreeNode Text="Secondary Brand" Value="Secondary Brand"></asp:TreeNode>
                 <asp:TreeNode Text="Range" Value="Ranger"></asp:TreeNode>
             </asp:TreeNode>
-          <%--  <asp:TreeNode Text="Flux Amalgamme" Value="Flux Amalgamme"></asp:TreeNode>
-            <asp:TreeNode Text="Flux APV" Value="Flux APV"></asp:TreeNode>
-            <asp:TreeNode Text="Flux Article Codification" Value="Flux Article Codification"></asp:TreeNode>
-            <asp:TreeNode Text="Flux Article Record" Value="Flux Article Record"></asp:TreeNode>--%>   
             <asp:TreeNode Text="Flux Article" Value="Flux Article"></asp:TreeNode>
             <asp:TreeNode Text="Flux BOM" Value="Flux BOM"></asp:TreeNode>
             <asp:TreeNode Text="Flux BUYER PURVEYOR" Value="Flux BUYER PURVEYOR"></asp:TreeNode>
@@ -173,22 +169,15 @@
                          </tbody>
                      </table>
                  </div>
-                 <div style="overflow-y:scroll; overflow-x:hidden; width:335px ; height:330px" >
-                  <%--  onrowediting="pBrand_RowEditing" onrowupdating="pBrand_RowUpdating"  OnSelectedIndexChanged="pBrand_SelectedIndexChanged"
-                            onrowcancelingedit="pBrand_RowCancelingEdit"
-                            onsorting="pBrand_Sorting"      onrowdatabound="pBrand_RowDataBound" onrowdeleting="pBrand_RowDeleting"--%>
+                 <div style="overflow-y:scroll; overflow-x:hidden; width:345px ; height:330px" >
                  <asp:GridView ID="pBrand" runat="server" AutoGenerateColumns="False" CellPadding="4" ShowHeader="false" 
                             HeaderStyle-Font-Underline="false" Font-Names="Arial, Helvetica, sans-serif"
                             Font-Size ="X-Small" ForeColor="#333333" GridLines="None"> 
                             <RowStyle BackColor="White"  ForeColor="#333333" /> 
-                                <%--<AlternatingRowStyle BackColor="White" ForeColor="#284775" />--%>
                                 <Columns> 
-                                   <asp:TemplateField   Visible="false" > 
-                                   <EditItemTemplate> 
-                                            <asp:TextBox ID="tbxIdPBrand" runat="server" Text='<%# Bind("ID_Primary_Brand") %>' Visible="false" ></asp:TextBox> 
-                                        </EditItemTemplate>
+                                   <asp:TemplateField > 
                                         <ItemTemplate> 
-                                            <asp:Label ID="lblIdIdPBrand" runat="server" Text='<%# Bind("ID_Primary_Brand") %>' Visible="false"></asp:Label> 
+                                            <asp:Label ID="lblIdIdPBrand" runat="server" Text='<%# Bind("ID_Primary_Brand") %>' style="display:none" Width="10px"></asp:Label> 
                                         </ItemTemplate> 
                                     </asp:TemplateField> 
                                     <asp:TemplateField > 
@@ -217,7 +206,7 @@
                             <SortedDescendingCellStyle BackColor="#FFFDF8" />
                             <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
               </asp:GridView> 
-                          <%-- </asp:Panel>--%>
+                         
               </div> 
                  <button id="btnAddPBrand" class="btnAdd" type="button">Créer</button>
                  <button id="btnEditPBrand" class="btnEdit" type="button">Modifier</button>
@@ -237,23 +226,21 @@
                          </tbody>
                      </table>
                  </div>
-                 <div style="overflow-y:scroll; overflow-x:hidden; width:300px ; height:330px" >
-                     <%--onrowcancelingedit="sBrand_RowCancelingEdit"    onrowdatabound="sBrand_RowDataBound" onrowdeleting="sBrand_RowDeleting"   
-                            onrowediting="sBrand_RowEditing" onrowupdating="sBrand_RowUpdating"  
-                            onsorting="sBrand_Sorting"--%>
+                 <div style="overflow-y:scroll; overflow-x:hidden; width:310px ; height:330px" >
+
                  <asp:GridView ID="sBrand" runat="server" AutoGenerateColumns="False" CellPadding="4"  
                             HeaderStyle-Font-Underline="false" ShowHeader="false" Font-Size ="X-Small"
                             Font-Names="Arial, Helvetica, sans-serif" ForeColor="#333333" GridLines="None"> 
                             <RowStyle BackColor="White" ForeColor="#333333" Width ="140px" /> 
                                  <Columns> 
-                                    <asp:BoundField DataField="ID_Secondary_Brand"  ReadOnly="True"  
-                                        SortExpression="ID_Secondary_Brand" visible="false" /> 
-                                    <asp:TemplateField Visible ="false"> 
-                                        <EditItemTemplate> 
-                                            <asp:TextBox ID="tbxIdSBrand" runat="server" Visible ="false" Text='<%# Bind("ID_Secondary_Brand") %>'></asp:TextBox> 
-                                        </EditItemTemplate> 
+                                    <asp:TemplateField> 
                                         <ItemTemplate> 
-                                            <asp:Label ID="lblIdSBrand" runat="server"  Visible ="false" Text='<%# Bind("ID_Secondary_Brand") %>'></asp:Label> 
+                                            <asp:Label ID="lblIdSBrand" runat="server" Text='<%# Bind("ID_Secondary_Brand") %>' style="display:none" Width="10px"></asp:Label> 
+                                        </ItemTemplate> 
+                                    </asp:TemplateField> 
+                                    <asp:TemplateField> 
+                                        <ItemTemplate> 
+                                            <asp:Label ID="lblIdPriBrand" runat="server" Text='<%# Bind("ID_Primary_Brand") %>' style="display:none" Width="10px"></asp:Label> 
                                         </ItemTemplate> 
                                     </asp:TemplateField> 
                                     <asp:TemplateField > 
@@ -301,23 +288,20 @@
                         </tbody>
                     </table>   
                  </div>
-                 <div style="overflow-y:scroll; overflow-x:hidden; width:320px; height:330px" >
-            <%--     onrowdatabound="range_RowDataBound" onrowdeleting="range_RowDeleting"  
-                            onrowediting="range_RowEditing" onrowupdating="range_RowUpdating"  
-                            onsorting="range_Sorting"  onrowcancelingedit="range_RowCancelingEdit"--%>
+                 <div style="overflow-y:scroll; overflow-x:hidden; width:330px; height:330px" >
                  <asp:GridView ID="range" runat="server" AutoGenerateColumns="False" CellPadding="4"  
                             HeaderStyle-Font-Underline="false" ShowHeader="false" Font-Size ="X-Small"
                             Font-Names="Arial, Helvetica, sans-serif" ForeColor="#333333" GridLines="None"> 
                             <RowStyle BackColor="White" ForeColor="#333333" /> 
                                 <Columns> 
-                                    <asp:BoundField DataField="ID_Range" ReadOnly="True"  
-                                        SortExpression="ID_Range" visible="false" /> 
-                                    <asp:TemplateField  Visible ="false"> 
-                                        <EditItemTemplate> 
-                                            <asp:TextBox ID="tbxIdRange" runat="server" Visible="false" Text='<%# Bind("ID_Range") %>'></asp:TextBox> 
-                                        </EditItemTemplate> 
+                                    <asp:TemplateField> 
                                         <ItemTemplate> 
-                                            <asp:Label ID="lblIdRange" runat="server" Visible ="false" Text='<%# Bind("ID_Range") %>'></asp:Label> 
+                                            <asp:Label ID="lblIdRange" runat="server" style="display:none"  Text='<%# Bind("ID_Range") %>' Width="10px"></asp:Label> 
+                                        </ItemTemplate> 
+                                    </asp:TemplateField> 
+                                    <asp:TemplateField> 
+                                        <ItemTemplate> 
+                                            <asp:Label ID="lblIdSeBrand" runat="server" style="display:none"  Text='<%# Bind("ID_Secondary_Brand") %>' Width="10px"></asp:Label> 
                                         </ItemTemplate> 
                                     </asp:TemplateField> 
                                     <asp:TemplateField > 
@@ -387,7 +371,8 @@
         <br />
         <select id="libPBrandForPopup" name="pbrand" style ="font-family :Arial, Helvetica, sans-serif; font-size:12px">
             <option></option>
-            <script type="text/javascript">             
+            <script type="text/javascript">  
+                
                     $("#pBrand tr").each(function () {
                         pBrand = $(this).find("td").eq(1).text().trim();
                         $("#libPBrandForPopup").append('<option>' + pBrand + '</option>');
@@ -430,7 +415,7 @@
               <script type="text/javascript">
 
                     $("#sBrand tr").each(function () {
-                        sBrand = $(this).find("td").eq(1).text().trim();
+                        sBrand = $(this).find("td").eq(3).text().trim();
                         $("#libSBrandForPopup").append('<option>' + sBrand + '</option>');     
                     });
             
@@ -474,6 +459,51 @@
 </html>
 
 <script>
+    //search fonctionne
+    function filterAll() {
+        filterTablePBrand($('#pBrand tr'));//filtrer sur la troisième colonnes en PrimaryBrand
+        filterTable($('#sBrand tr'));//filtrer sur la quatrième colonnes en SecondaryBrand
+        filterTable($('#range tr'));//filtrer sur la quatrième colonnes en range
+    }
+
+    //filtrer sur la troisième colonnes en PrimaryBrand
+    function filterTablePBrand(allTr) {
+        var keyWord = $('#searchInput').val();
+        allTr.each(function () {
+            var designation = $(this).find("td").eq(2).text();
+            if (designation && designation.length > 0 && keyWord && keyWord.length > 0) {
+                keyWord = keyWord.toLowerCase();
+                designation = designation.toLowerCase();
+                if (designation.indexOf(keyWord) < 0) {
+                    $(this).hide();
+                } else {
+                    $(this).show();
+                }
+            } else {
+                $(this).show();
+            }
+        });
+    }
+
+    //filtrer sur la quatrième colonnes
+    function filterTable(allTr) {
+        var keyWord = $('#searchInput').val();
+        allTr.each(function () {
+            var designation = $(this).find("td").eq(3).text();
+            if (designation && designation.length > 0 && keyWord && keyWord.length > 0) {
+                keyWord = keyWord.toLowerCase();
+                designation = designation.toLowerCase();
+                if (designation.indexOf(keyWord) < 0) {
+                    $(this).hide();
+                } else {
+                    $(this).show();
+                }
+            } else {
+                $(this).show();
+            }
+        });
+    }
+
     //la partie pour filtrer Marque Secondaire selon la ligne de la Marque première Choisie
     $(function () {
         $("#pBrand td").click(function () {
@@ -485,91 +515,82 @@
         });
     });
 
-    //modification de Marque Première
-    function EditPBrand(row){            
-        $("#btnEditPBrand").click(function () {
+    //la partie pour filtrer Gamme selon la ligne de Marque Secondaire Choisie
+    $(function () {
+        $("#sBrand td").click(function () {
 
-          var codPBrandForPop = $("td", row).eq(0).text();
-          var LibPBrandForPop = $("td", row).eq(1).text();
+            $("#sBrand tr").css('background-color', '#ffffff');
+            $(this).closest("tr").css('background-color', '#eeeeee');
 
-          document.getElementById("codPBrandEdit").value = codPBrandForPop.trim();
-          document.getElementById("libPBrandEdit").value = LibPBrandForPop.trim();
+            filterRange($(this).closest("tr"));
+            filterInversePBrand($(this).closest("tr"));
+            EditSBrand($(this).closest("tr"));
 
-          dialogEditPBrand.dialog("open");
-      });
-    }
-
-    function DisablePBrand(row) {
-        $("#btnDisablePBrand").click(function () {
+            $(this).closest("tr").attr("id", "selectedRowId");
         });
-    }
+    });
+
+    //la partie d'actions après avoir cliqué sur une ligne de range
+    $(function () {
+        $("#range td").click(function () {
+
+            $("#range tr").css('background-color', '#ffffff');
+            $(this).closest("tr").css('background-color', '#eeeeee');
+
+            EditRange($(this).closest("tr"));
+            filterInverseSBrand($(this).closest("tr"));
+            filterInversePBrand($("#filteredSBrand"));
+
+            $(this).closest("tr").attr("id", "selectedRowId");
+        })
+    })
 
     function filterSBrand(row) {
-        var codSBrand = $("td", row).eq(0).text();
+
+        var idPBrand = $("td", row).eq(0).text();
+
         $("#sBrand tr").each(function () {
-            var codePBrandInSBrand,
-            codePBrandInSBrand = $(this).find("td").eq(0).text().trim();
-            if (codePBrandInSBrand != null) {
-                codePBrandInSBrand = codePBrandInSBrand.substring(0,2);
-                if (codePBrandInSBrand == codSBrand.trim().substring(0, 2)) {
+
+            idPBrandInSBrand = $(this).find("td").eq(1).text();
+            if (idPBrandInSBrand != null) {
+                if (idPBrandInSBrand == idPBrand) {
                     $(this).show();
                 } else {
                     $(this).hide();
                 }
             }
+
         });
     }
 
-        //la partie pour filtrer Gamme selon la ligne de Marque Secondaire Choisie
-        $(function () {
-            $("#sBrand td").click(function () {
-                $("#sBrand tr").css('background-color', '#ffffff');
-                $(this).closest("tr").css('background-color', '#eeeeee');
-                filterRange($(this).closest("tr"));
-                
-                filterInversePBrand($(this).closest("tr"));
+    function filterRange(row) {
 
-                EditSBrand($(this).closest("tr"));
-                $(this).closest("tr").attr("id", "selectedRowId");
-            });
-        });
-        
-        //Modification de Marque Secondaire
-        function EditSBrand(row) {
-            $("#btnEditSBrand").click(function () {
-                var codSBrandForPop = $("td", row).eq(0).text();
-                var libSBrandForPop = $("td", row).eq(1).text();
-                document.getElementById("codSBrandEdit").value = codSBrandForPop.trim();
-                document.getElementById("libSBrandEdit").value = libSBrandForPop.trim();
-                dialogEditSBrand.dialog("open");
-            });
-        }
+        var idSBrand = $("td", row).eq(1).text();
 
-        function filterRange(row) {
-            var codeSBrand = $("td", row).eq(0).text();
-            $("#range tr").each(function () {
-                var codeSBrandInRange = $(this).find("td").eq(0).text().trim();
-                if (codeSBrandInRange != null) {
-                    codeSBrandInRange = codeSBrandInRange.substring(0, 4);
-                    if (codeSBrandInRange == codeSBrand.trim()) {
-                        $(this).show();
-                    }
-                    else {
-                        $(this).hide();
-                    }
+        $("#range tr").each(function () {
+
+            var idSBrandInRange = $(this).find("td").eq(1).text();
+            if (idSBrandInRange != null) {
+                if (idSBrandInRange == idSBrand) {
+                    $(this).show();
                 }
-            });
-        }
+                else {
+                    $(this).hide();
+                }
+
+            }
+        });
+    }
 
         //filtrer Marque Première en cliquant sur une ligne de Marque Secondaire
         function filterInversePBrand(row) {
-            var codeSBrand = $("td", row).eq(0).text().trim();
-            var codePBrandInSBrand = codeSBrand.substring(0, 2);
-          
-            $("#pBrand tr").each(function(){
-                var codePBrand = $(this).find("td").eq(0).text().trim();
-                if (codePBrand != null) {
-                    if (codePBrand == codePBrandInSBrand) {
+
+            var idPBrandInSBrand = $("td", row).eq(1).text().trim();
+         
+            $("#pBrand tr").each(function () {
+                var idPBrand = $(this).find("td").eq(0).text().trim();
+                if (idPBrand != null) {
+                    if (idPBrand == idPBrandInSBrand) {
                         $(this).show();
                     }
                     else {
@@ -579,31 +600,16 @@
             });
         }
 
-        $(function () {
-            $("#range td").click(function () {
-
-                $("#range tr").css('background-color', '#ffffff');
-                $(this).closest("tr").css('background-color', '#eeeeee');
-
-                EditRange($(this).closest("tr"));
-
-                filterInverseSBrand($(this).closest("tr"));
-                filterInversePBrand($("#filteredSegment"));
-
-                $(this).closest("tr").attr("id", "selectedRowId");
-            })
-        })
-
         //filtrer Marque Secondaire en cliquant sur une ligne de Range
         function filterInverseSBrand(row) {
-            var codeSBrand = $("td", row).eq(0).text().trim();
-            var codeSBrandInRange = codeSBrand.substring(0, 4);
-      
+
+            var idSBrandInRange = $("td", row).eq(1).text().trim();
+
             $("#sBrand tr").each(function () {
-                var codeSBrand = $(this).find("td").eq(0).text().trim();
+                var idSBrand = $(this).find("td").eq(0).text().trim();
                 $(this).closest("tr").attr("id", "");
-                if (codeSBrand != null) {
-                    if (codeSBrand == codeSBrandInRange) {
+                if (idSBrand != null) {
+                    if (idSBrand == idSBrandInRange) {
                         $(this).show();
                         $(this).closest("tr").attr("id", "filteredSBrand");
                     }
@@ -614,30 +620,38 @@
             });
         }
 
-        //search fonctionne
-        function filterAll() {
-            filterTable($('#pBrand tr'));
-            filterTable($('#sBrand tr'));
-            filterTable($('#range tr'));
-        }
+        //modification de Marque Première
+        function EditPBrand(row) {
+            $("#btnEditPBrand").click(function () {
 
-        function filterTable(allTr) {
-            var keyWord = $('#searchInput').val();
-            allTr.each(function () {
-                var designation = $(this).find("td").eq(1).text();
-                if (designation && designation.length > 0 && keyWord && keyWord.length > 0) {
-                    keyWord = keyWord.toLowerCase();
-                    designation = designation.toLowerCase();
-                    if (designation.indexOf(keyWord) < 0) {
-                        $(this).hide();
-                    } else {
-                        $(this).show();
-                    }
-                } else {
-                    $(this).show();
-                }
+                var codPBrandForPop = $("td", row).eq(1).text();
+                var LibPBrandForPop = $("td", row).eq(2).text();
+
+                document.getElementById("codPBrandEdit").value = codPBrandForPop.trim();
+                document.getElementById("libPBrandEdit").value = LibPBrandForPop.trim();
+
+                dialogEditPBrand.dialog("open");
             });
         }
+
+        function DisablePBrand(row) {
+            $("#btnDisablePBrand").click(function () {
+            });
+        }
+
+
+        //Modification de Marque Secondaire
+        function EditSBrand(row) {
+            $("#btnEditSBrand").click(function () {
+                var codSBrandForPop = $("td", row).eq(1).text();
+                var libSBrandForPop = $("td", row).eq(2).text();
+                document.getElementById("codSBrandEdit").value = codSBrandForPop.trim();
+                document.getElementById("libSBrandEdit").value = libSBrandForPop.trim();
+                dialogEditSBrand.dialog("open");
+            });
+        }
+
+
 
         //La partie de pop-up
         var dialog = $("#dialog-form").dialog({
@@ -920,9 +934,9 @@
 
                 var row = $("#selectedRowId");
 
-                $("td", row).eq(0).html(codSBrandModif);
+                $("td", row).eq(1).html(codSBrandModif);
 
-                $("td", row).eq(1).html(libSBrandModif);
+                $("td", row).eq(2).html(libSBrandModif);
 
                 row.attr("id", "");
 
@@ -1059,9 +1073,9 @@
 
                 var row = $("#selectedRowId");
 
-                $("td", row).eq(0).html(codRangeModif);
+                $("td", row).eq(1).html(codRangeModif);
 
-                $("td", row).eq(1).html(libRangeModif);
+                $("td", row).eq(2).html(libRangeModif);
 
                 row.attr("id", "");
 

@@ -564,7 +564,7 @@
             EditImsL3($(this).closest("tr"));
             filterImsL4($(this).closest("tr"));
             filterInverseImsL2($(this).closest("tr"));
-            filterInverseImsL1($("#filteredImsL2"));
+            filterInverseImsL1($("#filteredImsL1"));
 
             $(this).closest("tr").attr("id3", "selectedRowId");
         })
@@ -689,7 +689,7 @@
 
         $("#imsL4 tr").each(function () {
             var idImsL3 = $(this).find("td").eq(0).text();
-            $(this).closest("tr").attr("idL3", "");
+            $(this).closest("tr").attr("id", "");
             if (idImsL3 != null) {
                 if (idImsL3 == idImsL3InL4) {
                     $(this).show();
@@ -701,24 +701,10 @@
             }
         });
     }
-        //Modification de Ims L2
-        function EditSBrand(row) {
 
-            $("#btnEditSBrand").click(function () {
-                var codSBrandForPop = $("td", row).eq(0).text();
-                var libSBrandForPop = $("td", row).eq(1).text();
-                document.getElementById("codSBrandEdit").value = codSBrandForPop.trim();
-                document.getElementById("libSBrandEdit").value = libSBrandForPop.trim();
-                dialogEditSBrand.dialog("open");
-            });
+      //modification de IMS Level 1
+      function EditImsL1(row) {
 
-        }
-
-
-
-
-        //modification de IMS Level 1
-        function EditImsL1(row) {
             $("#btnEditImsL1").click(function () {
 
                 var LibImsL1ForPop = $("td", row).eq(1).text();
@@ -733,6 +719,46 @@
             $("#btnDisableImsL1").click(function () {
             });
         }
+
+        //Modification de Ims L2
+        function EditImsL2(row) {
+
+            $("#btnEditImsL2").click(function () {
+
+                var LibImsL2ForPop = $("td", row).eq(2).text();
+
+                document.getElementById("libImsL2Edit").value = LibImsL2ForPop.trim();
+
+                dialogEditImsL2.dialog("open");
+            });
+        }
+
+        //Modification de Ims L3
+        function EditImsL3(row) {
+
+            $("#btnEditImsL3").click(function () {
+
+                var LibImsL3ForPop = $("td", row).eq(2).text();
+
+                document.getElementById("libImsL3Edit").value = LibImsL3ForPop.trim();
+
+                dialogEditImsL3.dialog("open");
+            });
+        }
+
+        //Modification de Ims L4
+        function EditImsL4(row) {
+
+            $("#btnEditImsL4").click(function () {
+
+                var LibImsL4ForPop = $("td", row).eq(2).text();
+
+                document.getElementById("libImsL4Edit").value = LibImsL4ForPop.trim();
+
+                dialogEditImsL4.dialog("open");
+            });
+        }
+
         //La partie de pop-up
         var dialog = $("#dialog-form").dialog({
 
@@ -907,10 +933,7 @@
                 var imsL1PopUp = document.getElementById("libImsL1ForPopup").value;
 
                 var libImsL2PopUp = document.getElementById("libImsL2").value;
-
-                //addRowToTable($('#segment tbody'), codSegPopUp, libSegPopUp);
-
-          
+   
                 $.ajax({
 
                     url: "api/ImsL2DataController?",
@@ -1057,7 +1080,7 @@
 
                 $.ajax({
 
-                    url: "api/ImsL2DataController?",
+                    url: "api/ImsL3DataController?",
 
                     methode: "POST",
 
@@ -1212,7 +1235,7 @@
             //modification de Ims L4
             function EditImsL4(row) {
                 $("#btnEditImsL4").click(function () {
-                    var libImsL4ForPop = $("td", row).eq(0).text();
+                    var libImsL4ForPop = $("td", row).eq(2).text();
 
                     document.getElementById("libImsL3Edit").value = libImsL4ForPop.trim();
                     dialogImsL4.dialog("open");
@@ -1261,7 +1284,7 @@
 
                 var row = $("#selectedRowId");
 
-                $("td", row).eq(0).html(libImsL4Modif);
+                $("td", row).eq(2).html(libImsL4Modif);
 
                 row.attr("id", "");
 
