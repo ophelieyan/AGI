@@ -372,7 +372,7 @@
 
           <label for="libImsL1">Désignation IMS Level 1</label>
           <br />
-          <input type="text" name="libImsL1" id="libImsL1" value="" class="text ui-widget-content ui-corner-all"/>
+          <input type="text" name="libImsL1" id="libImsL1" value="" class="text ui-widget-content ui-corner-all" style="font-family :Arial, Helvetica, sans-serif ;font-size :12px"/>
           <br /> 
     </div>
 
@@ -382,7 +382,7 @@
           <br />
           <label for="libImsL1">Désignation IMS Level 1</label>
           <br />
-          <input type="text" name="libImsL1" id="libImsL1Edit" value="" class="text ui-widget-content ui-corner-all"/>
+          <input type="text" name="libImsL1" id="libImsL1Edit"  value="" class="text ui-widget-content ui-corner-all" style="font-family :Arial, Helvetica, sans-serif ;font-size :12px;width:200px; height:20px"/>
     </div>
 
     <div id="dialog-form-imsL2" title="Creation d'un nouveau IMS Level 2">
@@ -403,8 +403,7 @@
           <label for="libImsL2">Désignation IMS Level 2</label>
           <br />
           <input type="text" name="libImsL2" id="libImsL2" value="" class="text ui-widget-content ui-corner-all"/>  
-          <br />
-        
+          <br />       
     </div>
 
     <div id="edit-imsL2" title="Modifier d'un IMS Level 2">
@@ -413,7 +412,7 @@
           <br />
           <label for="libImsL2">Désignation IMS Level 2</label>
           <br />
-          <input type="text" name="libImsL2" id="libImsL2Edit" value="" class="text ui-widget-content ui-corner-all"/>
+          <input type="text" name="libImsL2" id="libImsL2Edit" value="" class="text ui-widget-content ui-corner-all" style="font-family :Arial, Helvetica, sans-serif ;font-size :12px;width:200px; height:20px"/>
           <br />
   <%--        <input type="hidden" name="idPBrand" id="idOfSelectedPBrand" value="" class="text ui-widget-content ui-corner-all"/>
           <input type="hidden" name="Code PBrand" id="codPBrandEdit" value="" class="text ui-widget-content ui-corner-all"/>--%>
@@ -449,7 +448,7 @@
           <br />
           <label for="libImsL3">Désignation IMS Level 3</label>
           <br />   
-          <input type="text" name="libImsL3" id="libImsL3Edit" value="" class="text ui-widget-content ui-corner-all"/>
+          <input type="text" name="libImsL3" id="libImsL3Edit" value="" class="text ui-widget-content ui-corner-all" style="font-family :Arial, Helvetica, sans-serif ;font-size :12px;width:200px; height:20px"/>
           <br />
     </div>
 
@@ -481,7 +480,7 @@
           <br />
           <label for="libImsL4">Désignation IMS Level 4</label>
           <br />
-          <input type="text" name="libImsL4" id="libImsL4Edit" value="" class="text ui-widget-content ui-corner-all"/>
+          <input type="text" name="libImsL4" id="libImsL4Edit" value=""  class="text ui-widget-content ui-corner-all"  style="font-family :Arial, Helvetica, sans-serif ;font-size :12px;width:200px; height:20px"/>
           <br />   
     </div>
 </div>
@@ -536,7 +535,7 @@
             filterImsL2($(this).closest("tr"));
             EditImsL1($(this).closest("tr"));
 
-            $(this).closest("tr").attr("id1", "selectedRowId");
+            $(this).closest("tr").attr("id", "selectedRowId");
         });
     });
 
@@ -550,7 +549,7 @@
             filterInverseImsL1($(this).closest("tr"));
             EditImsL2($(this).closest("tr"));
 
-            $(this).closest("tr").attr("id2", "selectedRowId");
+            $(this).closest("tr").attr("id", "selectedRowId");
         });
     });
 
@@ -564,9 +563,9 @@
             EditImsL3($(this).closest("tr"));
             filterImsL4($(this).closest("tr"));
             filterInverseImsL2($(this).closest("tr"));
-            filterInverseImsL1($("#filteredImsL1"));
+            filterInverseImsL1($("#filteredImsL2"));
 
-            $(this).closest("tr").attr("id3", "selectedRowId");
+            $(this).closest("tr").attr("id", "selectedRowId");
         })
     })
 
@@ -579,10 +578,10 @@
 
             EditImsL4($(this).closest("tr"));
             filterInverseImsL3($(this).closest("tr"));
-            filterInverseImsL2($("#filteredImsL2"));
-            filterInverseImsL1($("#filteredImsL1"));
+            filterInverseImsL2($("#filteredImsL3"));
+            filterInverseImsL1($("#filteredImsL2"));
 
-            $(this).closest("tr").attr("id4", "selectedRowId");
+            $(this).closest("tr").attr("id", "selectedRowId");
         })
     })
 
@@ -644,15 +643,14 @@
     function filterInverseImsL1(row) {
 
         var idImsL1InL2 = $("td", row).eq(1).text();
-
+ 
         $("#imsL1 tr").each(function () {
-
             var idImsL1 = $(this).find("td").eq(0).text();
+
             if (idImsL1 != null) {
                 if (idImsL1 == idImsL1InL2) {
                     $(this).show();
-                    $(this).closest("tr").attr("id", "filteredImsL1");
-                }
+                  }
                 else {
                     $(this).hide();
                 }
@@ -687,7 +685,7 @@
 
         var idImsL3InL4 = $("td", row).eq(1).text();
 
-        $("#imsL4 tr").each(function () {
+        $("#imsL3 tr").each(function () {
             var idImsL3 = $(this).find("td").eq(0).text();
             $(this).closest("tr").attr("id", "");
             if (idImsL3 != null) {
@@ -752,7 +750,7 @@
             $("#btnEditImsL4").click(function () {
 
                 var LibImsL4ForPop = $("td", row).eq(2).text();
-
+      
                 document.getElementById("libImsL4Edit").value = LibImsL4ForPop.trim();
 
                 dialogEditImsL4.dialog("open");
@@ -875,7 +873,7 @@
 
             var row = $("#selectedRowId");
 
-            $("td", row).eq(0).html(libImsL1Modif);
+            $("td", row).eq(1).html(libImsL1Modif);
 
             row.attr("id", "");
 
@@ -892,7 +890,7 @@
             });
 
 
-            dialogEditIMSL1.dialog("close");
+            dialogEditImsL1.dialog("close");
         }
 
             //IMS L2 popUp
@@ -1015,7 +1013,7 @@
 
                 var row = $("#selectedRowId");
 
-                $("td", row).eq(0).html(libImsL2Modif);
+                $("td", row).eq(2).html(libImsL2Modif);
 
                 row.attr("id", "");
 
@@ -1099,10 +1097,10 @@
           //modification de Ims L3
             function EditImsL3(row) {
                 $("#btnEditImsL3").click(function () {
-                    var libImsL3ForPop = $("td", row).eq(0).text();
+                    var libImsL3ForPop = $("td", row).eq(2).text();
 
                     document.getElementById("libImsL3Edit").value = libImsL3ForPop.trim();
-                    dialogImsL3.dialog("open");
+                    dialogEditImsL3.dialog("open");
                 });
             }
             
@@ -1148,7 +1146,7 @@
 
                 var row = $("#selectedRowId");
 
-                $("td", row).eq(0).html(libImsL3Modif);
+                $("td", row).eq(2).html(libImsL3Modif);
 
                 row.attr("id", "");
 
@@ -1165,7 +1163,7 @@
 
                 });
 
-                dialogImsL3.dialog("close");
+                dialogEditImsL3.dialog("close");
             }
 
 
@@ -1237,8 +1235,8 @@
                 $("#btnEditImsL4").click(function () {
                     var libImsL4ForPop = $("td", row).eq(2).text();
 
-                    document.getElementById("libImsL3Edit").value = libImsL4ForPop.trim();
-                    dialogImsL4.dialog("open");
+                    document.getElementById("libImsL4Edit").value = libImsL4ForPop.trim();
+                    dialogEditImsL4.dialog("open");
                 });
             }
 
@@ -1301,7 +1299,7 @@
 
                 });
 
-                dialogImsL4.dialog("close");
+                dialogEditImsL4.dialog("close");
             }
 </script>
 
