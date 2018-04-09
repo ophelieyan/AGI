@@ -1002,7 +1002,7 @@
 
                 modal: true,
 
-                buttons: {
+                buttons: { 
 
                     "Valider la modification": updateImsL2,
 
