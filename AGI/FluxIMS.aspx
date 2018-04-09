@@ -163,13 +163,13 @@
                      <table id="tblHeaderImsL1" class ="gvImsL1" border="1" style ="font-size :small">
                          <tbody>
                              <tr>
-                                 <th style="text-align:center; width:10px; color:white; background-color:#edb93b; visibility:hidden ">ID 1</th>
+                             <%--    <th style="text-align:center; width:10px; color:white; background-color:#edb93b; visibility:hidden ">ID 1</th>--%>
                                  <th style="text-align:center; width:235px; color:white; background-color:#edb93b">Désignation IMS Level 1</th>
                              </tr>
                          </tbody>
                      </table>
                  </div>
-                 <div style="overflow-y:scroll; overflow-x:hidden; width:245px ; height:330px" >
+                 <div style="overflow-y:scroll; overflow-x:hidden; width:235px ; height:330px" >
                  <asp:GridView ID="imsL1" runat="server" AutoGenerateColumns="False" CellPadding="4" ShowHeader="false" 
                             HeaderStyle-Font-Underline="false" Font-Names="Arial, Helvetica, sans-serif"
                             Font-Size ="X-Small" ForeColor="#333333" GridLines="None"> 
@@ -212,7 +212,7 @@
                      <table id="tblHeaderImsL2" class ="gvImsL2" border="1" style ="font-size :small">
                          <tbody>
                              <tr>
-                               <th style="text-align:center; width:10px; color:white; background-color:#edb93b; visibility:hidden ">ID 2</th>                                 <th style="text-align :center ;width:235px; color:white;background-color:#edb93b">Désignation IMS Level 2</th>
+                                 <th style="text-align :center ;width:235px; color:white;background-color:#edb93b">Désignation IMS Level 2</th>
                              </tr>
                          </tbody>
                      </table>
@@ -502,10 +502,28 @@
 <script>
     //search fonctionne
     function filterAll() {
-        filterTable($('#imsL1 tr'));
+        filterTableImsL1($('#imsL1 tr'));
         filterTable($('#imsL2 tr'));
         filterTable($('#imsL3 tr'));
         filterTable($('#imsL4 tr'));
+    }
+
+    function filterTableImsL1(allTr) {
+        var keyWord = $('#searchInput').val();
+        allTr.each(function () {
+            var designation = $(this).find("td").eq(1).text();
+            if (designation && designation.length > 0 && keyWord && keyWord.length > 0) {
+                keyWord = keyWord.toLowerCase();
+                designation = designation.toLowerCase();
+                if (designation.indexOf(keyWord) < 0) {
+                    $(this).hide();
+                } else {
+                    $(this).show();
+                }
+            } else {
+                $(this).show();
+            }
+        });
     }
 
     function filterTable(allTr) {
@@ -875,6 +893,9 @@
 
             $("td", row).eq(1).html(libImsL1Modif);
 
+            var idImsL1Modif = $("td", row).eq(0).text().trim();
+
+
             row.attr("id", "");
 
             $.ajax({
@@ -883,7 +904,7 @@
 
                 methode: "POST",
 
-                data: "param=libImsL1:" + libImsL1Modif,
+                data: "param=idImsL1:" + idImsL1Modif + ",libImsL1:" + libImsL1Modif,
 
             }).done(function () {
 
@@ -1015,6 +1036,8 @@
 
                 $("td", row).eq(2).html(libImsL2Modif);
 
+                var idImsL2Modif = $("td", row).eq(0).text().trim();
+
                 row.attr("id", "");
 
                 $.ajax({
@@ -1023,7 +1046,7 @@
 
                     methode: "POST",
 
-                    data: "param=libImsL2:" + libImsL2Modif,
+                    data: "param=idImsL2:" + idImsL2Modif + ",libImsL2:" + libImsL2Modif,
 
                 }).done(function () {
 
@@ -1148,6 +1171,8 @@
 
                 $("td", row).eq(2).html(libImsL3Modif);
 
+                var idImsL3Modif = $("td", row).eq(0).text().trim();
+
                 row.attr("id", "");
 
 
@@ -1157,7 +1182,7 @@
 
                     methode: "POST",
 
-                    data: "param=libImsL3:" + libImsL3Modif,
+                    data: "param=idImsL3:" + idImsL3Modif + ",libImsL3:" + libImsL3Modif,
 
                 }).done(function () {
 
@@ -1284,6 +1309,8 @@
 
                 $("td", row).eq(2).html(libImsL4Modif);
 
+                var idImsL4Modif = $("td", row).eq(0).text().trim();
+
                 row.attr("id", "");
 
 
@@ -1293,7 +1320,7 @@
 
                     methode: "POST",
 
-                    data: "param=libImsL4:" + libImsL4Modif,
+                    data: "param=idImsL4:" + idImsL4Modif + ", libImsL4:" + libImsL4Modif,
 
                 }).done(function () {
 

@@ -7,7 +7,7 @@ using System.Web.Routing;
 
 namespace AGI.WebService.DataController
 {
- 
+
     [Route("api/DasDataController")]
     public class DasDataController : Controller
     {
@@ -17,7 +17,7 @@ namespace AGI.WebService.DataController
             using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString()))
             {
                 SqlCommand cmd = new SqlCommand();
- 
+
                 cmd.Connection = conn;
 
                 cmd.CommandText = "INSERT INTO [01_MCD_AG].[dbo].[ST_DAS](Cod_DAS,Cod_Activity,Lib_DAS_Fr) VALUES(@Cod_DAS,@Cod_Activity,@Lib_DAS)";
@@ -26,10 +26,10 @@ namespace AGI.WebService.DataController
 
                 string s = param;
                 string[] words = s.Split(',');
-              
-                string strCodDAS = words[0].Substring(words[0].IndexOf(":")+1);
-                string strCodActi = words[1].Substring(words[1].IndexOf(":")+1);
-                string strLibDAS = words[2].Substring(words[2].IndexOf(":")+1);
+
+                string strCodDAS = words[0].Substring(words[0].IndexOf(":") + 1);
+                string strCodActi = words[1].Substring(words[1].IndexOf(":") + 1);
+                string strLibDAS = words[2].Substring(words[2].IndexOf(":") + 1);
 
                 cmd.Parameters.Add("@Cod_DAS", SqlDbType.NVarChar, 10).Value = strCodDAS;
                 cmd.Parameters.Add("@Cod_Activity", SqlDbType.NVarChar, 10).Value = strCodActi;
@@ -68,7 +68,7 @@ namespace AGI.WebService.DataController
 
                 cmd.Parameters.Add("@Cod_DAS", SqlDbType.NVarChar, 10).Value = strCodDAS;
                 cmd.Parameters.Add("@Lib_DAS", SqlDbType.NVarChar, 50).Value = strLibDAS;
-          
+
                 conn.Open();
 
                 cmd.ExecuteNonQuery();
@@ -79,18 +79,18 @@ namespace AGI.WebService.DataController
     }
 
     [Route("api/SegmentDataController")]
-    public class SegmentDataController: Controller
+    public class SegmentDataController : Controller
     {
         public IActionResult InsertSegment([FromBody] string param)
         {
             using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString()))
-            {          
+            {
                 SqlCommand cmd1 = new SqlCommand();
                 SqlCommand cmd2 = new SqlCommand();
 
                 cmd1.Connection = conn;
                 cmd2.Connection = conn;
-                   
+
                 cmd1.CommandText = "SELECT ID_DAS FROM ST_DAS WHERE Lib_DAS_Fr =@Lib_DAS";
 
                 cmd2.CommandText = "INSERT INTO [01_MCD_AG].[dbo].[ST_Segment](ID_DAS,Cod_Segment,Lib_Segment_Fr) VALUES(@id,@Cod_Segment,@Lib_Segment_Fr)";
@@ -100,14 +100,14 @@ namespace AGI.WebService.DataController
 
                 string s = param;
                 string[] words = s.Split(',');
-                int idDas=-1;
+                int idDas = -1;
 
                 string strLibDAS = words[0].Substring(words[0].IndexOf(":") + 1);
                 string strCodSegment = words[1].Substring(words[1].IndexOf(":") + 1);
                 string strLibSegment = words[2].Substring(words[2].IndexOf(":") + 1);
- 
+
                 cmd1.Parameters.Add("@Lib_DAS", SqlDbType.NVarChar, 10).Value = strLibDAS;
-               
+
                 cmd2.Parameters.Add("@Cod_Segment", SqlDbType.NVarChar, 10).Value = strCodSegment;
                 cmd2.Parameters.Add("@Lib_Segment_Fr", SqlDbType.NVarChar, 50).Value = strLibSegment;
 
@@ -122,7 +122,8 @@ namespace AGI.WebService.DataController
                         idDas = Convert.ToInt16(reader.GetValue(0));
                     }
                 }
-                else {
+                else
+                {
                     Console.WriteLine("No rows found.");
                 }
                 if (idDas != -1)
@@ -166,7 +167,7 @@ namespace AGI.WebService.DataController
 
                 cmd.Parameters.Add("@Cod_Segment", SqlDbType.NVarChar, 10).Value = strCodSegment;
                 cmd.Parameters.Add("@Lib_Segment", SqlDbType.NVarChar, 50).Value = strLibSegment;
-          
+
                 conn.Open();
 
                 cmd.ExecuteNonQuery();
@@ -196,7 +197,7 @@ namespace AGI.WebService.DataController
 
                 string s = param;
                 string[] words = s.Split(',');
-                int idSegment=-1;
+                int idSegment = -1;
 
                 string strLibSegment = words[0].Substring(words[0].IndexOf(":") + 1);
                 string strCodSubSegment = words[1].Substring(words[1].IndexOf(":") + 1);
@@ -213,7 +214,7 @@ namespace AGI.WebService.DataController
                 {
                     while (reader.Read())
                     {
-                        idSegment= Convert.ToInt32(reader.GetValue(0));
+                        idSegment = Convert.ToInt32(reader.GetValue(0));
                     }
                 }
                 else
@@ -517,7 +518,7 @@ namespace AGI.WebService.DataController
                 string s = param;
                 string[] words = s.Split(',');
 
-                string strCodRange= words[0].Substring(words[0].IndexOf(":") + 1);
+                string strCodRange = words[0].Substring(words[0].IndexOf(":") + 1);
                 string strLibRange = words[1].Substring(words[1].IndexOf(":") + 1);
 
                 cmd.Parameters.Add("@Cod_Range", SqlDbType.NVarChar, 10).Value = strCodRange;
@@ -563,45 +564,11 @@ namespace AGI.WebService.DataController
         }
     }
 
-    //[Route("api/ImsL1ModifyController")]
-    //public class ImsL1ModifyController : Controller
-    //{
-    //    //[HttpPost("{param}")]
-    //    public IActionResult UpdateImsL1([FromBody] string param)
-    //    {
-    //        using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString()))
-    //        {
-    //            SqlCommand cmd = new SqlCommand();
-
-    //            cmd.Connection = conn;
-
-    //            cmd.CommandText = "UPDATE [01_MCD_AG].[dbo].[ST_IMS_Level_1] SET Lib_DAS_Fr=@Lib_DAS WHERE Cod_Das=@Cod_DAS";
-
-    //            cmd.CommandType = CommandType.Text;
-
-    //            string s = param;
-    //            string[] words = s.Split(',');
-
-    //            string strCodDAS = words[0].Substring(words[0].IndexOf(":") + 1);
-    //            string strLibDAS = words[1].Substring(words[1].IndexOf(":") + 1);
-
-    //            cmd.Parameters.Add("@Cod_DAS", SqlDbType.NVarChar, 10).Value = strCodDAS;
-    //            cmd.Parameters.Add("@Lib_DAS", SqlDbType.NVarChar, 50).Value = strLibDAS;
-
-    //            conn.Open();
-
-    //            cmd.ExecuteNonQuery();
-    //        }
-
-    //        return new CreatedResult("toto", "OK");
-    //    }
-    //}
-
-    [Route("api/ImsL1DataController")]
-    public class ImsL2DataController : Controller
+    [Route("api/ImsL1ModifyController")]
+    public class ImsL1ModifyController : Controller
     {
         //[HttpPost("{param}")]
-        public IActionResult InsertImsL1([FromBody] string param)
+        public IActionResult UpdateImsL1([FromBody] string param)
         {
             using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString()))
             {
@@ -609,15 +576,313 @@ namespace AGI.WebService.DataController
 
                 cmd.Connection = conn;
 
-                cmd.CommandText = "INSERT INTO [01_MCD_AG].[dbo].[ST_IMS_Level_2] (Lib_IMS_Level_2_FR) VALUES(@Lib_IMS_Level_2_FR)";
+                cmd.CommandText = "UPDATE [01_MCD_AG].[dbo].[ST_IMS_Level_1] SET Lib_IMS_Level_1_Fr=@Lib_ImsL1 WHERE ID_IMS_Level_1=@Id_ImsL1";
 
                 cmd.CommandType = CommandType.Text;
 
                 string s = param;
+                string[] words = s.Split(',');
 
-                string strLibImsL2= s;
+                string strIdImsL1 = words[0].Substring(words[0].IndexOf(":") + 1);
+                string strLibImsL1 = words[1].Substring(words[1].IndexOf(":") + 1);
 
-                cmd.Parameters.Add("@Lib_IMS_Level_2_FR", SqlDbType.NVarChar, 50).Value = strLibImsL2;
+                cmd.Parameters.Add("@Id_ImsL1", SqlDbType.NVarChar, 10).Value = strIdImsL1;
+                cmd.Parameters.Add("@Lib_ImsL1", SqlDbType.NVarChar, 50).Value = strLibImsL1;
+
+                conn.Open();
+
+                cmd.ExecuteNonQuery();
+            }
+
+            return new CreatedResult("toto", "OK");
+        }
+    }
+
+    [Route("api/ImsL2DataController")]
+    public class ImsL2DataController : Controller
+    {
+        //[HttpPost("{param}")]
+        public IActionResult InsertImsL2([FromBody] string param)
+        {
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString()))
+            {
+                SqlCommand cmd1 = new SqlCommand();
+                SqlCommand cmd2 = new SqlCommand();
+
+                cmd1.Connection = conn;
+                cmd2.Connection = conn;
+
+                cmd1.CommandText = "SELECT ID_IMS_Level_1 FROM ST_IMS_Level_1 WHERE Lib_IMS_Level_1_FR =@Lib_ImsL1";
+
+                cmd2.CommandText = "INSERT INTO [01_MCD_AG].[dbo].[ST_IMS_Level_2](ID_IMS_Level_1,Lib_IMS_Level_2) VALUES(@id,@Lib_ImsL2)";
+
+                cmd1.CommandType = CommandType.Text;
+                cmd2.CommandType = CommandType.Text;
+
+                string s = param;
+                string[] words = s.Split(',');
+                int idImsL1 = -1;
+
+                string strImsL1 = words[0].Substring(words[0].IndexOf(":") + 1);
+                string strLibImsL2 = words[2].Substring(words[2].IndexOf(":") + 1);
+
+                cmd1.Parameters.Add("@Lib_ImsL1", SqlDbType.NVarChar, 50).Value = strImsL1;
+                cmd2.Parameters.Add("@Lib_ImsL2", SqlDbType.NVarChar, 50).Value = strLibImsL2;
+
+                conn.Open();
+
+                SqlDataReader reader = cmd1.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        idImsL1 = Convert.ToInt16(reader.GetValue(0));
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("No rows found.");
+                }
+                if (idImsL1 != -1)
+                {
+                    cmd2.Parameters.Add("@id", SqlDbType.Int, 10).Value = idImsL1;
+                }
+                else
+                {
+                    Console.WriteLine("das id not found in database");
+                }
+                conn.Close();
+
+                conn.Open();
+                cmd2.ExecuteNonQuery();
+            }
+
+            return new CreatedResult("toto", "OK");
+        }
+    }
+
+    [Route("api/ImsL2ModifyController")]
+    public class ImsL2ModifyController : Controller
+    {
+        //[HttpPost("{param}")]
+        public IActionResult UpdateImsL2([FromBody] string param)
+        {
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString()))
+            {
+                SqlCommand cmd = new SqlCommand();
+
+                cmd.Connection = conn;
+
+                cmd.CommandText = "UPDATE [01_MCD_AG].[dbo].[ST_IMS_Level_2] SET Lib_IMS_Level_2_Fr=@Lib_ImsL2 WHERE ID_IMS_Level_2=@Id_ImsL2";
+
+                cmd.CommandType = CommandType.Text;
+
+                string s = param;
+                string[] words = s.Split(',');
+
+                string strIdImsL2 = words[0].Substring(words[0].IndexOf(":") + 1);
+                string strLibImsL2 = words[1].Substring(words[1].IndexOf(":") + 1);
+
+                cmd.Parameters.Add("@Id_ImsL2", SqlDbType.NVarChar, 10).Value = strIdImsL2;
+                cmd.Parameters.Add("@Lib_ImsL2", SqlDbType.NVarChar, 50).Value = strLibImsL2;
+
+                conn.Open();
+
+                cmd.ExecuteNonQuery();
+            }
+
+            return new CreatedResult("toto", "OK");
+        }
+    }
+
+    [Route("api/ImsL3DataController")]
+    public class ImsL3DataController : Controller
+    {
+        //[HttpPost("{param}")]
+        public IActionResult InsertImsL3([FromBody] string param)
+        {
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString()))
+            {
+                SqlCommand cmd1 = new SqlCommand();
+                SqlCommand cmd2 = new SqlCommand();
+
+                cmd1.Connection = conn;
+                cmd2.Connection = conn;
+
+                cmd1.CommandText = "SELECT ID_IMS_Level_2 FROM ST_IMS_Level_2 WHERE Lib_IMS_Level_2_FR =@Lib_ImsL2";
+
+                cmd2.CommandText = "INSERT INTO [01_MCD_AG].[dbo].[ST_IMS_Level_3](ID_IMS_Level_2,Lib_IMS_Level_3) VALUES(@id,@Lib_ImsL3)";
+
+                cmd1.CommandType = CommandType.Text;
+                cmd2.CommandType = CommandType.Text;
+
+                string s = param;
+                string[] words = s.Split(',');
+                int idImsL2 = -1;
+
+                string strImsL2 = words[0].Substring(words[0].IndexOf(":") + 1);
+                string strLibImsL3 = words[2].Substring(words[2].IndexOf(":") + 1);
+
+                cmd1.Parameters.Add("@Lib_ImsL2", SqlDbType.NVarChar, 50).Value = strImsL2;
+                cmd2.Parameters.Add("@Lib_ImsL3", SqlDbType.NVarChar, 50).Value = strLibImsL3;
+
+                conn.Open();
+
+                SqlDataReader reader = cmd1.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        idImsL2 = Convert.ToInt16(reader.GetValue(0));
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("No rows found.");
+                }
+                if (idImsL2 != -1)
+                {
+                    cmd2.Parameters.Add("@id", SqlDbType.Int, 10).Value = idImsL2;
+                }
+                else
+                {
+                    Console.WriteLine("das id not found in database");
+                }
+                conn.Close();
+
+                conn.Open();
+                cmd2.ExecuteNonQuery();
+            }
+
+            return new CreatedResult("toto", "OK");
+        }
+    }
+
+    [Route("api/ImsL3ModifyController")]
+    public class ImsL3ModifyController : Controller
+    {
+        //[HttpPost("{param}")]
+        public IActionResult UpdateImsL3([FromBody] string param)
+        {
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString()))
+            {
+                SqlCommand cmd = new SqlCommand();
+
+                cmd.Connection = conn;
+
+                cmd.CommandText = "UPDATE [01_MCD_AG].[dbo].[ST_IMS_Level_3] SET Lib_IMS_Level_3_Fr=@Lib_ImsL3 WHERE ID_IMS_Level_3=@Id_ImsL3";
+
+                cmd.CommandType = CommandType.Text;
+
+                string s = param;
+                string[] words = s.Split(',');
+
+                string strIdImsL3 = words[0].Substring(words[0].IndexOf(":") + 1);
+                string strLibImsL3 = words[1].Substring(words[1].IndexOf(":") + 1);
+
+                cmd.Parameters.Add("@Id_ImsL3", SqlDbType.NVarChar, 10).Value = strIdImsL3;
+                cmd.Parameters.Add("@Lib_ImsL3", SqlDbType.NVarChar, 50).Value = strLibImsL3;
+
+                conn.Open();
+
+                cmd.ExecuteNonQuery();
+            }
+
+            return new CreatedResult("toto", "OK");
+        }
+    }
+
+
+    [Route("api/ImsL4DataController")]
+    public class ImsL4DataController : Controller
+    {
+        //[HttpPost("{param}")]
+        public IActionResult InsertImsL4([FromBody] string param)
+        {
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString()))
+            {
+                SqlCommand cmd1 = new SqlCommand();
+                SqlCommand cmd2 = new SqlCommand();
+
+                cmd1.Connection = conn;
+                cmd2.Connection = conn;
+
+                cmd1.CommandText = "SELECT ID_IMS_Level_3 FROM ST_IMS_Level_3 WHERE Lib_IMS_Level_3_FR =@Lib_ImsL3";
+
+                cmd2.CommandText = "INSERT INTO [01_MCD_AG].[dbo].[ST_IMS_Level_4](ID_IMS_Level_3,Lib_IMS_Level_4) VALUES(@id,@Lib_ImsL4)";
+
+                cmd1.CommandType = CommandType.Text;
+                cmd2.CommandType = CommandType.Text;
+
+                string s = param;
+                string[] words = s.Split(',');
+                int idImsL3 = -1;
+
+                string strImsL3 = words[0].Substring(words[0].IndexOf(":") + 1);
+                string strLibImsL4 = words[2].Substring(words[2].IndexOf(":") + 1);
+
+                cmd1.Parameters.Add("@Lib_ImsL3", SqlDbType.NVarChar, 50).Value = strImsL3;
+                cmd2.Parameters.Add("@Lib_ImsL4", SqlDbType.NVarChar, 50).Value = strLibImsL4;
+
+                conn.Open();
+
+                SqlDataReader reader = cmd1.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        idImsL3 = Convert.ToInt16(reader.GetValue(0));
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("No rows found.");
+                }
+                if (idImsL3 != -1)
+                {
+                    cmd2.Parameters.Add("@id", SqlDbType.Int, 10).Value = idImsL3;
+                }
+                else
+                {
+                    Console.WriteLine("das id not found in database");
+                }
+                conn.Close();
+
+                conn.Open();
+                cmd2.ExecuteNonQuery();
+            }
+
+            return new CreatedResult("toto", "OK");
+        }
+    }
+
+    [Route("api/ImsL4ModifyController")]
+    public class ImsL4ModifyController : Controller
+    {
+        //[HttpPost("{param}")]
+        public IActionResult UpdateImsL3([FromBody] string param)
+        {
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString()))
+            {
+                SqlCommand cmd = new SqlCommand();
+
+                cmd.Connection = conn;
+
+                cmd.CommandText = "UPDATE [01_MCD_AG].[dbo].[ST_IMS_Level_4] SET Lib_IMS_Level_4_Fr=@Lib_ImsL4 WHERE ID_IMS_Level_4=@Id_ImsL4";
+
+                cmd.CommandType = CommandType.Text;
+
+                string s = param;
+                string[] words = s.Split(',');
+
+                string strIdImsL4 = words[0].Substring(words[0].IndexOf(":") + 1);
+                string strLibImsL4 = words[1].Substring(words[1].IndexOf(":") + 1);
+
+                cmd.Parameters.Add("@Id_ImsL4", SqlDbType.NVarChar, 10).Value = strIdImsL4;
+                cmd.Parameters.Add("@Lib_ImsL4", SqlDbType.NVarChar, 50).Value = strLibImsL4;
 
                 conn.Open();
 
