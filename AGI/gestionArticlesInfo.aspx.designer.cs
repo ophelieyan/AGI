@@ -31,42 +31,6 @@ namespace AGI {
         protected global::System.Web.UI.WebControls.TreeView TreeViewSideMenu;
         
         /// <summary>
-        /// Contrôle lblRefArt.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblRefArt;
-        
-        /// <summary>
-        /// Contrôle tbxRefArt.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbxRefArt;
-        
-        /// <summary>
-        /// Contrôle lblGencod.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblGencod;
-        
-        /// <summary>
-        /// Contrôle tbxGencod.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbxGencod;
-        
-        /// <summary>
         /// Contrôle lblCodAles.
         /// </summary>
         /// <remarks>
@@ -74,87 +38,6 @@ namespace AGI {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblCodAles;
-        
-        /// <summary>
-        /// Contrôle tbxcodeAles.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbxcodeAles;
-        
-        /// <summary>
-        /// Contrôle lblVA.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblVA;
-        
-        /// <summary>
-        /// Contrôle tbxVa.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbxVa;
-        
-        /// <summary>
-        /// Contrôle lblVL.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblVL;
-        
-        /// <summary>
-        /// Contrôle tbxVl.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbxVl;
-        
-        /// <summary>
-        /// Contrôle lblStatut.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblStatut;
-        
-        /// <summary>
-        /// Contrôle tbxStatut.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbxStatut;
-        
-        /// <summary>
-        /// Contrôle lblLibConten.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblLibConten;
-        
-        /// <summary>
-        /// Contrôle tbxConten.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbxConten;
         
         /// <summary>
         /// Contrôle lblLibArtFr.
@@ -166,15 +49,6 @@ namespace AGI {
         protected global::System.Web.UI.WebControls.Label lblLibArtFr;
         
         /// <summary>
-        /// Contrôle tbxLibArtFr.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbxLibArtFr;
-        
-        /// <summary>
         /// Contrôle lblLibArtEn.
         /// </summary>
         /// <remarks>
@@ -182,6 +56,96 @@ namespace AGI {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblLibArtEn;
+        
+        /// <summary>
+        /// Contrôle lblClassABC.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblClassABC;
+        
+        /// <summary>
+        /// Contrôle lblStatut.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblStatut;
+        
+        /// <summary>
+        /// Contrôle lblProdCate.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblProdCate;
+        
+        /// <summary>
+        /// Contrôle lblDateSOA.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDateSOA;
+        
+        /// <summary>
+        /// Contrôle lblEAN13.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblEAN13;
+        
+        /// <summary>
+        /// Contrôle lblACL.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblACL;
+        
+        /// <summary>
+        /// Contrôle lblCNP.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCNP;
+        
+        /// <summary>
+        /// Contrôle lblCNK.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCNK;
+        
+        /// <summary>
+        /// Contrôle tbxCodeAles.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbxCodeAles;
+        
+        /// <summary>
+        /// Contrôle tbxLibArtFr.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbxLibArtFr;
         
         /// <summary>
         /// Contrôle tbxLibArtEn.
@@ -193,40 +157,94 @@ namespace AGI {
         protected global::System.Web.UI.WebControls.TextBox tbxLibArtEn;
         
         /// <summary>
-        /// Contrôle lblLibVari.
+        /// Contrôle tbxClassABC.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblLibVari;
+        protected global::System.Web.UI.WebControls.TextBox tbxClassABC;
         
         /// <summary>
-        /// Contrôle tbxLibVari.
+        /// Contrôle tbxStatut.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbxLibVari;
+        protected global::System.Web.UI.WebControls.TextBox tbxStatut;
         
         /// <summary>
-        /// Contrôle lblProNat.
+        /// Contrôle tbxProdCate.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblProNat;
+        protected global::System.Web.UI.WebControls.TextBox tbxProdCate;
         
         /// <summary>
-        /// Contrôle ddlProNat.
+        /// Contrôle tbxDateSOA.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlProNat;
+        protected global::System.Web.UI.WebControls.TextBox tbxDateSOA;
+        
+        /// <summary>
+        /// Contrôle tbxEAN13.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbxEAN13;
+        
+        /// <summary>
+        /// Contrôle tbxACL.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbxACL;
+        
+        /// <summary>
+        /// Contrôle tbxCNP.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbxCNP;
+        
+        /// <summary>
+        /// Contrôle tbxCNK.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbxCNK;
+        
+        /// <summary>
+        /// Contrôle lblUnitVente.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblUnitVente;
+        
+        /// <summary>
+        /// Contrôle lblConteUni.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblConteUni;
         
         /// <summary>
         /// Contrôle lblTypCont.
@@ -238,66 +256,192 @@ namespace AGI {
         protected global::System.Web.UI.WebControls.Label lblTypCont;
         
         /// <summary>
-        /// Contrôle ddlTypCont.
+        /// Contrôle lblNaturProd.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlTypCont;
+        protected global::System.Web.UI.WebControls.Label lblNaturProd;
         
         /// <summary>
-        /// Contrôle lblMatTyp.
+        /// Contrôle lblCompKit.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMatTyp;
+        protected global::System.Web.UI.WebControls.Label lblCompKit;
         
         /// <summary>
-        /// Contrôle ddlMaterTyp.
+        /// Contrôle lblComposKit.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlMaterTyp;
+        protected global::System.Web.UI.WebControls.Label lblComposKit;
         
         /// <summary>
-        /// Contrôle lblProGrou.
+        /// Contrôle lblGrouRef.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblProGrou;
+        protected global::System.Web.UI.WebControls.Label lblGrouRef;
         
         /// <summary>
-        /// Contrôle ddlTypAppro.
+        /// Contrôle lblGamme.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlTypAppro;
+        protected global::System.Web.UI.WebControls.Label lblGamme;
         
         /// <summary>
-        /// Contrôle lblTypeAppro.
+        /// Contrôle lblSousSeg.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTypeAppro;
+        protected global::System.Web.UI.WebControls.Label lblSousSeg;
         
         /// <summary>
-        /// Contrôle ddlProCateg.
+        /// Contrôle lblIms.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlProCateg;
+        protected global::System.Web.UI.WebControls.Label lblIms;
+        
+        /// <summary>
+        /// Contrôle lblFebea.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblFebea;
+        
+        /// <summary>
+        /// Contrôle lblCodeBrick.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCodeBrick;
+        
+        /// <summary>
+        /// Contrôle tbxUnitVente.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbxUnitVente;
+        
+        /// <summary>
+        /// Contrôle tbxConteUni.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbxConteUni;
+        
+        /// <summary>
+        /// Contrôle tbxTypCont.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbxTypCont;
+        
+        /// <summary>
+        /// Contrôle tbxNaturProd.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbxNaturProd;
+        
+        /// <summary>
+        /// Contrôle tbxCompKit.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbxCompKit;
+        
+        /// <summary>
+        /// Contrôle tbxComposKit.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbxComposKit;
+        
+        /// <summary>
+        /// Contrôle tbxGrouRef.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbxGrouRef;
+        
+        /// <summary>
+        /// Contrôle tbxGamme.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbxGamme;
+        
+        /// <summary>
+        /// Contrôle tbxSousSeg.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbxSousSeg;
+        
+        /// <summary>
+        /// Contrôle tbxIms.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbxIms;
+        
+        /// <summary>
+        /// Contrôle tbxFebea.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbxFebea;
+        
+        /// <summary>
+        /// Contrôle tbxCodeBrick.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbxCodeBrick;
     }
 }

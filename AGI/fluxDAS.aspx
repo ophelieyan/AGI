@@ -18,7 +18,6 @@
 </head>
 <body>
 
-
 <div id ="topMenu">
 <ul>
       <li class ="menu">
@@ -109,11 +108,10 @@
 </ul>
 </div>
 
-
 <form runat ="server" >
 <div class ="mainContent">
 <div class="row">
-    <div class ="col-lg-2">
+      <div class ="col-lg-2">
 
     <asp:TreeView ID="TreeViewSideMenu" runat="server" BackColor ="#0f4396" BorderStyle ="Solid" border-radius="10px" 
                   BorderColor ="#dedede" BorderWidth ="1px" ForeColor ="#555" style="margin-left:0px;font-family:Arial, Helvetica, sans-serif" >

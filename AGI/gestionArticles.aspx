@@ -24,7 +24,7 @@
 }
  
 #topMenu li.menu-element1 {
-    padding-left:20px;
+    padding-left:60px;
 }
 
 #topMenu li a, .dropbtn{
@@ -33,7 +33,7 @@
     text-align: center;
     padding: 30px 4px;
     text-decoration: none;
-    padding-left:20px;
+    padding-left:40px;
     padding-right:20px;
 }
 
@@ -165,7 +165,7 @@
     list-style-type: none;
     margin: 0;
     padding: 0;
-    width: 200px;
+    width: 170px;
     background-color: #f1f1f1;
     border: 1px solid #dedede;
     position: absolute; 
@@ -202,7 +202,7 @@
 #leftMenu .niveau2 li a{
         display :none;
         background-color: #f9f9f9;
-        min-width: 160px;
+        min-width: 140px;
         box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
         z-index: 1;
 }
@@ -242,7 +242,7 @@
                 }
 #content{
     display :flex;
-        position: absolute;
+    position: absolute;
     margin-left: 0px;
     margin-top: 0px;
 }
@@ -259,7 +259,6 @@
 }
 
 .mainContent {
-    background-color :lightblue ;
     position:absolute;
     height:500px;
     width:100%;
@@ -289,25 +288,32 @@
           <asp:Image ID="MainCompanylogo" runat="server" Height="76px" Width="150px" ImageUrl="Images/logo.png"/>
       </li>
       <li class="menu-element1 ">
-        <a href="gestionArticles" class="dropbtn">Gestion des Articles</a>
+        <a href="gestionArticles" class="dropbtn">ARTICLES</a>
         <div class="submenu">
-          <a href="#">Flux codification articles</a>
-          <a href="#">Gammes</a>
-          <a href="#">Hierarchie</a>
-          <a href="#">Infos achats</a>
-          <a href="#">Infos dimensionnelles</a>
-          <a href="gestionArticlesInfo">Infos générales</a>
-          <a href="#">Infos langues</a>
-          <a href="#">Infos logsitiques</a> 
-          <a href="#">Infos reglémentaires</a>
-          <a href="gestionArticleRefInternational">Libellé et référencement international</a>          
-          <a href="#">Nomenclature</a>
-          <a href="#">Remplacement</a>
-          <a href="#">Substitution</a>
+          <a href="#">Fiche Article</a>
+             <div class="sousSubmenu">
+                 <a href="#">Infos Générales</a>
+                 <a href="#">Données Logistiques</a>
+                 <a href="#">Données Légales</a>
+                 <a href="#">Référencement/Pays</a>
+                 <a href="#">Substitution/Remplacemeent</a>
+             </div>
+          <a href="#">Données Techniques</a>
+             <div class="sousSubmenu">
+                 <a href="#">Infos Articles</a>
+                 <a href="#">Nomenclature</a>
+                 <a href="#">Nomenclature Inverses</a>
+                 <a href="#">Gamme Opératoire</a>
+             </div>
+          <a href="#">Données Achats</a>
+             <div class="sousSubmenu">
+                 <a href="#">Infos Article</a>
+                 <a href="#">Insfos Commande</a>
+             </div>
         </div>
       </li>
       <li class="menu">
-        <a href="gestionClients" class="dropbtn">Gestion des Clients</a>
+        <a href="gestionClients" class="dropbtn">CLIENTS</a>
         <div class="submenu">
           <a href="#">Flux codification Clients</a>
           <a href="gestionClientsInfo">Infos générales</a>
@@ -316,7 +322,7 @@
         </div>
       </li>
       <li class="menu">
-        <a href="gestionFournisseurs" class="dropbtn">Gestion des Fournisseurs</a>
+        <a href="gestionFournisseurs" class="dropbtn">FOURNISSEURS</a>
         <div class="submenu">
           <a href ="#">flux codification fournisseurs</a>
           <a href="gestionFournisseursInfo">Infos générales</a>
@@ -325,7 +331,7 @@
         </div>
       </li>
       <li class="menu">
-        <a href="gestionDonnees" class="dropbtn">Gestion des Données Systèmes</a>
+        <a href="gestionData" class="dropbtn">DATA</a>
         <div class="submenu">       
           <a href="#">Flux Activity</a>
           <a href="#">Flux Amalgamme</a>
@@ -355,11 +361,9 @@
         </div>
       </li>
       <li class="menu">
-          <a href="gestionDonnees" class="dropbtn">Dynasys</a>
+          <a href="gestionDonTech" class="dropbtn">DONNEES TECHNIQUES</a>
       </li>
-      <li class="menu">
-          <a href="gestionDonnees" class="dropbtn">Ortems</a>
-      </li>
+
       <li style="float:right"> 
           <form class="form-wrapper">
               <input type="text" id="search" placeholder="Recherche" required>
@@ -490,19 +494,23 @@
               BorderColor ="#dedede" BorderWidth ="1px" ForeColor ="#555" style="margin-top:0px;font-family :Arial, Helvetica, sans-serif" >
     <HoverNodeStyle ForeColor="#555"  BackColor ="#edb93b"/>
     <Nodes>
-        <asp:TreeNode Text="Flux codification articles" Value="Flux codification articles"></asp:TreeNode>
-        <asp:TreeNode Text="Gammes" Value="Gammes"></asp:TreeNode>
-        <asp:TreeNode Text="Hierarchie" Value="Hierarchie"></asp:TreeNode>
-        <asp:TreeNode Text="Info achats" Value="Info achats"></asp:TreeNode>
-        <asp:TreeNode Text="Info dimensionnelles" Value="Info dimensionnelles"></asp:TreeNode>
-        <asp:TreeNode Text="Info générales" Value="Info générales" NavigateUrl="gestionArticlesInfo"></asp:TreeNode>
-        <asp:TreeNode Text="Info langues" Value="Info langues"></asp:TreeNode>
-        <asp:TreeNode Text="Info logistiques" Value="Info logistiques"></asp:TreeNode>
-        <asp:TreeNode Text="Info reglémentaires" Value="Info reglémentaires"></asp:TreeNode>
-        <asp:TreeNode Text="Libellé et référencement international" Value="Libellé et référencement international" NavigateUrl="gestionArticleRefInternational"></asp:TreeNode>
-        <asp:TreeNode Text="Nomenclature" Value="Nomenclature"></asp:TreeNode>
-        <asp:TreeNode Text="Remplacement" Value="Remplacement"></asp:TreeNode>
-        <asp:TreeNode Text="Substition" Value="Substition"></asp:TreeNode>
+        <asp:TreeNode Text="Fiche Article" Value="Fiche Article">
+            <asp:TreeNode Text="Infos Générales" Value="Infos Générales"></asp:TreeNode>
+            <asp:TreeNode Text="Données Logistiques" Value="Données Logistiques"></asp:TreeNode>
+            <asp:TreeNode Text="Données Légales" Value="Données Légales"></asp:TreeNode>
+            <asp:TreeNode Text="Référencement/Pays" Value="Référencement/Pays"></asp:TreeNode>
+            <asp:TreeNode Text="Substitution/Remplacement" Value="Substitution/Remplacement"></asp:TreeNode>
+        </asp:TreeNode>
+        <asp:TreeNode Text="Données Techniques" Value="Données Techniques">
+            <asp:TreeNode Text="Infos Article" Value="Infos Article"></asp:TreeNode>
+            <asp:TreeNode Text="Nomenclature" Value="Nomenclature"></asp:TreeNode>
+            <asp:TreeNode Text="Nomenclatures Inverses" Value="Nomenclatures Inverses"></asp:TreeNode>
+            <asp:TreeNode Text="Gamme Opératoire" Value="Gamme Opératoire"></asp:TreeNode>
+        </asp:TreeNode>
+        <asp:TreeNode Text="Données Achats" Value="Données Achats">
+            <asp:TreeNode Text="Infos Article" Value="Infos Article"></asp:TreeNode>
+            <asp:TreeNode Text="Infos Commande" Value="Infos Commande"></asp:TreeNode>
+        </asp:TreeNode>
     </Nodes> 
      <NodeStyle Font-Size="16px" ForeColor="white" HorizontalPadding="5px" NodeSpacing="0px" VerticalPadding="0px"  />
      <ParentNodeStyle Font-Bold="False" />
