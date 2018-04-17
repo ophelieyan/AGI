@@ -6,8 +6,10 @@
     overflow: hidden;
     background-color: #0f4396; 
     font-family :Arial, Helvetica, sans-serif;
+    font-size :12px;
     width:100%;
-    border-radius:10px;
+    border-radius:5px;
+    height:50px;
 }
 
 #topMenu li {
@@ -19,15 +21,17 @@
 }
  
 #topMenu li.menu-element1 {
-    padding-left:20px;
+    padding-left:230px;
 }
 
 #topMenu li a, .dropbtn{
     display: inline-block;
-    color: white;
-    /*text-align:center;*/
-    padding: 30px 20px 0 20px;
+    color: #fff;
+    text-align: center;
+    padding: 12px 4px;
     text-decoration: none;
+    padding-left:20px;
+    padding-right:20px;
 }
 
 #topMenu li a:hover, .menu:hover .dropbtn {
@@ -48,14 +52,14 @@
 }
 
 #topMenu .submenu a {
-    color: black;
+    color: #404040;
     padding: 7px 8px;
     text-decoration: none;
     display: block;
     text-align: left;
     border-bottom: 1px solid #c9c9c9;
     font-family :Arial, Helvetica, sans-serif;
-    font-size:small;
+    font-size:10px;
 }
 
 #topMenu .submenu a:last-child {
@@ -74,11 +78,10 @@
     display: block;
 }
 
-
 .form-wrapper {
-    width: 250px;
+    width: 240px;
     padding: 5px;
-    margin: 20px auto;  
+    margin: 10px auto;  
     margin-right :15px; 
     overflow: hidden;
     border-width: 1px;
@@ -92,8 +95,8 @@
 
 .form-wrapper #search {
     width: 200px;
-    height: 30px;
-    padding: 5px 5px;
+    height: 25px;
+    padding: 3px 3px;
     float: left;    
     font: 14px Arial, Helvetica, sans-serif;
     border: 1px solid #ccc;
@@ -125,9 +128,9 @@
 .form-wrapper #submit {
     float: right;    
     border: 1px solid #00748f;
-    height: 30px;
-    width: 30px;
-    padding: 5px;
+    height: 25px;
+    width: 25px;
+    padding: 3px;
     cursor: pointer;
     font: 12px Arial, Helvetica;
     color: #fff;
@@ -335,17 +338,26 @@
 .lbl{
      font-family :Arial, Helvetica, sans-serif ;
      color :#404040;
+     font-size :10px;
   }
-#ddlCodActi {
-    font-family :Arial, Helvetica, sans-serif ;
-    color :#404040 ;
-    width :180px;
-}
+
+.lblInfo{
+     font-family :Arial, Helvetica, sans-serif ;
+     color :#404040;
+     font-size :10px;
+  }
 
 .tbx {
     border-radius :8px;
     color:#0f4396;
+    font-size :8px;
 }
+
+.tbxInfo{
+     font-family :Arial, Helvetica, sans-serif ;
+     color :#404040;
+     font-size :10px;
+  }
 
 .validateTips{
     font-family :Arial, Helvetica, sans-serif ;
@@ -356,31 +368,53 @@
     display:none;                                                    
 }
 
-.gvDas {
-        border-color :white;
+.TreeViewSideMenu {
+ font-size:10px;
 }
 
-.gvSegment {
-        border-color :white;
+.sideBar {
+  background-color : #0f4396;
+  height:500px;
 }
 
-.gvSubSegment {
-        border-color :white;
+ul#tabnav 
+{
+   font: bold 11px arial, verdana ;
+   list-style-type: none;
+   padding-bottom: 24px;
+   border-bottom: 1px solid #6c6;
+   margin: 0;
+}	
+				
+ul#tabnav li 
+{
+   float: left;
+   height: 21px;
+   background-color: #6c6;
+   margin: 2px 2px 0 2px;
+   border: 1px solid #6c6;
+}					
+	
+ul#tabnav li.active 
+{
+   border-bottom: 1px solid #fff;
+   background-color: #fff;
+}	
+
+#tabnav a 
+{
+   float: left;
+   display: block;
+   color: #666;
+   text-decoration: none;
+   padding: 4px;
 }
 
-dialog-form.label, dialog-form.input, dialog-form.select{ 
-    display:block; 
-}
-
-dialog-form.input.text { 
-    margin-bottom:12px; 
-    padding: .4em; 
-}
-
-dialog-form.select.text {
-    margin-bottom:12px; 
-    padding: .4em; 
-}
+#tabnav a:hover 
+{
+   background: #fff;
+}					
+				
 
 @media (min-width: 768px) {
   .container {
@@ -397,32 +431,3 @@ dialog-form.select.text {
     width: 1170px;
   }
 }
-/*.fixedheadertable
-{
-    left: 0px;
-    position: relative;
-    top: 0px;
-    padding-right: 2px;
-    padding-left: 2px;
-    padding-bottom: 2px;
-    padding-top: 2px;
-}
-.HeaderFreez
-{
-   position:relative ;
-   top:expression(this.offsetParent.scrollTop);
-   z-index: 10;
-}*/
-
-/*.fixedHeader{font-weight:bold;
-position:absolute;
-
-background-color: #006699;
-
-color: #ffffff;
-
-height: 50px;
-
-top: expression(Sys.UI.DomElement.getBounds(document.getElementById("panelContainer1")).y-80);
-
-}*/

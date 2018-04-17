@@ -210,6 +210,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="articleInfoTypeCompo.aspx" />
+    <Content Include="Css\articleInfo - Copier.css" />
     <Content Include="Css\articleInfo.css" />
     <Content Include="Css\fActivity.css" />
     <Content Include="Css\fDas.css" />
@@ -217,6 +219,8 @@
     <Content Include="fluxActivity.aspx" />
     <Content Include="FluxIMS.aspx" />
     <Content Include="gestionArticleRefInternational.aspx" />
+    <Content Include="infoLegale.aspx" />
+    <Content Include="infoLogi.aspx" />
     <Content Include="Js\fDas.js" />
     <Content Include="WebForm2.aspx" />
     <None Include="garde\searchaspx" />
@@ -340,6 +344,13 @@
     <Compile Include="2.aspx.designer.cs">
       <DependentUpon>2.aspx</DependentUpon>
     </Compile>
+    <Compile Include="articleInfoTypeCompo.aspx.cs">
+      <DependentUpon>articleInfoTypeCompo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="articleInfoTypeCompo.aspx.designer.cs">
+      <DependentUpon>articleInfoTypeCompo.aspx</DependentUpon>
+    </Compile>
     <Compile Include="fluxActivity.aspx.cs">
       <DependentUpon>fluxActivity.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -353,6 +364,20 @@
     </Compile>
     <Compile Include="FluxIMS.aspx.designer.cs">
       <DependentUpon>FluxIMS.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="infoLegale.aspx.cs">
+      <DependentUpon>infoLegale.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="infoLegale.aspx.designer.cs">
+      <DependentUpon>infoLegale.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="infoLogi.aspx.cs">
+      <DependentUpon>infoLogi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="infoLogi.aspx.designer.cs">
+      <DependentUpon>infoLogi.aspx</DependentUpon>
     </Compile>
     <Compile Include="webservice\DataController\DataController.cs" />
     <Compile Include="CreatedResult.cs" />

@@ -199,7 +199,7 @@
                             <SortedDescendingCellStyle BackColor="#FFFDF8" />
                             <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
               </asp:GridView> 
-              </div> 
+                </div> 
                  <button id="btnAddImsL1" class="btnAdd" type="button">Créer</button>
                  <button id="btnEditImsL1" class="btnEdit" type="button">Modifier</button>
             <%--     <button ID="btnDisablePBrand" class="btnDeac" type="button">Désactiver</button>--%>

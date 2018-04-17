@@ -295,11 +295,14 @@
 </head>
 
 <body>
+<%--<div class ="menu">
+    <asp:Image ID="MainCompanylogo" runat="server" Height="76px" Width="150px" ImageUrl="Images/logo.png"/>
+</div>--%>
 <div id ="topMenu">
 <ul>
-      <li class ="menu">
-          <asp:Image ID="MainCompanylogo" runat="server" Height="76px" Width="150px" ImageUrl="Images/logo.png"/>
-      </li>
+     <li class ="menu">
+         <asp:Image ID="MainCompanylogo" runat="server" Height="76px" Width="150px" ImageUrl="Images/logo.png"/>
+     </li>
       <li class="menu-element1 ">
         <a href="gestionArticles" class="dropbtn">ARTICLES</a>
         <div class="submenu">
@@ -390,6 +393,16 @@
                         BorderWidth ="1px"--%>
     <form runat ="server" >
     <div class ="mainContent">
+<%--        <div class="row">
+
+                 <asp:Image ID="MainCompanylogo" runat="server" Height="76px" Width="150px" ImageUrl="Images/logo.png"/>
+
+            <div class="row">
+                <div class ="col-lg-3">
+                    <input type="text" placeholder="Recherche" id="searchInput" onkeyup ="filterAll();" autocomplete ="on" style="background-image:url(images/recherche.png);background-position:right;background-repeat:no-repeat;padding-left:2px;width:300px;height:30px; border-radius:6px;margin-left:2px"/>  
+                </div>
+            </div>
+        </div>--%>
         <div class="row">
             <div class ="col-lg-2">
                  <div class="sideBar">
@@ -427,6 +440,15 @@
                     <br />
                 </div>
                 <br />
+                <div>
+                    <ul id="tabnav">
+                       <li class="active"><a href="gestionArticlesInfo">Infos Générales</a></li>
+                       <li><a href="infoLogi">Données Logistiques</a></li>
+                       <li><a href="infoLegale">Données Légales</a></li>
+                       <li><a href="#">Référencement/pays</a></li>
+                       <li><a href="#">Substitution/Remplacement</a></li>
+                    </ul>
+                </div>
                 <div class ="row">
                 <div class="col-lg-2" style ="background-color :#edb93b">
                     <br/>
