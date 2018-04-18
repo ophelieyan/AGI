@@ -147,7 +147,7 @@
                     </asp:TreeView>   
                  </div>
             </div>
-            <div class="col-lg-9">
+            <div class="col-lg-7">
                 <div class="row"> 
                     <input type="text" placeholder="Recherche" id="searchInput" onkeyup ="filterAll();" autocomplete ="on" style="background-image:url(images/recherche.png);background-position:right;background-repeat:no-repeat;padding-left:2px;width:300px;height:30px; border-radius:6px;margin-left:2px"/> 
                     <br />
@@ -244,7 +244,9 @@
                  </asp:GridView> 
                     </div> 
                 </div>
-            </div>          
+            </div> 
+            <div class="col-lg-2">
+            </div>         
         </div>
     </div>
     </form>

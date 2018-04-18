@@ -292,7 +292,7 @@ namespace AGI.WebService.DataController
                 string[] words = s.Split(',');
 
                 string strCodPBrand = words[0].Substring(words[0].IndexOf(":") + 1);
-                string strLibPBrand = words[2].Substring(words[1].IndexOf(":") + 1);
+                string strLibPBrand = words[1].Substring(words[1].IndexOf(":") + 1);
 
                 cmd.Parameters.Add("@Cod_PBrand", SqlDbType.NVarChar, 10).Value = strCodPBrand;
                 cmd.Parameters.Add("@Lib_PBrand", SqlDbType.NVarChar, 50).Value = strLibPBrand;
@@ -318,17 +318,17 @@ namespace AGI.WebService.DataController
 
                 cmd.Connection = conn;
 
-                cmd.CommandText = "UPDATE [01_MCD_AG].[dbo].[JT_Primary_Brand] SET Lib_Primary_Brand_Fr=@Lib_PBrand WHERE Cod_Primary_Brand=@Cod_PBrand";
+                cmd.CommandText = "UPDATE [01_MCD_AG].[dbo].[JT_Primary_Brand] SET Lib_Primary_Brand_Fr=@Lib_PBrand WHERE ID_Primary_Brand=@id_PBrand";
 
                 cmd.CommandType = CommandType.Text;
 
                 string s = param;
                 string[] words = s.Split(',');
 
-                string strCodPBrand = words[0].Substring(words[0].IndexOf(":") + 1);
+                string IdPBrand = words[0].Substring(words[0].IndexOf(":") + 1);
                 string strLibPBrand = words[1].Substring(words[1].IndexOf(":") + 1);
 
-                cmd.Parameters.Add("@Cod_PBrand", SqlDbType.NVarChar, 10).Value = strCodPBrand;
+                cmd.Parameters.Add("@id_PBrand", SqlDbType.NVarChar, 10).Value = IdPBrand;
                 cmd.Parameters.Add("@Lib_PBrand", SqlDbType.NVarChar, 50).Value = strLibPBrand;
 
                 conn.Open();
@@ -355,7 +355,7 @@ namespace AGI.WebService.DataController
 
                 cmd1.CommandText = "SELECT ID_Primary_Brand FROM JT_Primary_Brand WHERE Lib_Primary_Brand_Fr =@Lib_PBrand";
 
-                cmd2.CommandText = "INSERT INTO [01_MCD_AG].[dbo].[ST_Secondary_Brand](ID_Primary_Brand,Cod_Secondary_Brand,Lib_Secondary_Brand_Fr) VALUES(@id,@Cod_SBrand,@Lib_SBrand_Fr)";
+                cmd2.CommandText = "INSERT INTO [01_MCD_AG].[dbo].[ST_Secondary_Brand](ID_Primary_Brand,Cod_Secondary_Brand,Lib_Secondary_Brand_Fr,Flg_Activity_Secondary_Brand) VALUES(@idPBrand,@Cod_SBrand,@Lib_SBrand_Fr,1)";
 
                 cmd1.CommandType = CommandType.Text;
                 cmd2.CommandType = CommandType.Text;
@@ -368,7 +368,7 @@ namespace AGI.WebService.DataController
                 string strCodSBrand = words[1].Substring(words[1].IndexOf(":") + 1);
                 string strLibSBrand = words[2].Substring(words[2].IndexOf(":") + 1);
 
-                cmd1.Parameters.Add("@Lib_PBrand", SqlDbType.NVarChar, 10).Value = strLibPBrand;
+                cmd1.Parameters.Add("@Lib_PBrand", SqlDbType.NVarChar, 50).Value = strLibPBrand;
                 cmd2.Parameters.Add("@Cod_SBrand", SqlDbType.NVarChar, 10).Value = strCodSBrand;
                 cmd2.Parameters.Add("@Lib_SBrand_Fr", SqlDbType.NVarChar, 50).Value = strLibSBrand;
 
@@ -389,7 +389,7 @@ namespace AGI.WebService.DataController
                 }
                 if (idPBrand != -1)
                 {
-                    cmd2.Parameters.Add("@id", SqlDbType.Int, 10).Value = idPBrand;
+                    cmd2.Parameters.Add("@idPBrand", SqlDbType.Int, 10).Value = idPBrand;
                 }
                 else
                 {
@@ -416,18 +416,18 @@ namespace AGI.WebService.DataController
 
                 cmd.Connection = conn;
 
-                cmd.CommandText = "UPDATE [01_MCD_AG].[dbo].[ST_Secondary_Brand] SET Lib_Secondary_Brand_Fr=@Lib_SBrand WHERE Cod_Secondary_Brand=@Cod_SBrand";
+                cmd.CommandText = "UPDATE [01_MCD_AG].[dbo].[ST_Secondary_Brand] SET Lib_Secondary_Brand_Fr=@Lib_SBrand WHERE ID_Secondary_Brand=@id_SBrand";
 
                 cmd.CommandType = CommandType.Text;
 
                 string s = param;
                 string[] words = s.Split(',');
 
-                string strCodSBrand = words[0].Substring(words[0].IndexOf(":") + 1);
-                string strLibSBrand = words[1].Substring(words[1].IndexOf(":") + 1);
+                string IdSBrand = words[0].Substring(words[0].IndexOf(":") + 1);
+                string strLibSBrand = words[2].Substring(words[2].IndexOf(":") + 1);
 
-                cmd.Parameters.Add("@Cod_Secondary_Brand", SqlDbType.NVarChar, 10).Value = strCodSBrand;
-                cmd.Parameters.Add("@Lib_Secondary_Brand_Fr", SqlDbType.NVarChar, 50).Value = strLibSBrand;
+                cmd.Parameters.Add("@id_SBrand", SqlDbType.VarChar, 10).Value = IdSBrand;
+                cmd.Parameters.Add("@Lib_SBrand", SqlDbType.NVarChar, 50).Value = strLibSBrand;
 
                 conn.Open();
 
@@ -464,7 +464,7 @@ namespace AGI.WebService.DataController
                 string strCodRange = words[1].Substring(words[1].IndexOf(":") + 1);
                 string strLibRange = words[2].Substring(words[2].IndexOf(":") + 1);
 
-                cmd1.Parameters.Add("@Lib_SBrand", SqlDbType.NVarChar, 10).Value = strLibSBrand;
+                cmd1.Parameters.Add("@Lib_SBrand", SqlDbType.NVarChar, 50).Value = strLibSBrand;
                 cmd2.Parameters.Add("@Cod_Range", SqlDbType.NVarChar, 10).Value = strCodRange;
                 cmd2.Parameters.Add("@Lib_Range_Fr", SqlDbType.NVarChar, 50).Value = strLibRange;
 
@@ -511,17 +511,17 @@ namespace AGI.WebService.DataController
 
                 cmd.Connection = conn;
 
-                cmd.CommandText = "UPDATE [01_MCD_AG].[dbo].[ST_Range] SET Lib_Range_Fr=@Lib_Range WHERE Cod_Range=@Cod_Range";
+                cmd.CommandText = "UPDATE [01_MCD_AG].[dbo].[ST_Range] SET Lib_Range_Fr=@Lib_Range WHERE ID_Range=@id_Range";
 
                 cmd.CommandType = CommandType.Text;
 
                 string s = param;
                 string[] words = s.Split(',');
 
-                string strCodRange = words[0].Substring(words[0].IndexOf(":") + 1);
-                string strLibRange = words[1].Substring(words[1].IndexOf(":") + 1);
+                string IdRange = words[0].Substring(words[0].IndexOf(":") + 1);
+                string strLibRange = words[2].Substring(words[1].IndexOf(":") + 1);
 
-                cmd.Parameters.Add("@Cod_Range", SqlDbType.NVarChar, 10).Value = strCodRange;
+                cmd.Parameters.Add("@id_Range", SqlDbType.NVarChar, 10).Value = IdRange;
                 cmd.Parameters.Add("@Lib_Range", SqlDbType.NVarChar, 50).Value = strLibRange;
 
                 conn.Open();

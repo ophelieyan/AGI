@@ -164,12 +164,12 @@
                          <tbody>
                              <tr>
                                  <th style="text-align:center; width:100px; color:white; background-color:#edb93b">Code Marque P</th>
-                                 <th style="text-align:center; width:235px; color:white; background-color:#edb93b">Désignation Marque Première</th>
+                                 <th style="text-align:center; width:240px; color:white; background-color:#edb93b">Désignation Marque Première</th>
                              </tr>
                          </tbody>
                      </table>
                  </div>
-                 <div style="overflow-y:scroll; overflow-x:hidden; width:345px ; height:330px" >
+                 <div style="overflow-y:scroll; overflow-x:hidden; width:340px ; height:330px" >
                  <asp:GridView ID="pBrand" runat="server" AutoGenerateColumns="False" CellPadding="4" ShowHeader="false" 
                             HeaderStyle-Font-Underline="false" Font-Names="Arial, Helvetica, sans-serif"
                             Font-Size ="X-Small" ForeColor="#333333" GridLines="None"> 
@@ -177,7 +177,7 @@
                                 <Columns> 
                                    <asp:TemplateField > 
                                         <ItemTemplate> 
-                                            <asp:Label ID="lblIdIdPBrand" runat="server" Text='<%# Bind("ID_Primary_Brand") %>' style="display:none" Width="10px"></asp:Label> 
+                                            <asp:Label ID="lblIdIdPBrand" runat="server" Text='<%# Bind("ID_Primary_Brand") %>' style="display:none" ></asp:Label> 
                                         </ItemTemplate> 
                                     </asp:TemplateField> 
                                     <asp:TemplateField > 
@@ -226,7 +226,7 @@
                          </tbody>
                      </table>
                  </div>
-                 <div style="overflow-y:scroll; overflow-x:hidden; width:310px ; height:330px" >
+                 <div style="overflow-y:scroll; overflow-x:hidden; width:300px ; height:330px" >
 
                  <asp:GridView ID="sBrand" runat="server" AutoGenerateColumns="False" CellPadding="4"  
                             HeaderStyle-Font-Underline="false" ShowHeader="false" Font-Size ="X-Small"
@@ -235,12 +235,12 @@
                                  <Columns> 
                                     <asp:TemplateField> 
                                         <ItemTemplate> 
-                                            <asp:Label ID="lblIdSBrand" runat="server" Text='<%# Bind("ID_Secondary_Brand") %>' style="display:none" Width="10px"></asp:Label> 
+                                            <asp:Label ID="lblIdSBrand" runat="server" Text='<%# Bind("ID_Secondary_Brand") %>' style="display:none"></asp:Label> 
                                         </ItemTemplate> 
                                     </asp:TemplateField> 
                                     <asp:TemplateField> 
                                         <ItemTemplate> 
-                                            <asp:Label ID="lblIdPriBrand" runat="server" Text='<%# Bind("ID_Primary_Brand") %>' style="display:none" Width="10px"></asp:Label> 
+                                            <asp:Label ID="lblIdPriBrand" runat="server" Text='<%# Bind("ID_Primary_Brand") %>' style="display:none" Width=></asp:Label> 
                                         </ItemTemplate> 
                                     </asp:TemplateField> 
                                     <asp:TemplateField > 
@@ -288,7 +288,7 @@
                         </tbody>
                     </table>   
                  </div>
-                 <div style="overflow-y:scroll; overflow-x:hidden; width:330px; height:330px" >
+                 <div style="overflow-y:scroll; overflow-x:hidden; width:320px; height:330px" >
                  <asp:GridView ID="range" runat="server" AutoGenerateColumns="False" CellPadding="4"  
                             HeaderStyle-Font-Underline="false" ShowHeader="false" Font-Size ="X-Small"
                             Font-Names="Arial, Helvetica, sans-serif" ForeColor="#333333" GridLines="None"> 
@@ -296,12 +296,12 @@
                                 <Columns> 
                                     <asp:TemplateField> 
                                         <ItemTemplate> 
-                                            <asp:Label ID="lblIdRange" runat="server" style="display:none"  Text='<%# Bind("ID_Range") %>' Width="10px"></asp:Label> 
+                                            <asp:Label ID="lblIdRange" runat="server" style="display:none"  Text='<%# Bind("ID_Range") %>' ></asp:Label> 
                                         </ItemTemplate> 
                                     </asp:TemplateField> 
                                     <asp:TemplateField> 
                                         <ItemTemplate> 
-                                            <asp:Label ID="lblIdSeBrand" runat="server" style="display:none"  Text='<%# Bind("ID_Secondary_Brand") %>' Width="10px"></asp:Label> 
+                                            <asp:Label ID="lblIdSeBrand" runat="server" style="display:none"  Text='<%# Bind("ID_Secondary_Brand") %>' ></asp:Label> 
                                         </ItemTemplate> 
                                     </asp:TemplateField> 
                                     <asp:TemplateField > 
@@ -361,8 +361,8 @@
           <br />
           <label for="libDas">Désignation Marque Première</label>
           <br />
-          <input type="text" name="libDas" id="libDasEdit" value="" class="text ui-widget-content ui-corner-all"/>
-          <input type="hidden" name="CodDas" id="codDasEdit" value="" class="text ui-widget-content ui-corner-all"/>
+          <input type="text" name="libPBrand" id="libPBrandEdit" value="" class="text ui-widget-content ui-corner-all" style ="font-family :Arial, Helvetica, sans-serif; font-size:12px; height :25px; width:250px;"/>
+          <input type="hidden" name="CodPBrand" id="codPBrandEdit" value="" class="text ui-widget-content ui-corner-all"/>
     </div>
 
     <div id="dialog-form-sBrand" title="Creation d'une nouvelle marque secondaire">
@@ -374,7 +374,7 @@
             <script type="text/javascript">  
                 
                     $("#pBrand tr").each(function () {
-                        pBrand = $(this).find("td").eq(1).text().trim();
+                        pBrand = $(this).find("td").eq(2).text().trim();
                         $("#libPBrandForPopup").append('<option>' + pBrand + '</option>');
                     });
        
@@ -398,10 +398,10 @@
           <br />
           <label for="libSBrand">Désignation Marque Secondaire</label>
           <br />
-          <input type="text" name="libSBrand" id="libSBrandEdit" value="" class="text ui-widget-content ui-corner-all"/>
+          <input type="text" name="libSBrand" id="libSBrandEdit" value="" style ="font-family :Arial, Helvetica, sans-serif; font-size:12px; height :25px; width:250px;" class="text ui-widget-content ui-corner-all"/>
           <br />
           <input type="hidden" name="idPBrand" id="idOfSelectedPBrand" value="" class="text ui-widget-content ui-corner-all"/>
-          <input type="hidden" name="Code PBrand" id="codPBrandEdit" value="" class="text ui-widget-content ui-corner-all"/>
+          <input type="hidden" name="Code SBrand" id="codSBrandEdit" value="" class="text ui-widget-content ui-corner-all"/>
   
     </div>
 
@@ -438,7 +438,7 @@
           <br />
           <label for="libRange">Désignation Gamme</label>
           <br />
-          <input type="text" name="libRange" id="libRangeEdit" value="" class="text ui-widget-content ui-corner-all"/>
+          <input type="text" name="libRange" id="libRangeEdit" value="" style ="font-family :Arial, Helvetica, sans-serif; font-size:12px; height :25px; width:250px;" class="text ui-widget-content ui-corner-all"/>
           <input type="hidden" name="Code Range" id="codRangeEdit" value="" class="text ui-widget-content ui-corner-all"/>
    
     </div>
@@ -643,8 +643,8 @@
         //Modification de Marque Secondaire
         function EditSBrand(row) {
             $("#btnEditSBrand").click(function () {
-                var codSBrandForPop = $("td", row).eq(1).text();
-                var libSBrandForPop = $("td", row).eq(2).text();
+                var codSBrandForPop = $("td", row).eq(2).text();
+                var libSBrandForPop = $("td", row).eq(3).text();
                 document.getElementById("codSBrandEdit").value = codSBrandForPop.trim();
                 document.getElementById("libSBrandEdit").value = libSBrandForPop.trim();
                 dialogEditSBrand.dialog("open");
@@ -706,7 +706,7 @@
 
             }).done(function () {
 
-                addRowToDas($('#das tbody'), codDasPopUp, codActiPopUp, libDasPopUp);
+                addRowToPBrand($('#pBrand tbody'), codPBrandPopUp, libPBrandPopUp);
 
             });
 
@@ -720,13 +720,13 @@
 
                                         + '<td>'
 
-                                        + '<span id="das_lblCodPBrand_2" style="display:inline-block;width:100px;">' + code + '</span>'
+                                        + '<span id="pBrand_lblCodPBrand_2" style="display:inline-block;width:100px;">' + code + '</span>'
 
                                         + '</td>'
 
                                         + '<td>'
 
-                                        + '<span id="das_lblLibPBrandFr_2" style="display:inline-block;width:180px;">' + designation + '</span>'
+                                        + '<span id="pBrand_lblLibPBrandFr_2" style="display:inline-block;width:180px;">' + designation + '</span>'
 
                                         + '</td>'
 
@@ -773,15 +773,17 @@
 
         function updatePBrand() {
 
-            var codPBrandModif = document.getElementById("codPBrandEdit").value;
+           // var codPBrandModif = document.getElementById("codPBrandEdit").value;
 
             var libPBrandModif = document.getElementById("libPBrandEdit").value;
 
             var row = $("#selectedRowId");
 
-            //$("td", row).eq(0).html(codDasModif);
+            //modifier la ligne avec nouvelle libellé
+            $("td", row).eq(2).html(libPBrandModif);
 
-            $("td", row).eq(1).html(libPBrandModif);
+            //récupérer id de la ligne modifiée
+            var idPBrandModif = $("td", row).eq(0).text();
 
             row.attr("id", "");
 
@@ -791,7 +793,7 @@
 
                 methode: "POST",
 
-                data: "param=CodPBrand:" + codPBrandModif + ",libPBrand:" + libPBrandModif,
+                data: "param=idPBrand:" + idPBrandModif + ",libPBrand:" + libPBrandModif,
 
             }).done(function () {
 
@@ -836,22 +838,21 @@
 
             function addSBrand() {
 
-                var sBrandPopUp = document.getElementById("libSBrandForPopup").value;
+                var pBrandPopUp = document.getElementById("libPBrandForPopup").value;
                 //var das = $('#libDasForPopup option:selected').text();
                 var codSBrandPopUp = document.getElementById("codSBrand").value;
 
                 var libSBrandPopUp = document.getElementById("libSBrand").value;
 
                 //addRowToTable($('#segment tbody'), codSegPopUp, libSegPopUp);
-
-          
+        
                 $.ajax({
 
                     url: "api/SBrandDataController?",
 
                     methode: "POST",
 
-                    data: "param=libPBrand:" + pBrandPopUp + ",codSegment:" + codSegPopUp + ",libSegment:" + libSegPopUp,
+                    data: "param=libPBrand:" + pBrandPopUp + ",codSBrand:" + codSBrandPopUp + ",libSBrand:" + libSBrandPopUp,
 
                 }).done(function () {
 
@@ -869,13 +870,13 @@
 
                                             + '<td>'
 
-                                            + '<span id="das_lblCod_2" style="display:inline-block;width:100px;">' + code + '</span>'
+                                            + '<span id="sBrand_lblCod_2" style="display:inline-block;width:100px;">' + code + '</span>'
 
                                             + '</td>'
 
                                             + '<td>'
 
-                                            + '<span id="das_lblLibFr_2" style="display:inline-block;width:100px;">' + designation + '</span>'
+                                            + '<span id="sBrand_lblLibFr_2" style="display:inline-block;width:100px;">' + designation + '</span>'
 
                                             + '</td>'
 
@@ -934,9 +935,11 @@
 
                 var row = $("#selectedRowId");
 
-                $("td", row).eq(1).html(codSBrandModif);
+                $("td", row).eq(2).html(codSBrandModif);
 
-                $("td", row).eq(2).html(libSBrandModif);
+                $("td", row).eq(3).html(libSBrandModif);
+
+                var idSBrandModif = $("td", row).eq(0).text();
 
                 row.attr("id", "");
 
@@ -945,8 +948,8 @@
                     url: "api/SBrandModifyController",
 
                     methode: "POST",
-
-                    data: "param=CodSBrand:" + codSBrandModif + ",libSBrand:" + libSBrandModif,
+                     
+                    data: "param=idSBrand:" + idSBrandModif + ",CodSBrand:" + codSBrandModif + ",libSBrand:" + libSBrandModif,
 
                 }).done(function () {
 
@@ -1021,11 +1024,11 @@
           //modification de Gamme
             function EditRange(row) {
                 $("#btnEditRange").click(function () {
-                    var codRangeForPop = $("td", row).eq(0).text();
-                    var libRangeForPop = $("td", row).eq(1).text();
+                    var codRangeForPop = $("td", row).eq(2).text();
+                    var libRangeForPop = $("td", row).eq(3).text();
                     document.getElementById("codRangeEdit").value = codRangeForPop.trim();
                     document.getElementById("libRangeEdit").value = libRangeForPop.trim();
-                    dialogRange.dialog("open");
+                    dialogEditRange.dialog("open");
                 });
             }
             
@@ -1073,9 +1076,11 @@
 
                 var row = $("#selectedRowId");
 
-                $("td", row).eq(1).html(codRangeModif);
+                $("td", row).eq(2).html(codRangeModif);
 
-                $("td", row).eq(2).html(libRangeModif);
+                $("td", row).eq(3).html(libRangeModif);
+
+                var idRangeModif = $("td", row).eq(0).text();
 
                 row.attr("id", "");
 
@@ -1086,12 +1091,12 @@
 
                     methode: "POST",
 
-                    data: "param=CodRange:" + codRangeModif + ",libRange:" + libRangeModif,
+                    data: "param=idRange:" + idRangeModif + ",CodRange:" + codRangeModif + ",libRange:" + libRangeModif,
 
                 }).done(function () {
 
                 });
-                dialogRange.dialog("close");
+                dialogEditRange.dialog("close");
             }
 </script>
 
