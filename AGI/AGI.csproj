@@ -210,12 +210,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="articleFourniseurPrix.aspx" />
     <Content Include="articleInfoTypeCompo.aspx" />
+    <Content Include="articleNomen.aspx" />
+    <Content Include="articleReferencePays.aspx" />
+    <Content Include="articNomenInvers.aspx" />
     <Content Include="Css\articleInfo - Copier.css" />
     <Content Include="Css\articleInfo.css" />
     <Content Include="Css\fActivity.css" />
     <Content Include="Css\fDas.css" />
     <Content Include="Css\fIMS.css" />
+    <Content Include="donnTechInfoArtic.aspx" />
     <Content Include="fluxActivity.aspx" />
     <Content Include="FluxIMS.aspx" />
     <Content Include="gestionArticleRefInternational.aspx" />
@@ -344,12 +349,47 @@
     <Compile Include="2.aspx.designer.cs">
       <DependentUpon>2.aspx</DependentUpon>
     </Compile>
+    <Compile Include="articleFourniseurPrix.aspx.cs">
+      <DependentUpon>articleFourniseurPrix.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="articleFourniseurPrix.aspx.designer.cs">
+      <DependentUpon>articleFourniseurPrix.aspx</DependentUpon>
+    </Compile>
     <Compile Include="articleInfoTypeCompo.aspx.cs">
       <DependentUpon>articleInfoTypeCompo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="articleInfoTypeCompo.aspx.designer.cs">
       <DependentUpon>articleInfoTypeCompo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="articleNomen.aspx.cs">
+      <DependentUpon>articleNomen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="articleNomen.aspx.designer.cs">
+      <DependentUpon>articleNomen.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="articleReferencePays.aspx.cs">
+      <DependentUpon>articleReferencePays.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="articleReferencePays.aspx.designer.cs">
+      <DependentUpon>articleReferencePays.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="articNomenInvers.aspx.cs">
+      <DependentUpon>articNomenInvers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="articNomenInvers.aspx.designer.cs">
+      <DependentUpon>articNomenInvers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="donnTechInfoArtic.aspx.cs">
+      <DependentUpon>donnTechInfoArtic.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="donnTechInfoArtic.aspx.designer.cs">
+      <DependentUpon>donnTechInfoArtic.aspx</DependentUpon>
     </Compile>
     <Compile Include="fluxActivity.aspx.cs">
       <DependentUpon>fluxActivity.aspx</DependentUpon>

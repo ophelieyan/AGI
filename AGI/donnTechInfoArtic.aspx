@@ -1,281 +1,7 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="gestionArticlesInfo.aspx.cs" Inherits="AGI.gestionArticlesInfo" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="donnTechInfoArtic.aspx.cs" Inherits="AGI.donnTechInfoArtic" %>
 
 <!DOCTYPE html>
 
-<%--<style>
-#topMenu ul {
-    list-style-type: none;
-    margin-left:0px;
-    padding: 0;
-    overflow: hidden;
-    background-color: #0f4396; 
-    font-family :Arial, Helvetica, sans-serif;
-    width:100%;
-    border-radius:10px;
-}
-
-#topMenu li {
-    float: left;
-}
-
-#topMenu li:last-child {
-    border-right :none;
-}
- 
-#topMenu li.menu-element1 {
-    padding-left:60px;
-}
-
-#topMenu li a, .dropbtn{
-    display: inline-block;
-    color: white;
-    text-align: center;
-    padding: 30px 4px;
-    text-decoration: none;
-    padding-left:40px;
-    padding-right:20px;
-}
-
-#topMenu li a:hover, .menu:hover .dropbtn {
-    background-color: #edb93b;
-}
-
-#topMenu li.menu {
-    display: inline-block;
-}
-
-#topMenu .submenu {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-}
-
-#topMenu .submenu a {
-    color: black;
-    padding: 7px 8px;
-    text-decoration: none;
-    display: block;
-    text-align: left;
-    border-bottom: 1px solid #c9c9c9;
-    font-family :Arial, Helvetica, sans-serif;
-}
-
-#topMenu .submenu a:last-child {
-    border-bottom: none;
-}
-
-#topMenu .submenu a:hover {
-    background-color: lightcyan;
-}
-
-#topMenu .menu:hover .submenu {
-    display: block;
-}
-
-#topMenu .menu-element1:hover .submenu {
-    display: block;
-}
-
-.form-wrapper {
-    width: 250px;
-    padding: 5px;
-    margin: 20px auto; 
-    margin-right :4px;  
-    overflow: hidden;
-    border-width: 1px;
-    border-style: solid;
-    border-color: #dedede #bababa #aaa #bababa;
-    box-shadow: 0 3px 3px rgba(255,255,255,.1), 0 3px 0 #bbb, 0 4px 0 #aaa, 0 5px 5px #444;
-    border-radius: 10px;    
-    background-color: #f6f6f6;
-    background-image: linear-gradient(top, #f6f6f6, #eae8e8);
-}
-
-.form-wrapper #search {
-    width: 200px;
-    height: 15px;
-    padding: 5px 5px;
-    float: left;    
-    font: 14px Arial, Helvetica, sans-serif;
-    border: 1px solid #ccc;
-    box-shadow: 0 1px 1px #ddd inset, 0 1px 0 #fff;
-    border-radius: 3px;      
-}
-
-.form-wrapper #search:focus {
-    outline: 0; 
-    border-color: #aaa;
-    box-shadow: 0 1px 1px #bbb inset;  
-}
-
-.form-wrapper #search::-webkit-input-placeholder {
-   color: #999;
-   font-weight: normal;
-}
-
-.form-wrapper #search:-moz-placeholder {
-    color: #999;
-    font-weight: normal;
-}
-
-.form-wrapper #search:-ms-input-placeholder {
-    color: #999;
-    font-weight: normal;
-} 
-
-.form-wrapper #submit {
-    float: right;    
-    border: 1px solid #00748f;
-    height: 30px;
-    width: 30px;
-    padding: 5px;
-    cursor: pointer;
-    font: 12px Arial, Helvetica;
-    color: #fff;
-    text-transform: uppercase;    
-    background-color: #0f4396;
-    background-image: linear-gradient(top, #31b2c3, #0483a0);
-    -moz-border-radius: 3px;
-    -webkit-border-radius: 3px;
-    border-radius: 3px;      
-    text-shadow: 0 1px 0 rgba(0, 0 ,0, .3);
-    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset, 0 1px 0 #fff;
-}
-  
-.form-wrapper #submit:hover,
-.form-wrapper #submit:focus {       
-    background-color: #0f4396;
-    background-image: linear-gradient(top, #0483a0, #31b2c3);
-}   
-  
-.form-wrapper #submit:active {
-    outline: 0;    
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;    
-}
-  
-.form-wrapper #submit::-moz-focus-inner {
-    border: 0;
-}
-
-#leftMenu ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    width: 170px;
-    background-color: #f1f1f1;
-    border: 1px solid #dedede;
-    position: absolute; 
-}
-
-#leftMenu li {
-    text-align: center;
-    border-bottom: 1px solid #dedede;
-    position:relative;
-}
-
-
-
-#leftMenu li:last-child {
-    border-bottom: none;
-}
-
-#leftMenu ul li a{
-    display: block;
-    color: #000;
-    padding: 8px 16px;
-    text-decoration: none;
-}
-#leftMenu li .active {
-    background-color: #4CAF50;
-    color: white;
-}
-
-#leftMenu li a:hover {
-    background-color: #555;
-    color: white;
-}
-
-#leftMenu .niveau2 li a{
-        display :none;
-        background-color: #f9f9f9;
-        min-width: 140px;
-        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-        z-index: 1;
-}
-
-#leftMenu .niveau1 li:hover #leftMenu .niveau2 li{
-        display :block;
-}
-
-
-                /* Dropdown container(cacher par défault)*/
-                .dropdown-container {
-                    display: none;
-                    background-color: #262626;
-                    padding-left: 8px;
-                }
-
-                /* Optional: Style the caret down icon */
-                .fa-caret-down {
-                    float: right;
-                    padding-right: 8px;
-                }
-
-                /* On mouse-over */
-                .sidenav a:hover, .dropdown-btn:hover {
-                    color: #f1f1f1;
-                }
-
-        /*Pour les écrans plus petits*/
-         @media screen and (max-height: 450px) {
-                    .sidenav {
-                        padding-top: 15px;
-                    }
-
-                        .sidenav a {
-                            font-size: 18px;
-                        }
-                }
-#content{
-    display :flex;
-    position: absolute;
-    margin-left: 0px;
-    margin-top: 0px;
-}
-
-#section {
-    position: absolute;
-    margin-left: 0px;
-    margin-top: 0px;
-}
-
-#TreeViewSideMenu {
-    top:80px;
-    height:500px;
-}
-
-.mainContent {
-    position:absolute;
-    height:500px;
-    width:100%;
-    top:115px;
-    left:310px;
-    margin-right:150px;  
-}
-
-.footer {
-    position:fixed;
-    left:4px;
-    bottom:0px;
-    width:100%;
-    background-color:#eeeeee;
-    color:black;
-    text-align-last:center;
-}
-</style>--%>
 <html>
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -435,7 +161,7 @@
                  </div>
             </div>
             <div class="col-lg-9">
-               <div>
+                <div>
                     <ul id="tabnav">
                        <li class="active"><a href="gestionArticlesInfo">Infos Générales</a></li>
                        <li><a href="infoLogi">Données Logistiques</a></li>
@@ -444,13 +170,11 @@
                        <li><a href="#">Substitution/Remplacement</a></li>
                     </ul>
                 </div>
-                <br />
+                <br/>
                 <div class="row"> 
                     <input type="text" placeholder="Recherche" id="searchInput" onkeyup ="filterAll();" autocomplete ="on" style="background-image:url(images/recherche.png);background-position:right;background-repeat:no-repeat;padding-left:2px;width:300px;height:30px; border-radius:6px;margin-left:2px"/> 
                     <br />
                 </div>
-                <br />
-
                 <div class ="row">
                 <div class="col-lg-2" >
                     <br/>
@@ -458,25 +182,16 @@
                     <br/>
                     <asp:Label ID="lblLibArtFr" runat="server" Text="Libellé Article Français" Class="lblInfo"></asp:Label>
                     <br/>
-                    <asp:Label ID="lblLibArtEn" runat="server" Text="Libellé Article Anglais" Class="lblInfo"></asp:Label>
+                    <br/>
+                    <asp:Label ID="lblTypAppro" runat="server" Text="Type Appro" Class="lblInfo"></asp:Label>
                     <br/>  
+                    <asp:Label ID="lblTypArtic" runat="server" Text="Type Article" Class="lblInfo"></asp:Label>
                     <br/>
-                    <asp:Label ID="lblClassABC" runat="server" Text="Class ABC" Class="lblInfo"></asp:Label>
-                    <br/>
-                    <asp:Label ID="lblStatut" runat="server" Text="Statut" Class="lblInfo"></asp:Label>
-                    <br/>
-                    <asp:Label ID="lblProdCate" runat="server" Text="Product Category" Class="lblInfo"></asp:Label>
-                    <br/>
-                    <asp:Label ID="lblDateSOA" runat="server" Text="Date TTM SOA" Class="lblInfo"></asp:Label>
+                    <asp:Label ID="lblStatActi" runat="server" Text="Statut Activité" Class="lblInfo"></asp:Label>
                     <br/>
                     <br/>
-                    <asp:Label ID="lblEAN13" runat="server" Text="EAN13" Class="lblInfo"></asp:Label>
+                    <asp:Label ID="lblUsnProd" runat="server" Text="Usine de Production ou Fournisseur STT" Class="lblInfo"></asp:Label>
                     <br/>
-                    <asp:Label ID="lblACL" runat="server" Text="ACL" Class="lblInfo"></asp:Label>
-                    <br/>
-                    <asp:Label ID="lblCNP" runat="server" Text="CNP" Class="lblInfo"></asp:Label>
-                    <br/>
-                    <asp:Label ID="lblCNK" runat="server" Text="CNK" Class="lblInfo"></asp:Label>   
                 </div>
                 <div class="col" >
                     <br/>
@@ -484,89 +199,66 @@
                     <br/>
                     <asp:TextBox ID="tbxLibArtFr" runat="server" Class="tbxInfo">lib FR</asp:TextBox>     
                     <br/>
-                    <asp:TextBox ID="tbxLibArtEn" runat="server" Class="tbxInfo">lib EN</asp:TextBox>
                     <br/>
+                    <asp:TextBox ID="tbxTypAppro" runat="server" Class="tbxInfo">type Appro</asp:TextBox>
                     <br/>
-                    <asp:TextBox ID="tbxClassABC" runat="server" Class="tbxInfo">class ABC</asp:TextBox>
-                    <br/>
-                    <asp:TextBox ID="tbxStatut" runat="server" Class="tbxInfo">statut</asp:TextBox>
+                    <asp:TextBox ID="tbxTypArtic" runat="server" Class="tbxInfo">type Article</asp:TextBox>
                     <br />
-                    <asp:TextBox ID="tbxProdCate" runat="server" Class="tbxInfo">product category</asp:TextBox>          
-                    <br />
-                    <asp:TextBox ID="tbxDateSOA" runat="server" Class="tbxInfo">date ttm SOA</asp:TextBox>
+                    <asp:TextBox ID="tbxStatActi" runat="server" Class="tbxInfo">statut Activité</asp:TextBox>          
                     <br />
                     <br />
-                    <asp:TextBox ID="tbxEAN13" runat="server" Class="tbxInfo">ean13</asp:TextBox>
+                    <asp:TextBox ID="tbxUsnProd" runat="server" Class="tbxInfo">usine de Production ou Fournisseur STT</asp:TextBox>
                     <br />
-                    <asp:TextBox ID="tbxACL" runat="server" Class="tbxInfo">acl</asp:TextBox>
-                    <br />
-                    <asp:TextBox ID="tbxCNP" runat="server" Class="tbxInfo">cnp</asp:TextBox>
-                    <br />
-                    <asp:TextBox ID="tbxCNK" runat="server" Class="tbxInfo">cnk</asp:TextBox>
                     <br />
                 </div>
                     <%--style ="background-color :#edb93b"--%>
                 <div class="col-lg-2" >
                     <br />
-                    <asp:Label ID="lblUnitVente" runat="server" Text="CNK" Class="lblInfo"></asp:Label>
+                    <asp:Label ID="lblDelaiAppro" runat="server" Text="Délai d'appro(Temps de cycle)" Class="lblInfo"></asp:Label>
                     <br />
-                    <asp:Label ID="lblConteUni" runat="server" Text="Contenance/Unité" Class="lblInfo"></asp:Label>
+                    <asp:Label ID="lblTailleLotMini" runat="server" Text="Taille lot mini" Class="lblInfo"></asp:Label>
                     <br />
-                    <asp:Label ID="lblTypCont" runat="server" Text="Type de contenant" Class="lblInfo"></asp:Label>
+                    <asp:Label ID="lblTailleLotMaxi" runat="server" Text="Taille lot maxi" Class="lblInfo"></asp:Label>
                     <br />
-                    <asp:Label ID="lblNaturProd" runat="server" Text="Nature Produit" Class="lblInfo"></asp:Label>
-                    <br />
-                    <br />
-                    <asp:Label ID="lblCompKit" runat="server" Text="Composant Kit(APS)" Class="lblInfo"></asp:Label>
-                    <br />
-                    <asp:Label ID="lblComposKit" runat="server" Text="Composé Kit(APS)" Class="lblInfo"></asp:Label>
-                    <br />
-                    <asp:Label ID="lblGrouRef" runat="server" Text="Groupe Référence(APS)" Class="lblInfo"></asp:Label>
+                    <asp:Label ID="lblIncremLot" runat="server" Text="Incrément de lot" Class="lblInfo"></asp:Label>
                     <br />
                     <br />
-                    <asp:Label ID="lblGamme" runat="server" Text="Classification par Gamme" Class="lblInfo"></asp:Label>
+                    <asp:Label ID="lblStockSecu" runat="server" Text="Stock de sécurité" Class="lblInfo"></asp:Label>
                     <br />
-                    <asp:Label ID="lblSousSeg" runat="server" Text="Classification par Sous Segment" Class="lblInfo"></asp:Label>
+                    <asp:Label ID="lblStockMaxi" runat="server" Text="Stock maximum" Class="lblInfo"></asp:Label>
+                    <br />
+                    <asp:Label ID="lblTauxPert" runat="server" Text="Taux de perte" Class="lblInfo"></asp:Label>
                     <br />
                     <br />
-                    <asp:Label ID="lblIms" runat="server" Text="IMS Level 4" Class="lblInfo"></asp:Label>
+                    <asp:Label ID="lblPosteChargePrin" runat="server" Text="Poste de charge principal" Class="lblInfo"></asp:Label>
                     <br />
-                    <asp:Label ID="lblFebea" runat="server" Text="FEBEA" Class="lblInfo"></asp:Label>
-                    <br />
-                    <asp:Label ID="lblCodeBrick" runat="server" Text="Code Brick" Class="lblInfo"></asp:Label>
-                    <br />
+                    <asp:Label ID="lblPosteChargeSecon" runat="server" Text="Poste de charge secondaire" Class="lblInfo"></asp:Label>
                     <br />
                     <br />
                 </div>  
                     <%--style ="background-color :mistyrose"   --%>    
                 <div class="col" >
                     <br />        
-                    <asp:TextBox ID="tbxUnitVente" runat="server" Class="tbxInfo">UnitVente</asp:TextBox>
+                    <asp:TextBox ID="tbxDelaiAppro" runat="server" Class="tbxInfo">délai d'appro</asp:TextBox>
                     <br />
-                    <asp:TextBox ID="tbxConteUni" runat="server" Class="tbxInfo">contenanceUnite</asp:TextBox>
+                    <asp:TextBox ID="tbxTailleLotMini" runat="server" Class="tbxInfo">taille lot mini</asp:TextBox>
                     <br />
-                    <asp:TextBox ID="tbxTypCont" runat="server" Class="tbxInfo">typeDecontenant</asp:TextBox>
+                    <asp:TextBox ID="tbxTailleLotMaxi" runat="server" Class="tbxInfo">taille lot maxi</asp:TextBox>
                     <br />
-                    <asp:TextBox ID="tbxNaturProd" runat="server" Class="tbxInfo">natureProduit</asp:TextBox>        
+                    <asp:TextBox ID="tbxIncremLot" runat="server" Class="tbxInfo">incrément de lot</asp:TextBox>        
                     <br />
                     <br />
-                    <asp:TextBox ID="tbxCompKit" runat="server" Class="tbxInfo">composantKit</asp:TextBox> 
+                    <asp:TextBox ID="tbxStockSecu" runat="server" Class="tbxInfo">composantKit</asp:TextBox> 
                     <br />
-                    <asp:TextBox ID="tbxComposKit" runat="server" Class="tbxInfo">composekit</asp:TextBox> 
+                    <asp:TextBox ID="tbxStockMaxi" runat="server" Class="tbxInfo">composekit</asp:TextBox> 
                     <br />
-                    <asp:TextBox ID="tbxGrouRef" runat="server" Class="tbxInfo">groupeReference</asp:TextBox>
+                    <asp:TextBox ID="tbxTauxPert" runat="server" Class="tbxInfo">groupeReference</asp:TextBox>
                     <br/>
                     <br />
-                    <asp:TextBox ID="tbxGamme" runat="server" Class="tbxInfo">classificationParG</asp:TextBox>
+                    <asp:TextBox ID="tbxPosteChargePrin" runat="server" Class="tbxInfo">poste de charge principal</asp:TextBox>
                     <br />
-                    <asp:TextBox ID="tbxSousSeg" runat="server" Class="tbxInfo">classificationParSS</asp:TextBox>
+                    <asp:TextBox ID="tbxPosteChargeSecon" runat="server" Class="tbxInfo">poste de charge secondaire</asp:TextBox>
                     <br />
-                    <br />
-                    <asp:TextBox ID="tbxIms" runat="server" Class="tbxInfo">imsLevel4</asp:TextBox>        
-                    <br />                       
-                    <asp:TextBox ID="tbxFebea" runat="server" Class="tbxInfo">febea</asp:TextBox> 
-                    <br />
-                    <asp:TextBox ID="tbxCodeBrick" runat="server" Class="tbxInfo">codeBrick</asp:TextBox> 
                     <br />
                     <br />
                </div>
