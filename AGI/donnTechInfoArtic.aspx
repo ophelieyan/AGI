@@ -45,7 +45,7 @@
                  <a href="#">Infos Articles</a>
                  <a href="#">Nomenclature</a>
                  <a href="#">Nomenclature Inverses</a>
-                 <a href="#">Gamme Opératoire</a>
+                 <a href="articleGamOperat">Gamme Opératoire</a>
              </div>
           <a href="#">Données Achats</a>
              <div class="sousSubmenu">
@@ -147,7 +147,7 @@
                                 <asp:TreeNode Text="Infos Article" Value="Infos Article"></asp:TreeNode>
                                 <asp:TreeNode Text="Nomenclature" Value="Nomenclature"></asp:TreeNode>
                                 <asp:TreeNode Text="Nomenclatures Inverses" Value="Nomenclatures Inverses"></asp:TreeNode>
-                                <asp:TreeNode Text="Gamme Opératoire" Value="Gamme Opératoire"></asp:TreeNode>
+                                <asp:TreeNode Text="Gamme Opératoire" Value="Gamme Opératoire" NavigateUrl="articleGamOperat.aspx"></asp:TreeNode>
                             </asp:TreeNode>
                             <asp:TreeNode Text="Données Achats" Value="Données Achats">
                                 <asp:TreeNode Text="Infos Article" Value="Infos Article"></asp:TreeNode>

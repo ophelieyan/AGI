@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="articleFourniseurPrix.aspx.cs" Inherits="AGI.articleFourniseurPrix" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="articleInfoCommande.aspx.cs" Inherits="AGI.articleInfoCommande" %>
 
 <!DOCTYPE html>
 
@@ -144,7 +144,7 @@
                                 <asp:TreeNode Text="Infos Article" Value="Infos Article"></asp:TreeNode>
                                 <asp:TreeNode Text="Nomenclature" Value="Nomenclature"></asp:TreeNode>
                                 <asp:TreeNode Text="Nomenclatures Inverses" Value="Nomenclatures Inverses"></asp:TreeNode>
-                                <asp:TreeNode Text="Gamme Opératoire" Value="Gamme Opératoire" NavigateUrl="articleGamOperat.aspx"></asp:TreeNode>
+                                <asp:TreeNode Text="Gamme Opératoire" Value="Gamme Opératoire" NavigateUrl ="articleGamOperat.aspx"></asp:TreeNode>
                             </asp:TreeNode>
                             <asp:TreeNode Text="Données Achats" Value="Données Achats">
                                 <asp:TreeNode Text="Infos Article" Value="Infos Article"></asp:TreeNode>
@@ -172,59 +172,81 @@
                     <input type="text" placeholder="Recherche" id="searchInput" onkeyup ="filterAll();" autocomplete ="on" style="background-image:url(images/recherche.png);background-position:right;background-repeat:no-repeat;padding-left:2px;width:300px;height:30px; border-radius:6px;margin-left:2px"/> 
                     <br />
                 </div>
+                <br />
                 <div class ="row">
-                <div class="col-lg-2" >
-                </div>
-                <div class="col-lg-2" >
-                    <br/>
+                <div class="col-lg-3" >
                     <asp:Label ID="lblCodAles" runat="server" Text="Code Alès" Class="lblInfo"></asp:Label>
                     <br/>
                     <asp:Label ID="lblLibArtFr" runat="server" Text="Libellé Article Français" Class="lblInfo"></asp:Label>
                     <br/>
                     <br/>
-                    <asp:Label ID="lblFrnsrRang1" runat="server" Text="Fournisseur Rang 1" Class="lblInfo"></asp:Label>
+                    <asp:Label ID="lblQuantiteEcoComd" runat="server" Text="Quantité économique de commande" Class="lblInfo"></asp:Label>
                     <br/>  
-                    <asp:Label ID="lblFrnsrRang2" runat="server" Text="Fournisseur Rang 2" Class="lblInfo"></asp:Label>
+                    <asp:Label ID="lblQuantiteMiniComd" runat="server" Text="Quantité minimum de commande" Class="lblInfo"></asp:Label>
                     <br/>
-                    <asp:Label ID="lblTarif" runat="server" Text="Tarif/Devise" Class="lblInfo"></asp:Label>
+                    <asp:Label ID="lblQuantiteMaxiComd" runat="server" Text="Quantité maximum de commande" Class="lblInfo"></asp:Label>
                     <br/>
-                    <asp:Label ID="lblPrixStandDevise" runat="server" Text="Prix standard/Devise" Class="lblInfo"></asp:Label>
-                    <br/>
-                    <asp:Label ID="lblPUMPDevise" runat="server" Text="PUMP/Devise" Class="lblInfo"></asp:Label>
-                    <br/>
-                    <br/>
-                    <asp:Label ID="lblCodeAmalgamme" runat="server" Text="Code Amalgamme" Class="lblInfo"></asp:Label>
-                    <br/>
-                    <br/>
-                    <asp:Label ID="lblActicSubstit" runat="server" Text="Article de substitution" Class="lblInfo"></asp:Label>
-                    <br/>
+                    <br />
+                    <asp:Label ID="lblIncremComd" runat="server" Text="Incrément de commande" Class="lblInfo"></asp:Label>
                     <br/>
                 </div>
-                <div class="col" >
-                    <br/>
+                <div class="col-lg-3" >
                     <asp:TextBox ID="tbxCodeAles" runat="server" Class="tbxInfo">code ales</asp:TextBox>
                     <br/>
                     <asp:TextBox ID="tbxLibArtFr" runat="server" Class="tbxInfo">lib FR</asp:TextBox>     
                     <br/>
                     <br/>
-                    <asp:TextBox ID="tbxFrnsrRang1" runat="server" Class="tbxInfo">fournisseur rang 1</asp:TextBox>
+                    <asp:TextBox ID="tbxQuantiteEcoComd" runat="server" Class="tbxInfo">quantité économique de commande</asp:TextBox>
                     <br/>
-                    <asp:TextBox ID="tbxFrnsrRang2" runat="server" Class="tbxInfo">fournisseur rang 2</asp:TextBox>
+                    <asp:TextBox ID="tbxQuantiteMiniComd" runat="server" Class="tbxInfo">quantité minimum de commande</asp:TextBox>
                     <br />
-                    <asp:TextBox ID="tbxTarif" runat="server" Class="tbxInfo">tarif</asp:TextBox>          
-                    <br />
-                    <asp:TextBox ID="tbxPrixStandDevise" runat="server" Class="tbxInfo">prix Standard/devise</asp:TextBox>
-                    <br />
-                    <asp:TextBox ID="tbxPUMPDevise" runat="server" Class="tbxInfo">pump/devise</asp:TextBox>
+                    <asp:TextBox ID="tbxQuantiteMaxiComd" runat="server" Class="tbxInfo">quantité maximum de commande</asp:TextBox>          
                     <br />
                     <br />
-                    <asp:TextBox ID="tbxCodeAmalg" runat="server" Class="tbxInfo">code amalgamme</asp:TextBox>
+                    <asp:TextBox ID="tbxIncremComd" runat="server" Class="tbxInfo">incrément de commande</asp:TextBox>
                     <br />
                     <br />
-                    <asp:TextBox ID="tbxActicSubstit" runat="server" Class="tbxInfo">Article de substitution</asp:TextBox>
-                    <br />
-                    <br />                   
                 </div>
+                    <%--style ="background-color :#edb93b"--%>
+                <div class="col-lg-3" >
+                    <asp:Label ID="lblAcheteur" runat="server" Text="Acheteur" Class="lblInfo"></asp:Label>
+                    <br />
+                    <br />
+                    <asp:Label ID="lblDelaiFournis" runat="server" Text="Délai fournisseur" Class="lblInfo"></asp:Label>
+                    <br />
+                    <asp:Label ID="lblDelaiTransp" runat="server" Text="Délai transport" Class="lblInfo"></asp:Label>
+                    <br />
+                    <asp:Label ID="lblDelaiControle" runat="server" Text="Delai contrôle" Class="lblInfo"></asp:Label>
+                    <br />
+                    <br />
+                    <asp:Label ID="lblTolerLivrais" runat="server" Text="Tolérance de livraison:" Class="lblInfo"></asp:Label>
+                    <br />
+                    <asp:Label ID="lblPlus" runat="server" Text="Plus" Class="lblInfo"></asp:Label>
+                    <br />
+                    <asp:Label ID="lblMoins" runat="server" Text="Moins" Class="lblInfo"></asp:Label>
+                    <br />
+                    <br />
+                </div>  
+                    <%--style ="background-color :mistyrose"   --%>    
+                <div class="col-lg-3" >     
+                    <asp:TextBox ID="tbxAcheteur" runat="server" Class="tbxInfo">acheteur</asp:TextBox>
+                    <br />
+                    <br />
+                    <asp:TextBox ID="tbxDelaiFournis" runat="server" Class="tbxInfo">délai fournisseur</asp:TextBox>
+                    <br />
+                    <asp:TextBox ID="tbxDelaiTransp" runat="server" Class="tbxInfo">Délai transport</asp:TextBox>
+                    <br />
+                    <asp:TextBox ID="tbxDelaiControle" runat="server" Class="tbxInfo">Delai contrôle</asp:TextBox>        
+                    <br />
+                    <br />
+                    <asp:TextBox ID="tbxTolerLivrais" runat="server" Class="tbxInfo">tolérance de livraison:</asp:TextBox> 
+                    <br />
+                    <asp:TextBox ID="tbxPlus" runat="server" Class="tbxInfo">plus</asp:TextBox> 
+                    <br />
+                    <asp:TextBox ID="tbxMoins" runat="server" Class="tbxInfo">moins</asp:TextBox>
+                    <br/>
+                    <br />
+               </div>
               </div>
                <div class ="col-lg-1">
                </div>
@@ -240,4 +262,3 @@
 </body>
 
 </html>
-

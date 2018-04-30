@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="articleFourniseurPrix.aspx.cs" Inherits="AGI.articleFourniseurPrix" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="articleGamOperat.aspx.cs" Inherits="AGI.articleGamOperat" %>
 
 <!DOCTYPE html>
 
@@ -21,6 +21,9 @@
 </head>
 
 <body>
+<%--<div class ="menu">
+    <asp:Image ID="MainCompanylogo" runat="server" Height="76px" Width="150px" ImageUrl="Images/logo.png"/>
+</div>--%>
 <div id ="topMenu">
 <ul>
      <li class ="menu">
@@ -173,65 +176,124 @@
                     <br />
                 </div>
                 <div class ="row">
-                <div class="col-lg-2" >
-                </div>
-                <div class="col-lg-2" >
+                  <div class="col-lg-2" >
                     <br/>
                     <asp:Label ID="lblCodAles" runat="server" Text="Code Alès" Class="lblInfo"></asp:Label>
                     <br/>
                     <asp:Label ID="lblLibArtFr" runat="server" Text="Libellé Article Français" Class="lblInfo"></asp:Label>
                     <br/>
-                    <br/>
-                    <asp:Label ID="lblFrnsrRang1" runat="server" Text="Fournisseur Rang 1" Class="lblInfo"></asp:Label>
+                    <asp:Label ID="lblIdDigit" runat="server" Text="ID composé 11 digits" Class="lblInfo"></asp:Label>
                     <br/>  
-                    <asp:Label ID="lblFrnsrRang2" runat="server" Text="Fournisseur Rang 2" Class="lblInfo"></asp:Label>
-                    <br/>
-                    <asp:Label ID="lblTarif" runat="server" Text="Tarif/Devise" Class="lblInfo"></asp:Label>
-                    <br/>
-                    <asp:Label ID="lblPrixStandDevise" runat="server" Text="Prix standard/Devise" Class="lblInfo"></asp:Label>
-                    <br/>
-                    <asp:Label ID="lblPUMPDevise" runat="server" Text="PUMP/Devise" Class="lblInfo"></asp:Label>
-                    <br/>
-                    <br/>
-                    <asp:Label ID="lblCodeAmalgamme" runat="server" Text="Code Amalgamme" Class="lblInfo"></asp:Label>
-                    <br/>
-                    <br/>
-                    <asp:Label ID="lblActicSubstit" runat="server" Text="Article de substitution" Class="lblInfo"></asp:Label>
-                    <br/>
+                    <asp:Label ID="lblIdVersion" runat="server" Text="ID Composé version" Class="lblInfo"></asp:Label>
                     <br/>
                 </div>
-                <div class="col" >
+                  <div class="col" >
                     <br/>
                     <asp:TextBox ID="tbxCodeAles" runat="server" Class="tbxInfo">code ales</asp:TextBox>
                     <br/>
                     <asp:TextBox ID="tbxLibArtFr" runat="server" Class="tbxInfo">lib FR</asp:TextBox>     
                     <br/>
+                    <asp:TextBox ID="tbxIdDigit" runat="server" Class="tbxInfo">id composé 11 digits</asp:TextBox>
                     <br/>
-                    <asp:TextBox ID="tbxFrnsrRang1" runat="server" Class="tbxInfo">fournisseur rang 1</asp:TextBox>
-                    <br/>
-                    <asp:TextBox ID="tbxFrnsrRang2" runat="server" Class="tbxInfo">fournisseur rang 2</asp:TextBox>
+                    <asp:TextBox ID="tbxIdVersion" runat="server" Class="tbxInfo">id Composé version</asp:TextBox>
                     <br />
-                    <asp:TextBox ID="tbxTarif" runat="server" Class="tbxInfo">tarif</asp:TextBox>          
-                    <br />
-                    <asp:TextBox ID="tbxPrixStandDevise" runat="server" Class="tbxInfo">prix Standard/devise</asp:TextBox>
-                    <br />
-                    <asp:TextBox ID="tbxPUMPDevise" runat="server" Class="tbxInfo">pump/devise</asp:TextBox>
-                    <br />
-                    <br />
-                    <asp:TextBox ID="tbxCodeAmalg" runat="server" Class="tbxInfo">code amalgamme</asp:TextBox>
-                    <br />
-                    <br />
-                    <asp:TextBox ID="tbxActicSubstit" runat="server" Class="tbxInfo">Article de substitution</asp:TextBox>
-                    <br />
-                    <br />                   
                 </div>
-              </div>
+                </div>
+                <div class ="row">
+                   <%--style ="background-color :#edb93b"--%>
+                  <div class="col-lg-2" >
+                    <br />
+                    <asp:Label ID="LblGamPrincip" runat="server" Text="Gamme principale" Class="lblInfo" ForeColor ="#ff3399" Font-Underline ="true"></asp:Label>
+                    <br />
+                  </div>
+                  <div class="col-lg-4" >
+                  </div>
+                  <div class="col-lg-2" >
+                    <br />
+                    <asp:Label ID="LblGamAltern" runat="server" Text="Gamme Alternative" Class="lblInfo" ForeColor ="#ff3399" Font-Underline ="true"></asp:Label>
+                    <br />
+                  </div>
+                </div>
+                <div class ="row">
+                   <%--style ="background-color :#edb93b"--%>
+                  <div class="col-lg-2" >
+                    <br />
+                    <asp:Label ID="lblIlot" runat="server" Text="Ilot" Class="lblInfo"></asp:Label>
+                    <br />
+                    <asp:Label ID="lblIndustrie" runat="server" Text="Industrie" Class="lblInfo"></asp:Label>
+                    <br />
+                    <asp:Label ID="lblMachine" runat="server" Text="Machine" Class="lblInfo"></asp:Label>
+                    <br />
+                    <br />
+                    <asp:Label ID="lblCadence" runat="server" Text="Cadence" Class="lblInfo"></asp:Label>
+                    <br />
+                    <asp:Label ID="lblTempsMachine" runat="server" Text="Temps machine" Class="lblInfo"></asp:Label>
+                    <br />
+                    <asp:Label ID="lblTempsMaisOeuvre" runat="server" Text="Temps mains d'oeuvre" Class="lblInfo"></asp:Label>
+                    <br />
+                    <br />
+                </div>  
+                    <%--style ="background-color :mistyrose"   --%>    
+                  <div class="col" >
+                    <br />        
+                    <asp:TextBox ID="tbxIlot" runat="server" Class="tbxInfo">ilot</asp:TextBox>
+                    <br />
+                    <asp:TextBox ID="tbxIndustrie" runat="server" Class="tbxInfo">industrie</asp:TextBox>
+                    <br />
+                    <asp:TextBox ID="tbxMachine" runat="server" Class="tbxInfo">machine</asp:TextBox>
+                    <br />
+                    <br />
+                    <asp:TextBox ID="tbxCadence" runat="server" Class="tbxInfo">cadence</asp:TextBox>        
+                    <br />
+                    <asp:TextBox ID="tbxTempsMachine" runat="server" Class="tbxInfo">tempsMachine</asp:TextBox> 
+                    <br />
+                    <asp:TextBox ID="tbxTempsMaisOeuvre" runat="server" Class="tbxInfo">tempsMaisOeuvre</asp:TextBox> 
+                    <br />
+                    <br />
+                 </div>
+                                      <div class="col-lg-2" >
+                    <br />
+                    <asp:Label ID="Label1" runat="server" Text="Ilot" Class="lblInfo"></asp:Label>
+                    <br />
+                    <asp:Label ID="Label2" runat="server" Text="Industrie" Class="lblInfo"></asp:Label>
+                    <br />
+                    <asp:Label ID="Label3" runat="server" Text="Machine" Class="lblInfo"></asp:Label>
+                    <br />
+                    <br />
+                    <asp:Label ID="Label4" runat="server" Text="Cadence" Class="lblInfo"></asp:Label>
+                    <br />
+                    <asp:Label ID="Label5" runat="server" Text="Temps machine" Class="lblInfo"></asp:Label>
+                    <br />
+                    <asp:Label ID="Label6" runat="server" Text="Temps mains d'oeuvre" Class="lblInfo"></asp:Label>
+                    <br />
+                    <br />
+                </div>  
+                    <%--style ="background-color :mistyrose"   --%>    
+                  <div class="col" >
+                    <br />        
+                    <asp:TextBox ID="TextBox1" runat="server" Class="tbxInfo">ilot</asp:TextBox>
+                    <br />
+                    <asp:TextBox ID="TextBox2" runat="server" Class="tbxInfo">industrie</asp:TextBox>
+                    <br />
+                    <asp:TextBox ID="TextBox3" runat="server" Class="tbxInfo">machine</asp:TextBox>
+                    <br />
+                    <br />
+                    <asp:TextBox ID="TextBox4" runat="server" Class="tbxInfo">cadence</asp:TextBox>        
+                    <br />
+                    <asp:TextBox ID="TextBox5" runat="server" Class="tbxInfo">tempsMachine</asp:TextBox> 
+                    <br />
+                    <asp:TextBox ID="TextBox6" runat="server" Class="tbxInfo">tempsMaisOeuvre</asp:TextBox> 
+                    <br />
+                    <br />
+                 </div>
+               </div>
+               </div>
                <div class ="col-lg-1">
                </div>
             </div>          
-        </div>
-    </div>
+        </div>  
     </form>
+    </div>
 </div>
 
 <div class="footer">

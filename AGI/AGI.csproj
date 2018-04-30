@@ -211,6 +211,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="articleFourniseurPrix.aspx" />
+    <Content Include="articleGamOperat.aspx" />
+    <Content Include="articleInfoCommande.aspx" />
     <Content Include="articleInfoTypeCompo.aspx" />
     <Content Include="articleNomen.aspx" />
     <Content Include="articleReferencePays.aspx" />
@@ -355,6 +357,20 @@
     </Compile>
     <Compile Include="articleFourniseurPrix.aspx.designer.cs">
       <DependentUpon>articleFourniseurPrix.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="articleGamOperat.aspx.cs">
+      <DependentUpon>articleGamOperat.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="articleGamOperat.aspx.designer.cs">
+      <DependentUpon>articleGamOperat.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="articleInfoCommande.aspx.cs">
+      <DependentUpon>articleInfoCommande.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="articleInfoCommande.aspx.designer.cs">
+      <DependentUpon>articleInfoCommande.aspx</DependentUpon>
     </Compile>
     <Compile Include="articleInfoTypeCompo.aspx.cs">
       <DependentUpon>articleInfoTypeCompo.aspx</DependentUpon>
