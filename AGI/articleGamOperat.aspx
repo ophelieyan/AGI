@@ -163,11 +163,10 @@
             <div class="col-lg-9">
                 <div>
                     <ul id="tabnav">
-                       <li class="active"><a href="gestionArticlesInfo">Infos Générales</a></li>
-                       <li><a href="infoLogi">Données Logistiques</a></li>
-                       <li><a href="infoLegale">Données Légales</a></li>
-                       <li><a href="#">Référencement/pays</a></li>
-                       <li><a href="#">Substitution/Remplacement</a></li>
+                       <li><a href="donnTechInfoArtic">Info Article</a></li>
+                       <li><a href="articleNomen">Nomenclatures</a></li>
+                       <li><a href="articNomenInvers">Nomenclatures Inverses</a></li>
+                       <li class="active"><a href="articleGamOperat">Gamme Opératoire</a></li>
                     </ul>
                 </div>
                 <br/>

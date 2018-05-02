@@ -150,11 +150,10 @@
             <div class="col-lg-7">
                 <div>
                     <ul id="tabnav">
-                       <li class="active"><a href="gestionArticlesInfo">Infos Générales</a></li>
-                       <li><a href="infoLogi">Données Logistiques</a></li>
-                       <li><a href="#">Données Légales</a></li>
-                       <li><a href="#">Référencement/pays</a></li>
-                       <li><a href="#">Substitution/Remplacement</a></li>
+                       <li><a href="donnTechInfoArtic">Info Article</a></li>
+                       <li><a href="articleNomen">Nomenclatures</a></li>
+                       <li class="active"><a href="articNomenInvers">Nomenclatures Inverses</a></li>
+                       <li><a href="articleGamOperat">Gamme Opératoire</a></li>
                     </ul>
                 </div>
                 <br />
