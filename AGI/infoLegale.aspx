@@ -123,20 +123,20 @@
                          ForeColor ="black" style="margin-top:0px;font-family :Arial, Helvetica, sans-serif;" >
                         <HoverNodeStyle ForeColor="#555"  BackColor ="#edb93b"/>
                         <Nodes>
-                            <asp:TreeNode Text="Fiche Article" Value="Fiche Article">
+                            <asp:TreeNode Text="Fiche Article" Value="Fiche Article" NavigateUrl="~/gestionArticlesInfo.aspx">
                                 <asp:TreeNode Text="Infos Générales" Value="Infos Générales" NavigateUrl="~/gestionArticlesInfo.aspx"></asp:TreeNode>
                                 <asp:TreeNode Text="Infos Logistiques" Value="Infos Logistiques" NavigateUrl ="~/infoLogi.aspx"></asp:TreeNode>
                                 <asp:TreeNode Text="Infos Légales" Value="Infos Légales" NavigateUrl="~/infoLegale.aspx"></asp:TreeNode>
                                 <asp:TreeNode Text="Référencement/Pays" Value="Référencement/Pays" NavigateUrl="~/articleReferencePays.aspx"></asp:TreeNode>
                                 <asp:TreeNode Text="Substitution/Remplacement" Value="Substitution/Remplacement" NavigateUrl="~/articSubstiRemplace.aspx"></asp:TreeNode>
                             </asp:TreeNode>
-                            <asp:TreeNode Text="Données Techniques" Value="Données Techniques">
+                            <asp:TreeNode Text="Données Techniques" Value="Données Techniques" NavigateUrl="~/donnTechInfoArtic.aspx">
                                 <asp:TreeNode Text="Infos Article" Value="Infos Article" NavigateUrl ="~/donnTechInfoArtic.aspx"></asp:TreeNode>
                                 <asp:TreeNode Text="Nomenclature" Value="Nomenclature" NavigateUrl ="~/articleNomen.aspx"></asp:TreeNode>
                                 <asp:TreeNode Text="Nomenclatures Inverses" Value="Nomenclatures Inverses" NavigateUrl="~/articNomenInvers.aspx"></asp:TreeNode>
                                 <asp:TreeNode Text="Gamme Opératoire" Value="Gamme Opératoire" NavigateUrl="articleGamOperat.aspx"></asp:TreeNode>
                             </asp:TreeNode>
-                            <asp:TreeNode Text="Données Achats" Value="Données Achats">
+                            <asp:TreeNode Text="Données Achats" Value="Données Achats" NavigateUrl ="~/articleFourniseurPrix.aspx">
                                 <asp:TreeNode Text="Infos Articles" Value="Infos Articles" NavigateUrl ="~/articleFourniseurPrix.aspx"></asp:TreeNode>
                                 <asp:TreeNode Text="Infos Commandes" Value="Infos Commandes" NavigateUrl ="~/articleInfoCommande.aspx"></asp:TreeNode>
                             </asp:TreeNode>
