@@ -217,6 +217,7 @@
     <Content Include="articleNomen.aspx" />
     <Content Include="articleReferencePays.aspx" />
     <Content Include="articNomenInvers.aspx" />
+    <Content Include="articSubstiRemplace.aspx" />
     <Content Include="Css\articleInfo - Copier.css" />
     <Content Include="Css\articleInfo.css" />
     <Content Include="Css\fActivity.css" />
@@ -399,6 +400,13 @@
     </Compile>
     <Compile Include="articNomenInvers.aspx.designer.cs">
       <DependentUpon>articNomenInvers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="articSubstiRemplace.aspx.cs">
+      <DependentUpon>articSubstiRemplace.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="articSubstiRemplace.aspx.designer.cs">
+      <DependentUpon>articSubstiRemplace.aspx</DependentUpon>
     </Compile>
     <Compile Include="donnTechInfoArtic.aspx.cs">
       <DependentUpon>donnTechInfoArtic.aspx</DependentUpon>

@@ -137,11 +137,11 @@
                         <HoverNodeStyle ForeColor="#555"  BackColor ="#edb93b"/>
                         <Nodes>
                             <asp:TreeNode Text="Fiche Article" Value="Fiche Article">
-                                <asp:TreeNode Text="Infos Générales" Value="Infos Générales"></asp:TreeNode>
-                                <asp:TreeNode Text="Données Logistiques" Value="Données Logistiques"></asp:TreeNode>
-                                <asp:TreeNode Text="Données Légales" Value="Données Légales"></asp:TreeNode>
-                                <asp:TreeNode Text="Référencement/Pays" Value="Référencement/Pays"></asp:TreeNode>
-                                <asp:TreeNode Text="Substitution/Remplacement" Value="Substitution/Remplacement"></asp:TreeNode>
+                                <asp:TreeNode Text="Infos Générales" Value="Infos Générales" NavigateUrl="~/gestionArticlesInfo.aspx"></asp:TreeNode>
+                                <asp:TreeNode Text="Infos Logistiques" Value="Infos Logistiques" NavigateUrl="~/infoLogi.aspx"></asp:TreeNode>
+                                <asp:TreeNode Text="Infos Légales" Value="Infos Légales" NavigateUrl="~/infoLegale.aspx"></asp:TreeNode>
+                                <asp:TreeNode Text="Référencement/Pays" Value="Référencement/Pays" NavigateUrl="~/articleReferencePays.aspx"></asp:TreeNode>
+                                <asp:TreeNode Text="Substitution/Remplacement" Value="Substitution/Remplacement" NavigateUrl="~/articSubstiRemplace.aspx"></asp:TreeNode>
                             </asp:TreeNode>
                             <asp:TreeNode Text="Données Techniques" Value="Données Techniques">
                                 <asp:TreeNode Text="Infos Article" Value="Infos Article" NavigateUrl ="~/donnTechInfoArtic.aspx" ></asp:TreeNode>

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="articNomenInvers.aspx.cs" Inherits="AGI.articNomenInvers" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="articSubstiRemplace.aspx.cs" Inherits="AGI.articSubstiRemplace" %>
 
 <!DOCTYPE html>
 
@@ -147,29 +147,32 @@
                     </asp:TreeView>   
                  </div>
             </div>
-            <div class="col-lg-7">
+            <div class="col-lg-9">
                 <div>
                     <ul id="tabnav">
-                       <li class="active"><a href="gestionArticlesInfo">Infos Générales</a></li>
-                       <li><a href="infoLogi">Données Logistiques</a></li>
-                       <li><a href="#">Données Légales</a></li>
-                       <li><a href="#">Référencement/pays</a></li>
-                       <li><a href="#">Substitution/Remplacement</a></li>
+                       <li><a href="gestionArticlesInfo">Infos Générales</a></li>
+                       <li><a href="infoLogi">Infos Logistiques</a></li>
+                       <li><a href="infoLegale">Infos Légales</a></li>
+                       <li><a href="articleReferencePays">Référencement/pays</a></li>
+                       <li class="active"><a href="articSubstiRemplace">Substitution/Remplacement</a></li>
                     </ul>
                 </div>
                 <br />
                 <div class="row"> 
-                    <input type="text" placeholder="Recherche" id="searchInput" onkeyup ="filterAll();" autocomplete ="on" style="background-image:url(images/recherche.png);background-position:right;background-repeat:no-repeat;padding-left:2px;width:300px;height:30px; border-radius:6px;margin-left:2px"/> 
+                    <a>Recherche Article</a> 
+                    <input type="text" placeholder="Recherche" id="searchArticle" onkeyup ="filterArticle();" autocomplete ="on" style="background-image:url(images/recherche.png);background-position:right;background-repeat:no-repeat;padding-left:2px;width:300px;height:30px; border-radius:6px;margin-left:2px"/> 
+                    <br />
+                    <a>Recherche Pays</a>
+                    <input type="text" placeholder="Recherche" id="searchPays" onkeyup ="filterPays();" autocomplete ="on" style="background-image:url(images/recherche.png);background-position:right;background-repeat:no-repeat;padding-left:2px;width:300px;height:30px; border-radius:6px;margin-left:2px"/> 
                     <br />
                 </div>
+                <br />
                 <div class ="row">
                 <div class="col-lg-2">
                     <br/>
                     <asp:Label ID="lblCodAles" runat="server" Text="Code Alès" Class="lblInfo"></asp:Label>
                     <br/>
                     <asp:Label ID="lblLibArtFr" runat="server" Text="Libellé Article Français" Class="lblInfo"></asp:Label>
-                    <br/>
-                    <asp:Label ID="lblNomen" runat="server" Text="Nomenclature" Class="lblInfo"></asp:Label>
                     <br/>
                 </div>
                 <div class="col">
@@ -178,42 +181,51 @@
                     <br/>
                     <asp:TextBox ID="tbxLibArtFr" runat="server" Class="tbxInfo">lib FR</asp:TextBox>     
                     <br/>
-                    <asp:TextBox ID="tbxNomen" runat="server" Class="tbxInfo">nomenclature</asp:TextBox>     
-                    <br/>
                 </div>
                 <div class="col-lg-2">
                     <br />
-                    <asp:Label ID="lblDateDebut" runat="server" Text="Date début" Class="lblInfo"></asp:Label>
+                    <asp:Label ID="lblLanguePays" runat="server" Text="Langue Pays" Class="lblInfo"></asp:Label>
                     <br />
-                    <asp:Label ID="lblDateFin" runat="server" Text="Date fin" Class="lblInfo"></asp:Label>
+                    <asp:Label ID="lblDevisePays" runat="server" Text="Devise Pays" Class="lblInfo"></asp:Label>
+                    <br />
+                    <asp:Label ID="lblTva" runat="server" Text="TVA" Class="lblInfo"></asp:Label>
                     <br />
                 </div>         
                 <div class="col">
                     <br />        
-                    <asp:TextBox ID="tbxDateDebut" runat="server" Class="tbxInfo">date debut</asp:TextBox>
+                    <asp:TextBox ID="tbxLanguePays" runat="server" Class="tbxInfo">languePays</asp:TextBox>
                     <br />
-                    <asp:TextBox ID="tbxDateFin" runat="server" Class="tbxInfo">date fin</asp:TextBox>
+                    <asp:TextBox ID="tbxevisePays" runat="server" Class="tbxInfo">devisePays</asp:TextBox>
+                    <br />
+                    <asp:TextBox ID="tbxTva" runat="server" Class="tbxInfo">TVA</asp:TextBox>
                     <br />
                </div>
               </div>
                 <br />
                 <div class ="row">
                     <div>
-                     <table id="tblHeaderNomenInvers" class ="gvNomenInvers" border="1" style ="font-size :xx-small">
+                     <table id="tblHeaderArticle" class ="gvInfoArticle" border="1" style ="font-size :xx-small">
                          <tbody>
                              <tr>
-                                 <th style="text-align:center; width:200px; color:white; background-color:#edb93b">Code Alès composé</th>
-                                 <th style="text-align:center; width:150px; color:white; background-color:#edb93b">ID composant</th>
-                                 <th style="text-align:center; width:200px; color:white; background-color:#edb93b">ID compose version</th>
-                                 <th style="text-align:center; width:200px; color:white; background-color:#edb93b">Code Alès compsant</th>
-                                 <th style="text-align:center; width:150px; color:white; background-color:#edb93b">Type Article</th>
-                                 <th style="text-align:center; width:200px; color:white; background-color:#edb93b">Qté composant pour 1 unité composé</th>
+                                 <th style="text-align:center; width:220px; color:white; background-color:#edb93b;">Article ALES</th>
+                                 <th style="text-align:center; width:150px; color:white; background-color:#edb93b">Libelle FR</th>
+                                 <th style="text-align:center; width:200px; color:white; background-color:#edb93b">Libelle pays</th>
+                                 <th style="text-align:center; width:150px; color:white; background-color:#edb93b">Statut</th>
+                                 <th style="text-align:center; width:400px; color:white; background-color:#edb93b">Date début commercialisation</th>
+                                 <th style="text-align:center; width:350px; color:white; background-color:#edb93b">Date fin commercialisation</th>
+                                 <th style="text-align:center; width:400px; color:white; background-color:#edb93b">Code Article de substitution</th>
+                                 <th style="text-align:center; width:100px; color:white; background-color:#edb93b">Libellé</th>
+                                 <th style="text-align:center; width:200px; color:white; background-color:#edb93b">Date blackout</th>
+                                 <th style="text-align:center; width:300px; color:white; background-color:#edb93b">Début substitiution</th>
+                                 <th style="text-align:center; width:500px; color:white; background-color:#edb93b">Code Article de remplacement</th>
+                                 <th style="text-align:center; width:400px; color:white; background-color:#edb93b">Date début remplacement</th>
+                                 <th style="text-align:center; width:300px; color:white; background-color:#edb93b">Date fin remplacement</th>
                              </tr>
                          </tbody>
                      </table>
-                 </div>
-                    <div style="overflow-y:scroll; overflow-x:hidden; width:1000px ; height:330px" >
-                      <asp:GridView ID="gvArtiNomen" runat="server" AutoGenerateColumns="False" CellPadding="4" ShowHeader="false" 
+                    </div>
+                    <div style="overflow-y:scroll; overflow-x:hidden; width:1400px ; height:300px" >
+                      <asp:GridView ID="imsL1" runat="server" AutoGenerateColumns="False" CellPadding="4" ShowHeader="false" 
                             HeaderStyle-Font-Underline="false" Font-Names="Arial, Helvetica, sans-serif"
                             Font-Size ="X-Small" ForeColor="#333333" GridLines="None"> 
                             <RowStyle BackColor="White"  ForeColor="#333333" /> 
@@ -243,10 +255,63 @@
                             <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
                  </asp:GridView> 
                     </div> 
+                 
+                    <div>
+                     <table id="tblHeaderPays" class ="gvInfoPays" border="1" style ="font-size :xx-small">
+                         <tbody>
+                             <tr>
+                                 <th style="text-align:center; width:220px; color:white; background-color:#edb93b;">Pays</th>
+                                 <th style="text-align:center; width:200px; color:white; background-color:#edb93b">Libellé article pays</th>
+                                 <th style="text-align:center; width:150px; color:white; background-color:#edb93b">Langue pays</th>
+                                 <th style="text-align:center; width:200px; color:white; background-color:#edb93b">Devise pays</th>
+                                 <th style="text-align:center; width:100px; color:white; background-color:#edb93b">Statut</th>
+                                 <th style="text-align:center; width:80px; color:white; background-color:#edb93b">TVA</th>
+                                 <th style="text-align:center; width:300px; color:white; background-color:#edb93b">Début commercialisation</th>
+                                 <th style="text-align:center; width:200px; color:white; background-color:#edb93b">Fin commercialisation</th>
+                                 <th style="text-align:center; width:200px; color:white; background-color:#edb93b">Code article de substitution</th>
+                                 <th style="text-align:center; width:100px; color:white; background-color:#edb93b">Libellé</th>
+                                 <th style="text-align:center; width:100px; color:white; background-color:#edb93b">Date blackout</th>
+                                 <th style="text-align:center; width:200px; color:white; background-color:#edb93b">Début substitution</th>
+                                 <th style="text-align:center; width:300px; color:white; background-color:#edb93b">Code article de remplacement</th>
+                                 <th style="text-align:center; width:400px; color:white; background-color:#edb93b">Date début de remplacement</th>
+                                 <th style="text-align:center; width:300px; color:white; background-color:#edb93b">Date fin de remplacement</th>
+                             </tr>
+                         </tbody>
+                     </table>
+                 </div>
+                 <div style="overflow-y:scroll; overflow-x:hidden; width:1400px ; height:300px" >
+                      <asp:GridView ID="grvPays" runat="server" AutoGenerateColumns="False" CellPadding="4" ShowHeader="false" 
+                            HeaderStyle-Font-Underline="false" Font-Names="Arial, Helvetica, sans-serif"
+                            Font-Size ="X-Small" ForeColor="#333333" GridLines="None"> 
+                            <RowStyle BackColor="White"  ForeColor="#333333" /> 
+                                <%--<AlternatingRowStyle BackColor="White" ForeColor="#284775" />--%>
+                                <Columns> 
+                                    <asp:TemplateField > 
+                                        <ItemTemplate> 
+                                            <asp:Label ID="lblIdImsL1" runat="server" Text='<%# Bind("ID_IMS_Level_1") %>' Width ="20px" style="display :none"></asp:Label> 
+                                        </ItemTemplate> 
+                                    </asp:TemplateField> 
+                                    <asp:TemplateField > 
+                                        <EditItemTemplate> 
+                                            <asp:TextBox ID="tbxLibImsL1Fr" runat="server" Text='<%# Bind("Lib_IMS_Level_1_FR") %>'  Width ="235px"></asp:TextBox> 
+                                        </EditItemTemplate> 
+                                        <ItemTemplate> 
+                                            <asp:Label ID="lblLibImsL1Fr" runat="server" Text='<%# Bind("Lib_IMS_Level_1_FR") %>' Width ="235px"></asp:Label> 
+                                        </ItemTemplate> 
+                                    </asp:TemplateField> 
+                                </Columns> 
+                                <EditRowStyle BackColor="#999999" />
+                                <FooterStyle BackColor="#edb93b" ForeColor="White" Font-Bold="True" /> 
+                                <PagerStyle BackColor="#edb93b" ForeColor="White" HorizontalAlign="Center" /> 
+                                <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+                            <SortedAscendingCellStyle BackColor="#E9E7E2" />
+                            <SortedAscendingHeaderStyle BackColor="#506C8C" />
+                            <SortedDescendingCellStyle BackColor="#FFFDF8" />
+                            <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+                         </asp:GridView> 
+                    </div> 
                 </div>
-            </div> 
-            <div class="col-lg-2">
-            </div>         
+                </div> 
         </div>
     </div>
     </form>
@@ -258,5 +323,3 @@
 </body>
 
 </html>
-
-

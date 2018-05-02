@@ -124,11 +124,11 @@
                         <HoverNodeStyle ForeColor="#555"  BackColor ="#edb93b"/>
                         <Nodes>
                             <asp:TreeNode Text="Fiche Article" Value="Fiche Article">
-                                <asp:TreeNode Text="Infos Générales" Value="Infos Générales"></asp:TreeNode>
-                                <asp:TreeNode Text="Données Logistiques" Value="Données Logistiques"></asp:TreeNode>
-                                <asp:TreeNode Text="Données Légales" Value="Données Légales"></asp:TreeNode>
-                                <asp:TreeNode Text="Référencement/Pays" Value="Référencement/Pays"></asp:TreeNode>
-                                <asp:TreeNode Text="Substitution/Remplacement" Value="Substitution/Remplacement"></asp:TreeNode>
+                                <asp:TreeNode Text="Infos Générales" Value="Infos Générales" NavigateUrl="~/gestionArticlesInfo.aspx"></asp:TreeNode>
+                                <asp:TreeNode Text="Infos Logistiques" Value="Infos Logistiques" NavigateUrl ="~/infoLogi.aspx"></asp:TreeNode>
+                                <asp:TreeNode Text="Infos Légales" Value="Infos Légales" NavigateUrl="~/infoLegale.aspx"></asp:TreeNode>
+                                <asp:TreeNode Text="Référencement/Pays" Value="Référencement/Pays" NavigateUrl="~/articleReferencePays.aspx"></asp:TreeNode>
+                                <asp:TreeNode Text="Substitution/Remplacement" Value="Substitution/Remplacement" NavigateUrl="~/articSubstiRemplace.aspx"></asp:TreeNode>
                             </asp:TreeNode>
                             <asp:TreeNode Text="Données Techniques" Value="Données Techniques">
                                 <asp:TreeNode Text="Infos Article" Value="Infos Article" NavigateUrl ="~/donnTechInfoArtic.aspx"></asp:TreeNode>
@@ -148,122 +148,125 @@
                  </div>
             </div>
             <div class="col-lg-9">
+                <div>
+                    <ul id="tabnav">
+                       <li><a href="gestionArticlesInfo">Infos Générales</a></li>
+                       <li><a href="infoLogi">Infos Logistiques</a></li>
+                       <li class="active"><a href="infoLegale">Infos Légales</a></li>
+                       <li><a href="articleReferencePays">Référencement/pays</a></li>
+                       <li><a href="articSubstiRemplace">Substitution/Remplacement</a></li>
+                    </ul>
+                </div>
+                <br />
                 <div class="row"> 
                     <input type="text" placeholder="Recherche" id="searchInput" onkeyup ="filterAll();" autocomplete ="on" style="background-image:url(images/recherche.png);background-position:right;background-repeat:no-repeat;padding-left:2px;width:300px;height:30px; border-radius:6px;margin-left:2px"/> 
                     <br />
                 </div>
                 <br />
-                <div>
-                    <ul id="tabnav">
-                       <li class="active"><a href="gestionArticlesInfo">Infos Générales</a></li>
-                       <li><a href="infoLogi">Données Logistiques</a></li>
-                       <li><a href="infoLegale">Données Légales</a></li>
-                       <li><a href="#">Référencement/pays</a></li>
-                       <li><a href="#">Substitution/Remplacement</a></li>
-                    </ul>
-                </div>
-                <div class ="row">
-                <div class="col-lg-2" style ="background-color :#edb93b">
-                    <br/>
-                    <asp:Label ID="lblCodAles" runat="server" Text="Code Alès" Class="lblInfo"></asp:Label>
-                    <br/>
-                    <asp:Label ID="lblLibArtFr" runat="server" Text="Libellé Article Français" Class="lblInfo"></asp:Label>
-                    <br/>  
-                    <br/>
-                    <asp:Label ID="lblCodeTaric" runat="server" Text="Code Taric" Class="lblInfo"></asp:Label>
-                    <br/>
-                    <asp:Label ID="lblValDouan" runat="server" Text="Valeur Douanière" Class="lblInfo"></asp:Label>
-                    <br/>
-                    <asp:Label ID="lblAlcool" runat="server" Text="% Alcool" Class="lblInfo"></asp:Label>
-                    <br/>
-                    <asp:Label ID="lblGaz" runat="server" Text="% Gaz" Class="lblInfo"></asp:Label>
-                    <br/>
-                    <br/>
-                    <asp:Label ID="lblClasLqdInflamm" runat="server" Text="Classe Liquides Inflammables" Class="lblInfo"></asp:Label>
-                    <br/>
-                    <asp:Label ID="lblPointEclair" runat="server" Text="Point Eclair" Class="lblInfo"></asp:Label>
-                    <br />
-                    <asp:Label ID="lblClasMatièDange" runat="server" Text="Classe Matières Dangereuses" Class="lblInfo"></asp:Label>
-                    <br />
-                    <br/>
-                    <br/>
-                </div>
-                <div class="col-lg-3" style ="background-color :mistyrose">
-                    <br/>
-                    <asp:TextBox ID="tbxCodeAles" runat="server" Class="tbxInfo">code ales</asp:TextBox>
-                    <br/>
-                    <asp:TextBox ID="tbxLibArtFr" runat="server" Class="tbxInfo">lib FR</asp:TextBox>     
-                    <br/>
-                    <br/>
-                    <asp:TextBox ID="tbxCodeTaric" runat="server" Class="tbxInfo">code Taric</asp:TextBox>
-                    <br/>
-                    <asp:TextBox ID="tbxValDouan" runat="server" Class="tbxInfo">Valeur Douanière</asp:TextBox>
-                    <br/>
-                    <asp:TextBox ID="tbxAlcool" runat="server" Class="tbxInfo">alcool</asp:TextBox>
-                    <br />
-                    <asp:TextBox ID="tbxGaz" runat="server" Class="tbxInfo">gaz</asp:TextBox>          
-                    <br />
-                    <br/>
-                    <asp:TextBox ID="tbxClasLqdInflamm" runat="server" Class="tbxInfo">classe liquides inflammables</asp:TextBox>
-                    <br />
-                    <asp:TextBox ID="tbxPointEclair" runat="server" Class="tbxInfo">point eclair</asp:TextBox>
-                    <br />
-                    <asp:TextBox ID="tbxClasMatièDange" runat="server" Class="tbxInfo">classeMatièresDangereuses</asp:TextBox>
-                    <br />
-                    <br />
-                </div>
-                <div class="col-lg-2" style ="background-color :#edb93b">
-                    <br />
-                    <asp:Label ID="lblCodeUn" runat="server" Text="Code UN" Class="lblInfo"></asp:Label>
-                    <br />
-                    <asp:Label ID="lblCodeIcpe" runat="server" Text="Code ICPE" Class="lblInfo"></asp:Label>
-                    <br />
-                    <asp:Label ID="lblCodeCed" runat="server" Text="Code CED" Class="lblInfo"></asp:Label>
-                    <br />
-                    <br />
-                    <asp:Label ID="lblPaysOrig" runat="server" Text="Pays Origines" Class="lblInfo"></asp:Label>
-                    <br />
-                    <asp:Label ID="lblLangFac" runat="server" Text="Langues on pack facing" Class="lblInfo"></asp:Label>
-                    <br />
-                    <asp:Label ID="lblLangAut" runat="server" Text="Langues on pack autres" Class="lblInfo"></asp:Label>
-                    <br />
-                    <br />
-                    <asp:Label ID="lblPao" runat="server" Text="PAO" Class="lblInfo"></asp:Label>
-                    <br />
-                    <asp:Label ID="lblDlc" runat="server" Text="DLC" Class="lblInfo"></asp:Label>
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                </div>         
-                <div class="col-lg-3" style ="background-color :mistyrose">
-                    <br />        
-                    <asp:TextBox ID="tbxCodeUn" runat="server" Class="tbxInfo">codeUn</asp:TextBox>
-                    <br />
-                    <asp:TextBox ID="tbxCodeIcpe" runat="server" Class="tbxInfo">codeICPE</asp:TextBox>        
-                    <br />
-                    <asp:TextBox ID="tbxCodeCed" runat="server" Class="tbxInfo">codeCED</asp:TextBox> 
-                    <br />
-                    <br />
-                    <asp:TextBox ID="tbxPaysOrig" runat="server" Class="tbxInfo">paysOrigine</asp:TextBox>
-                    <br />
-                    <asp:TextBox ID="tbxLangFac" runat="server" Class="tbxInfo">langueOnPackFacing</asp:TextBox>
-                    <br />
-                    <asp:TextBox ID="tbxLangAut" runat="server" Class="tbxInfo">languesOnPackAutres</asp:TextBox>
-                    <br />
-                    <br />
-                    <asp:TextBox ID="tbxPao" runat="server" Class="tbxInfo">pao</asp:TextBox>        
-                    <br />                       
-                    <asp:TextBox ID="tbxDlc" runat="server" Class="tbxInfo">dlc</asp:TextBox> 
-                    <br />
-                    <br />
-                    <br />
-               </div>
-              </div>
-               <div class ="col-lg-1">
+                <div class="row">
+                    <div class="col-lg-2" style ="background-color :#edb93b">
+                        <br/>
+                        <asp:Label ID="lblCodAles" runat="server" Text="Code Alès" Class="lblInfo"></asp:Label>
+                        <br/>
+                        <asp:Label ID="lblLibArtFr" runat="server" Text="Libellé Article Français" Class="lblInfo"></asp:Label>
+                        <br/>  
+                        <br/>
+                        <asp:Label ID="lblCodeTaric" runat="server" Text="Code Taric" Class="lblInfo"></asp:Label>
+                        <br/>
+                        <asp:Label ID="lblValDouan" runat="server" Text="Valeur Douanière" Class="lblInfo"></asp:Label>
+                        <br/>
+                        <asp:Label ID="lblAlcool" runat="server" Text="% Alcool" Class="lblInfo"></asp:Label>
+                        <br/>
+                        <asp:Label ID="lblGaz" runat="server" Text="% Gaz" Class="lblInfo"></asp:Label>
+                        <br/>
+                        <br/>
+                        <asp:Label ID="lblClasLqdInflamm" runat="server" Text="Classe Liquides Inflammables" Class="lblInfo"></asp:Label>
+                        <br/>
+                        <asp:Label ID="lblPointEclair" runat="server" Text="Point Eclair" Class="lblInfo"></asp:Label>
+                        <br />
+                        <asp:Label ID="lblClasMatièDange" runat="server" Text="Classe Matières Dangereuses" Class="lblInfo"></asp:Label>
+                        <br />
+                        <br/>
+                        <br/>
+                    </div>
+                    <div class="col-lg-3" style ="background-color :mistyrose">
+                        <br/>
+                        <asp:TextBox ID="tbxCodeAles" runat="server" Class="tbxInfo">code ales</asp:TextBox>
+                        <br/>
+                        <asp:TextBox ID="tbxLibArtFr" runat="server" Class="tbxInfo">lib FR</asp:TextBox>     
+                        <br/>
+                        <br/>
+                        <asp:TextBox ID="tbxCodeTaric" runat="server" Class="tbxInfo">code Taric</asp:TextBox>
+                        <br/>
+                        <asp:TextBox ID="tbxValDouan" runat="server" Class="tbxInfo">Valeur Douanière</asp:TextBox>
+                        <br/>
+                        <asp:TextBox ID="tbxAlcool" runat="server" Class="tbxInfo">alcool</asp:TextBox>
+                        <br />
+                        <asp:TextBox ID="tbxGaz" runat="server" Class="tbxInfo">gaz</asp:TextBox>          
+                        <br />
+                        <br/>
+                        <asp:TextBox ID="tbxClasLqdInflamm" runat="server" Class="tbxInfo">classe liquides inflammables</asp:TextBox>
+                        <br />
+                        <asp:TextBox ID="tbxPointEclair" runat="server" Class="tbxInfo">point eclair</asp:TextBox>
+                        <br />
+                        <asp:TextBox ID="tbxClasMatièDange" runat="server" Class="tbxInfo">classeMatièresDangereuses</asp:TextBox>
+                        <br />
+                        <br />
+                    </div>
+                    <div class="col-lg-2" style ="background-color :#edb93b">
+                        <br />
+                        <asp:Label ID="lblCodeUn" runat="server" Text="Code UN" Class="lblInfo"></asp:Label>
+                        <br />
+                        <asp:Label ID="lblCodeIcpe" runat="server" Text="Code ICPE" Class="lblInfo"></asp:Label>
+                        <br />
+                        <asp:Label ID="lblCodeCed" runat="server" Text="Code CED" Class="lblInfo"></asp:Label>
+                        <br />
+                        <br />
+                        <asp:Label ID="lblPaysOrig" runat="server" Text="Pays Origines" Class="lblInfo"></asp:Label>
+                        <br />
+                        <asp:Label ID="lblLangFac" runat="server" Text="Langues on pack facing" Class="lblInfo"></asp:Label>
+                        <br />
+                        <asp:Label ID="lblLangAut" runat="server" Text="Langues on pack autres" Class="lblInfo"></asp:Label>
+                        <br />
+                        <br />
+                        <asp:Label ID="lblPao" runat="server" Text="PAO" Class="lblInfo"></asp:Label>
+                        <br />
+                        <asp:Label ID="lblDlc" runat="server" Text="DLC" Class="lblInfo"></asp:Label>
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                    </div>         
+                    <div class="col-lg-3" style ="background-color :mistyrose">
+                        <br />        
+                        <asp:TextBox ID="tbxCodeUn" runat="server" Class="tbxInfo">codeUn</asp:TextBox>
+                        <br />
+                        <asp:TextBox ID="tbxCodeIcpe" runat="server" Class="tbxInfo">codeICPE</asp:TextBox>        
+                        <br />
+                        <asp:TextBox ID="tbxCodeCed" runat="server" Class="tbxInfo">codeCED</asp:TextBox> 
+                        <br />
+                        <br />
+                        <asp:TextBox ID="tbxPaysOrig" runat="server" Class="tbxInfo">paysOrigine</asp:TextBox>
+                        <br />
+                        <asp:TextBox ID="tbxLangFac" runat="server" Class="tbxInfo">langueOnPackFacing</asp:TextBox>
+                        <br />
+                        <asp:TextBox ID="tbxLangAut" runat="server" Class="tbxInfo">languesOnPackAutres</asp:TextBox>
+                        <br />
+                        <br />
+                        <asp:TextBox ID="tbxPao" runat="server" Class="tbxInfo">pao</asp:TextBox>        
+                        <br />                       
+                        <asp:TextBox ID="tbxDlc" runat="server" Class="tbxInfo">dlc</asp:TextBox> 
+                        <br />
+                        <br />
+                        <br />
+                   </div>
+        
+                   <div class ="col-lg-1">
+                   </div>
                </div>
             </div>          
-        </div>
+        
+    </div>
     </div>
     </form>
 </div>
