@@ -144,14 +144,14 @@
                                 <asp:TreeNode Text="Substitution/Remplacement" Value="Substitution/Remplacement"></asp:TreeNode>
                             </asp:TreeNode>
                             <asp:TreeNode Text="Données Techniques" Value="Données Techniques">
-                                <asp:TreeNode Text="Infos Article" Value="Infos Article"></asp:TreeNode>
-                                <asp:TreeNode Text="Nomenclature" Value="Nomenclature"></asp:TreeNode>
-                                <asp:TreeNode Text="Nomenclatures Inverses" Value="Nomenclatures Inverses"></asp:TreeNode>
+                                <asp:TreeNode Text="Infos Article" Value="Infos Article" NavigateUrl ="~/donnTechInfoArtic.aspx"></asp:TreeNode>
+                                <asp:TreeNode Text="Nomenclature" Value="Nomenclature" NavigateUrl ="~/articleNomen.aspx"></asp:TreeNode>
+                                <asp:TreeNode Text="Nomenclatures Inverses" Value="Nomenclatures Inverses" NavigateUrl="~/articNomenInvers.aspx"></asp:TreeNode>
                                 <asp:TreeNode Text="Gamme Opératoire" Value="Gamme Opératoire" NavigateUrl="articleGamOperat.aspx"></asp:TreeNode>
                             </asp:TreeNode>
                             <asp:TreeNode Text="Données Achats" Value="Données Achats">
-                                <asp:TreeNode Text="Infos Article" Value="Infos Article"></asp:TreeNode>
-                                <asp:TreeNode Text="Infos Commande" Value="Infos Commande"></asp:TreeNode>
+                                <asp:TreeNode Text="Infos Article" Value="Infos Article" NavigateUrl ="~/articleFourniseurPrix.aspx"></asp:TreeNode>
+                                <asp:TreeNode Text="Infos Commande" Value="Infos Commande" NavigateUrl ="~/articleInfoCommande.aspx"></asp:TreeNode>
                             </asp:TreeNode>
                         </Nodes> 
                          <NodeStyle Font-Size="12px" ForeColor="white" HorizontalPadding="5px" NodeSpacing="0px" VerticalPadding="0px"  />
