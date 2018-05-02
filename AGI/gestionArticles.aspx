@@ -508,8 +508,8 @@
             <asp:TreeNode Text="Gamme Opératoire" Value="Gamme Opératoire" NavigateUrl="articleGamOperat.aspx"></asp:TreeNode>
         </asp:TreeNode>
         <asp:TreeNode Text="Données Achats" Value="Données Achats">
-            <asp:TreeNode Text="Infos Article" Value="Infos Article" NavigateUrl ="~/articleFourniseurPrix.aspx"></asp:TreeNode>
-            <asp:TreeNode Text="Infos Commande" Value="Infos Commande" NavigateUrl ="~/articleInfoCommande.aspx"></asp:TreeNode>
+            <asp:TreeNode Text="Infos Articles" Value="Infos Articles" NavigateUrl ="~/articleFourniseurPrix.aspx"></asp:TreeNode>
+            <asp:TreeNode Text="Infos Commandes" Value="Infos Commandes" NavigateUrl ="~/articleInfoCommande.aspx"></asp:TreeNode>
         </asp:TreeNode>
     </Nodes> 
      <NodeStyle Font-Size="16px" ForeColor="white" HorizontalPadding="5px" NodeSpacing="0px" VerticalPadding="0px"  />
