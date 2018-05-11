@@ -147,8 +147,7 @@
                     </asp:TreeView>   
                  </div>
             </div>
-            <div class="col-lg-2">
-            </div>
+
             <div class="col-lg-6">
                 <div class="row"> 
                     <input type="text" placeholder="Recherche" id="searchInput" onkeyup ="filterAll();" autocomplete ="on" style="background-image:url(images/recherche.png);background-position:right;background-repeat:no-repeat;padding-left:2px;width:300px;height:30px; border-radius:6px;margin-left:2px"/> 
@@ -165,7 +164,7 @@
                     </ul>
                 </div>
                 <div class ="row">
-                <div class="col-lg-3" style ="background-color :#edb93b">
+                <div class="col-lg-3">
                     <br/>
                     <asp:Label ID="lblCodAles" runat="server" Text="Code Alès" Class="lblInfo"></asp:Label>
                     <br/>
@@ -194,7 +193,7 @@
                     <br/>
                     <br/>
                 </div>
-                <div class="col" style ="background-color :mistyrose">
+                <div class="col">
                     <br/>
                     <asp:TextBox ID="tbxCodeAles" runat="server" Class="tbxInfo">code ales</asp:TextBox>
                     <br/>
