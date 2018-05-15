@@ -164,7 +164,7 @@
                 </div>
                 <br />
                 <div class="row">
-                    <div class="col-lg-2" style ="background-color :#edb93b">
+                    <div class="col-lg-2" >
                         <br/>
                         <asp:Label ID="lblCodAles" runat="server" Text="Code Alès" Class="lblInfo"></asp:Label>
                         <br/>
@@ -189,7 +189,7 @@
                         <br/>
                         <br/>
                     </div>
-                    <div class="col-lg-3" style ="background-color :mistyrose">
+                    <div class="col-lg-3" >
                         <br/>
                         <asp:TextBox ID="tbxCodeAles" runat="server" Class="tbxInfo">code ales</asp:TextBox>
                         <br/>
@@ -213,7 +213,7 @@
                         <br />
                         <br />
                     </div>
-                    <div class="col-lg-2" style ="background-color :#edb93b">
+                    <div class="col-lg-2">
                         <br />
                         <asp:Label ID="lblCodeUn" runat="server" Text="Code UN" Class="lblInfo"></asp:Label>
                         <br />
@@ -237,7 +237,7 @@
                         <br />
                         <br />
                     </div>         
-                    <div class="col-lg-3" style ="background-color :mistyrose">
+                    <div class="col-lg-3">
                         <br />        
                         <asp:TextBox ID="tbxCodeUn" runat="server" Class="tbxInfo">codeUn</asp:TextBox>
                         <br />

@@ -445,9 +445,10 @@
                     </ul>
                 </div>
                 <br />
-                <div class="row"> 
+                <div class="row">
                     <input type="text" placeholder="Recherche" id="searchInput" onkeyup ="filterAll();" autocomplete ="on" style="background-image:url(images/recherche.png);background-position:right;background-repeat:no-repeat;padding-left:2px;width:300px;height:30px; border-radius:6px;margin-left:2px"/> 
                     <br />
+                   <asp:ImageButton ID="btnRecheArticle" runat="server" OnClick ="findArticle" Height="18px" Width="35px" />
                 </div>
                 <br />
 
@@ -508,7 +509,7 @@
                     <%--style ="background-color :#edb93b"--%>
                 <div class="col-lg-2" >
                     <br />
-                    <asp:Label ID="lblUnitVente" runat="server" Text="CNK" Class="lblInfo"></asp:Label>
+                    <asp:Label ID="lblUnitVente" runat="server" Text="Unité de vente" Class="lblInfo"></asp:Label>
                     <br />
                     <asp:Label ID="lblConteUni" runat="server" Text="Contenance/Unité" Class="lblInfo"></asp:Label>
                     <br />
