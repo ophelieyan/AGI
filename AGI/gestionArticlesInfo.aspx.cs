@@ -31,36 +31,42 @@ namespace AGI
                 // Create a DataSet object. 
                 DataSet dsArticle = new DataSet();
 
+                string idArticleSaisi="";
+
+                if (Request.Form["search"] != null)
+                {
+                    idArticleSaisi = Request.Form["search"].ToString();
+                }
+                SqlCommand cmd = new SqlCommand();
+
+                cmd.Connection = conn;
+
                 // Create a SELECT query. 
-                string strSelectCmd = "SELECT ID_Article, ID_ISO3166_Country_Issuer, ID_Article_Type_Coding,"+
+                string strSelectCmd = "SELECT ID_Article, ID_ISO3166_Country_Issuer, ID_Article_Type_Coding," +
                     "Datcre_Article,Usrcre_Article,Datmod_Article, Usrmod_Article,ID_Article_Series," +
                     "ID_Sub_Segment, ID_Range, ID_IMS_Level_4,ID_SKU_Status,ID_Taric,ID_Catalog_Type," +
                     "ID_Material_Type, ID_Language_Index, ID_Purchase_Family_Level_3, ID_Purchase_Materials_Level_2," +
-                    "ID_Serie,ID_UN_Class,Code_Ales, Id_Libelle_Fr,Type_Appo,Id_Contenant,ID_Galenic FROM FT_ARTICLE";
+                    "ID_Serie,ID_UN_Class,Code_Ales, Id_Libelle_Fr,Type_Appo,Id_Contenant,ID_Galenic FROM FT_ARTICLE " +
+                    "WHERE ID_Article = @idArticleSaisi";
 
-                SqlDataAdapter da = new SqlDataAdapter(strSelectCmd, conn);
-
+                cmd.CommandText = strSelectCmd;
+                cmd.Parameters.Add("@idArticleSaisi", SqlDbType.NVarChar, 11).Value = idArticleSaisi;
+             
                 // Open the connection 
                 conn.Open();
+                cmd.ExecuteNonQuery();
 
-                // Fill the DataTable named "article" in DataSet with the rows 
-                // returned by the query.new n 
+                SqlDataAdapter da = new SqlDataAdapter( ,conn);
                 da.Fill(dsArticle, "article");
 
-                if (Request.Form["searchInput"] != null)
-                { 
-                    string idArticle = Request.Form["searchInput"].ToString();
-                }
+                DataTable tblArticle = dsArticle.Tables["article"];
 
-                // Get the DataView from article DataTable. 
-                //  DataView dvArticle = dsArticle.Tables["article"].DefaultView;
-                //tbxCodeAles.Text = dsArticle;
-                //// Bind the dropdownlist control. 
-                //ddlCodActi.DataSource = dvDAS;
-                //ddlCodActi.Items.Insert(0, "Tout");
-                //ddlCodActi.DataValueField = "ID_DAS";
-                //ddlCodActi.DataTextField = "Cod_Activity";
-                //ddlCodActi.DataBind();
+                tbxCodeAles.Text = tblArticle.Rows[0][20].ToString();
+                tbxLibArtFr.Text = tblArticle.Rows[0][21].ToString();
+                tbxGamme.Text = tblArticle.Rows[0][9].ToString();
+                tbxStatut.Text = tblArticle.Rows[0][11].ToString();
+                tbxSousSeg.Text = tblArticle.Rows[0][8].ToString();
+                tbxIms.Text = tblArticle.Rows[0][10].ToString();
             }
         }
     }

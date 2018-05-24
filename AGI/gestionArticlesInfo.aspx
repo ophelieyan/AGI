@@ -446,7 +446,7 @@
                 </div>
                 <br />
                 <div class="row">
-                    <input type="text" placeholder="Recherche" id="searchInput" onkeyup ="filterAll();" autocomplete ="on" style="background-image:url(images/recherche.png);background-position:right;background-repeat:no-repeat;padding-left:2px;width:300px;height:30px; border-radius:6px;margin-left:2px"/> 
+                    <input type="text" placeholder="Recherche" name ="search" id="searchInput" onkeyup ="filterAll();" autocomplete ="on" style="background-image:url(images/recherche.png);background-position:right;background-repeat:no-repeat;padding-left:2px;width:300px;height:30px; border-radius:6px;margin-left:2px"/> 
                     <br />
                    <asp:ImageButton ID="btnRecheArticle" runat="server" OnClick ="findArticle" Height="18px" Width="35px" />
                 </div>
@@ -479,31 +479,31 @@
                     <br/>
                     <asp:Label ID="lblCNK" runat="server" Text="CNK" Class="lblInfo"></asp:Label>   
                 </div>
-                <div class="col" >
+                <div class="col-lg-4" >
                     <br/>
-                    <asp:TextBox ID="tbxCodeAles" runat="server" Class="tbxInfo">code ales</asp:TextBox>
+                    <asp:TextBox ID="tbxCodeAles" runat="server" Class="tbxInfo"></asp:TextBox>
                     <br/>
-                    <asp:TextBox ID="tbxLibArtFr" runat="server" Class="tbxInfo">lib FR</asp:TextBox>     
+                    <asp:TextBox ID="tbxLibArtFr" runat="server" Class="tbxInfo"></asp:TextBox>     
                     <br/>
-                    <asp:TextBox ID="tbxLibArtEn" runat="server" Class="tbxInfo">lib EN</asp:TextBox>
+                    <asp:TextBox ID="tbxLibArtEn" runat="server" Class="tbxInfo"></asp:TextBox>
                     <br/>
                     <br/>
-                    <asp:TextBox ID="tbxClassABC" runat="server" Class="tbxInfo">class ABC</asp:TextBox>
+                    <asp:TextBox ID="tbxClassABC" runat="server" Class="tbxInfo"></asp:TextBox>
                     <br/>
-                    <asp:TextBox ID="tbxStatut" runat="server" Class="tbxInfo">statut</asp:TextBox>
+                    <asp:TextBox ID="tbxStatut" runat="server" Class="tbxInfo"></asp:TextBox>
                     <br />
-                    <asp:TextBox ID="tbxProdCate" runat="server" Class="tbxInfo">product category</asp:TextBox>          
+                    <asp:TextBox ID="tbxProdCate" runat="server" Class="tbxInfo"></asp:TextBox>          
                     <br />
-                    <asp:TextBox ID="tbxDateSOA" runat="server" Class="tbxInfo">date ttm SOA</asp:TextBox>
+                    <asp:TextBox ID="tbxDateSOA" runat="server" Class="tbxInfo"></asp:TextBox>
                     <br />
                     <br />
-                    <asp:TextBox ID="tbxEAN13" runat="server" Class="tbxInfo">ean13</asp:TextBox>
+                    <asp:TextBox ID="tbxEAN13" runat="server" Class="tbxInfo"></asp:TextBox>
                     <br />
-                    <asp:TextBox ID="tbxACL" runat="server" Class="tbxInfo">acl</asp:TextBox>
+                    <asp:TextBox ID="tbxACL" runat="server" Class="tbxInfo"></asp:TextBox>
                     <br />
-                    <asp:TextBox ID="tbxCNP" runat="server" Class="tbxInfo">cnp</asp:TextBox>
+                    <asp:TextBox ID="tbxCNP" runat="server" Class="tbxInfo"></asp:TextBox>
                     <br />
-                    <asp:TextBox ID="tbxCNK" runat="server" Class="tbxInfo">cnk</asp:TextBox>
+                    <asp:TextBox ID="tbxCNK" runat="server" Class="tbxInfo"></asp:TextBox>
                     <br />
                 </div>
                     <%--style ="background-color :#edb93b"--%>
@@ -540,34 +540,34 @@
                     <br />
                 </div>  
                     <%--style ="background-color :mistyrose"   --%>    
-                <div class="col" >
+                <div class="col-lg-4" >
                     <br />        
-                    <asp:TextBox ID="tbxUnitVente" runat="server" Class="tbxInfo">UnitVente</asp:TextBox>
+                    <asp:TextBox ID="tbxUnitVente" runat="server" Class="tbxInfo"></asp:TextBox>
                     <br />
-                    <asp:TextBox ID="tbxConteUni" runat="server" Class="tbxInfo">contenanceUnite</asp:TextBox>
+                    <asp:TextBox ID="tbxConteUni" runat="server" Class="tbxInfo"></asp:TextBox>
                     <br />
-                    <asp:TextBox ID="tbxTypCont" runat="server" Class="tbxInfo">typeDecontenant</asp:TextBox>
+                    <asp:TextBox ID="tbxTypCont" runat="server" Class="tbxInfo"></asp:TextBox>
                     <br />
-                    <asp:TextBox ID="tbxNaturProd" runat="server" Class="tbxInfo">natureProduit</asp:TextBox>        
+                    <asp:TextBox ID="tbxNaturProd" runat="server" Class="tbxInfo"></asp:TextBox>        
                     <br />
                     <br />
-                    <asp:TextBox ID="tbxCompKit" runat="server" Class="tbxInfo">composantKit</asp:TextBox> 
+                    <asp:TextBox ID="tbxCompKit" runat="server" Class="tbxInfo"></asp:TextBox> 
                     <br />
-                    <asp:TextBox ID="tbxComposKit" runat="server" Class="tbxInfo">composekit</asp:TextBox> 
+                    <asp:TextBox ID="tbxComposKit" runat="server" Class="tbxInfo"></asp:TextBox> 
                     <br />
-                    <asp:TextBox ID="tbxGrouRef" runat="server" Class="tbxInfo">groupeReference</asp:TextBox>
+                    <asp:TextBox ID="tbxGrouRef" runat="server" Class="tbxInfo"></asp:TextBox>
                     <br/>
                     <br />
-                    <asp:TextBox ID="tbxGamme" runat="server" Class="tbxInfo">classificationParG</asp:TextBox>
+                    <asp:TextBox ID="tbxGamme" runat="server" Class="tbxInfo"></asp:TextBox>
                     <br />
-                    <asp:TextBox ID="tbxSousSeg" runat="server" Class="tbxInfo">classificationParSS</asp:TextBox>
+                    <asp:TextBox ID="tbxSousSeg" runat="server" Class="tbxInfo"></asp:TextBox>
                     <br />
                     <br />
-                    <asp:TextBox ID="tbxIms" runat="server" Class="tbxInfo">imsLevel4</asp:TextBox>        
+                    <asp:TextBox ID="tbxIms" runat="server" Class="tbxInfo"></asp:TextBox>        
                     <br />                       
-                    <asp:TextBox ID="tbxFebea" runat="server" Class="tbxInfo">febea</asp:TextBox> 
+                    <asp:TextBox ID="tbxFebea" runat="server" Class="tbxInfo"></asp:TextBox> 
                     <br />
-                    <asp:TextBox ID="tbxCodeBrick" runat="server" Class="tbxInfo">codeBrick</asp:TextBox> 
+                    <asp:TextBox ID="tbxCodeBrick" runat="server" Class="tbxInfo"></asp:TextBox> 
                     <br />
                     <br />
                </div>
