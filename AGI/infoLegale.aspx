@@ -158,9 +158,10 @@
                     </ul>
                 </div>
                 <br />
-                <div class="row"> 
-                    <input type="text" placeholder="Recherche" id="searchInput" onkeyup ="filterAll();" autocomplete ="on" style="background-image:url(images/recherche.png);background-position:right;background-repeat:no-repeat;padding-left:2px;width:300px;height:30px; border-radius:6px;margin-left:2px"/> 
+                <div class="row">
+                    <input type="text" placeholder="Recherche" name ="search" id="searchInput" onkeyup ="filterAll();" autocomplete ="on" style="background-image:url(images/recherche.png);background-position:right;background-repeat:no-repeat;padding-left:2px;width:300px;height:30px; border-radius:6px;margin-left:2px"/> 
                     <br />
+                   <asp:ImageButton ID="btnRecheArticle" runat="server" OnClick ="findArticle" Height="18px" Width="35px" />
                 </div>
                 <br />
                 <div class="row">
@@ -191,25 +192,25 @@
                     </div>
                     <div class="col-lg-3" >
                         <br/>
-                        <asp:TextBox ID="tbxCodeAles" runat="server" Class="tbxInfo">code ales</asp:TextBox>
+                        <asp:TextBox ID="tbxCodeAles" runat="server" Class="tbxInfo"></asp:TextBox>
                         <br/>
-                        <asp:TextBox ID="tbxLibArtFr" runat="server" Class="tbxInfo">lib FR</asp:TextBox>     
+                        <asp:TextBox ID="tbxLibArtFr" runat="server" Class="tbxInfo"></asp:TextBox>     
                         <br/>
                         <br/>
-                        <asp:TextBox ID="tbxCodeTaric" runat="server" Class="tbxInfo">code Taric</asp:TextBox>
+                        <asp:TextBox ID="tbxCodeTaric" runat="server" Class="tbxInfo"></asp:TextBox>
                         <br/>
-                        <asp:TextBox ID="tbxValDouan" runat="server" Class="tbxInfo">Valeur Douanière</asp:TextBox>
+                        <asp:TextBox ID="tbxValDouan" runat="server" Class="tbxInfo"></asp:TextBox>
                         <br/>
-                        <asp:TextBox ID="tbxAlcool" runat="server" Class="tbxInfo">alcool</asp:TextBox>
+                        <asp:TextBox ID="tbxAlcool" runat="server" Class="tbxInfo"></asp:TextBox>
                         <br />
-                        <asp:TextBox ID="tbxGaz" runat="server" Class="tbxInfo">gaz</asp:TextBox>          
+                        <asp:TextBox ID="tbxGaz" runat="server" Class="tbxInfo"></asp:TextBox>          
                         <br />
                         <br/>
-                        <asp:TextBox ID="tbxClasLqdInflamm" runat="server" Class="tbxInfo">classe liquides inflammables</asp:TextBox>
+                        <asp:TextBox ID="tbxClasLqdInflamm" runat="server" Class="tbxInfo"></asp:TextBox>
                         <br />
-                        <asp:TextBox ID="tbxPointEclair" runat="server" Class="tbxInfo">point eclair</asp:TextBox>
+                        <asp:TextBox ID="tbxPointEclair" runat="server" Class="tbxInfo"></asp:TextBox>
                         <br />
-                        <asp:TextBox ID="tbxClasMatièDange" runat="server" Class="tbxInfo">classeMatièresDangereuses</asp:TextBox>
+                        <asp:TextBox ID="tbxClasMatièDange" runat="server" Class="tbxInfo"></asp:TextBox>
                         <br />
                         <br />
                     </div>
@@ -239,23 +240,23 @@
                     </div>         
                     <div class="col-lg-3">
                         <br />        
-                        <asp:TextBox ID="tbxCodeUn" runat="server" Class="tbxInfo">codeUn</asp:TextBox>
+                        <asp:TextBox ID="tbxCodeUn" runat="server" Class="tbxInfo"></asp:TextBox>
                         <br />
-                        <asp:TextBox ID="tbxCodeIcpe" runat="server" Class="tbxInfo">codeICPE</asp:TextBox>        
+                        <asp:TextBox ID="tbxCodeIcpe" runat="server" Class="tbxInfo"></asp:TextBox>        
                         <br />
-                        <asp:TextBox ID="tbxCodeCed" runat="server" Class="tbxInfo">codeCED</asp:TextBox> 
-                        <br />
-                        <br />
-                        <asp:TextBox ID="tbxPaysOrig" runat="server" Class="tbxInfo">paysOrigine</asp:TextBox>
-                        <br />
-                        <asp:TextBox ID="tbxLangFac" runat="server" Class="tbxInfo">langueOnPackFacing</asp:TextBox>
-                        <br />
-                        <asp:TextBox ID="tbxLangAut" runat="server" Class="tbxInfo">languesOnPackAutres</asp:TextBox>
+                        <asp:TextBox ID="tbxCodeCed" runat="server" Class="tbxInfo"></asp:TextBox> 
                         <br />
                         <br />
-                        <asp:TextBox ID="tbxPao" runat="server" Class="tbxInfo">pao</asp:TextBox>        
+                        <asp:TextBox ID="tbxPaysOrig" runat="server" Class="tbxInfo"></asp:TextBox>
+                        <br />
+                        <asp:TextBox ID="tbxLangFac" runat="server" Class="tbxInfo"></asp:TextBox>
+                        <br />
+                        <asp:TextBox ID="tbxLangAut" runat="server" Class="tbxInfo"></asp:TextBox>
+                        <br />
+                        <br />
+                        <asp:TextBox ID="tbxPao" runat="server" Class="tbxInfo"></asp:TextBox>        
                         <br />                       
-                        <asp:TextBox ID="tbxDlc" runat="server" Class="tbxInfo">dlc</asp:TextBox> 
+                        <asp:TextBox ID="tbxDlc" runat="server" Class="tbxInfo"></asp:TextBox> 
                         <br />
                         <br />
                         <br />

@@ -149,10 +149,12 @@
             </div>
 
             <div class="col-lg-6">
-                <div class="row"> 
-                    <input type="text" placeholder="Recherche" id="searchInput" onkeyup ="filterAll();" autocomplete ="on" style="background-image:url(images/recherche.png);background-position:right;background-repeat:no-repeat;padding-left:2px;width:300px;height:30px; border-radius:6px;margin-left:2px"/> 
+                <div class="row">
+                    <input type="text" placeholder="Recherche" name ="search" id="searchInput" onkeyup ="filterAll();" autocomplete ="on" style="background-image:url(images/recherche.png);background-position:right;background-repeat:no-repeat;padding-left:2px;width:300px;height:30px; border-radius:6px;margin-left:2px"/> 
                     <br />
+                   <asp:ImageButton ID="btnRecheArticle" runat="server" OnClick ="findArticle" Height="18px" Width="35px" />
                 </div>
+                <br />
                 <br />
                 <div>
                     <ul id="tabnav">
@@ -195,27 +197,27 @@
                 </div>
                 <div class="col">
                     <br/>
-                    <asp:TextBox ID="tbxCodeAles" runat="server" Class="tbxInfo">code ales</asp:TextBox>
+                    <asp:TextBox ID="tbxCodeAles" runat="server" Class="tbxInfo"></asp:TextBox>
                     <br/>
-                    <asp:TextBox ID="tbxLibArtFr" runat="server" Class="tbxInfo">lib FR</asp:TextBox>     
+                    <asp:TextBox ID="tbxLibArtFr" runat="server" Class="tbxInfo"></asp:TextBox>     
                     <br/>
-                    <asp:TextBox ID="tbxPurchFami" runat="server" Class="tbxInfo">purchase Family</asp:TextBox>
+                    <asp:TextBox ID="tbxPurchFami" runat="server" Class="tbxInfo"></asp:TextBox>
                     <br/>
-                    <asp:TextBox ID="tbxPurchMate" runat="server" Class="tbxInfo">purchase materials</asp:TextBox>
+                    <asp:TextBox ID="tbxPurchMate" runat="server" Class="tbxInfo"></asp:TextBox>
                     <br/>
                     <br/>
-                    <asp:TextBox ID="tbxUniteAch" runat="server" Class="tbxInfo">unité d'achat</asp:TextBox>
+                    <asp:TextBox ID="tbxUniteAch" runat="server" Class="tbxInfo"></asp:TextBox>
                     <br />
-                    <asp:TextBox ID="tbxFourniss" runat="server" Class="tbxInfo">fournisseurs</asp:TextBox>          
+                    <asp:TextBox ID="tbxFourniss" runat="server" Class="tbxInfo"></asp:TextBox>          
                     <br />
-                    <asp:TextBox ID="tbxAcheteur" runat="server" Class="tbxInfo">acheteur</asp:TextBox>
+                    <asp:TextBox ID="tbxAcheteur" runat="server" Class="tbxInfo"></asp:TextBox>
                     <br />
-                    <asp:TextBox ID="tbxApprov" runat="server" Class="tbxInfo">approvisionneur</asp:TextBox>
+                    <asp:TextBox ID="tbxApprov" runat="server" Class="tbxInfo"></asp:TextBox>
                     <br />
                     <br />
-                    <asp:TextBox ID="tbxDelaiAppo" runat="server" Class="tbxInfo">delai d'appro</asp:TextBox>
+                    <asp:TextBox ID="tbxDelaiAppo" runat="server" Class="tbxInfo"></asp:TextBox>
                     <br />
-                    <asp:TextBox ID="tbxDelaiContr" runat="server" Class="tbxInfo">delai de contrôle</asp:TextBox>
+                    <asp:TextBox ID="tbxDelaiContr" runat="server" Class="tbxInfo"></asp:TextBox>
                     <br />
                 </div>
               </div>

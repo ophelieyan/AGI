@@ -12,14 +12,7 @@ namespace AGI
 {
     public partial class gestionArticlesInfo : System.Web.UI.Page
     {
-        public object searchInput { get; private set; }
-
         protected void Page_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void ddlTypAppro_Load(object sender, EventArgs e)
         {
 
         }
@@ -31,15 +24,12 @@ namespace AGI
                 // Create a DataSet object. 
                 DataSet dsArticle = new DataSet();
 
-                string idArticleSaisi="";
+                string codeSaisi = "";
 
                 if (Request.Form["search"] != null)
                 {
-                    idArticleSaisi = Request.Form["search"].ToString();
+                    codeSaisi = Request.Form["search"].ToString();
                 }
-                SqlCommand cmd = new SqlCommand();
-
-                cmd.Connection = conn;
 
                 // Create a SELECT query. 
                 string strSelectCmd = "SELECT ID_Article, ID_ISO3166_Country_Issuer, ID_Article_Type_Coding," +
@@ -47,20 +37,26 @@ namespace AGI
                     "ID_Sub_Segment, ID_Range, ID_IMS_Level_4,ID_SKU_Status,ID_Taric,ID_Catalog_Type," +
                     "ID_Material_Type, ID_Language_Index, ID_Purchase_Family_Level_3, ID_Purchase_Materials_Level_2," +
                     "ID_Serie,ID_UN_Class,Code_Ales, Id_Libelle_Fr,Type_Appo,Id_Contenant,ID_Galenic FROM FT_ARTICLE " +
-                    "WHERE ID_Article = @idArticleSaisi";
+                    "WHERE Code_Ales = @codeSaisi";
 
-                cmd.CommandText = strSelectCmd;
-                cmd.Parameters.Add("@idArticleSaisi", SqlDbType.NVarChar, 11).Value = idArticleSaisi;
-             
                 // Open the connection 
                 conn.Open();
-                cmd.ExecuteNonQuery();
 
-                SqlDataAdapter da = new SqlDataAdapter( ,conn);
+                SqlDataAdapter da = new SqlDataAdapter(strSelectCmd, conn);
+                da.SelectCommand.Parameters.AddWithValue("@codeSaisi", codeSaisi);
                 da.Fill(dsArticle, "article");
 
                 DataTable tblArticle = dsArticle.Tables["article"];
 
+                int typeCoding = int.Parse(tblArticle.Rows[0][2].ToString());
+                //if (typeCoding == 105 || typeCoding == 106 || typeCoding == 107 || typeCoding == 108 || typeCoding == 109)
+                //{
+                //    Response.Redirect("gestionArticlesInfo.aspx?");
+                //}
+                //else if (typeCoding == 101 || typeCoding == 102 || typeCoding == 103 || typeCoding == 104 )
+                //{
+                //    Response.Redirect("articleInfoTypeCompo.aspx?");
+                //}
                 tbxCodeAles.Text = tblArticle.Rows[0][20].ToString();
                 tbxLibArtFr.Text = tblArticle.Rows[0][21].ToString();
                 tbxGamme.Text = tblArticle.Rows[0][9].ToString();
