@@ -12,9 +12,38 @@ namespace AGI
 {
     public partial class gestionArticlesInfo : System.Web.UI.Page
     {
+        public object AutoCompleteSource { get; private set; }
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            //this.recherche.AutoCompleteType  = AutoCompleteType.;
+            //this.recherche. = AutoCompleteSource.CustomSource;
 
+        }
+
+
+        //private void recherche_TextChanged(object sender, EventArgs e)
+        //{
+        //    TextBox t = sender as TextBox;
+        //    if (t != null)
+        //    {
+        //        //say you want to do a search when user types 3 or more chars
+        //        if (t.Text.Length >= 3)
+        //        {
+        //            //SuggestStrings will have the logic to return array of strings either from cache/db
+        //            string[] arr = SuggestStrings(t.Text);
+
+        //            AutoCompleteStringCollection collection = new AutoCompleteStringCollection();
+        //            collection.AddRange(arr);
+
+        //            this.recherche.AutoCompleteCustomSource = collection;
+        //        }
+        //    }
+        //}
+
+        private string[] SuggestStrings(string text)
+        {
+            throw new NotImplementedException();
         }
 
         protected void findArticle(object sender, ImageClickEventArgs e)
@@ -23,6 +52,11 @@ namespace AGI
             {
                 // Create a DataSet object. 
                 DataSet dsArticle = new DataSet();
+                DataSet dsStatut = new DataSet();
+                DataSet dsNatuProd = new DataSet();
+                DataSet dsIms = new DataSet();
+                DataSet dsGamme = new DataSet();
+                DataSet dsSSegm = new DataSet();
 
                 string codeSaisi = "";
 
@@ -59,10 +93,55 @@ namespace AGI
                 //}
                 tbxCodeAles.Text = tblArticle.Rows[0][20].ToString();
                 tbxLibArtFr.Text = tblArticle.Rows[0][21].ToString();
-                tbxGamme.Text = tblArticle.Rows[0][9].ToString();
-                tbxStatut.Text = tblArticle.Rows[0][11].ToString();
-                tbxSousSeg.Text = tblArticle.Rows[0][8].ToString();
-                tbxIms.Text = tblArticle.Rows[0][10].ToString();
+
+                string idStatut = "";
+                idStatut = tblArticle.Rows[0][11].ToString();
+                string sqlStatut = "SELECT Lib_SKU_Status_Fr FROM ST_SKU_Status WHERE Id_SKU_Status = @idStatut";
+                SqlDataAdapter daStatut = new SqlDataAdapter(sqlStatut, conn);
+                daStatut.SelectCommand.Parameters.AddWithValue("@idStatut", idStatut);
+                daStatut.Fill(dsStatut, "statut");
+                DataTable tblStatut = dsStatut.Tables["statut"];
+                tbxStatut.Text = tblStatut.Rows[0][0].ToString();
+
+                //récupération la libellée de la nature produit
+                string idNatureProduit = "";
+                idNatureProduit = tblArticle.Rows[0][24].ToString();
+                string sqlNatuProd = "SELECT Lib_Galenic_FR FROM ST_Galenic WHERE ID_Galenic = @idGalenic";
+                SqlDataAdapter daNatuProd = new SqlDataAdapter(sqlNatuProd, conn);
+                daNatuProd.SelectCommand.Parameters.AddWithValue("@idGalenic", idNatureProduit);
+                daNatuProd.Fill(dsNatuProd, "natureProduit");
+                DataTable tblNatuProd = dsNatuProd.Tables["natureProduit"];
+                tbxNaturProd.Text = tblNatuProd.Rows[0][0].ToString();
+
+                //récupération la libellée de IMS
+                string idIms = "";
+                idIms = tblArticle.Rows[0][10].ToString();
+                string sqlIms = "SELECT Lib_IMS_Level_4_FR FROM ST_IMS_Level_4 WHERE ID_IMS_Level_4 = @idIms";
+                SqlDataAdapter daIms = new SqlDataAdapter(sqlIms, conn);
+                daIms.SelectCommand.Parameters.AddWithValue("@idIms", idIms);
+                daIms.Fill(dsIms, "Ims");
+                DataTable tblIms = dsIms.Tables["Ims"];
+                tbxIms.Text = tblIms.Rows[0][0].ToString();
+
+                //récupération la libellée de la gamme
+                string idGamme = "";
+                idGamme = tblArticle.Rows[0][9].ToString();
+                string sqlGamme = "SELECT Lib_Range_Fr FROM ST_Range WHERE ID_Range = @idGamme";
+                SqlDataAdapter daGamme = new SqlDataAdapter(sqlGamme, conn);
+                daGamme.SelectCommand.Parameters.AddWithValue("@idGamme", idGamme);
+                daGamme.Fill(dsGamme, "Gamme");
+                DataTable tblGamme = dsGamme.Tables["Gamme"];
+                tbxGamme.Text = tblGamme.Rows[0][0].ToString();
+
+                //récupération la libellée de sous segment
+                string idSSeg = "";
+                idSSeg = tblArticle.Rows[0][8].ToString();
+                string sqlSSegm = "SELECT Lib_Sub_Segment_Fr FROM ST_Sub_Segment WHERE ID_Sub_Segment = @idSSeg";
+                SqlDataAdapter daSSegm = new SqlDataAdapter(sqlSSegm, conn);
+                daSSegm.SelectCommand.Parameters.AddWithValue("@idSSeg", idSSeg);
+                daSSegm.Fill(dsSSegm, "SSegment");
+                DataTable tblSSegm = dsSSegm.Tables["SSegment"];
+                tbxSousSeg.Text = tblSSegm.Rows[0][0].ToString();
             }
         }
     }
