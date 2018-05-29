@@ -52,8 +52,30 @@ namespace AGI
                 int typeCoding = int.Parse(tblArticle.Rows[0][2].ToString());
                 tbxCodeAles.Text = tblArticle.Rows[0][20].ToString();
                 tbxLibArtFr.Text = tblArticle.Rows[0][21].ToString();
-                tbxCodeTaric.Text = tblArticle.Rows[0][12].ToString();
-                tbxCodeUn.Text = tblArticle.Rows[0][19].ToString();
+                //tbxCodeTaric.Text = tblArticle.Rows[0][12].ToString();
+                //tbxCodeUn.Text = tblArticle.Rows[0][19].ToString();
+
+                DataSet dsTaric = new DataSet();
+                //récupération la libellée de Code Taric
+                string idTaric = "";
+                idTaric = tblArticle.Rows[0][12].ToString();
+                string sqlTaric = "SELECT Lib_Taric_FR FROM ST_Taric WHERE ID_Taric = @idTaric";
+                SqlDataAdapter daTaric = new SqlDataAdapter(sqlTaric, conn);
+                daTaric.SelectCommand.Parameters.AddWithValue("@idTaric", idTaric);
+                daTaric.Fill(dsTaric, "Taric");
+                DataTable tblTaric = dsTaric.Tables["Taric"];
+                tbxCodeTaric.Text = tblTaric.Rows[0][0].ToString();
+
+                DataSet dsCodeUn = new DataSet();
+                //récupération la libellée de Code UN
+                string idCodeUn = "";
+                idCodeUn = tblArticle.Rows[0][19].ToString();
+                string sqlCodeUn = "SELECT Lib_UN_Class_FR FROM ST_UN_Class WHERE ID_UN_Class = @idCodeUn";
+                SqlDataAdapter daCodeUn = new SqlDataAdapter(sqlCodeUn, conn);
+                daCodeUn.SelectCommand.Parameters.AddWithValue("@idCodeUn", idCodeUn);
+                daCodeUn.Fill(dsCodeUn, "CodeUn");
+                DataTable tblCodeUn = dsCodeUn.Tables["CodeUn"];
+                tbxCodeUn.Text = tblCodeUn.Rows[0][0].ToString();
             }
         }
     }
