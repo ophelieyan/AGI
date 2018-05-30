@@ -49,7 +49,7 @@ namespace AGI
 
                 DataTable tblArticle = dsArticle.Tables["article"];
 
-                int typeCoding = int.Parse(tblArticle.Rows[0][2].ToString());
+                //int typeCoding = int.Parse(tblArticle.Rows[0][2].ToString());
                 //if (typeCoding == 105 || typeCoding == 106 || typeCoding == 107 || typeCoding == 108 || typeCoding == 109)
                 //{
                 //    Response.Redirect("gestionArticlesInfo.aspx?");
