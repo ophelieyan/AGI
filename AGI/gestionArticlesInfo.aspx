@@ -452,7 +452,12 @@
                     <asp:ImageButton ID="btnRecheArticle" runat="server" OnClick ="findArticle" Height="18px" Width="35px" />
                 </div>
                 <br />
-
+<%--                <input list="hosting-plan" type="text">
+                <datalist id="hosting-plan">
+                    <option value="small"/>
+                    <option value="medium"/>
+                    <option value="large"/>
+                </datalist>--%>
                 <div class ="row">
                 <div class="col-lg-2" >
                     <br/>

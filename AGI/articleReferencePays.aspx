@@ -160,10 +160,10 @@
            
                 <br />
                 <div class="row"> 
-                    <a>Recherche Article</a> 
-                    <input type="text" placeholder="Recherche" id="searchArticle" onkeyup ="filterArticle();" autocomplete ="on" style="background-image:url(images/recherche.png);background-position:right;background-repeat:no-repeat;padding-left:2px;width:300px;height:30px; border-radius:6px;margin-left:2px"/> 
-                    <br />
-                    <a>Recherche Pays</a>
+                    <asp:ImageButton ID="btnRecheArticle" runat="server" OnClick ="findArticle" Height="18px" Width="35px" />
+                    <input type="text" placeholder="Recherche" name="searchArticle" onkeyup ="filterArticle();" autocomplete ="on" style="background-image:url(images/recherche.png);background-position:right;background-repeat:no-repeat;padding-left:2px;width:300px;height:30px; border-radius:6px;margin-left:2px"/> 
+                    <br /><br /><br />
+                    <button>Recherche Pays</button>
                     <input type="text" placeholder="Recherche" id="searchPays" onkeyup ="filterPays();" autocomplete ="on" style="background-image:url(images/recherche.png);background-position:right;background-repeat:no-repeat;padding-left:2px;width:300px;height:30px; border-radius:6px;margin-left:2px"/> 
                     <br />
                 </div>
@@ -196,7 +196,7 @@
                     <br />        
                     <asp:TextBox ID="tbxLanguePays" runat="server" Class="tbxInfo">languePays</asp:TextBox>
                     <br />
-                    <asp:TextBox ID="tbxevisePays" runat="server" Class="tbxInfo">devisePays</asp:TextBox>
+                    <asp:TextBox ID="tbxDevisePays" runat="server" Class="tbxInfo">devisePays</asp:TextBox>
                     <br />
                     <asp:TextBox ID="tbxTva" runat="server" Class="tbxInfo">TVA</asp:TextBox>
                     <br />
