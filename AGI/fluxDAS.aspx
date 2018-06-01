@@ -167,7 +167,6 @@
                      <table id="tblHeader" class ="gvDas" border="1" style ="font-size :small">
                          <tbody>
                              <tr>
-                                 <%--<th style="text-align :center ;width:150px; color:white;background-color:#edb93b">ID DAS</th>--%>
                                  <th style="text-align :center ;width:80px; color:white;background-color:#edb93b">Code DAS</th>
                                  <th style="text-align :center ;width:100px; color:white;background-color:#edb93b">Code Activity</th>
                                  <th style="text-align :center ;width:160px; color:white;background-color:#edb93b">Désignation DAS</th>

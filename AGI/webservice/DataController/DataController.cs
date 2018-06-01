@@ -893,4 +893,30 @@ namespace AGI.WebService.DataController
         }
     }
 
+    [Route("api/findArticleController")]
+    public class findArticleController : Controller {
+        public IActionResult findArticle([FromBody] string param)
+        {
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString()))
+            {
+                SqlCommand cmd = new SqlCommand();
+
+                cmd.Connection = conn;
+
+                cmd.CommandText = " SELECTE Code_Ales FROM FT_Article WHERE Code_Ales like '@codeAles%' ";
+
+                cmd.CommandType = CommandType.Text;
+
+                string s = param;
+
+                cmd.Parameters.Add("@codeAles", SqlDbType.NVarChar, 20).Value = s;
+
+                conn.Open();
+
+                cmd.ExecuteNonQuery();
+            }
+
+            return new CreatedResult("toto", "OK");
+        }
+    }
 }

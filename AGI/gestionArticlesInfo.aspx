@@ -447,7 +447,7 @@
                 <br />
                 <div class="row">
                  <%--   <asp:TextBox ID="recherche" runat="server" Class="tbxInfo" Font-Names="recherche"></asp:TextBox>--%>
-                    <input type="text" placeholder="Recherche" name ="search" id="searchInput" onkeyup ="filterAll();" autocomplete ="on" style="background-image:url(images/recherche.png);background-position:right;background-repeat:no-repeat;padding-left:2px;width:300px;height:30px; border-radius:6px;margin-left:2px"/> 
+                    <input type="text" placeholder="Recherche" onkeypress="NewDialog_KeyDown" name ="search" id="searchInput" onkeyup ="filterAll();" autocomplete ="on" style="background-image:url(images/recherche.png);background-position:right;background-repeat:no-repeat;padding-left:2px;width:300px;height:30px; border-radius:6px;margin-left:2px"/> 
                     <br />
                     <asp:ImageButton ID="btnRecheArticle" runat="server" OnClick ="findArticle" Height="18px" Width="35px" />
                 </div>
@@ -592,3 +592,25 @@
 </body>
 
 </html>
+
+<script>
+    function findArticle() {
+
+        var codArticleAles = document.getElementById("searchInput").value;
+
+        $.ajax({
+
+            url: "api/findArticleController",
+
+            methode: "POST",
+
+            data: "param=CodArticleAles:" + codArticleAles,
+
+        }).done(function () {
+
+        });
+
+
+        //dialogEditDas.dialog("close");
+    }
+</script>

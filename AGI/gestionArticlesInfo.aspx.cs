@@ -12,8 +12,6 @@ namespace AGI
 {
     public partial class gestionArticlesInfo : System.Web.UI.Page
     {
-        public object AutoCompleteSource { get; private set; }
-
         protected void Page_Load(object sender, EventArgs e)
         {
             //this.recherche.AutoCompleteType  = AutoCompleteType.;
@@ -144,5 +142,7 @@ namespace AGI
                 tbxSousSeg.Text = tblSSegm.Rows[0][0].ToString();
             }
         }
+
+
     }
 }
