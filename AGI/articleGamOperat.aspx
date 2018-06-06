@@ -11,7 +11,14 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-     <link href="Css/articleInfo.css" type='text/css' rel='stylesheet' /> 
+    <link href="Css/articleInfo.css" type='text/css' rel='stylesheet' /> 
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link href="jquery-ui.css" rel="stylesheet" type="text/css" />  
+    <script src="jquery.min.js" type="text/javascript"></script>  
+    <script src="jquery-ui.min.js" type="text/javascript"></script> 
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-1.8.0.js"></script>  
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.22/jquery-ui.js"></script>   
     <title>Info générales d'Articles</title>
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
@@ -171,7 +178,8 @@
                 </div>
                 <br/>
                 <div class="row"> 
-                    <input type="text" placeholder="Recherche" id="searchInput" onkeyup ="filterAll();" autocomplete ="on" style="background-image:url(images/recherche.png);background-position:right;background-repeat:no-repeat;padding-left:2px;width:300px;height:30px; border-radius:6px;margin-left:2px"/> 
+                    <input type="text" placeholder="Recherche" name ="search" id="searchInput"  autocomplete ="on" style="background-image:url(images/recherche.png);background-position:right;background-repeat:no-repeat;padding-left:2px;width:400px;height:30px; border-radius:6px;margin-left:2px"/> 
+                    <asp:ImageButton ID="btnRecheArticle" runat="server" OnClick ="findArticle" Height="18px" Width="35px" />
                     <br />
                 </div>
                 <div class ="row">
@@ -188,13 +196,13 @@
                 </div>
                   <div class="col" >
                     <br/>
-                    <asp:TextBox ID="tbxCodeAles" runat="server" Class="tbxInfo">code ales</asp:TextBox>
+                    <asp:TextBox ID="tbxCodeAles" runat="server" Class="tbxInfo"></asp:TextBox>
                     <br/>
-                    <asp:TextBox ID="tbxLibArtFr" runat="server" Class="tbxInfo">lib FR</asp:TextBox>     
+                    <asp:TextBox ID="tbxLibArtFr" runat="server" Class="tbxInfo"></asp:TextBox>     
                     <br/>
-                    <asp:TextBox ID="tbxIdDigit" runat="server" Class="tbxInfo">id composé 11 digits</asp:TextBox>
+                    <asp:TextBox ID="tbxIdDigit" runat="server" Class="tbxInfo"></asp:TextBox>
                     <br/>
-                    <asp:TextBox ID="tbxIdVersion" runat="server" Class="tbxInfo">id Composé version</asp:TextBox>
+                    <asp:TextBox ID="tbxIdVersion" runat="server" Class="tbxInfo"></asp:TextBox>
                     <br />
                 </div>
                 </div>
@@ -235,22 +243,22 @@
                     <%--style ="background-color :mistyrose"   --%>    
                   <div class="col" >
                     <br />        
-                    <asp:TextBox ID="tbxIlot" runat="server" Class="tbxInfo">ilot</asp:TextBox>
+                    <asp:TextBox ID="tbxIlot" runat="server" Class="tbxInfo"></asp:TextBox>
                     <br />
-                    <asp:TextBox ID="tbxIndustrie" runat="server" Class="tbxInfo">industrie</asp:TextBox>
+                    <asp:TextBox ID="tbxIndustrie" runat="server" Class="tbxInfo"></asp:TextBox>
                     <br />
-                    <asp:TextBox ID="tbxMachine" runat="server" Class="tbxInfo">machine</asp:TextBox>
+                    <asp:TextBox ID="tbxMachine" runat="server" Class="tbxInfo"></asp:TextBox>
                     <br />
                     <br />
-                    <asp:TextBox ID="tbxCadence" runat="server" Class="tbxInfo">cadence</asp:TextBox>        
+                    <asp:TextBox ID="tbxCadence" runat="server" Class="tbxInfo"></asp:TextBox>        
                     <br />
-                    <asp:TextBox ID="tbxTempsMachine" runat="server" Class="tbxInfo">tempsMachine</asp:TextBox> 
+                    <asp:TextBox ID="tbxTempsMachine" runat="server" Class="tbxInfo"></asp:TextBox> 
                     <br />
-                    <asp:TextBox ID="tbxTempsMaisOeuvre" runat="server" Class="tbxInfo">tempsMaisOeuvre</asp:TextBox> 
+                    <asp:TextBox ID="tbxTempsMaisOeuvre" runat="server" Class="tbxInfo"></asp:TextBox> 
                     <br />
                     <br />
                  </div>
-                                      <div class="col-lg-2" >
+                 <div class="col-lg-2" >
                     <br />
                     <asp:Label ID="Label1" runat="server" Text="Ilot" Class="lblInfo"></asp:Label>
                     <br />
@@ -270,18 +278,18 @@
                     <%--style ="background-color :mistyrose"   --%>    
                   <div class="col" >
                     <br />        
-                    <asp:TextBox ID="TextBox1" runat="server" Class="tbxInfo">ilot</asp:TextBox>
+                    <asp:TextBox ID="TextBox1" runat="server" Class="tbxInfo"></asp:TextBox>
                     <br />
-                    <asp:TextBox ID="TextBox2" runat="server" Class="tbxInfo">industrie</asp:TextBox>
+                    <asp:TextBox ID="TextBox2" runat="server" Class="tbxInfo"></asp:TextBox>
                     <br />
-                    <asp:TextBox ID="TextBox3" runat="server" Class="tbxInfo">machine</asp:TextBox>
+                    <asp:TextBox ID="TextBox3" runat="server" Class="tbxInfo"></asp:TextBox>
                     <br />
                     <br />
-                    <asp:TextBox ID="TextBox4" runat="server" Class="tbxInfo">cadence</asp:TextBox>        
+                    <asp:TextBox ID="TextBox4" runat="server" Class="tbxInfo"></asp:TextBox>        
                     <br />
-                    <asp:TextBox ID="TextBox5" runat="server" Class="tbxInfo">tempsMachine</asp:TextBox> 
+                    <asp:TextBox ID="TextBox5" runat="server" Class="tbxInfo"></asp:TextBox> 
                     <br />
-                    <asp:TextBox ID="TextBox6" runat="server" Class="tbxInfo">tempsMaisOeuvre</asp:TextBox> 
+                    <asp:TextBox ID="TextBox6" runat="server" Class="tbxInfo"></asp:TextBox> 
                     <br />
                     <br />
                  </div>
@@ -302,3 +310,26 @@
 
 </html>
 
+<script type="text/javascript">  
+    $(document).ready(function () {
+        SearchText();  
+    });  
+    function SearchText() {  
+        $("#searchInput").autocomplete({
+            source: function(request, response) {  
+                $.ajax({  
+                    type: "POST",   
+                    url: "api/getArticleController",
+                    data :"param=" + document.getElementById('searchInput').value,
+                    success: function (data) {
+                        var array = data.split(",");
+                        response(array);
+                    },  
+                    error: function (resp, status, xhr) {
+                        alert("param=" + document.getElementById('searchInput').value)  
+                    }
+                });  
+            }  
+        });  
+    }  
+</script>  

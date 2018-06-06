@@ -119,8 +119,6 @@
 </ul>
 </div>
 <div>
-    <%--BorderStyle="Solid"  BorderColor ="#dedede"  border-radius="10px"   
-                        BorderWidth ="1px"--%>
     <form runat ="server" >
     <div class ="mainContent">
         <div class="row">
