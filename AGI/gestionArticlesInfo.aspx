@@ -285,7 +285,14 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-     <link href="Css/articleInfo.css" type='text/css' rel='stylesheet' /> 
+    <link href="Css/articleInfo.css" type='text/css' rel='stylesheet' /> 
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link href="jquery-ui.css" rel="stylesheet" type="text/css" />  
+    <script src="jquery.min.js" type="text/javascript"></script>  
+    <script src="jquery-ui.min.js" type="text/javascript"></script> 
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-1.8.0.js"></script>  
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.22/jquery-ui.js"></script>   
     <title>Info générales d'Articles</title>
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
@@ -447,7 +454,7 @@
                 <br />
                 <div class="row">
                  <%--   <asp:TextBox ID="recherche" runat="server" Class="tbxInfo" Font-Names="recherche"></asp:TextBox>--%>
-                    <input type="text" placeholder="Recherche" onkeypress="NewDialog_KeyDown" name ="search" id="searchInput" onkeyup ="filterAll();" autocomplete ="on" style="background-image:url(images/recherche.png);background-position:right;background-repeat:no-repeat;padding-left:2px;width:300px;height:30px; border-radius:6px;margin-left:2px"/> 
+                    <input type="text" placeholder="Recherche" name ="search" id="searchInput" onkeyup="showHint(this.value)" autocomplete ="on" style="background-image:url(images/recherche.png);background-position:right;background-repeat:no-repeat;padding-left:2px;width:400px;height:30px; border-radius:6px;margin-left:2px"/> 
                     <br />
                     <asp:ImageButton ID="btnRecheArticle" runat="server" OnClick ="findArticle" Height="18px" Width="35px" />
                 </div>
@@ -593,24 +600,26 @@
 
 </html>
 
-<script>
-    function findArticle() {
-
-        var codArticleAles = document.getElementById("searchInput").value;
-
-        $.ajax({
-
-            url: "api/findArticleController",
-
-            methode: "POST",
-
-            data: "param=CodArticleAles:" + codArticleAles,
-
-        }).done(function () {
-
-        });
-
-
-        //dialogEditDas.dialog("close");
-    }
-</script>
+<script type="text/javascript">  
+    $(document).ready(function () {
+        SearchText();  
+    });  
+    function SearchText() {  
+        $("#searchInput").autocomplete({
+            source: function(request, response) {  
+                $.ajax({  
+                    type: "POST",   
+                    url: "api/getArticleController",
+                    data :"param=" + document.getElementById('searchInput').value,
+                    success: function (data) {
+                        var array = data.split(",");
+                        response(array);
+                    },  
+                    error: function (resp, status, xhr) {
+                        alert("param=" + document.getElementById('searchInput').value)  
+                    }
+                });  
+            }  
+        });  
+    }  
+</script>  

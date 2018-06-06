@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
@@ -893,30 +894,56 @@ namespace AGI.WebService.DataController
         }
     }
 
-    [Route("api/findArticleController")]
-    public class findArticleController : Controller {
-        public IActionResult findArticle([FromBody] string param)
+    [Route("api/getArticleController")]
+    public class getArticleController : Controller
+    {
+        public String getArticle([FromBody] string param)
         {
+            string codeAlesResult = "";
+            string libelleResult = "";
             using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString()))
             {
-                SqlCommand cmd = new SqlCommand();
+                    SqlCommand cmd1 = new SqlCommand();
+                    SqlCommand cmd2 = new SqlCommand();
 
-                cmd.Connection = conn;
+                    cmd1.CommandText = "SELECT Code_Ales FROM FT_Article WHERE Code_Ales like '%'+@codeAles+'%'";
+                    cmd1.Connection = conn;
+                    conn.Open();
+                    string codeAles = param;
+                    cmd1.Parameters.AddWithValue("@codeAles", codeAles);
+                    SqlDataReader dr1 = cmd1.ExecuteReader();
+                    while (dr1.Read())
+                    {
+                        if (codeAlesResult == "")
+                        {
+                            codeAlesResult = codeAlesResult + dr1["Code_Ales"].ToString();
+                        }
+                        else
+                        {
+                            codeAlesResult = codeAlesResult +","+ dr1["Code_Ales"].ToString();
+                        }
+                    }
+                    conn.Close();
 
-                cmd.CommandText = " SELECTE Code_Ales FROM FT_Article WHERE Code_Ales like '@codeAles%' ";
-
-                cmd.CommandType = CommandType.Text;
-
-                string s = param;
-
-                cmd.Parameters.Add("@codeAles", SqlDbType.NVarChar, 20).Value = s;
-
-                conn.Open();
-
-                cmd.ExecuteNonQuery();
+                    cmd2.CommandText = "SELECT Id_Libelle_Fr FROM FT_Article WHERE Id_Libelle_FR like '%'+@Id_Libelle_FR+'%'";
+                    cmd2.Connection = conn;
+                    conn.Open();
+                    string libelle = param;
+                    cmd2.Parameters.AddWithValue("Id_Libelle_FR", libelle);
+                    SqlDataReader dr2 = cmd2.ExecuteReader();
+                        while (dr2.Read())
+                        {
+                            if (libelleResult == "")
+                            {
+                               libelleResult = libelleResult + dr2["Id_Libelle_Fr"].ToString();
+                            }
+                            else
+                            {
+                                libelleResult = libelleResult + "," + dr2["Id_Libelle_Fr"].ToString();
+                            }
+                        }
             }
-
-            return new CreatedResult("toto", "OK");
+            return codeAlesResult+","+libelleResult;
         }
     }
 }

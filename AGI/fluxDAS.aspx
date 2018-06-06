@@ -1066,7 +1066,7 @@
 
                 $.ajax({
 
-                    url: "api/subSegmentDataController?",
+                    url: "api/subSegmentDataController",
 
                     methode: "POST",
 
