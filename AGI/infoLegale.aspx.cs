@@ -17,7 +17,6 @@ namespace AGI
 
         }
 
-
         protected void findArticle(object sender, ImageClickEventArgs e)
         {
             using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString()))
@@ -26,14 +25,15 @@ namespace AGI
                 DataSet dsArticle = new DataSet();
 
                 string codeSaisi = "";
-
+                string libelleSaisi = "";
+                DataTable tblArticle = new DataTable();
                 if (Request.Form["search"] != null)
                 {
                     codeSaisi = Request.Form["search"].ToString();
                 }
 
                 // Create a SELECT query. 
-                string strSelectCmd = "SELECT ID_Article, ID_ISO3166_Country_Issuer, ID_Article_Type_Coding," +
+                string strSelectCmd1 = "SELECT ID_Article, ID_ISO3166_Country_Issuer, ID_Article_Type_Coding," +
                     "Datcre_Article,Usrcre_Article,Datmod_Article, Usrmod_Article,ID_Article_Series," +
                     "ID_Sub_Segment, ID_Range, ID_IMS_Level_4,ID_SKU_Status,ID_Taric,ID_Catalog_Type," +
                     "ID_Material_Type, ID_Language_Index, ID_Purchase_Family_Level_3, ID_Purchase_Materials_Level_2," +
@@ -43,39 +43,88 @@ namespace AGI
                 // Open the connection 
                 conn.Open();
 
-                SqlDataAdapter da = new SqlDataAdapter(strSelectCmd, conn);
-                da.SelectCommand.Parameters.AddWithValue("@codeSaisi", codeSaisi);
-                da.Fill(dsArticle, "article");
+                SqlDataAdapter da1 = new SqlDataAdapter(strSelectCmd1, conn);
+                da1.SelectCommand.Parameters.AddWithValue("@codeSaisi", codeSaisi);
+                da1.Fill(dsArticle, "article");
 
-                DataTable tblArticle = dsArticle.Tables["article"];
+                tblArticle = dsArticle.Tables["article"];
+                if (tblArticle.Rows.Count > 0)
+                {
+                    int typeCoding = int.Parse(tblArticle.Rows[0][2].ToString());
+                    tbxCodeAles.Text = tblArticle.Rows[0][20].ToString();
+                    tbxLibArtFr.Text = tblArticle.Rows[0][21].ToString();
 
-                int typeCoding = int.Parse(tblArticle.Rows[0][2].ToString());
-                tbxCodeAles.Text = tblArticle.Rows[0][20].ToString();
-                tbxLibArtFr.Text = tblArticle.Rows[0][21].ToString();
-                //tbxCodeTaric.Text = tblArticle.Rows[0][12].ToString();
-                //tbxCodeUn.Text = tblArticle.Rows[0][19].ToString();
+                    DataSet dsTaric = new DataSet();
+                    //récupération la libellée de Code Taric
+                    string idTaric = "";
+                    idTaric = tblArticle.Rows[0][12].ToString();
+                    string sqlTaric = "SELECT Lib_Taric_FR FROM ST_Taric WHERE ID_Taric = @idTaric";
+                    SqlDataAdapter daTaric = new SqlDataAdapter(sqlTaric, conn);
+                    daTaric.SelectCommand.Parameters.AddWithValue("@idTaric", idTaric);
+                    daTaric.Fill(dsTaric, "Taric");
+                    DataTable tblTaric = dsTaric.Tables["Taric"];
+                    tbxCodeTaric.Text = tblTaric.Rows[0][0].ToString();
 
-                DataSet dsTaric = new DataSet();
-                //récupération la libellée de Code Taric
-                string idTaric = "";
-                idTaric = tblArticle.Rows[0][12].ToString();
-                string sqlTaric = "SELECT Lib_Taric_FR FROM ST_Taric WHERE ID_Taric = @idTaric";
-                SqlDataAdapter daTaric = new SqlDataAdapter(sqlTaric, conn);
-                daTaric.SelectCommand.Parameters.AddWithValue("@idTaric", idTaric);
-                daTaric.Fill(dsTaric, "Taric");
-                DataTable tblTaric = dsTaric.Tables["Taric"];
-                tbxCodeTaric.Text = tblTaric.Rows[0][0].ToString();
+                    DataSet dsCodeUn = new DataSet();
+                    //récupération la libellée de Code UN
+                    string idCodeUn = "";
+                    idCodeUn = tblArticle.Rows[0][19].ToString();
+                    string sqlCodeUn = "SELECT Lib_UN_Class_FR FROM ST_UN_Class WHERE ID_UN_Class = @idCodeUn";
+                    SqlDataAdapter daCodeUn = new SqlDataAdapter(sqlCodeUn, conn);
+                    daCodeUn.SelectCommand.Parameters.AddWithValue("@idCodeUn", idCodeUn);
+                    daCodeUn.Fill(dsCodeUn, "CodeUn");
+                    DataTable tblCodeUn = dsCodeUn.Tables["CodeUn"];
+                    tbxCodeUn.Text = tblCodeUn.Rows[0][0].ToString();
+                }
 
-                DataSet dsCodeUn = new DataSet();
-                //récupération la libellée de Code UN
-                string idCodeUn = "";
-                idCodeUn = tblArticle.Rows[0][19].ToString();
-                string sqlCodeUn = "SELECT Lib_UN_Class_FR FROM ST_UN_Class WHERE ID_UN_Class = @idCodeUn";
-                SqlDataAdapter daCodeUn = new SqlDataAdapter(sqlCodeUn, conn);
-                daCodeUn.SelectCommand.Parameters.AddWithValue("@idCodeUn", idCodeUn);
-                daCodeUn.Fill(dsCodeUn, "CodeUn");
-                DataTable tblCodeUn = dsCodeUn.Tables["CodeUn"];
-                tbxCodeUn.Text = tblCodeUn.Rows[0][0].ToString();
+                else
+                {
+                    if (Request.Form["search"] != null)
+                    {
+                        libelleSaisi = Request.Form["search"].ToString();
+                    }
+
+                    string strSelectCmd2 = "SELECT ID_Article, ID_ISO3166_Country_Issuer, ID_Article_Type_Coding," +
+                   "Datcre_Article,Usrcre_Article,Datmod_Article, Usrmod_Article,ID_Article_Series," +
+                   "ID_Sub_Segment, ID_Range, ID_IMS_Level_4,ID_SKU_Status,ID_Taric,ID_Catalog_Type," +
+                   "ID_Material_Type, ID_Language_Index, ID_Purchase_Family_Level_3, ID_Purchase_Materials_Level_2," +
+                   "ID_Serie,ID_UN_Class,Code_Ales, Id_Libelle_Fr,Type_Appo,Id_Contenant,ID_Galenic FROM FT_ARTICLE " +
+                   "WHERE Id_Libelle_Fr = @Id_Libelle_Fr";
+
+                    SqlDataAdapter da2 = new SqlDataAdapter(strSelectCmd2, conn);
+                    da2.SelectCommand.Parameters.AddWithValue("@Id_Libelle_Fr", libelleSaisi);
+                    da2.Fill(dsArticle, "article");
+
+                    tblArticle = dsArticle.Tables["article"];
+                    if (tblArticle.Rows.Count > 0)
+                    {
+                        int typeCoding = int.Parse(tblArticle.Rows[0][2].ToString());
+                        tbxCodeAles.Text = tblArticle.Rows[0][20].ToString();
+                        tbxLibArtFr.Text = tblArticle.Rows[0][21].ToString();
+
+                        DataSet dsTaric = new DataSet();
+                        //récupération la libellée de Code Taric
+                        string idTaric = "";
+                        idTaric = tblArticle.Rows[0][12].ToString();
+                        string sqlTaric = "SELECT Lib_Taric_FR FROM ST_Taric WHERE ID_Taric = @idTaric";
+                        SqlDataAdapter daTaric = new SqlDataAdapter(sqlTaric, conn);
+                        daTaric.SelectCommand.Parameters.AddWithValue("@idTaric", idTaric);
+                        daTaric.Fill(dsTaric, "Taric");
+                        DataTable tblTaric = dsTaric.Tables["Taric"];
+                        tbxCodeTaric.Text = tblTaric.Rows[0][0].ToString();
+
+                        DataSet dsCodeUn = new DataSet();
+                        //récupération la libellée de Code UN
+                        string idCodeUn = "";
+                        idCodeUn = tblArticle.Rows[0][19].ToString();
+                        string sqlCodeUn = "SELECT Lib_UN_Class_FR FROM ST_UN_Class WHERE ID_UN_Class = @idCodeUn";
+                        SqlDataAdapter daCodeUn = new SqlDataAdapter(sqlCodeUn, conn);
+                        daCodeUn.SelectCommand.Parameters.AddWithValue("@idCodeUn", idCodeUn);
+                        daCodeUn.Fill(dsCodeUn, "CodeUn");
+                        DataTable tblCodeUn = dsCodeUn.Tables["CodeUn"];
+                        tbxCodeUn.Text = tblCodeUn.Rows[0][0].ToString();
+                    }
+                }
             }
         }
     }

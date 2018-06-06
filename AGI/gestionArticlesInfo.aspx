@@ -454,7 +454,7 @@
                 <br />
                 <div class="row">
                  <%--   <asp:TextBox ID="recherche" runat="server" Class="tbxInfo" Font-Names="recherche"></asp:TextBox>--%>
-                    <input type="text" placeholder="Recherche" name ="search" id="searchInput" onkeyup="showHint(this.value)" autocomplete ="on" style="background-image:url(images/recherche.png);background-position:right;background-repeat:no-repeat;padding-left:2px;width:400px;height:30px; border-radius:6px;margin-left:2px"/> 
+                    <input type="text" placeholder="Recherche" name ="search" id="searchInput"  autocomplete ="on" style="background-image:url(images/recherche.png);background-position:right;background-repeat:no-repeat;padding-left:2px;width:400px;height:30px; border-radius:6px;margin-left:2px"/> 
                     <br />
                     <asp:ImageButton ID="btnRecheArticle" runat="server" OnClick ="findArticle" Height="18px" Width="35px" />
                 </div>

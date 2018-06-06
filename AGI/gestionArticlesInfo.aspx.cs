@@ -14,8 +14,6 @@ namespace AGI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //this.recherche.AutoCompleteType  = AutoCompleteType.;
-            //this.recherche. = AutoCompleteSource.CustomSource;
 
         }
 

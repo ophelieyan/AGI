@@ -897,7 +897,7 @@ namespace AGI.WebService.DataController
     [Route("api/getArticleController")]
     public class getArticleController : Controller
     {
-        public String getArticle([FromBody] string param)
+        public string getArticle([FromBody] string param)
         {
             string codeAlesResult = "";
             string libelleResult = "";
