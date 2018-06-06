@@ -168,7 +168,7 @@
                 <br />
                 <div class="row"> 
                     <asp:ImageButton ID="btnRecheArticle" runat="server" OnClick ="findArticle" Height="18px"/>
-                    <input type="text" placeholder="Recherche" name="searchArticle" onkeyup ="filterArticle();" autocomplete ="on" style="background-image:url(images/recherche.png);background-position:right;background-repeat:no-repeat;padding-left:2px;width:450px;height:30px; border-radius:6px;margin-left:2px"/> 
+                    <input type="text" placeholder="Recherche" id= "searchInput" name="search" onkeyup ="filterArticle();" autocomplete ="on" style="background-image:url(images/recherche.png);background-position:right;background-repeat:no-repeat;padding-left:2px;width:450px;height:30px; border-radius:6px;margin-left:2px"/> 
                     <br />
                 </div>
                 <br/>
@@ -332,5 +332,28 @@
      <p>&copy; <%: DateTime.Now.Year %> - Alès Groupe</p>
 </div>
 </body>
-
 </html>
+
+<script type="text/javascript">  
+    $(document).ready(function () {
+        SearchText();  
+    });  
+    function SearchText() {  
+        $("#searchInput").autocomplete({
+            source: function(request, response) {  
+                $.ajax({  
+                    type: "POST",   
+                    url: "api/getArticleController",
+                    data :"param=" + document.getElementById('searchInput').value,
+                    success: function (data) {
+                        var array = data.split(",");
+                        response(array);
+                    },  
+                    error: function (resp, status, xhr) {
+                        alert("param=" + document.getElementById('searchInput').value)  
+                    }
+                });  
+            }  
+        });  
+    }  
+</script>  
