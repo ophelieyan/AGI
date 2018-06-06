@@ -173,7 +173,7 @@
                 </div>
                 <br/>
                 <div class="row"> 
-                    <asp:ImageButton ID="btnRechePays" runat="server" Height="18px"/>
+                    <asp:ImageButton ID="btnRechePays" runat="server" Height="18px" />
                     <input type="text" placeholder="Recherche" id="searchPays" onkeyup ="filterPays();" autocomplete ="on" style="background-image:url(images/recherche.png);background-position:right;background-repeat:no-repeat;padding-left:2px;width:450px;height:30px; border-radius:6px;margin-left:2px"/> 
                 </div>
                 <br />
