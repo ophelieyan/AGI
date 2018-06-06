@@ -11,7 +11,15 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-     <link href="Css/articleInfo.css" type='text/css' rel='stylesheet' /> 
+    <link href="Css/articleInfo.css" type='text/css' rel='stylesheet' /> 
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link href="jquery-ui.css" rel="stylesheet" type="text/css" />  
+    <script src="jquery.min.js" type="text/javascript"></script>  
+    <script src="jquery-ui.min.js" type="text/javascript"></script> 
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-1.8.0.js"></script>  
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.22/jquery-ui.js"></script>   
+
     <title>Info générales d'Articles</title>
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
@@ -159,13 +167,16 @@
                 </div>
                 <br />
                 <div class="row"> 
-                    <a>Recherche Article</a> 
-                    <input type="text" placeholder="Recherche" id="searchArticle" onkeyup ="filterArticle();" autocomplete ="on" style="background-image:url(images/recherche.png);background-position:right;background-repeat:no-repeat;padding-left:2px;width:300px;height:30px; border-radius:6px;margin-left:2px"/> 
-                    <br />
-                    <a>Recherche Pays</a>
-                    <input type="text" placeholder="Recherche" id="searchPays" onkeyup ="filterPays();" autocomplete ="on" style="background-image:url(images/recherche.png);background-position:right;background-repeat:no-repeat;padding-left:2px;width:300px;height:30px; border-radius:6px;margin-left:2px"/> 
+                    <asp:ImageButton ID="btnRecheArticle" runat="server" OnClick ="findArticle" Height="18px"/>
+                    <input type="text" placeholder="Recherche" id= "searchInput" name="search" onkeyup ="filterArticle();" autocomplete ="on" style="background-image:url(images/recherche.png);background-position:right;background-repeat:no-repeat;padding-left:2px;width:450px;height:30px; border-radius:6px;margin-left:2px"/> 
                     <br />
                 </div>
+                <br/>
+                <div class="row"> 
+                    <asp:ImageButton ID="btnRechePays" runat="server" Height="18px"/>
+                    <input type="text" placeholder="Recherche" id="searchPays" onkeyup ="filterPays();" autocomplete ="on" style="background-image:url(images/recherche.png);background-position:right;background-repeat:no-repeat;padding-left:2px;width:450px;height:30px; border-radius:6px;margin-left:2px"/> 
+                </div>
+                <br />
                 <br />
                 <div class ="row">
                 <div class="col-lg-2">
@@ -177,9 +188,9 @@
                 </div>
                 <div class="col">
                     <br/>
-                    <asp:TextBox ID="tbxCodeAles" runat="server" Class="tbxInfo">code ales</asp:TextBox>
+                    <asp:TextBox ID="tbxCodeAles" runat="server" Class="tbxInfo"></asp:TextBox>
                     <br/>
-                    <asp:TextBox ID="tbxLibArtFr" runat="server" Class="tbxInfo">lib FR</asp:TextBox>     
+                    <asp:TextBox ID="tbxLibArtFr" runat="server" Class="tbxInfo"></asp:TextBox>     
                     <br/>
                 </div>
                 <div class="col-lg-2">
@@ -193,11 +204,11 @@
                 </div>         
                 <div class="col">
                     <br />        
-                    <asp:TextBox ID="tbxLanguePays" runat="server" Class="tbxInfo">languePays</asp:TextBox>
+                    <asp:TextBox ID="tbxLanguePays" runat="server" Class="tbxInfo"></asp:TextBox>
                     <br />
-                    <asp:TextBox ID="tbxevisePays" runat="server" Class="tbxInfo">devisePays</asp:TextBox>
+                    <asp:TextBox ID="tbxDevisePays" runat="server" Class="tbxInfo"></asp:TextBox>
                     <br />
-                    <asp:TextBox ID="tbxTva" runat="server" Class="tbxInfo">TVA</asp:TextBox>
+                    <asp:TextBox ID="tbxTva" runat="server" Class="tbxInfo"></asp:TextBox>
                     <br />
                </div>
               </div>
@@ -323,3 +334,26 @@
 </body>
 
 </html>
+<script type="text/javascript">  
+    $(document).ready(function () {
+        SearchText();  
+    });  
+    function SearchText() {  
+        $("#searchInput").autocomplete({
+            source: function(request, response) {  
+                $.ajax({  
+                    type: "POST",   
+                    url: "api/getArticleController",
+                    data :"param=" + document.getElementById('searchInput').value,
+                    success: function (data) {
+                        var array = data.split(",");
+                        response(array);
+                    },  
+                    error: function (resp, status, xhr) {
+                        alert("param=" + document.getElementById('searchInput').value)  
+                    }
+                });  
+            }  
+        });  
+    }  
+</script>  

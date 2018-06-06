@@ -31,6 +31,24 @@ namespace AGI {
         protected global::System.Web.UI.WebControls.TreeView TreeViewSideMenu;
         
         /// <summary>
+        /// Contrôle btnRecheArticle.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ImageButton btnRecheArticle;
+        
+        /// <summary>
+        /// Contrôle btnRechePays.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ImageButton btnRechePays;
+        
+        /// <summary>
         /// Contrôle lblCodAles.
         /// </summary>
         /// <remarks>
@@ -103,13 +121,13 @@ namespace AGI {
         protected global::System.Web.UI.WebControls.TextBox tbxLanguePays;
         
         /// <summary>
-        /// Contrôle tbxevisePays.
+        /// Contrôle tbxDevisePays.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbxevisePays;
+        protected global::System.Web.UI.WebControls.TextBox tbxDevisePays;
         
         /// <summary>
         /// Contrôle tbxTva.
