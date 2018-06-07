@@ -11,7 +11,14 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-     <link href="Css/articleInfo.css" type='text/css' rel='stylesheet' /> 
+    <link href="Css/articleInfo.css" type='text/css' rel='stylesheet' />
+    
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link href="jquery-ui.css" rel="stylesheet" type="text/css" />  
+    <script src="jquery.min.js" type="text/javascript"></script>  
+    <script src="jquery-ui.min.js" type="text/javascript"></script> 
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-1.8.0.js"></script>  
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.22/jquery-ui.js"></script>   
     <title>Info générales d'Articles</title>
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
@@ -166,8 +173,8 @@
                 </div>
                 <br/>
                 <div class="row"> 
-                    <input type="text" placeholder="Recherche" id="searchInput" onkeyup ="filterAll();" autocomplete ="on" style="background-image:url(images/recherche.png);background-position:right;background-repeat:no-repeat;padding-left:2px;width:300px;height:30px; border-radius:6px;margin-left:2px"/> 
-                    <br />
+                    <input type="text" placeholder="Recherche" name="search" id="searchInput" onkeyup ="filterAll();" autocomplete ="on" style="background-image:url(images/recherche.png);background-position:right;background-repeat:no-repeat;padding-left:2px;width:450px;height:30px; border-radius:6px;margin-left:2px"/> 
+                    <asp:ImageButton ID="btnRecheArticle" runat="server" OnClick ="findArticle" Height="18px" Width="35px" />
                 </div>
                 <div class ="row">
                 <div class="col-lg-2" >
@@ -199,26 +206,26 @@
                 </div>
                 <div class="col" >
                     <br/>
-                    <asp:TextBox ID="tbxCodeAles" runat="server" Class="tbxInfo">code ales</asp:TextBox>
+                    <asp:TextBox ID="tbxCodeAles" runat="server" Class="tbxInfo"></asp:TextBox>
                     <br/>
-                    <asp:TextBox ID="tbxLibArtFr" runat="server" Class="tbxInfo">lib FR</asp:TextBox>     
+                    <asp:TextBox ID="tbxLibArtFr" runat="server" Class="tbxInfo"></asp:TextBox>     
                     <br/>
                     <br/>
-                    <asp:TextBox ID="tbxFrnsrRang1" runat="server" Class="tbxInfo">fournisseur rang 1</asp:TextBox>
+                    <asp:TextBox ID="tbxFrnsrRang1" runat="server" Class="tbxInfo"></asp:TextBox>
                     <br/>
-                    <asp:TextBox ID="tbxFrnsrRang2" runat="server" Class="tbxInfo">fournisseur rang 2</asp:TextBox>
+                    <asp:TextBox ID="tbxFrnsrRang2" runat="server" Class="tbxInfo"></asp:TextBox>
                     <br />
-                    <asp:TextBox ID="tbxTarif" runat="server" Class="tbxInfo">tarif</asp:TextBox>          
+                    <asp:TextBox ID="tbxTarif" runat="server" Class="tbxInfo"></asp:TextBox>          
                     <br />
-                    <asp:TextBox ID="tbxPrixStandDevise" runat="server" Class="tbxInfo">prix Standard/devise</asp:TextBox>
+                    <asp:TextBox ID="tbxPrixStandDevise" runat="server" Class="tbxInfo"></asp:TextBox>
                     <br />
-                    <asp:TextBox ID="tbxPUMPDevise" runat="server" Class="tbxInfo">pump/devise</asp:TextBox>
-                    <br />
-                    <br />
-                    <asp:TextBox ID="tbxCodeAmalg" runat="server" Class="tbxInfo">code amalgamme</asp:TextBox>
+                    <asp:TextBox ID="tbxPUMPDevise" runat="server" Class="tbxInfo"></asp:TextBox>
                     <br />
                     <br />
-                    <asp:TextBox ID="tbxActicSubstit" runat="server" Class="tbxInfo">Article de substitution</asp:TextBox>
+                    <asp:TextBox ID="tbxCodeAmalg" runat="server" Class="tbxInfo"></asp:TextBox>
+                    <br />
+                    <br />
+                    <asp:TextBox ID="tbxActicSubstit" runat="server" Class="tbxInfo"></asp:TextBox>
                     <br />
                     <br />                   
                 </div>
@@ -238,3 +245,26 @@
 
 </html>
 
+<script type="text/javascript">  
+    $(document).ready(function () {
+        SearchText();  
+    });  
+    function SearchText() {  
+        $("#searchInput").autocomplete({
+            source: function(request, response) {  
+                $.ajax({  
+                    type: "POST",   
+                    url: "api/getArticleController",
+                    data :"param=" + document.getElementById('searchInput').value,
+                    success: function (data) {
+                        var array = data.split(",");
+                        response(array);
+                    },  
+                    error: function (resp, status, xhr) {
+                        alert("param=" + document.getElementById('searchInput').value)  
+                    }
+                });  
+            }  
+        });  
+    }  
+</script>

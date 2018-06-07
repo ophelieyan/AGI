@@ -244,7 +244,7 @@
                     <asp:TextBox ID="tbxDelaiControle" runat="server" Class="tbxInfo"></asp:TextBox>        
                     <br />
                     <br />
-                    <asp:TextBox ID="tbxTolerLivrais" runat="server" Class="tbxInfo"</asp:TextBox> 
+                    <asp:TextBox ID="tbxTolerLivrais" runat="server" Class="tbxInfo"></asp:TextBox> 
                     <br />
                     <asp:TextBox ID="tbxPlus" runat="server" Class="tbxInfo"></asp:TextBox> 
                     <br />
