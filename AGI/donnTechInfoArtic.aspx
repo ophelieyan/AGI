@@ -11,7 +11,14 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-     <link href="Css/articleInfo.css" type='text/css' rel='stylesheet' /> 
+    <link href="Css/articleInfo.css" type='text/css' rel='stylesheet' /> 
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link href="jquery-ui.css" rel="stylesheet" type="text/css" />  
+    <script src="jquery.min.js" type="text/javascript"></script>  
+    <script src="jquery-ui.min.js" type="text/javascript"></script> 
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-1.8.0.js"></script>  
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.22/jquery-ui.js"></script>  
     <title>Info générales d'Articles</title>
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
@@ -171,7 +178,8 @@
                 </div>
                 <br/>
                 <div class="row"> 
-                    <input type="text" placeholder="Recherche" id="searchInput" onkeyup ="filterAll();" autocomplete ="on" style="background-image:url(images/recherche.png);background-position:right;background-repeat:no-repeat;padding-left:2px;width:300px;height:30px; border-radius:6px;margin-left:2px"/> 
+                    <input type="text" placeholder="Recherche" name="search" id="searchInput" onkeyup ="filterAll();" autocomplete ="on" style="background-image:url(images/recherche.png);background-position:right;background-repeat:no-repeat;padding-left:2px;width:450px;height:30px; border-radius:6px;margin-left:2px"/> 
+                    <asp:ImageButton ID="btnRecheArticle" runat="server" OnClick ="findArticle" Height="18px" Width="35px" />
                     <br />
                 </div>
                 <div class ="row">
@@ -194,19 +202,19 @@
                 </div>
                 <div class="col" >
                     <br/>
-                    <asp:TextBox ID="tbxCodeAles" runat="server" Class="tbxInfo">code ales</asp:TextBox>
+                    <asp:TextBox ID="tbxCodeAles" runat="server" Class="tbxInfo"></asp:TextBox>
                     <br/>
-                    <asp:TextBox ID="tbxLibArtFr" runat="server" Class="tbxInfo">lib FR</asp:TextBox>     
+                    <asp:TextBox ID="tbxLibArtFr" runat="server" Class="tbxInfo"></asp:TextBox>     
                     <br/>
                     <br/>
-                    <asp:TextBox ID="tbxTypAppro" runat="server" Class="tbxInfo">type Appro</asp:TextBox>
+                    <asp:TextBox ID="tbxTypAppro" runat="server" Class="tbxInfo"></asp:TextBox>
                     <br/>
-                    <asp:TextBox ID="tbxTypArtic" runat="server" Class="tbxInfo">type Article</asp:TextBox>
+                    <asp:TextBox ID="tbxTypArtic" runat="server" Class="tbxInfo"></asp:TextBox>
                     <br />
-                    <asp:TextBox ID="tbxStatActi" runat="server" Class="tbxInfo">statut Activité</asp:TextBox>          
+                    <asp:TextBox ID="tbxStatActi" runat="server" Class="tbxInfo"></asp:TextBox>          
                     <br />
                     <br />
-                    <asp:TextBox ID="tbxUsnProd" runat="server" Class="tbxInfo">usine de Production ou Fournisseur STT</asp:TextBox>
+                    <asp:TextBox ID="tbxUsnProd" runat="server" Class="tbxInfo"></asp:TextBox>
                     <br />
                     <br />
                 </div>
@@ -238,25 +246,25 @@
                     <%--style ="background-color :mistyrose"   --%>    
                 <div class="col" >
                     <br />        
-                    <asp:TextBox ID="tbxDelaiAppro" runat="server" Class="tbxInfo">délai d'appro</asp:TextBox>
+                    <asp:TextBox ID="tbxDelaiAppro" runat="server" Class="tbxInfo"></asp:TextBox>
                     <br />
-                    <asp:TextBox ID="tbxTailleLotMini" runat="server" Class="tbxInfo">taille lot mini</asp:TextBox>
+                    <asp:TextBox ID="tbxTailleLotMini" runat="server" Class="tbxInfo"></asp:TextBox>
                     <br />
-                    <asp:TextBox ID="tbxTailleLotMaxi" runat="server" Class="tbxInfo">taille lot maxi</asp:TextBox>
+                    <asp:TextBox ID="tbxTailleLotMaxi" runat="server" Class="tbxInfo"></asp:TextBox>
                     <br />
-                    <asp:TextBox ID="tbxIncremLot" runat="server" Class="tbxInfo">incrément de lot</asp:TextBox>        
+                    <asp:TextBox ID="tbxIncremLot" runat="server" Class="tbxInfo"></asp:TextBox>        
                     <br />
                     <br />
-                    <asp:TextBox ID="tbxStockSecu" runat="server" Class="tbxInfo">composantKit</asp:TextBox> 
+                    <asp:TextBox ID="tbxStockSecu" runat="server" Class="tbxInfo"></asp:TextBox> 
                     <br />
-                    <asp:TextBox ID="tbxStockMaxi" runat="server" Class="tbxInfo">composekit</asp:TextBox> 
+                    <asp:TextBox ID="tbxStockMaxi" runat="server" Class="tbxInfo"></asp:TextBox> 
                     <br />
-                    <asp:TextBox ID="tbxTauxPert" runat="server" Class="tbxInfo">groupeReference</asp:TextBox>
+                    <asp:TextBox ID="tbxTauxPert" runat="server" Class="tbxInfo"></asp:TextBox>
                     <br/>
                     <br />
-                    <asp:TextBox ID="tbxPosteChargePrin" runat="server" Class="tbxInfo">poste de charge principal</asp:TextBox>
+                    <asp:TextBox ID="tbxPosteChargePrin" runat="server" Class="tbxInfo"></asp:TextBox>
                     <br />
-                    <asp:TextBox ID="tbxPosteChargeSecon" runat="server" Class="tbxInfo">poste de charge secondaire</asp:TextBox>
+                    <asp:TextBox ID="tbxPosteChargeSecon" runat="server" Class="tbxInfo"></asp:TextBox>
                     <br />
                     <br />
                     <br />
@@ -276,3 +284,26 @@
 </body>
 
 </html>
+<script type="text/javascript">  
+    $(document).ready(function () {
+        SearchText();  
+    });  
+    function SearchText() {  
+        $("#searchInput").autocomplete({
+            source: function(request, response) {  
+                $.ajax({  
+                    type: "POST",   
+                    url: "api/getArticleController",
+                    data :"param=" + document.getElementById('searchInput').value,
+                    success: function (data) {
+                        var array = data.split(",");
+                        response(array);
+                    },  
+                    error: function (resp, status, xhr) {
+                        alert("param=" + document.getElementById('searchInput').value)  
+                    }
+                });  
+            }  
+        });  
+    }  
+</script>
