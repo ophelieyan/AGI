@@ -11,7 +11,14 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-     <link href="Css/articleInfo.css" type='text/css' rel='stylesheet' /> 
+    <link href="Css/articleInfo.css" type='text/css' rel='stylesheet' />
+     
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link href="jquery-ui.css" rel="stylesheet" type="text/css" />  
+    <script src="jquery.min.js" type="text/javascript"></script>  
+    <script src="jquery-ui.min.js" type="text/javascript"></script> 
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-1.8.0.js"></script>  
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.22/jquery-ui.js"></script>  
     <title>Info générales d'Articles</title>
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
@@ -166,7 +173,8 @@
                 </div>
                 <br/>
                 <div class="row"> 
-                    <input type="text" placeholder="Recherche" id="searchInput" onkeyup ="filterAll();" autocomplete ="on" style="background-image:url(images/recherche.png);background-position:right;background-repeat:no-repeat;padding-left:2px;width:300px;height:30px; border-radius:6px;margin-left:2px"/> 
+                    <input type="text" placeholder="Recherche" name="search" id="searchInput" onkeyup ="filterAll();" autocomplete ="on" style="background-image:url(images/recherche.png);background-position:right;background-repeat:no-repeat;padding-left:2px;width:450px;height:30px; border-radius:6px;margin-left:2px"/> 
+                    <asp:ImageButton ID="btnRecheArticle" runat="server" OnClick ="findArticle" Height="18px" Width="35px" />
                     <br />
                 </div>
                 <br />
@@ -188,19 +196,19 @@
                     <br/>
                 </div>
                 <div class="col-lg-3" >
-                    <asp:TextBox ID="tbxCodeAles" runat="server" Class="tbxInfo">code ales</asp:TextBox>
+                    <asp:TextBox ID="tbxCodeAles" runat="server" Class="tbxInfo"></asp:TextBox>
                     <br/>
-                    <asp:TextBox ID="tbxLibArtFr" runat="server" Class="tbxInfo">lib FR</asp:TextBox>     
+                    <asp:TextBox ID="tbxLibArtFr" runat="server" Class="tbxInfo"></asp:TextBox>     
                     <br/>
                     <br/>
-                    <asp:TextBox ID="tbxQuantiteEcoComd" runat="server" Class="tbxInfo">quantité économique de commande</asp:TextBox>
+                    <asp:TextBox ID="tbxQuantiteEcoComd" runat="server" Class="tbxInfo"></asp:TextBox>
                     <br/>
-                    <asp:TextBox ID="tbxQuantiteMiniComd" runat="server" Class="tbxInfo">quantité minimum de commande</asp:TextBox>
+                    <asp:TextBox ID="tbxQuantiteMiniComd" runat="server" Class="tbxInfo"></asp:TextBox>
                     <br />
-                    <asp:TextBox ID="tbxQuantiteMaxiComd" runat="server" Class="tbxInfo">quantité maximum de commande</asp:TextBox>          
+                    <asp:TextBox ID="tbxQuantiteMaxiComd" runat="server" Class="tbxInfo"></asp:TextBox>          
                     <br />
                     <br />
-                    <asp:TextBox ID="tbxIncremComd" runat="server" Class="tbxInfo">incrément de commande</asp:TextBox>
+                    <asp:TextBox ID="tbxIncremComd" runat="server" Class="tbxInfo"></asp:TextBox>
                     <br />
                     <br />
                 </div>
@@ -226,21 +234,21 @@
                 </div>  
                     <%--style ="background-color :mistyrose"   --%>    
                 <div class="col-lg-3" >     
-                    <asp:TextBox ID="tbxAcheteur" runat="server" Class="tbxInfo">acheteur</asp:TextBox>
+                    <asp:TextBox ID="tbxAcheteur" runat="server" Class="tbxInfo"></asp:TextBox>
                     <br />
                     <br />
-                    <asp:TextBox ID="tbxDelaiFournis" runat="server" Class="tbxInfo">délai fournisseur</asp:TextBox>
+                    <asp:TextBox ID="tbxDelaiFournis" runat="server" Class="tbxInfo"></asp:TextBox>
                     <br />
-                    <asp:TextBox ID="tbxDelaiTransp" runat="server" Class="tbxInfo">Délai transport</asp:TextBox>
+                    <asp:TextBox ID="tbxDelaiTransp" runat="server" Class="tbxInfo"></asp:TextBox>
                     <br />
-                    <asp:TextBox ID="tbxDelaiControle" runat="server" Class="tbxInfo">Delai contrôle</asp:TextBox>        
+                    <asp:TextBox ID="tbxDelaiControle" runat="server" Class="tbxInfo"></asp:TextBox>        
                     <br />
                     <br />
-                    <asp:TextBox ID="tbxTolerLivrais" runat="server" Class="tbxInfo">tolérance de livraison:</asp:TextBox> 
+                    <asp:TextBox ID="tbxTolerLivrais" runat="server" Class="tbxInfo"</asp:TextBox> 
                     <br />
-                    <asp:TextBox ID="tbxPlus" runat="server" Class="tbxInfo">plus</asp:TextBox> 
+                    <asp:TextBox ID="tbxPlus" runat="server" Class="tbxInfo"></asp:TextBox> 
                     <br />
-                    <asp:TextBox ID="tbxMoins" runat="server" Class="tbxInfo">moins</asp:TextBox>
+                    <asp:TextBox ID="tbxMoins" runat="server" Class="tbxInfo"></asp:TextBox>
                     <br/>
                     <br />
                </div>
@@ -259,3 +267,26 @@
 </body>
 
 </html>
+<script type="text/javascript">  
+    $(document).ready(function () {
+        SearchText();  
+    });  
+    function SearchText() {  
+        $("#searchInput").autocomplete({
+            source: function(request, response) {  
+                $.ajax({  
+                    type: "POST",   
+                    url: "api/getArticleController",
+                    data :"param=" + document.getElementById('searchInput').value,
+                    success: function (data) {
+                        var array = data.split(",");
+                        response(array);
+                    },  
+                    error: function (resp, status, xhr) {
+                        alert("param=" + document.getElementById('searchInput').value)  
+                    }
+                });  
+            }  
+        });  
+    }  
+</script>
