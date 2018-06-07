@@ -4,6 +4,7 @@ using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -17,25 +18,7 @@ namespace AGI
 
         }
 
-
-        //private void recherche_TextChanged(object sender, EventArgs e)
-        //{
-        //    TextBox t = sender as TextBox;
-        //    if (t != null)
-        //    {
-        //        //say you want to do a search when user types 3 or more chars
-        //        if (t.Text.Length >= 3)
-        //        {
-        //            //SuggestStrings will have the logic to return array of strings either from cache/db
-        //            string[] arr = SuggestStrings(t.Text);
-
-        //            AutoCompleteStringCollection collection = new AutoCompleteStringCollection();
-        //            collection.AddRange(arr);
-
-        //            this.recherche.AutoCompleteCustomSource = collection;
-        //        }
-        //    }
-        //}
+        public virtual CookieContainer CookieContainer { get; set; }
 
         protected void findArticle(object sender, ImageClickEventArgs e)
         {
