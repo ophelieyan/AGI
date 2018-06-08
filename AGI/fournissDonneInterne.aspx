@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="hierarchieClient.aspx.cs" Inherits="AGI.hierarchieClient" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="fournissDonneInterne.aspx.cs" Inherits="AGI.fournissDonneInterne" %>
 
 <!DOCTYPE html>
 
@@ -131,9 +131,13 @@
                          ForeColor ="black" style="margin-top:0px;font-family :Arial, Helvetica, sans-serif;" >
                         <HoverNodeStyle ForeColor="#555"  BackColor ="#edb93b"/>
                         <Nodes>
-                            <asp:TreeNode Text="Fiche Clients" Value="Fiche Clients" NavigateUrl="~/infoGeneClient.aspx">
-                                <asp:TreeNode Text="Infos Générales" Value="Infos Générales" NavigateUrl="~/infoGeneClient.aspx"></asp:TreeNode>
-                                <asp:TreeNode Text="Hierarchie Clients" Value="Hierarchie Clients" NavigateUrl="~/hierarchieClient.aspx"></asp:TreeNode>
+                            <asp:TreeNode Text="Fiche Fournisseurs" Value="Fiche Fournisseurs" NavigateUrl="~/infoGenerFourniss.aspx">
+                                <asp:TreeNode Text="Infos Générales" Value="Infos Générales" NavigateUrl="~/infoGenerFourniss.aspx"></asp:TreeNode>
+                                <asp:TreeNode Text="Données Internes" Value="Données Internes" NavigateUrl="~/fournissDonneInterne.aspx"></asp:TreeNode>
+                            </asp:TreeNode>
+                        </Nodes> 
+                        <Nodes>
+                            <asp:TreeNode Text="Fiche Articles" Value="Fiche Articles" NavigateUrl="~/fournissArticle.aspx">
                             </asp:TreeNode>
                         </Nodes> 
                          <NodeStyle Font-Size="12px" ForeColor="white" HorizontalPadding="5px" NodeSpacing="0px" VerticalPadding="0px"  />
@@ -145,70 +149,54 @@
             <div class="col-lg-9">
                <div>
                     <ul id="tabnav">
-                       <li><a href="InfoGenerClients">Infos Générales</a></li>
-                       <li class="active"><a href="hierarchieclient">Hierarchie Clients</a></li>
+                       <li><a href="infoGenerFourniss">Infos Générales</a></li>
+                       <li class="active"><a href="fournissDonneInterne">Données Internes</a></li>
                     </ul>
                 </div>
                 <br />
                 <div class="row">
-                    <input type="text" placeholder="Recherche" name ="search" id="searchClient"  autocomplete ="on" style="background-image:url(images/recherche.png);background-position:right;background-repeat:no-repeat;padding-left:2px;width:400px;height:30px; border-radius:6px;margin-left:2px"/> 
+                    <input type="text" placeholder="Recherche" name ="search" id="searchFourniss"  autocomplete ="on" style="background-image:url(images/recherche.png);background-position:right;background-repeat:no-repeat;padding-left:2px;width:400px;height:30px; border-radius:6px;margin-left:2px"/> 
                     <br />
-                    <asp:ImageButton ID="btnRecheClient" runat="server" OnClick ="findClient" Height="18px" Width="35px" />
-                </div>
-                <div class="row">
-                    <input type="text" placeholder="Recherche" name ="searchHierar" id="searchHierarClient"  autocomplete ="on" style="background-image:url(images/recherche.png);background-position:right;background-repeat:no-repeat;padding-left:2px;width:400px;height:30px; border-radius:6px;margin-left:2px"/> 
-                    <br />
-                    <asp:ImageButton ID="btnHierarClient" runat="server" OnClick ="findHierarClient" Height="18px" Width="35px" />
+                    <asp:ImageButton ID="btnRecheFourniss" runat="server" OnClick ="findFourniss" Height="18px" Width="35px" />
                 </div>
                 <br />
-                
+                <div class ="row">
+                <div class="col-lg-2" >
+                    <br/>
+                    <asp:Label ID="lblStatFourniss" runat="server" Text="Statut Fournisseur" Class="lblInfo"></asp:Label>
+                    <br/>
+                    <asp:Label ID="lblGroupFourniss" runat="server" Text="Groupe Fournisseur" Class="lblInfo"></asp:Label>
+                    <br/>
+                    <asp:Label ID="lblContrat" runat="server" Text="Contrat" Class="lblInfo"></asp:Label>
+                    <br/>
+                    <br/>
+                    <asp:Label ID="lblAcheteur" runat="server" Text="Acheteur" Class="lblInfo"></asp:Label>
+                    <br/>                     
+                    <asp:Label ID="lblApprovs" runat="server" Text="Approvisionneur" Class="lblInfo"></asp:Label>
+                    <br/>
+                    <asp:Label ID="lblAmalg" runat="server" Text="Amalgamme" Class="lblInfo"></asp:Label>
+                    <br/>
+                    <br/>
+                </div>
+                <div class="col-lg-4" >
+                    <br/>
+                    <asp:TextBox ID="tbxStatFourniss" runat="server" Class="tbxInfo"></asp:TextBox>
+                    <br/>
+                    <asp:TextBox ID="tbxGroupFourniss" runat="server" Class="tbxInfo"></asp:TextBox>
+                    <br/>
+                    <asp:TextBox ID="tbxContrat" runat="server" Class="tbxInfo"></asp:TextBox>     
+                    <br/>
+                    <br/>
+                    <asp:TextBox ID="tbxAcheteur" runat="server" Class="tbxInfo"></asp:TextBox>
+                    <br />
+                    <asp:TextBox ID="tbxApprovs" runat="server" Class="tbxInfo"></asp:TextBox>
+                    <br />
+                    <asp:TextBox ID="tbxAmalg" runat="server" Class="tbxInfo"></asp:TextBox>
+                    <br />
+                </div>
+              </div>
                <div class ="col-lg-1">
                </div>
-                <div class ="row">
-                    <div>
-                     <table id="tblHeaderClient" class ="gvClient" border="1" style ="font-size :small">
-                         <tbody>
-                             <tr>
-                                 <th style="text-align:center; width:200px; color:white; background-color:#edb93b">Nom</th>
-                                 <th style="text-align:center; width:200px; color:white; background-color:#edb93b">Prénom</th>
-                                 <th style="text-align:center; width:200px; color:white; background-color:#edb93b">Fonction</th>
-                                 <th style="text-align:center; width:200px; color:white; background-color:#edb93b">Tel mobile</th>
-                                 <th style="text-align:center; width:200px; color:white; background-color:#edb93b">Email</th>
-                             </tr>
-                         </tbody>
-                     </table>
-                 </div>
-                    <div style="overflow-y:scroll; overflow-x:hidden; width:1000px ; height:330px" >
-                      <asp:GridView ID="gvClient" runat="server" AutoGenerateColumns="False" CellPadding="4" ShowHeader="false" 
-                            HeaderStyle-Font-Underline="false" Font-Names="Arial, Helvetica, sans-serif"
-                            Font-Size ="X-Small" ForeColor="#333333" GridLines="None"> 
-                            <RowStyle BackColor="White"  ForeColor="#333333" /> 
-                                <Columns> 
-                                    <asp:TemplateField > 
-                                        <ItemTemplate> 
-                                            <asp:Label ID="lblIdImsL1" runat="server" Text='<%# Bind("ID_IMS_Level_1") %>' Width ="20px" style="display :none"></asp:Label> 
-                                        </ItemTemplate> 
-                                    </asp:TemplateField> 
-                                    <asp:TemplateField > 
-                                        <EditItemTemplate> 
-                                            <asp:TextBox ID="tbxLibImsL1Fr" runat="server" Text='<%# Bind("Lib_IMS_Level_1_FR") %>'  Width ="235px"></asp:TextBox> 
-                                        </EditItemTemplate> 
-                                        <ItemTemplate> 
-                                            <asp:Label ID="lblLibImsL1Fr" runat="server" Text='<%# Bind("Lib_IMS_Level_1_FR") %>' Width ="235px"></asp:Label> 
-                                        </ItemTemplate> 
-                                    </asp:TemplateField> 
-                                </Columns> 
-                                <EditRowStyle BackColor="#999999" />
-                                <FooterStyle BackColor="#edb93b" ForeColor="White" Font-Bold="True" /> 
-                                <PagerStyle BackColor="#edb93b" ForeColor="White" HorizontalAlign="Center" /> 
-                                <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
-                            <SortedAscendingCellStyle BackColor="#E9E7E2" />
-                            <SortedAscendingHeaderStyle BackColor="#506C8C" />
-                            <SortedDescendingCellStyle BackColor="#FFFDF8" />
-                            <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
-                 </asp:GridView> 
-                    </div> 
-                </div>
             </div>          
         </div>
     </div>
@@ -227,18 +215,18 @@
         SearchText();  
     });  
     function SearchText() {  
-        $("#searchClient").autocomplete({
+        $("#searchFourniss").autocomplete({
             source: function(request, response) {  
                 $.ajax({  
                     type: "POST",   
-                    url: "api/getClientController",
-                    data :"param=" + document.getElementById('searchClient').value,
+                    url: "api/getFournisseurController",
+                    data: "param=" + document.getElementById('searchFourniss').value,
                     success: function (data) {
                         var array = data.split(",");
                         response(array);
                     },  
                     error: function (resp, status, xhr) {
-                        alert("param=" + document.getElementById('searchClient').value)  
+                        alert("param=" + document.getElementById('searchFourniss').value)
                     }
                 });  
             }  

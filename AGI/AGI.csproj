@@ -226,9 +226,11 @@
     <Content Include="donnTechInfoArtic.aspx" />
     <Content Include="fluxActivity.aspx" />
     <Content Include="FluxIMS.aspx" />
+    <Content Include="fournissDonneInterne.aspx" />
     <Content Include="gestionArticleRefInternational.aspx" />
     <Content Include="hierarchieClient.aspx" />
     <Content Include="InfoGenerClients.aspx" />
+    <Content Include="infoGenerFourniss.aspx" />
     <Content Include="infoLegale.aspx" />
     <Content Include="infoLogi.aspx" />
     <Content Include="Js\fDas.js" />
@@ -431,6 +433,13 @@
     <Compile Include="FluxIMS.aspx.designer.cs">
       <DependentUpon>FluxIMS.aspx</DependentUpon>
     </Compile>
+    <Compile Include="fournissDonneInterne.aspx.cs">
+      <DependentUpon>fournissDonneInterne.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="fournissDonneInterne.aspx.designer.cs">
+      <DependentUpon>fournissDonneInterne.aspx</DependentUpon>
+    </Compile>
     <Compile Include="hierarchieClient.aspx.cs">
       <DependentUpon>hierarchieClient.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -444,6 +453,13 @@
     </Compile>
     <Compile Include="InfoGenerClients.aspx.designer.cs">
       <DependentUpon>InfoGenerClients.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="infoGenerFourniss.aspx.cs">
+      <DependentUpon>infoGenerFourniss.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="infoGenerFourniss.aspx.designer.cs">
+      <DependentUpon>infoGenerFourniss.aspx</DependentUpon>
     </Compile>
     <Compile Include="infoLegale.aspx.cs">
       <DependentUpon>infoLegale.aspx</DependentUpon>

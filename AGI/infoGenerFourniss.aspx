@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="hierarchieClient.aspx.cs" Inherits="AGI.hierarchieClient" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="infoGenerFourniss.aspx.cs" Inherits="AGI.infoGenerFourniss" %>
 
 <!DOCTYPE html>
 
@@ -131,9 +131,13 @@
                          ForeColor ="black" style="margin-top:0px;font-family :Arial, Helvetica, sans-serif;" >
                         <HoverNodeStyle ForeColor="#555"  BackColor ="#edb93b"/>
                         <Nodes>
-                            <asp:TreeNode Text="Fiche Clients" Value="Fiche Clients" NavigateUrl="~/infoGeneClient.aspx">
-                                <asp:TreeNode Text="Infos Générales" Value="Infos Générales" NavigateUrl="~/infoGeneClient.aspx"></asp:TreeNode>
-                                <asp:TreeNode Text="Hierarchie Clients" Value="Hierarchie Clients" NavigateUrl="~/hierarchieClient.aspx"></asp:TreeNode>
+                            <asp:TreeNode Text="Fiche Fournisseurs" Value="Fiche Fournisseurs" NavigateUrl="~/infoGenerFourniss.aspx">
+                                <asp:TreeNode Text="Infos Générales" Value="Infos Générales" NavigateUrl="~/infoGenerFourniss.aspx"></asp:TreeNode>
+                                <asp:TreeNode Text="Données Internes" Value="Données Internes" NavigateUrl="~/fournissDonneInterne.aspx"></asp:TreeNode>
+                            </asp:TreeNode>
+                        </Nodes> 
+                        <Nodes>
+                            <asp:TreeNode Text="Fiche Articles" Value="Fiche Articles" NavigateUrl="~/fournissArticle.aspx">
                             </asp:TreeNode>
                         </Nodes> 
                          <NodeStyle Font-Size="12px" ForeColor="white" HorizontalPadding="5px" NodeSpacing="0px" VerticalPadding="0px"  />
@@ -145,23 +149,97 @@
             <div class="col-lg-9">
                <div>
                     <ul id="tabnav">
-                       <li><a href="InfoGenerClients">Infos Générales</a></li>
-                       <li class="active"><a href="hierarchieclient">Hierarchie Clients</a></li>
+                       <li class="active"><a href="infoGenerFourniss">Infos Générales</a></li>
+                       <li><a href="fournissDonneInterne">Données Internes</a></li>
                     </ul>
                 </div>
                 <br />
                 <div class="row">
-                    <input type="text" placeholder="Recherche" name ="search" id="searchClient"  autocomplete ="on" style="background-image:url(images/recherche.png);background-position:right;background-repeat:no-repeat;padding-left:2px;width:400px;height:30px; border-radius:6px;margin-left:2px"/> 
+                    <input type="text" placeholder="Recherche" name ="search" id="searchFourniss"  autocomplete ="on" style="background-image:url(images/recherche.png);background-position:right;background-repeat:no-repeat;padding-left:2px;width:400px;height:30px; border-radius:6px;margin-left:2px"/> 
                     <br />
-                    <asp:ImageButton ID="btnRecheClient" runat="server" OnClick ="findClient" Height="18px" Width="35px" />
-                </div>
-                <div class="row">
-                    <input type="text" placeholder="Recherche" name ="searchHierar" id="searchHierarClient"  autocomplete ="on" style="background-image:url(images/recherche.png);background-position:right;background-repeat:no-repeat;padding-left:2px;width:400px;height:30px; border-radius:6px;margin-left:2px"/> 
-                    <br />
-                    <asp:ImageButton ID="btnHierarClient" runat="server" OnClick ="findHierarClient" Height="18px" Width="35px" />
+                    <asp:ImageButton ID="btnRecheFourniss" runat="server" OnClick ="findFourniss" Height="18px" Width="35px" />
                 </div>
                 <br />
-                
+                <div class ="row">
+                <div class="col-lg-2" >
+                    <br/>
+                    <asp:Label ID="lblCodIris" runat="server" Text="Code Iris" Class="lblInfo"></asp:Label>
+                    <br/>
+                    <asp:Label ID="lblCodAles" runat="server" Text="Code Alès" Class="lblInfo"></asp:Label>
+                    <br/>
+                    <asp:Label ID="lblEnteteSoc" runat="server" Text="Entête Société" Class="lblInfo"></asp:Label>
+                    <br/>
+                    <asp:Label ID="lblNomComplet" runat="server" Text="Nom Complet" Class="lblInfo"></asp:Label>
+                    <br/>  
+                    <br/>
+                    <asp:Label ID="lblTVA" runat="server" Text="TVA intracommunautaire" Class="lblInfo"></asp:Label>
+                    <br />
+                    <asp:Label ID="lblNAF" runat="server" Text="Code NAF" Class="lblInfo"></asp:Label>
+                    <br />
+                    <asp:Label ID="lblDevise" runat="server" Text="Devise" Class="lblInfo"></asp:Label>
+                    <br />
+                    <asp:Label ID="lblLangue" runat="server" Text="Langue" Class="lblInfo"></asp:Label>
+                    <br/>                 
+                    <br/>
+                </div>
+                <div class="col-lg-4" >
+                    <br/>
+                    <asp:TextBox ID="tbxCodeIris" runat="server" Class="tbxInfo"></asp:TextBox>
+                    <br/>
+                    <asp:TextBox ID="tbxCodeAles" runat="server" Class="tbxInfo"></asp:TextBox>
+                    <br/>
+                    <asp:TextBox ID="tbxEnteteSoc" runat="server" Class="tbxInfo"></asp:TextBox>     
+                    <br/>
+                    <asp:TextBox ID="tbxNomComplet" runat="server" Class="tbxInfo"></asp:TextBox>
+                    <br/>
+                    <br/>
+                    <asp:TextBox ID="tbxTVA" runat="server" Class="tbxInfo"></asp:TextBox>
+                    <br />
+                    <asp:TextBox ID="tbxNAF" runat="server" Class="tbxInfo"></asp:TextBox>
+                    <br />
+                    <asp:TextBox ID="tbxDevise" runat="server" Class="tbxInfo"></asp:TextBox>        
+                    <br />
+                    <asp:TextBox ID="tbxLangue" runat="server" Class="tbxInfo"></asp:TextBox> 
+                </div>
+                <div class="col-lg-2" >
+                    <br />
+                    <asp:Label ID="lblAdresse" runat="server" Text="Adresse" Class="lblInfo"></asp:Label>
+                    <br/>
+                    <asp:Label ID="lblAdrsComp" runat="server" Text="Complément Adresse" Class="lblInfo"></asp:Label>
+                    <br/>
+                    <asp:Label ID="lblCodePost" runat="server" Text="Code Postal" Class="lblInfo"></asp:Label>
+                    <br/>
+                    <asp:Label ID="lblVille" runat="server" Text="Ville" Class="lblInfo"></asp:Label>
+                    <br/>
+                    <br />
+                    <asp:Label ID="lblRegion" runat="server" Text="Etat/Province/Région" Class="lblInfo"></asp:Label>
+                    <br/>
+                    <asp:Label ID="lblPays" runat="server" Text="Pays" Class="lblInfo"></asp:Label>
+                    <br />
+                    <asp:Label ID="lblTel" runat="server" Text="Téléphone" Class="lblInfo"></asp:Label>
+                    <br />  
+                    <br />
+                </div>  
+                <div class="col-lg-4" >
+                    <br />
+                    <asp:TextBox ID="tbxAdresse" runat="server" Class="tbxInfo"></asp:TextBox>
+                    <br/>
+                    <asp:TextBox ID="tbxAdrsComp" runat="server" Class="tbxInfo"></asp:TextBox>
+                    <br />
+                    <asp:TextBox ID="tbxCodePost" runat="server" Class="tbxInfo"></asp:TextBox>          
+                    <br />
+                    <asp:TextBox ID="tbxVille" runat="server" Class="tbxInfo"></asp:TextBox>
+                    <br />
+                    <br />
+                    <asp:TextBox ID="tbxRegion" runat="server" Class="tbxInfo"></asp:TextBox>
+                    <br />
+                    <asp:TextBox ID="tbxPays" runat="server" Class="tbxInfo"></asp:TextBox>
+                    <br />        
+                    <asp:TextBox ID="tbxTel" runat="server" Class="tbxInfo"></asp:TextBox>
+                    <br />
+                    
+               </div>
+              </div>
                <div class ="col-lg-1">
                </div>
                 <div class ="row">
@@ -227,18 +305,18 @@
         SearchText();  
     });  
     function SearchText() {  
-        $("#searchClient").autocomplete({
+        $("#searchFourniss").autocomplete({
             source: function(request, response) {  
                 $.ajax({  
                     type: "POST",   
-                    url: "api/getClientController",
-                    data :"param=" + document.getElementById('searchClient').value,
+                    url: "api/getFournisseurController",
+                    data :"param=" + document.getElementById('searchFourniss').value,
                     success: function (data) {
                         var array = data.split(",");
                         response(array);
                     },  
                     error: function (resp, status, xhr) {
-                        alert("param=" + document.getElementById('searchClient').value)  
+                        alert("param=" + document.getElementById('searchFourniss').value)  
                     }
                 });  
             }  
