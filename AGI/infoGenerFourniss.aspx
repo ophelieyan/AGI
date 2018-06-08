@@ -244,6 +244,7 @@
                </div>
                 <div class ="row">
                     <div>
+                     <asp:Label ID="lblContact" runat="server" Text="Contact"></asp:Label>
                      <table id="tblHeaderClient" class ="gvClient" border="1" style ="font-size :small">
                          <tbody>
                              <tr>

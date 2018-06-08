@@ -1,7 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="FournissArticle.aspx.cs" Inherits="AGI.FournissArticle" %>
 
-<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="infoGenerFourniss.aspx.cs" Inherits="AGI.infoGenerFourniss" %>
-
 <!DOCTYPE html>
 
 <html>
@@ -149,12 +147,6 @@
                  </div>
             </div>
             <div class="col-lg-9">
-               <div>
-                    <ul id="tabnav">
-                       <li class="active"><a href="infoGenerFourniss">Infos Générales</a></li>
-                       <li><a href="fournissDonneInterne">Données Internes</a></li>
-                    </ul>
-                </div>
                 <br />
                 <div class="row">
                     <input type="text" placeholder="Recherche" name ="search" id="searchFourniss"  autocomplete ="on" style="background-image:url(images/recherche.png);background-position:right;background-repeat:no-repeat;padding-left:2px;width:400px;height:30px; border-radius:6px;margin-left:2px"/> 
@@ -166,7 +158,7 @@
                </div>
                 <div class ="row">
                     <div>
-                    <
+                     <asp:Label ID="lblListArticle" runat="server" Text="List Articles Achetés"></asp:Label>
                      <table id="tblHeaderFrnsrArticle" class ="gvFrnsrArticle" border="1" style ="font-size :small">
                          <tbody>
                              <tr>

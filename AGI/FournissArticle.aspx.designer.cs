@@ -10,7 +10,7 @@
 namespace AGI {
     
     
-    public partial class infoGenerFourniss {
+    public partial class FournissArticle {
         
         /// <summary>
         /// Contrôle MainCompanylogo.
@@ -38,5 +38,14 @@ namespace AGI {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ImageButton btnRecheFourniss;
+        
+        /// <summary>
+        /// Contrôle lblListArticle.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblListArticle;
     }
 }
