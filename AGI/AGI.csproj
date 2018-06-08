@@ -226,6 +226,7 @@
     <Content Include="donnTechInfoArtic.aspx" />
     <Content Include="fluxActivity.aspx" />
     <Content Include="FluxIMS.aspx" />
+    <Content Include="FournissArticle.aspx" />
     <Content Include="fournissDonneInterne.aspx" />
     <Content Include="gestionArticleRefInternational.aspx" />
     <Content Include="hierarchieClient.aspx" />
@@ -432,6 +433,13 @@
     </Compile>
     <Compile Include="FluxIMS.aspx.designer.cs">
       <DependentUpon>FluxIMS.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FournissArticle.aspx.cs">
+      <DependentUpon>FournissArticle.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FournissArticle.aspx.designer.cs">
+      <DependentUpon>FournissArticle.aspx</DependentUpon>
     </Compile>
     <Compile Include="fournissDonneInterne.aspx.cs">
       <DependentUpon>fournissDonneInterne.aspx</DependentUpon>
