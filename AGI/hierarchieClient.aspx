@@ -62,10 +62,10 @@
         </div>
       </li>
       <li class="menu">
-        <a href="gestionClients" class="dropbtn">CLIENTS</a>
+        <a href="InfoGenerClients" class="dropbtn">CLIENTS</a>
         <div class="submenu">
           <a href="#">Flux codification Clients</a>
-          <a href="gestionClientsInfo">Infos générales</a>
+          <a href="InfoGenerClients">Infos générales</a>
           <a href="gestionClientsInfo2">Infos métiers</a>
           <a href="gestionHieraClient">Hierarchie client</a>
         </div>
@@ -155,10 +155,12 @@
                     <br />
                     <asp:ImageButton ID="btnRecheClient" runat="server" OnClick ="findClient" Height="18px" Width="35px" />
                 </div>
+                <br />
                 <div class="row">
-                    <input type="text" placeholder="Recherche" name ="searchHierar" id="searchHierarClient"  autocomplete ="on" style="background-image:url(images/recherche.png);background-position:right;background-repeat:no-repeat;padding-left:2px;width:400px;height:30px; border-radius:6px;margin-left:2px"/> 
+                 <%--   <input type="text" placeholder="Recherche" name ="searchHierar" id="searchHierarClient"  autocomplete ="on" style="background-image:url(images/recherche.png);background-position:right;background-repeat:no-repeat;padding-left:2px;width:400px;height:30px; border-radius:6px;margin-left:2px"/> 
                     <br />
-                    <asp:ImageButton ID="btnHierarClient" runat="server" OnClick ="findHierarClient" Height="18px" Width="35px" />
+                    <asp:ImageButton ID="btnHierarClient" runat="server" OnClick ="findHierarClient" Height="18px" Width="35px" />--%>
+                    <asp:DropDownList ID="ddlHierarClient" runat="server"></asp:DropDownList>
                 </div>
                 <br />
                 

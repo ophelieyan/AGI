@@ -483,6 +483,7 @@
     <Compile Include="infoLogi.aspx.designer.cs">
       <DependentUpon>infoLogi.aspx</DependentUpon>
     </Compile>
+    <Compile Include="T.cs" />
     <Compile Include="webservice\DataController\DataController.cs" />
     <Compile Include="CreatedResult.cs" />
     <Compile Include="garde\1.aspx.cs">

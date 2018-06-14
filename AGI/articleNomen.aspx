@@ -59,19 +59,19 @@
         </div>
       </li>
       <li class="menu">
-        <a href="gestionClients" class="dropbtn">CLIENTS</a>
+        <a href="InfoGenerClients" class="dropbtn">CLIENTS</a>
         <div class="submenu">
           <a href="#">Flux codification Clients</a>
-          <a href="gestionClientsInfo">Infos générales</a>
+          <a href="InfoGenerClients">Infos générales</a>
           <a href="gestionClientsInfo2">Infos métiers</a>
           <a href="gestionHieraClient">Hierarchie client</a>
         </div>
       </li>
       <li class="menu">
-        <a href="gestionFournisseurs" class="dropbtn">FOURNISSEURS</a>
+        <a href="InfoGenerClients" class="dropbtn">FOURNISSEURS</a>
         <div class="submenu">
           <a href ="#">flux codification fournisseurs</a>
-          <a href="gestionFournisseursInfo">Infos générales</a>
+          <a href="InfoGenerClients">Infos générales</a>
           <a href="gestionFourInfoMetier">Infos métiers</a>
           <a href="gestionFourArtic">Fournisseur/Article</a>
         </div>

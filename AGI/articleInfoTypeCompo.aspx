@@ -52,10 +52,10 @@
         </div>
       </li>
       <li class="menu">
-        <a href="gestionClients" class="dropbtn">CLIENTS</a>
+        <a href="InfoGenerClients" class="dropbtn">CLIENTS</a>
         <div class="submenu">
           <a href="#">Flux codification Clients</a>
-          <a href="gestionClientsInfo">Infos générales</a>
+          <a href="InfoGenerClients">Infos générales</a>
           <a href="gestionClientsInfo2">Infos métiers</a>
           <a href="gestionHieraClient">Hierarchie client</a>
         </div>
