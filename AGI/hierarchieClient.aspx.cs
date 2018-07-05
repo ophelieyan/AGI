@@ -95,10 +95,12 @@ namespace AGI
                     ddlHierarClient.Items.Add(dr3["Lib_Customer_SCM_Classification_Level_2_Fr"].ToString());
 
                 }
+
                 conn.Close();
             }
         }
 
+        //A faire 
         protected void findClient(object sender, ImageClickEventArgs e)
         {
             //using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString()))
@@ -227,5 +229,7 @@ namespace AGI
                 }
             }
         }
+
+
     }
 }
