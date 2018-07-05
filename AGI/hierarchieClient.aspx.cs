@@ -22,14 +22,23 @@ namespace AGI
             using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString()))
             {
                 DataSet dsHierarClient1 = new DataSet();
+
                 DataSet dsHierarClient2 = new DataSet();
 
+                //Ajout des choix de Type Client
                 string strSelectCmd1 = "SELECT ID_Customer_Type, Lib_Customer_Type_Fr FROM ST_Customer_Type ORDER BY ID_Customer_Type";
-
+                
+                //Ajout des choix de Statue Client
                 string strSelectCmd2 = "SELECT ID_Customer_Status,Lib_Customer_Status_Fr FROM ST_Customer_Status ORDER BY ID_Customer_Status";
 
+                //Ajout des choix de Code Client
+                string strSelectCmd3 = "SELECT ID_Customer_SCM_Classification_Level_2,Lib_Customer_SCM_Classification_Level_2_Fr FROM ST_Customer_SCM_Classification_Level_2 ORDER BY ID_Customer_SCM_Classification_Level_2";
+
                 SqlDataAdapter da1 = new SqlDataAdapter(strSelectCmd1, conn);
+
                 SqlDataAdapter da2 = new SqlDataAdapter(strSelectCmd2, conn);
+
+                SqlDataAdapter da3 = new SqlDataAdapter(strSelectCmd3, conn);
 
                 conn.Open();
 
@@ -42,26 +51,53 @@ namespace AGI
 
                 // Bind the dropdownlist control. 
                 ddlHierarClient.DataSource = dvHierarClient;
-                ddlHierarClient.Items.Insert(0, "Tout");
+
+                ddlHierarClient.Items.Insert(0, new ListItem("", ""));
+
+                ddlHierarClient.Items.Add("Tout");
+
                 ddlHierarClient.DataValueField = "ID_Customer_Type";
+
                 ddlHierarClient.DataTextField = "Lib_Customer_Type_Fr";
 
                 ddlHierarClient.DataBind();
 
                 SqlCommand cmd2 = new SqlCommand();
+
                 cmd2.CommandText = strSelectCmd2;
+
                 cmd2.Connection = conn;
 
                 SqlDataReader dr2 = cmd2.ExecuteReader();
-                List<string>[] libelleResult = new List<string>[];
+
                 while (dr2.Read())
-                {
-                   libelleResult.Add(dr2["Lib_Customer_Status_Fr"] + "");
+                {                
+
+                   ddlHierarClient.Items.Add(dr2["Lib_Customer_Status_Fr"].ToString());
+
                 }
-                ddlHierarClient.Items.AddRange (libelleResult);
-             
-            }      
-    }
+
+                conn.Close();
+
+                conn.Open();
+
+                SqlCommand cmd3 = new SqlCommand();
+
+                cmd3.CommandText = strSelectCmd3;
+
+                cmd3.Connection = conn;
+
+                SqlDataReader dr3 = cmd3.ExecuteReader();
+
+                while (dr3.Read())
+                {
+
+                    ddlHierarClient.Items.Add(dr3["Lib_Customer_SCM_Classification_Level_2_Fr"].ToString());
+
+                }
+                conn.Close();
+            }
+        }
 
         protected void findClient(object sender, ImageClickEventArgs e)
         {
