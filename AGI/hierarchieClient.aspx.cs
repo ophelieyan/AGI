@@ -14,7 +14,52 @@ namespace AGI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            BindDdlHierarClient();
+            if (!IsPostBack)
+            {
+                // Enable the GridView paging option and  
+                // specify the page size. 
+                //das.AllowPaging = true;
+                //das.PageSize = 15;
+
+
+                // Enable the GridView sorting option. 
+                ScmL1.AllowSorting = true;
+
+
+                // Initialize the sorting expression. 
+                ViewState["SortExpression"] = "ID_Customer_SCM_Classification_Level_1 ASC";
+
+
+                // Populate the GridView. 
+                BindGridViewScmL1();
+
+                // Populate the GridView. 
+                BindGridViewScmL2();
+
+                // Enable the GridView paging option and  
+                // specify the page size. 
+                //segment.AllowPaging = true;
+                //segment.PageSize = 15;
+
+                // Enable the GridView sorting option. 
+                ScmL2.AllowSorting = true;
+
+
+                // Initialize the sorting expression. 
+                ViewState["SortExpression"] = "ID_Customer_SCM_Classification_Level_2 ASC";
+
+                BindDdlHierarClient();
+            }
+        }
+
+        private void BindGridViewScmL2()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void BindGridViewScmL1()
+        {
+            throw new NotImplementedException();
         }
 
         private void BindDdlHierarClient()
