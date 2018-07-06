@@ -36,14 +36,16 @@ namespace AGI
                 // Populate the GridView. 
                 BindGridViewScmL2();
 
+                // Populate the GridView. 
+                BindGridViewBusinessL1();
+
+                // Populate the GridView. 
+                BindGridViewBusinessL2();
+
                 // Enable the GridView paging option and  
                 // specify the page size. 
                 //segment.AllowPaging = true;
                 //segment.PageSize = 15;
-
-                // Enable the GridView sorting option. 
-                ScmL2.AllowSorting = true;
-
 
                 // Initialize the sorting expression. 
                 ViewState["SortExpression"] = "ID_Customer_SCM_Classification_Level_2 ASC";
@@ -52,14 +54,180 @@ namespace AGI
             }
         }
 
-        private void BindGridViewScmL2()
-        {
-            throw new NotImplementedException();
-        }
 
         private void BindGridViewScmL1()
         {
-            throw new NotImplementedException();
+            // Get the connection string from Web.config.  
+            // When we use Using statement,  
+            // we don't need to explicitly dispose the object in the code,  
+            // the using statement takes care of it. 
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString()))
+            {
+                // Create a DataSet object. 
+                DataSet dsScmL1 = new DataSet();
+
+
+                // Create a SELECT query. 
+                string strSelectCmd = "SELECT ID_Customer_SCM_Classification_Level_1, Cod_Customer_SCM_Classification_Level_1, Lib_Customer_SCM_Classification_Level_1_Fr FROM ST_Customer_SCM_Classification_Level_1";
+
+
+                // Create a SqlDataAdapter object 
+                // SqlDataAdapter represents a set of data commands and a  
+                // database connection that are used to fill the DataSet and  
+                // update a SQL Server database.  
+                SqlDataAdapter da = new SqlDataAdapter(strSelectCmd, conn);
+
+
+                // Open the connection 
+                conn.Open();
+
+
+                // Fill the DataTable named "DAS" in DataSet with the rows 
+                // returned by the query.new n 
+                da.Fill(dsScmL1, "ScmL1");
+
+
+                // Get the DataView from ScmL1 DataTable. 
+                DataView dvScmL1 = dsScmL1.Tables["ScmL1"].DefaultView;
+
+                // Set the sort column and sort order. 
+                dvScmL1.Sort = ViewState["SortExpression"].ToString();
+
+                // Bind the GridView control. 
+                ScmL1.DataSource = dvScmL1;
+                ScmL1.DataBind();
+            }
+        }
+
+        private void BindGridViewScmL2()
+        {
+            // Get the connection string from Web.config.  
+            // When we use Using statement,  
+            // we don't need to explicitly dispose the object in the code,  
+            // the using statement takes care of it. 
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString()))
+            {
+                // Create a DataSet object. 
+                DataSet dsScmL2 = new DataSet();
+
+
+                // Create a SELECT query. 
+                string strSelectCmd = "SELECT ID_Customer_SCM_Classification_Level_2, Cod_Customer_SCM_Classification_Level_2, Lib_Customer_SCM_Classification_Level_2_Fr FROM ST_Customer_SCM_Classification_Level_2";
+
+
+                // Create a SqlDataAdapter object 
+                // SqlDataAdapter represents a set of data commands and a  
+                // database connection that are used to fill the DataSet and  
+                // update a SQL Server database.  
+                SqlDataAdapter da = new SqlDataAdapter(strSelectCmd, conn);
+
+
+                // Open the connection 
+                conn.Open();
+
+
+                // Fill the DataTable named "ScmL2" in DataSet with the rows 
+                // returned by the query.new n 
+                da.Fill(dsScmL2, "ScmL2");
+
+
+                // Get the DataView from ScmL2 DataTable. 
+                DataView dvScmL2 = dsScmL2.Tables["ScmL2"].DefaultView;
+
+                // Set the sort column and sort order. 
+                //dvScmL2.Sort = ViewState["SortExpression"].ToString();
+
+                // Bind the GridView control. 
+                ScmL2.DataSource = dvScmL2;
+                ScmL2.DataBind();
+            }
+        }
+
+
+        private void BindGridViewBusinessL1()
+        {
+            // Get the connection string from Web.config.  
+            // When we use Using statement,  
+            // we don't need to explicitly dispose the object in the code,  
+            // the using statement takes care of it. 
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString()))
+            {
+                // Create a DataSet object. 
+                DataSet dsBusinessL1 = new DataSet();
+
+
+                // Create a SELECT query. 
+                string strSelectCmd = "SELECT ID_Customer_Business_Classification_Level_1, Cod_Customer_Business_Classification_Level_1, Lib_Customer_Business_Classification_Level_1_Fr FROM ST_Customer_Business_Classification_Level_1";
+
+
+                // Create a SqlDataAdapter object 
+                // SqlDataAdapter represents a set of data commands and a  
+                // database connection that are used to fill the DataSet and  
+                // update a SQL Server database.  
+                SqlDataAdapter da = new SqlDataAdapter(strSelectCmd, conn);
+
+
+                // Open the connection 
+                conn.Open();
+
+
+                // Fill the DataTable named "DAS" in DataSet with the rows 
+                // returned by the query.new n 
+                da.Fill(dsBusinessL1, "BusinessL1");
+
+
+                // Get the DataView from BusinessL1 DataTable. 
+                DataView dvBusinessL1 = dsBusinessL1.Tables["BusinessL1"].DefaultView;
+
+                // Set the sort column and sort order. 
+                // dvBusinessL1.Sort = ViewState["SortExpression"].ToString();
+
+                // Bind the GridView control. 
+                BusinessL1.DataSource = dvBusinessL1;
+                BusinessL1.DataBind();
+            }
+        }
+
+        private void BindGridViewBusinessL2()
+        {
+            // Get the connection string from Web.config.  
+            // When we use Using statement,  
+            // we don't need to explicitly dispose the object in the code,  
+            // the using statement takes care of it. 
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString()))
+            {
+                // Create a DataSet object. 
+                DataSet dsBusinessL2 = new DataSet();
+
+
+                // Create a SELECT query. 
+                string strSelectCmd = "SELECT ID_Customer_Business_Classification_Level_2, Cod_Customer_Business_Classification_Level_2, Lib_Customer_Business_Classification_Level_2_Fr FROM ST_Customer_Business_Classification_Level_2";
+
+
+                // Create a SqlDataAdapter object 
+                // SqlDataAdapter represents a set of data commands and a  
+                // database connection that are used to fill the DataSet and  
+                // update a SQL Server database.  
+                SqlDataAdapter da = new SqlDataAdapter(strSelectCmd, conn);
+
+
+                // Open the connection 
+                conn.Open();
+
+
+                // Fill the DataTable named "DAS" in DataSet with the rows 
+                // returned by the query.new n 
+                da.Fill(dsBusinessL2, "BusinessL2");
+
+
+                // Get the DataView from ScmL1 DataTable. 
+                DataView dvBusinessL2 = dsBusinessL2.Tables["BusinessL2"].DefaultView;
+
+
+                // Bind the GridView control. 
+                BusinessL2.DataSource = dvBusinessL2;
+                BusinessL2.DataBind();
+            }
         }
 
         private void BindDdlHierarClient()

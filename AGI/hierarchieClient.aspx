@@ -175,20 +175,18 @@
                      <table id="tblHeader" class ="gvScmL1" border="1" style ="font-size :small">
                          <tbody>
                              <tr>
-                                 <th style="text-align :center ;width:80px; color:white;background-color:#edb93b">Code SCM Classification Level 1</th>
-                                 <th style="text-align :center ;width:100px; color:white;background-color:#edb93b">Libellé SCM Classification Level 1</th>
+                                 <th style="text-align:center; width:100px; color:white; background-color:#edb93b">Code SCM Level 1</th>
+                                 <th style="text-align:center; width:180px; color:white; background-color:#edb93b">Libellé SCM Level 1</th>
                              </tr>
                          </tbody>
                      </table>
                  </div>
-                 <div style="overflow-y:scroll; overflow-x:hidden; width:340px ; height:330px" >
-                   
+                 <div style="overflow-y:scroll; overflow-x:hidden; width:280px ; height:330px" >
+                 <%--  onrowdeleting="ScmL1_RowDeleting" onrowediting="ScmL1_RowEditing" onrowupdating="ScmL1_RowUpdating"  onsorting="ScmL1_Sorting" --%>
+
                  <asp:GridView ID="ScmL1" runat="server" AutoGenerateColumns="False" CellPadding="4" ShowHeader="false" 
-                            HeaderStyle-Font-Underline="false" OnSelectedIndexChanged="ScmL1_SelectedIndexChanged"
-                            onrowcancelingedit="ScmL1_RowCancelingEdit" Font-Names="Arial, Helvetica, sans-serif"
-                            onrowdatabound="ScmL1_RowDataBound" onrowdeleting="ScmL1_RowDeleting" Font-Size ="X-Small"
-                            onrowediting="ScmL1_RowEditing" onrowupdating="ScmL1_RowUpdating" 
-                            onsorting="ScmL1_Sorting" ForeColor="#333333" GridLines="None"> 
+                            HeaderStyle-Font-Underline="false"  Font-Names="Arial, Helvetica, sans-serif"
+                            Font-Size ="X-Small" ForeColor="#333333" GridLines="None"> 
                             <RowStyle BackColor="White"  ForeColor="#333333" /> 
                                 <Columns> 
                                    <asp:TemplateField   Visible="false" > 
@@ -238,20 +236,19 @@
                      <table id="tblSCML2Header" class ="gvScmL2" border="1" style ="font-size :small">
                          <tbody>
                              <tr>
-                                 <th style="text-align :center ;width:80px; color:white;background-color:#edb93b">Code SCM Classification Level 2</th>
-                                 <th style="text-align :center ;width:100px; color:white;background-color:#edb93b">Libellé SCM Classification Level 2</th>
+                                 <th style="text-align:center; width:100px; color:white; background-color:#edb93b">Code SCM Level 2</th>
+                                 <th style="text-align:center; width:180px; color:white; background-color:#edb93b">Libellé SCM Level 2</th>
                              </tr>
                          </tbody>
                      </table>
                  </div>
-                 <div style="overflow-y:scroll; overflow-x:hidden; width:340px ; height:330px" >
-                   
+                 <div style="overflow-y:scroll; overflow-x:hidden; width:280px ; height:330px" >
+                         <%-- onrowdatabound="ScmL2_RowDataBound" onrowdeleting="ScmL2_RowDeleting"
+                           onrowediting="ScmL2_RowEditing" onrowupdating="ScmL2_RowUpdating" 
+                            onsorting="ScmL2_Sorting"--%>
                  <asp:GridView ID="ScmL2" runat="server" AutoGenerateColumns="False" CellPadding="4" ShowHeader="false" 
-                            HeaderStyle-Font-Underline="false" OnSelectedIndexChanged="ScmL2_SelectedIndexChanged"
-                            onrowcancelingedit="ScmL2_RowCancelingEdit" Font-Names="Arial, Helvetica, sans-serif"
-                            onrowdatabound="ScmL2_RowDataBound" onrowdeleting="ScmL2_RowDeleting" Font-Size ="X-Small"
-                            onrowediting="ScmL2_RowEditing" onrowupdating="ScmL2_RowUpdating" 
-                            onsorting="ScmL2_Sorting" ForeColor="#333333" GridLines="None"> 
+                            HeaderStyle-Font-Underline="false" Font-Names="Arial, Helvetica, sans-serif"
+                            Font-Size ="X-Small" ForeColor="#333333" GridLines="None"> 
                             <RowStyle BackColor="White"  ForeColor="#333333" /> 
                                 <Columns> 
                                    <asp:TemplateField   Visible="false" > 
@@ -294,7 +291,134 @@
             <%--     <button ID="btnDisableDas" class="btnDeac" type="button">Désactiver</button>--%>
              </div>
        
-         </div>
+             </div>
+
+               <div class="row">  
+          
+               <div class ="col">
+                 <a class="entete">Classificatin BUSINESS Level 1</a>
+                 <br />
+                 <div>
+                     <table id="tblBusinessL1" class ="gvBusinessL1" border="1" style ="font-size :small">
+                         <tbody>
+                             <tr>
+                                 <th style="text-align:center; width:100px; color:white; background-color:#edb93b">Code Business Level 1</th>
+                                 <th style="text-align:center; width:180px; color:white; background-color:#edb93b">Libellé Business Level 1</th>
+                             </tr>
+                         </tbody>
+                     </table>
+                 </div>
+                 <div style="overflow-y:scroll; overflow-x:hidden; width:280px ; height:330px" >
+                 <%--  onrowdeleting="ScmL1_RowDeleting" onrowediting="ScmL1_RowEditing" onrowupdating="ScmL1_RowUpdating"  onsorting="ScmL1_Sorting" --%>
+
+                 <asp:GridView ID="BusinessL1" runat="server" AutoGenerateColumns="False" CellPadding="4" ShowHeader="false" 
+                            HeaderStyle-Font-Underline="false"  Font-Names="Arial, Helvetica, sans-serif"
+                            Font-Size ="X-Small" ForeColor="#333333" GridLines="None"> 
+                            <RowStyle BackColor="White"  ForeColor="#333333" /> 
+                                <Columns> 
+                                   <asp:TemplateField   Visible="false" > 
+                                   <EditItemTemplate> 
+                                        <asp:TextBox ID="tbxIdBusinessL1" runat="server" Text='<%# Bind("ID_Customer_Business_Classification_Level_1") %>' Visible="false" ></asp:TextBox> 
+                                        </EditItemTemplate>
+                                        <ItemTemplate> 
+                                            <asp:Label ID="lblIdBusinessL1" runat="server" Text='<%# Bind("ID_Customer_Business_Classification_Level_1") %>' Visible="false"></asp:Label> 
+                                        </ItemTemplate> 
+                                    </asp:TemplateField> 
+                                    <asp:TemplateField > 
+                                    <EditItemTemplate> 
+                                            <asp:TextBox ID="tbxCodBusinessL1" runat="server"  Text='<%# Bind("Cod_Customer_Business_Classification_Level_1") %>'  Width ="80px"></asp:TextBox> 
+                                        </EditItemTemplate> 
+                                        <ItemTemplate> 
+                                            <asp:Label ID="lblCodBusinessL1" runat="server"  Text='<%# Bind("Cod_Customer_Business_Classification_Level_1") %>' Width ="80px"></asp:Label> 
+                                        </ItemTemplate> 
+                                    </asp:TemplateField> 
+                                    <asp:TemplateField > 
+                                       <EditItemTemplate> 
+                                            <asp:TextBox ID="tbxLibBusinessL1Fr" runat="server" Text='<%# Bind("Lib_Customer_Business_Classification_Level_1_Fr") %>'  Width ="160px"></asp:TextBox> 
+                                        </EditItemTemplate> 
+                                        <ItemTemplate> 
+                                            <asp:Label ID="lblLibBusinessL1Fr" runat="server" Text='<%# Bind("Lib_Customer_Business_Classification_Level_1_Fr") %>' Width ="160px"></asp:Label> 
+                                        </ItemTemplate> 
+                                    </asp:TemplateField> 
+                                </Columns> 
+                                <EditRowStyle BackColor="#999999" />
+                                <FooterStyle BackColor="#edb93b" ForeColor="White" Font-Bold="True" /> 
+                                <PagerStyle BackColor="#edb93b" ForeColor="White" HorizontalAlign="Center" /> 
+                                <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" /> 
+                            <SortedAscendingCellStyle BackColor="#E9E7E2" />
+                            <SortedAscendingHeaderStyle BackColor="#506C8C" />
+                            <SortedDescendingCellStyle BackColor="#FFFDF8" />
+                            <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+              </asp:GridView> 
+              </div> 
+                 <button ID="btnAddBusinessL1" class="btnAdd" type="button">Créer</button>
+                 <button ID="btnEditBusinessL1" class="btnEdit" type="button">Modifier</button>
+            <%--     <button ID="btnDisableDas" class="btnDeac" type="button">Désactiver</button>--%>
+             </div>
+    
+              <div class ="col">
+                 <a class="entete">Classificatin Business Level 2</a>
+                 <br />
+                 <div>
+                     <table id="tblBusinessL2" class ="gvBusinessL2" border="1" style ="font-size :small">
+                         <tbody>
+                             <tr>
+                                 <th style="text-align:center; width:100px; color:white; background-color:#edb93b">Code Business Level 2</th>
+                                 <th style="text-align:center; width:180px; color:white; background-color:#edb93b">Libellé Business Level 2</th>
+                             </tr>
+                         </tbody>
+                     </table>
+                 </div>
+                 <div style="overflow-y:scroll; overflow-x:hidden; width:280px ; height:330px" >
+                         <%-- onrowdatabound="ScmL2_RowDataBound" onrowdeleting="ScmL2_RowDeleting"
+                           onrowediting="ScmL2_RowEditing" onrowupdating="ScmL2_RowUpdating" 
+                            onsorting="ScmL2_Sorting"--%>
+                 <asp:GridView ID="BusinessL2" runat="server" AutoGenerateColumns="False" CellPadding="4" ShowHeader="false" 
+                            HeaderStyle-Font-Underline="false" Font-Names="Arial, Helvetica, sans-serif"
+                            Font-Size ="X-Small" ForeColor="#333333" GridLines="None"> 
+                            <RowStyle BackColor="White"  ForeColor="#333333" /> 
+                                <Columns> 
+                                   <asp:TemplateField   Visible="false" > 
+                                   <EditItemTemplate> 
+                                        <asp:TextBox ID="tbxIdBusinessL2" runat="server" Text='<%# Bind("ID_Customer_Business_Classification_Level_2") %>' Visible="false" ></asp:TextBox> 
+                                        </EditItemTemplate>
+                                        <ItemTemplate> 
+                                            <asp:Label ID="lblIdBusinessL2" runat="server" Text='<%# Bind("ID_Customer_Business_Classification_Level_2") %>' Visible="false"></asp:Label> 
+                                        </ItemTemplate> 
+                                    </asp:TemplateField> 
+                                    <asp:TemplateField > 
+                                    <EditItemTemplate> 
+                                            <asp:TextBox ID="tbxCodBusinessL2" runat="server"  Text='<%# Bind("Cod_Customer_Business_Classification_Level_2") %>'  Width ="80px"></asp:TextBox> 
+                                        </EditItemTemplate> 
+                                        <ItemTemplate> 
+                                            <asp:Label ID="lblCodBusinessL2" runat="server"  Text='<%# Bind("Cod_Customer_Business_Classification_Level_2") %>' Width ="80px"></asp:Label> 
+                                        </ItemTemplate> 
+                                    </asp:TemplateField> 
+                                    <asp:TemplateField > 
+                                       <EditItemTemplate> 
+                                            <asp:TextBox ID="tbxLibBusinessL2Fr" runat="server" Text='<%# Bind("Lib_Customer_Business_Classification_Level_2_Fr") %>'  Width ="160px"></asp:TextBox> 
+                                        </EditItemTemplate> 
+                                        <ItemTemplate> 
+                                            <asp:Label ID="lblLibBusinessL2Fr" runat="server" Text='<%# Bind("Lib_Customer_Business_Classification_Level_2_Fr") %>' Width ="160px"></asp:Label> 
+                                        </ItemTemplate> 
+                                    </asp:TemplateField> 
+                                </Columns> 
+                                <EditRowStyle BackColor="#999999" />
+                                <FooterStyle BackColor="#edb93b" ForeColor="White" Font-Bold="True" /> 
+                                <PagerStyle BackColor="#edb93b" ForeColor="White" HorizontalAlign="Center" /> 
+                                <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" /> 
+                            <SortedAscendingCellStyle BackColor="#E9E7E2" />
+                            <SortedAscendingHeaderStyle BackColor="#506C8C" />
+                            <SortedDescendingCellStyle BackColor="#FFFDF8" />
+                            <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+              </asp:GridView>
+              </div> 
+                 <button ID="btnAddBusinessL2" class="btnAdd" type="button">Créer</button>
+                 <button ID="btnEditBusinessL2" class="btnEdit" type="button">Modifier</button>
+            <%--     <button ID="btnDisableDas" class="btnDeac" type="button">Désactiver</button>--%>
+             </div>
+       
+             </div>
             </div>          
         </div>
     </div>
